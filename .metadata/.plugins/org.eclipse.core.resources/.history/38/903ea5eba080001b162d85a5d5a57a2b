@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#searchUser{
+	border: 0;
+}
+#searchUser:target{
+	border: 0;
+}
+#home_search_button {
+	background-color: #00A9FF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	height: 30px;
+	font-style: bold;
+}
+
+#home_search_button:target {
+	outline: none;
+}

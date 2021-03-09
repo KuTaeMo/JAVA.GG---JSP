@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\마지막 프로젝트\JAVA.GG개발\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+742136898.index
+2051979335.index
+2316270000.index
+575688778.index
+4113579237.index
+3803829951.index
+1953645067.index

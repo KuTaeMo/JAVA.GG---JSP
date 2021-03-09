@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#searchUser{
+	border: 0;
+}
+#searchUser:focus{
+	outline: none;
+}
+#home_search_button {
+	background-color: #00A9FF;
+	color: white;
+	border: none;
+	border-radius: 1px;
+	height: 30px;
+	font-style: bold;
+}
+
+#home_search_button:focus {
+	outline: none;
+}
+
+#home_hot_post{
+	background-color: white;
+}

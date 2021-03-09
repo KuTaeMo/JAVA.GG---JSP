@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+D:\마지막 프로젝트\JAVA.GG개발\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\575688778.index
+\javagg\src
+D:\마지막 프로젝트\JAVA.GG개발\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\742136898.index
+\javagg\src

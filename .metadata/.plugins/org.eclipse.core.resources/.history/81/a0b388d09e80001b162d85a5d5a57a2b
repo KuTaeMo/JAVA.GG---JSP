@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+#home_search_button {
+	background-color: #00A9FF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
+
+#home_search_button.focus {
+	outline: none;
+}
