@@ -1,3 +1,12 @@
-1615267168896	Delete element
-1615270344892	Move 'style.css' to 'css'
-1615278659284	Rename resource 'style.css'
+1615356960955	Rename resource 'NewFile.jsp'
+1615357092924	Delete element
+1615357681657	Move 2 resources to 'common'
+1615357924084	Rename resource 'application.properties'
+1615359567013	Copy files
+1615359640143	Delete elements
+1615359654917	Move 5 resources to 'layout'
+1615360188611	Move 'assets' to 'resources'
+1615360191649	Move 'css' to 'resources'
+1615360807419	Move 'img' to 'resources'
+1615360810864	Delete element
+1615361082328	Move 'img' to 'static'
