@@ -1,16 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>java.gg</title>
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <style>
@@ -20,6 +24,7 @@
 	background-color: #5383E8;
 	display: flex;
 	justify-content: space-between;
+	width: 100%;
 }
 
 .header-ul {
@@ -49,63 +54,56 @@
 
 /* 헤더 검색 다자인 */
 .btn_image {
-	background-image: url("../assets/img/searchImage.svg");
+	position: absolute;
+	background-image: url("img/searchImage.svg");
 	background-size: cover;
-	height: 33px;
-	width: 75px;
+	height: 31px;
+	width: 65px;
 	border: 0;
 	border-radius: 5px;
 	margin-right: 30px;
+	right: 110px;
 }
 
-.form-control {
+.input-header {
 	height: 33px;
+	width: 300px;
+	margin-right: 30px;
+	border-radius: 5px 5px 5px 5px;
+	border: 0;
 }
 
 .header-btn {
 	display: flex;
 }
-
 </style>
 
 <body>
 
-<nav class="navbar navbar-expand-sm">
+	<nav class="navbar navbar-expand-sm">
 
-<div class="header-ul">
+		<div class="header-ul">
 
-  <a class="navbar-brand" href="#">
-    <img src="../assets/img/logo.svg" alt="logo" style="width:40px;">
-  </a>
-  
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="/home">#집에 있자</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/stats">통계</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/ranking">랭킹</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/community">커뮤니티</a>
-    </li>
-  </ul>
-</div>
+			<a class="navbar-brand" href="#"> <img src="img/logo.svg" alt="logo" style="width: 40px;">
+			</a>
 
-<div class="header-btn">
-  <form class="form-inline" action="/action_page.php">
-    <input class="form-control" type="text" placeholder="소환사명, 소환사명, ...">
-    <button type="button" class="btn_image" id="img_btn"></button>
-  </form>
-  
-  <div class="login-btn">
-  	<button type="button" class="btn btn-primary btn-md" style="background-color: #232F46">로그인</button>
-  </div>
-</div>
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">#집에 있자</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">통계</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">랭킹</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
+			</ul>
+		</div>
 
-</nav>
+		<div class="header-btn">
+			<form class="form-inline" action="/action_page.php">
+				<input class="input-header" type="text" placeholder="소환사명, 소환사명, ...">
+				<button type="button" class="btn_image" id="img_btn"></button>
+			</form>
 
-</body>
-</html>
+			<div class="login-btn">
+				<button type="button" class="btn btn-primary btn-md">로그인</button>
+			</div>
+		</div>
+
+	</nav>

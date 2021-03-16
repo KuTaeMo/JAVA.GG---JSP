@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-
+    
 <style>
 
 footer {
-	position: fixed;
+	position: absolute;
+	top: 1000px;
 	left: 0;
 	bottom: 0;
   	height: 140px;
@@ -96,9 +91,9 @@ margin-left: 10px;
 <div class="ft-text-btn">
 <p>Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
 <div class="ft-btn">
-<img class="ft-img" src="../assets/img/twitter.png">
-<img class="ft-img" src="../assets/img/insta.png">
-<img class="ft-img" src="../assets/img/facebook.png">
+<img class="ft-img" src="img/twitter.png">
+<img class="ft-img" src="img/insta.png">
+<img class="ft-img" src="img/facebook.png">
 </div>
 </div>
 </div>

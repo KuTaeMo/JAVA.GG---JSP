@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../layout/common/header.jsp"%>
-<!DOCTYPE html>
-<html>
+<%@ include file="../common/header.jsp"%>
+
 <link rel="stylesheet" href="../css/home_style.css">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body style="background-color: #5383E8">
 
 	<!-- 컨테이너 -->
@@ -15,7 +11,7 @@
 
 		<!-- 로고 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 		<div id="home_logo">
-			<img style="height: 200px" src="../../../resources/static/img/mainpic.png" /> <br />
+			<img style="height: 200px" src="img/mainpic.png" /> <br />
 		</div>
 
 		<br />
@@ -45,7 +41,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">1</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="assets/img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -66,7 +62,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">2</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -112,7 +108,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">4</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -268,6 +264,4 @@
 			<!-- 5층 끝 -->
 		</div>
 	</div>
-<%@ include file="../layout/common/footer.jsp"%>
-</body>
-</html>
+<%@ include file="../common/footer.jsp"%>

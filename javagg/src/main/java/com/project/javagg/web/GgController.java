@@ -9,7 +9,7 @@ public class GgController {
 
 	@GetMapping("/home")
 	public String home() {
-		return "layout/home";
+		return "layout/main/home";
 	}
 	
 	@GetMapping("/stats")
@@ -22,18 +22,28 @@ public class GgController {
 		return "layout/ranking";
 	}
 	
-	@GetMapping("/community")
+	@GetMapping("/mainBord")
 	public String community() {
-		return "layout/community";
+		return "layout/community/mainBoard";
 	}
 	
-	@PostMapping("/login")
+	@GetMapping("/loginForm")
 	public String login() {
-		return "layout/login";
+		return "layout/common/loginForm";
 	}
 	
-	@PostMapping("/join")
+	@GetMapping("/joinForm")
 	public String join() {
-		return "layout/join";
+		return "layout/common/joinForm";
+	}
+	
+	@GetMapping("/detailBoard")
+	public String detailBoard() {
+		return "layout/community/detailBoard";
+	}
+	
+	@GetMapping("/writeBoard")
+	public String writeBoard() {
+		return "layout/community/writeBoard";
 	}
 }
