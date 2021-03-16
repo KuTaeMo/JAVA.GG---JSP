@@ -111,6 +111,14 @@
 					}).done((res)=>{
 						console.log("챔피언 : ");
 						console.log(res);
+						console.log(res.data.Aatrox.key);
+
+						let count=0;
+						for(key in res.data){
+							console.log("champion : "+key);
+							count++;
+							console.log(count);
+							}
 					});
 				
 			});
