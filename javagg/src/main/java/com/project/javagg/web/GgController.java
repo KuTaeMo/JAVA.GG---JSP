@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class GgController {
+	
+	@GetMapping("/")
+	public String test() {
+		return "layout/index";
+	}
 
 	@GetMapping("/home")
 	public String home() {

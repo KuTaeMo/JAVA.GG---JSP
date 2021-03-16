@@ -21,13 +21,14 @@
 		<br />
 
 		<!-- 검색창 -->
+		<form method="POST">
 		<div id="home_input">
 			<input type="text" name="searchUser" id="searchUser"
 				placeholder="소환사명, 소환사명,..."
 				style="width: 600px; height: 40px; border-radius: 5px; padding: 5px 0 5px 15px;">
 			<button class="search_button home_search_button" id="home_search_button"><b>.GG</b></button>
 		</div>
-
+		</form>
 		<br /> <br /> <br />
 
 		<!-- 인기글 -->
