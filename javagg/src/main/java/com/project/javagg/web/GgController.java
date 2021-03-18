@@ -2,7 +2,6 @@ package com.project.javagg.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class GgController {
@@ -19,7 +18,7 @@ public class GgController {
 	
 	@GetMapping("/stats")
 	public String stats() {
-		return "layout/stats";
+		return "layout/stats/stats";
 	}
 	
 	@GetMapping("/ranking")

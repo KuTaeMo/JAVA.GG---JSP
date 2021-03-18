@@ -127,18 +127,12 @@
 	</div>
 
 	<script>
-<<<<<<< HEAD
-	let api_key="RGAPI-43ce383e-0c9b-4ccf-af41-7d2e0151df39";
-=======
 	let api_key="RGAPI-addfbc8e-69f4-46e2-9dd8-810ecec5e7e9";
->>>>>>> refs/remotes/origin/master
 	let accountid="1";
 	let encid="1";
 	let rank="1";
 	let rankpoint="1";
-<<<<<<< HEAD
 	let gameId ="1";
-=======
 	var m1champid="1";
 	var m2champid="1";
 	var m3champid="1";
@@ -160,8 +154,6 @@
 				console.log(rankingNum);
 				
 			});
-	
->>>>>>> refs/remotes/origin/master
 	
 	$("#searchuser").on("click",(e)=>{
 		e.preventDefault();
@@ -235,6 +227,8 @@
 					url: "https://kr.api.riotgame	s.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+encid+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
+						console.log(res);
+						
 						m1champid=res[0].championId;
 						$("#championLevel1").val(res[0].championLevel+" lv");	
 						$("#championPoints1").val("숙련도 : "+res[0].championPoints);
@@ -257,13 +251,25 @@
 								//console.log(res);
 								//console.log(res.data.Aatrox.key);
 
-<<<<<<< HEAD
-						let count=0;
+						/* let count=0;
 						for(key in res.data){
 							console.log("champion : "+key);
 							count++;
 							console.log(count);
-							}
+							} */
+								let count=0;
+								for(key in res.data){
+									count++;
+									if(res.data[key].key==m1champid){
+										$("#champname1").val(res.data[key].name);
+									}
+									if(res.data[key].key==m2champid){
+										$("#champname2").val(res.data[key].name);
+									}
+									if(res.data[key].key==m3champid){
+										$("#champname3").val(res.data[key].name);
+									}
+									}
 					});
 				
 				
@@ -347,8 +353,6 @@
 								console.log(res);
 							});
 					});
-				
-=======
 								let count=0;
 								for(key in res.data){
 									count++;
@@ -364,9 +368,7 @@
 									}
 							});
 					});	
->>>>>>> refs/remotes/origin/master
 			});
-	})
 </script>
 
 </body>
