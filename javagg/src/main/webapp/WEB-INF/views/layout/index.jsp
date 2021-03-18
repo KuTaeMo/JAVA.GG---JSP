@@ -48,7 +48,7 @@
 	</div>
 
 	<script>
-	let api_key="RGAPI-0fa005c2-33a9-4b54-bf57-2d1ef0afefab";
+	let api_key="RGAPI-addfbc8e-69f4-46e2-9dd8-810ecec5e7e9";
 	let accountid="1";
 	let encid="1";
 	let rank="1";
@@ -56,6 +56,25 @@
 	var m1champid="1";
 	var m2champid="1";
 	var m3champid="1";
+	
+	let rankingNum=[];
+	
+	// 랭킹 순으로 
+	$.ajax({
+			type:"GET",
+			url: "https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key="+api_key,
+			dataType:"json"
+			}).done((res)=>{
+				rankingNum=res.entries;
+				
+				
+				rankingNum.sort(function(a,b){
+					return b.leaguePoints-a.leaguePoints;
+				})
+				console.log(rankingNum);
+				
+			});
+	
 	
 	$("#searchuser").on("click",(e)=>{
 		e.preventDefault();
@@ -68,9 +87,6 @@
 			url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username+"?api_key="+api_key,
 			dataType:"json"
 			}).done((res)=>{
-				console.log(res);
-				console.log(res.name);
-				console.log(res.summonerLevel);
 				$("#username").val(res.name);
 				$("#level").val("Lv"+res.summonerLevel);
 				accountid=res.accountId;
@@ -150,9 +166,9 @@
 							url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
 							dataType:"json"
 							}).done((res)=>{
-								console.log("챔피언 : ");
-								console.log(res);
-								console.log(res.data.Aatrox.key);
+								//console.log("챔피언 : ");
+								//console.log(res);
+								//console.log(res.data.Aatrox.key);
 
 								let count=0;
 								for(key in res.data){

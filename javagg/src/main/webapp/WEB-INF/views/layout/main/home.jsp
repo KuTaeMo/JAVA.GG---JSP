@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
 
-<link rel="stylesheet" href="../css/home_style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <body style="background-color: #5383E8">
 
