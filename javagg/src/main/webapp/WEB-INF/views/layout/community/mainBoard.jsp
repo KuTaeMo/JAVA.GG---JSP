@@ -27,7 +27,6 @@ body {
 	margin-top: 65px;
 	margin-left: 30%;
 	width: 40%;
-	height: 600px;
 	border: 1px solid gray; 
 	background-color: white;
 	margin-bottom: 1%;
@@ -85,6 +84,7 @@ body {
 	background-color: white;
 	border-bottom: 1px solid gray;
 	display: flex;
+	margin: 0px;
 }
 .table-vote {
 	background-color: white;
@@ -136,6 +136,46 @@ body {
 </div>
 
 <div class="community-table">
+	<div class="table">
+		<div class="table-vote">
+			<img src="img/vote.png">
+			<p>0</p>
+		</div>
+		
+		<div class="table-content">
+			<div class="table-title">
+				<p class="table-detail-title">제목</p>
+			</div>	
+			<div class="table-detail">
+				<p class="table-detail-text">유머</p>
+				<p class="table-detail-text">|</p>
+				<p class="table-detail-text">시간</p>
+				<p class="table-detail-text">|</p>
+				<p class="table-detail-text">유저네임</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="table">
+		<div class="table-vote">
+			<img src="img/vote.png">
+			<p>0</p>
+		</div>
+		
+		<div class="table-content">
+			<div class="table-title">
+				<p class="table-detail-title">제목</p>
+			</div>	
+			<div class="table-detail">
+				<p class="table-detail-text">유머</p>
+				<p class="table-detail-text">|</p>
+				<p class="table-detail-text">시간</p>
+				<p class="table-detail-text">|</p>
+				<p class="table-detail-text">유저네임</p>
+			</div>
+		</div>
+	</div>
+	
 	<div class="table">
 		<div class="table-vote">
 			<img src="img/vote.png">

@@ -121,6 +121,8 @@ body {
 	border: 1px solid gray;
 	background-color: white;
 	border-radius: 10px;
+	margin-left: 68%;
+	margin-bottom: 15px;
 }
 
 
@@ -198,7 +200,10 @@ li {}
 .media-replied { margin: 0 0 20px 50px; }
 .media-replied .media-heading { padding-left: 6px; }
 
-
+.media-list {
+	padding: 0px;
+	margin: 0px;
+}
 .embed-responsive { margin-bottom: 20px; }
 .tab-content {
     padding: 15px 15px;
@@ -235,7 +240,39 @@ li {}
 }
 .reviews {
 	margin-left: 5px;
+	width: 100%;
 }
+
+.media-side {
+	margin-right: 10px;
+}
+.reply-vote-count {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+.reply-vote-img-btn {
+	border: 0px;
+	background: white;
+}
+.reply-new{
+	margin-left: 10px;
+}
+.reply-list-name-time{
+	display: flex;
+	justify-content: flex-start;
+}
+.reply-time {
+	font-size: 13px;
+	color: gray;
+	font-style: normal;
+}
+
+
+.clicked {
+        color: #4C8CFF;
+      }
 </style>
 
 <body>
@@ -287,17 +324,18 @@ li {}
 		<div class="reply-count">
 			<p class="reply-count-text" style="font-size: 20px;">댓글 </p>
 			<p class="reply-count-text">총 4 개</p>
+			<button type="submit" class="reply-btn">댓글 등록</button>
 		</div>
 		
 		<div class="reply-input">
-			<form action="/blog/board?cmd=save" method="POST">
+			
 
 			<div class="form-group">
 				<textarea class="form-control" id="summernote" rows="5" id="content" name="content"></textarea>
-				<button type="submit" class="reply-btn">댓글 등록</button>
+				
 			</div>
 
-		</form>
+		
 		</div>
 	</div>
 		
@@ -316,25 +354,107 @@ li {}
   <div class="row">
     <div class="reply-all">
         <div class="page-header">
-            <h3 class="reviews">댓글 달기</h3>
+            <h3 class="reviews">댓글</h3>
         </div>
         <div class="comment-tabs">
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">인기순</h4></a></li>
-                <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">최신순</h4></a></li>
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews clicked text-capitalize">인기순</h4></a></li>
+                <li class="reply-new"><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">최신순</h4></a></li>
             </ul>            
             
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">                
                     <ul class="media-list">
                       <li class="media">
+                      
+                      	<div class="media-side">
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<p class="reply-vote-count">0</p>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      	</div>
                        
                         <div class="media-body">
-                          <div class="well well-lg">
-                              <h4 class="media-heading text-uppercase reviews">거북이인성 </h4>
-                              <ul class="media-date text-uppercase reviews list-inline">
-                                <li class="replt-time">1시간 전</li>
-                              </ul>
+                          <div class="">
+                          	<div class="reply-list-name-time">
+                              <p class="reviews">거북이인성  <span class="reply-time">|  1시간 전</span></p>
+                              
+                            </div>
+                              <p class="media-comment">
+                                ㅋㅋㅋㅋㅋ 재밌네
+                              </p>
+                          </div>              
+                        </div>
+                      </li>          
+                    </ul> 
+                     <hr/>
+                     
+                    <ul class="media-list">
+                      <li class="media">
+                      
+                      	<div class="media-side">
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<p class="reply-vote-count">0</p>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      	</div>
+                       
+                        <div class="media-body">
+                          <div class="">
+                          	<div class="reply-list-name-time">
+                              <p class="reviews">9 C  <span class="reply-time">|  2시간 전</span></p>
+                              
+                            </div>
+                              <p class="media-comment">
+                                나는 진주 사람이야
+                              </p>
+                          </div>              
+                        </div>
+                      </li>          
+                     
+                    </ul>
+                    
+                    <hr/>
+                    
+                    <ul class="media-list">
+                      <li class="media">
+                      
+                      	<div class="media-side">
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<p class="reply-vote-count">0</p>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      	</div>
+                       
+                        <div class="media-body">
+                          <div class="">
+                          	<div class="reply-list-name-time">
+                              <p class="reviews">태치야치  <span class="reply-time">|  2시간 전</span></p>
+                              
+                            </div>
+                              <p class="media-comment">
+                                내릴 사람 있나?
+                              </p>
+                          </div>              
+                        </div>
+                      </li>          
+                     
+                    </ul>  
+                </div>
+                
+                <div class="tab-pane" id="add-comment">
+                     <ul class="media-list">
+                      <li class="media">
+                      
+                      	<div class="media-side">
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<p class="reply-vote-count">0</p>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      	</div>
+                       
+                        <div class="media-body">
+                          <div class="">
+                          	<div class="reply-list-name-time">
+                              <p class="reviews">거북이인성  <span class="reply-time">|  1시간 전</span></p>
+                              
+                            </div>
                               <p class="media-comment">
                                 ㅋㅋㅋㅋㅋ 무플 방지
                               </p>
@@ -343,31 +463,6 @@ li {}
                       </li>          
                      
                     </ul> 
-                </div>
-                
-                <div class="tab-pane" id="add-comment">
-                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form"> 
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">Comment</label>
-                            <div class="col-sm-10">
-                              <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
-                            <div class="col-sm-10">                    
-                                <div class="input-group">
-                                  <div class="input-group-addon">http://</div>
-                                  <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">                    
-                                <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
-                            </div>
-                        </div>            
-                    </form>
                 </div>
               
             </div>
@@ -386,6 +481,34 @@ li {}
 
 
 		location.href = "#tab1";
+
+		var div2 = document.getElementsByClassName("reviews");
+
+	      function handleClick(event) {
+	        console.log(event.target);
+	        // console.log(this);
+	        // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+	        console.log(event.target.classList);
+
+	        if (event.target.classList[1] === "clicked") {
+	          event.target.classList.remove("clicked");
+	        } else {
+	          for (var i = 0; i < div2.length; i++) {
+	            div2[i].classList.remove("clicked");
+	          }
+
+	          event.target.classList.add("clicked");
+	        }
+	      }
+
+	      function init() {
+	        for (var i = 0; i < div2.length; i++) {
+	          div2[i].addEventListener("click", handleClick);
+	        }
+	      }
+
+	      init();
 
 </script>
 
