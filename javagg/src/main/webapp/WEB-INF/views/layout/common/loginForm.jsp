@@ -22,7 +22,8 @@ html, body{
 
 }
 .container{
-  margin-top: 10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   background: #fff;
   max-width: 350px;
   width: 100%;

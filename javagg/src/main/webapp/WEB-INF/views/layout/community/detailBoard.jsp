@@ -3,6 +3,11 @@
 <%@ include file="../common/header.jsp"%>
 
 <style>
+
+body {
+	background-color: #EBEEF1;
+}
+
 .bg_community {
 	height: 250px;
 	width: 100%;
@@ -11,11 +16,10 @@
 }
 
 .detail-table {
-	position: absolute;
-	top: 270px;
+	margin-top: 1%;
+	margin-left: 30%;
 	width: 40%;
 	height: 600px;
-	right: 30%;
 	background-color: white;
 	border: 1px solid gray;
 	border-radius: 10px;
@@ -88,10 +92,10 @@
 }
 
 .reply {
-	position:absolute;
-	right: 30%;
+	background-color: white;
+	margin-top: 1%;
+	margin-left: 30%;
 	width: 40%;
-	top: 900px;
 	height: 300px;
 	border: 1px solid gray;
 	border-radius: 10px;
@@ -114,8 +118,6 @@
 	
 }
 .reply-btn {
-	margin-top: 10px;
-	margin-left: 670px;
 	border: 1px solid gray;
 	background-color: white;
 	border-radius: 10px;
@@ -124,7 +126,7 @@
 
 
 ul{list-style:none;}
-
+li {}
 .tabmenu{ 
   max-width:100%;
   height: 500px;
@@ -149,8 +151,6 @@ ul{list-style:none;}
   display:none; 
   text-align:left; 
   padding: 20px;
-  position:absolute; 
-  left:0; top:40px; 
   box-sizing: border-box; 
   border : 5px solid #f9f9f9;
 }
@@ -165,63 +165,77 @@ ul{list-style:none;}
 
 
 
-* {padding: 0; margin: 0;}
-a {text-decoration: none; color: #666;}
-li {list-style: none;}
+/*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
 
-.popular-reply {
+
+.page-header { position: relative; }
+.reviews {
+    color: #555;    
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+.notes {
+    color: #999;
+    font-size: 12px;
+}
+.media-body { position: relative; }
+.media-date { 
+    position: absolute; 
+    right: 25px;
+    top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+.media-comment { margin-bottom: 20px; }
+.media-replied { margin: 0 0 20px 50px; }
+.media-replied .media-heading { padding-left: 6px; }
+
+
+.embed-responsive { margin-bottom: 20px; }
+.tab-content {
+    padding: 15px 15px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.custom-input-file {
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');    
+    background-size: 120px;
+    border-radius: 120px;
+}
+
+.reply-list {
+	background-color: white;
+	width: 40%;
+	margin-left: 30%;
+	margin-top: 1%;
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin-bottom: 1%;
+}
+.comment-tabs {
 	width: 100%;
-	height: 100%;
-	display: flex;
-	
-	
 }
-
-.popular-reply-vote {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	width: 50px;
-	height: 115px;
-	background-color: blue;
-	
+.reply-all {
+	padding: 5%;
+	width: 100%;
 }
-.popular-reply-vote-btn {
-	width: 20px;
-	height: 20px;
-	border: 0px;
-}
-.popular-reply-vote-btn-img {
-	background-image:url("img/vote.png");
-	background-size: cover;
-	width: 20px;
-	height: 20px;
-}
-.popular-reply-dislike-btn {
-	width: 20px;
-	height: 20px;
-	border: 0px;
-}
-.popular-reply-dislike-btn-img {
-	background-image:url("img/vote.png");
-	background-size: cover;
-	width: 20px;
-	height: 20px;
-}
-.popular-reply-count {
+.reviews {
 	margin-left: 5px;
-	height: 10px;
 }
-.popular-reply-contet-top {
-	display: flex;
-}
-.popular-reply-contet {
-	display: flex;
-}
- .popular-reply-contet-top-text {
- 	display: flex;
- 	margin-left: 10px;
- }
 </style>
 
 <body>
@@ -285,38 +299,83 @@ li {list-style: none;}
 
 		</form>
 		</div>
-		
-		<div class="tabmenu">
-  <ul>
-    <li id="tab1" class="btnCon"><a class="btn first" href="#tab1">인기순</a>
-      <div class="popular-reply tabCon">
-		<div class="popular-reply-vote">
-			<button type="button" class="popular-reply-vote-btn"><img src="img/vote.png" class = "popular-reply-vote-btn-img"></button>
-			<p class="popular-reply-count">0</p>
-			<button type="button" class="popular-reply-dislike-btn"><img src="img/dislike.png" class = "popular-reply-dislike-btn-img"></button>
-			
-		</div>
-		<div class="popular-reply-contet">
-			<div class="popular-reply-contet-top">
-				<p class="popular-reply-contet-top-text">페이커</p>
-				<p  class="popular-reply-contet-top-text">|</p>
-				<p  class="popular-reply-contet-top-text">6시간 전</p>
-			</div>
-			
-			<p>내용</p>
-		</div>
-		
-	  </div> 
-      
-    </li>
-    <li id="tab2" class="btnCon"><a class="btn" href="#tab2">최신순</a>
-      <div class="tabCon" >It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
-      
-    </li>    
-  </ul>
-</div>
-
 	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="reply-list">
+  <div class="row">
+    <div class="reply-all">
+        <div class="page-header">
+            <h3 class="reviews">댓글 달기</h3>
+        </div>
+        <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">인기순</h4></a></li>
+                <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">최신순</h4></a></li>
+            </ul>            
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="comments-logout">                
+                    <ul class="media-list">
+                      <li class="media">
+                       
+                        <div class="media-body">
+                          <div class="well well-lg">
+                              <h4 class="media-heading text-uppercase reviews">거북이인성 </h4>
+                              <ul class="media-date text-uppercase reviews list-inline">
+                                <li class="replt-time">1시간 전</li>
+                              </ul>
+                              <p class="media-comment">
+                                ㅋㅋㅋㅋㅋ 무플 방지
+                              </p>
+                          </div>              
+                        </div>
+                      </li>          
+                     
+                    </ul> 
+                </div>
+                
+                <div class="tab-pane" id="add-comment">
+                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form"> 
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Comment</label>
+                            <div class="col-sm-10">
+                              <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                            <div class="col-sm-10">                    
+                                <div class="input-group">
+                                  <div class="input-group-addon">http://</div>
+                                  <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">                    
+                                <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                            </div>
+                        </div>            
+                    </form>
+                </div>
+              
+            </div>
+        </div>
+	</div>
+  </div>
+
+</div>
 	
 <script>
 		$('#summernote').summernote({
@@ -328,6 +387,7 @@ li {list-style: none;}
 
 		location.href = "#tab1";
 
-	</script>
+</script>
+
 <%@ include file="../common/footer.jsp"%>
  

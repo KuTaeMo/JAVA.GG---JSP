@@ -3,6 +3,9 @@
 <%@ include file="../common/header.jsp"%>
 
 <style>
+body {
+	background-color: #EBEEF1;
+}
 .bg_community {
 	height: 250px;
 	width: 100%;
@@ -21,13 +24,13 @@
 }
 
 .community-table {
-	position: absolute;
-	top: 390px;
+	margin-top: 65px;
+	margin-left: 30%;
 	width: 40%;
 	height: 600px;
 	border: 1px solid gray; 
-	right: 30%;
 	background-color: white;
+	margin-bottom: 1%;
 }
 
 .community-menu-top {
@@ -77,7 +80,7 @@
 	right: 25px;
 }
 .table {
-	width: 40%;
+	width: 100%;
 	height: 100px;
 	background-color: white;
 	border-bottom: 1px solid gray;
@@ -104,6 +107,8 @@
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
+
+
 </style>
 <body>
 

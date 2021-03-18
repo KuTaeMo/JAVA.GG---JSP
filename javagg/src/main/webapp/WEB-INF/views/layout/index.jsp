@@ -85,9 +85,42 @@
 		summonerName0의 데미지
 		<input id="totalDamageDealtToChampions" />
 	</div>
+	
+	<div> 
+		summonerName0의 kda
+		<input id="summonerName0KDA" />
+	</div>
+	<div> 
+		summonerName0의 와드
+		<input id="wards" />
+	</div>
+	<div> 
+		summonerName0의 제어와드
+		<input id="visionWards" />
+	</div>
+	
+	<div> 
+		summonerName0의 cs
+		<input id="totalMinionsKilled" />
+	</div>
+	
+	<div> 
+		summonerName0의 분당cs
+		<input id="totalMinionsKilledTimes" />
+	</div>
+	
+	<div> 
+		summonerName0의 킬관여율
+		<input id="killPercent" />
+	</div>
+	
+	<div> 
+		summonerName0의 메인룬
+		<input id="perk0" />
+	</div>
 
 	<script>
-	let api_key="RGAPI-3d2e18ec-b6d1-4058-9fea-e02171aad1ab";
+	let api_key="RGAPI-43ce383e-0c9b-4ccf-af41-7d2e0151df39";
 	let accountid="1";
 	let encid="1";
 	let rank="1";
@@ -209,6 +242,9 @@
 								$("#deaths").val("deaths : " + res.participants[0].stats.deaths);
 								$("#assists").val("assists : " + res.participants[0].stats.assists);
 								
+								// summonerName0의 KDA 계산
+								$("#summonerName0KDA").val(((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1");
+								
 								// summonerName0의 스펠
 								$("#spell1Id").val(res.participants[0].spell1Id);
 								$("#spell2Id").val(res.participants[0].spell2Id);
@@ -221,6 +257,28 @@
 								
 								// summonerName0의 데미지
 								$("#totalDamageDealtToChampions").val("데미지 : " + res.participants[0].stats.totalDamageDealtToChampions);
+								
+								// summonerName0의 와드 개수 / 파괴
+								$("#wards").val(res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled);
+								
+								// summonerName0의 핑크 와드
+								$("#visionWards").val(res.participants[0].stats.visionWardsBoughtInGame);
+								
+								// summonerName0의 cs
+								$("#totalMinionsKilled").val(res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled);
+								
+								// summonerName0의 분당cs
+								$("#totalMinionsKilledTimes").val(((res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1));
+								
+								// summonerName0의 킬관여율
+								$("#killPercent").val(((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%");
+								
+								// summonerName0의 메인 룬
+								$("#perk0").val(res.participants[0].stats.perk0);
+								console.log(res);
+								
+								// summonerName0의 메인 룬
+								$("#perk0").val(res.participants[0].stats.perk0);
 								console.log(res);
 							});
 					});

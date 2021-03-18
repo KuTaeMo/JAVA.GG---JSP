@@ -4,7 +4,6 @@
 <style>
 
 footer {
-	position: absolute;
 	top: 1000px;
 	left: 0;
 	bottom: 0;
