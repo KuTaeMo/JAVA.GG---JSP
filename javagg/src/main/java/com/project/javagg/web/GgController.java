@@ -24,7 +24,7 @@ public class GgController {
 	
 	@GetMapping("/ranking")
 	public String ranking() {
-		return "layout/ranking";
+		return "layout/ranking/ranking";
 	}
 	
 	@GetMapping("/mainBord")

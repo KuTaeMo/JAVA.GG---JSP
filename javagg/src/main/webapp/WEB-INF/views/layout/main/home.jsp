@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
 
-<link rel="stylesheet" href="../css/home_style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <body style="background-color: #5383E8">
 
@@ -41,7 +41,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">1</div>
 					<div id="post_pic">
-						<img src="assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -87,7 +87,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">3</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -133,7 +133,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">5</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -154,7 +154,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">6</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -179,7 +179,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">7</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -200,7 +200,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">8</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -225,7 +225,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">9</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">
@@ -246,7 +246,7 @@
 					<div id="post_rank"
 						style="width: 50px; display: flex; justify-content: center; align-items: center; color: #1AB80C;">10</div>
 					<div id="post_pic">
-						<img src="../assets/img/pic1.png" style="width: 40px;" />
+						<img src="img/pic1.png" style="width: 40px;" />
 					</div>
 
 					<div style="margin-left: 10px;">

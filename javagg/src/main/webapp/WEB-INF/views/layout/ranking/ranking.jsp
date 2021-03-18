@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="../css/style.css">
+<%@ include file="../common/header.jsp"%>
+<link rel="stylesheet" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body style="background-color: #EAEAEA; margin: 30px 400px 0 400px;">
+<body style="background-color: #EAEAEA;">
 
+<div style="margin: 3% 15% 0 15%;">
 	<div
 		style="display: flex; justify-content: space-between; border-bottom: 1px solid gray; margin-bottom: 15px; padding-bottom: 10px;">
 		<div style="font-size: 30px; color: gray;">
@@ -26,22 +26,22 @@
 
 	<br />
 	<!-- 랭킹 1등 박스 -->
-	<div align="center">
-		<div align="justify" style="border: 5px solid #BDBBBB; width: 500px; height: 170px; background-color: white;">
-			<div align="center" style="background-color: #BDBBBB; color: white; font-size: 20px; padding: 3px; width: 20px;">
+	<div align="center" style="display: flex; justify-content: center;">
+		<div align="justify" style="border: 5px solid #BDBBBB; width: 50%; height: 170px; background-color: white; display: flex; flex-direction: column;">
+			<div align="center" style="background-color: #BDBBBB; color: white; font-size: 20px; padding: 3px; width: 20px; display: flex; flex-direction: column;">
 				<b>1</b>
 			</div>
 			<div style="display: flex;">
 				<!-- 사진, 정보 -->
 				<div style="display: flex;">
-					<div>
-						<img src="img/profileIcon.jpg" style="width: 85px; margin: 20px;" />
+				
+					<div style="display: flex; margin: 0 5% 0 5%;">
+						
+						<img src="img/profileIcon.jpg" style="width: 100px; display: block;" />
 					</div>
-					<div style="position: absolute; top: 181px; left: 715px;">
-						<img src="img/challenger.png" style="width: 100px;" />
-					</div>
-					<div style="margin-top: 15px;">
-						<div id="gamername" style="font-size: 20px; color: black;">
+					
+					<div style="margin-top: 15px; display: flex; flex-direction: column;">
+						<div id="gamername" style="font-size: 20px; color: black; display: flex; flex-direction: column;">
 							<b>어리고싶다</b>
 						</div>
 						<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
@@ -50,19 +50,20 @@
 								<b>1,529 LP</b>
 							</div>
 						</div>
+						
 						<div id="rank_stat" style="display: flex;">
 							<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
 								<div id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
 								<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 							</div>
 
-							<div>62%</div>
+							<div id="winper1">62%</div>
 						</div>
 
 					</div>
 				</div>
 				<!-- 모스트 정보 -->
-				<div style="margin-left: 10px;">
+				<div style="margin-left: 10px; display: flex; flex-direction: column; margin: 0 5% 0 10%;">
 					<!-- 모스트1 -->
 					<div style="display: flex; align-items: center; margin-bottom: 10px;">
 						<!-- 챔피언 사진 -->
@@ -241,7 +242,34 @@
 		</div>
 	</div>
 	<br />
+</div>
 
+<script>
+let api_key="RGAPI-addfbc8e-69f4-46e2-9dd8-810ecec5e7e9";
+let accountid="1";
+let encid="1";
+let rankingNum=[];
+
+// 랭킹 순으로 
+$.ajax({
+		type:"GET",
+		url: "https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key="+api_key,
+		dataType:"json"
+		}).done((res)=>{
+			rankingNum=res.entries;
+			
+			
+			rankingNum.sort(function(a,b){
+				return b.leaguePoints-a.leaguePoints;
+			})
+			console.log(rankingNum[0]);
+			document.querySelector("#gamername").innerHTML="<b>"+rankingNum[0].summonerName+"</b>";
+			document.querySelector("#rank1_point").innerHTML="<b>"+rankingNum[0].leaguePoints+" LP</b>";
+			document.querySelector("#win_bar").innerHTML=rankingNum[0].wins;
+			document.querySelector("#lose_bar").innerHTML=rankingNum[0].losses;
+			document.querySelector("#winper1").innerHTML=Math.ceil(rankingNum[0].wins/(rankingNum[0].losses+rankingNum[0].wins)*100)+"%";
+		});
+</script>
 
 </body>
 </html>
