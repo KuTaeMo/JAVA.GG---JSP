@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -10,7 +10,7 @@
 	<!-- 소환사 정보 -->
 	<div class="container" style="display: flex;">
 		<div>
-			<img src="../assets/img/profileIcon.jpg" style="width: 85px; height: 85px; margin: 20px;" />
+			<img src="img/profileIcon.jpg" style="width: 85px; height: 85px; margin: 20px;" />
 		</div>
 		<div style="padding: 15px;">
 			<div id="gamername" style="font-size: 20px; color: black;">
@@ -32,7 +32,7 @@
 			종합</div>
 		<div style="margin-left: 30px; width: 130px; height: 40px; display: flex; justify-content: center; align-items: center;">
 			<button class="ingamebutton" style="width: 130px; height: 40px; background-color: white; color: #1F8ECD; border: 0.3px solid gray; vertical-align: middle;">
-				<img style="height: 35px;" src="../assets/img/ingame.png" />인게임 정보
+				<img style="height: 35px;" src="img/ingame.png" />인게임 정보
 			</button>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
 			<!-- 랭크 정보 -->
 			<div style="display: flex; border: 0.3px solid gray; background-color: white; justify-content: center;">
 				<div style="display: flex;">
-					<img style="width: 90px; height: 90px;" src="../assets/img/challenger_rank.png" />
+					<img style="width: 90px; height: 90px;" src="img/challenger_rank.png" />
 				</div>
 				<div style="margin-left: 20px; height: 130px;">
 					<div class="tiny_gray_text">솔로랭크</div>

@@ -84,25 +84,25 @@
 
 		<div class="header-ul">
 
-			<a class="navbar-brand" href="#"> <img src="img/logo.svg" alt="logo" style="width: 40px;">
+			<a class="navbar-brand" href="/home"> <img src="img/logo.svg" alt="logo" style="width: 40px;">
 			</a>
 
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">#집에 있자</a></li>
+				<li class="nav-item"><a class="nav-link" href="/home">#집에 있자</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">통계</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">랭킹</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
+				<li class="nav-item"><a class="nav-link" href="/ranking">랭킹</a></li>
+				<li class="nav-item"><a class="nav-link" href="/mainBoard">커뮤니티</a></li>
 			</ul>
 		</div>
 
 		<div class="header-btn">
-			<form class="form-inline" action="/action_page.php">
+			<form class="form-inline" action="/search" method="post">
 				<input class="input-header" type="text" placeholder="소환사명, 소환사명, ...">
-				<button type="button" class="btn_image" id="img_btn"></button>
+				<button type="submit" class="btn_image" id="img_btn"></button>
 			</form>
 
 			<div class="login-btn">
-				<button type="button" class="btn btn-primary btn-md">로그인</button>
+				<button type="button" class="btn btn-primary btn-md" onClick="location.href=`/loginForm`">로그인</button>
 			</div>
 		</div>
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -28,7 +28,7 @@
 	<!-- 랭킹 1등 박스 -->
 	<div align="center" style="display: flex; justify-content: center;">
 		<div align="justify" style="border: 5px solid #BDBBBB; width: 50%; height: 170px; background-color: white; display: flex; flex-direction: column;">
-			<div align="center" style="background-color: #BDBBBB; color: white; font-size: 20px; padding: 3px; width: 20px; display: flex; flex-direction: column;">
+			<div align="center" style="background-color: #BDBBBB; color: white; font-size: 20px; padding: 3px; width: 30px;  display: flex; flex-direction: column;">
 				<b>1</b>
 			</div>
 			<div style="display: flex;">
@@ -37,7 +37,7 @@
 				
 					<div style="display: flex; margin: 0 5% 0 5%;">
 						
-						<img src="img/profileIcon.jpg" style="width: 100px; display: block;" />
+						<img src="img/profileIcon.jpg" style="width: 100px; max-height:100px; display: block;" />
 					</div>
 					
 					<div style="margin-top: 15px; display: flex; flex-direction: column;">
