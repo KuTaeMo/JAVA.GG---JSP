@@ -148,7 +148,7 @@ html, body{
         
         
         <div class="join-text">
-        	<p>이미 회원이신가요?</p> <a href="#" class="join-a-text">로그인하기</a> 
+        	<p>이미 회원이신가요?</p> <a href="/loginForm" class="join-a-text">로그인하기</a> 
         </div>
     </div>
     

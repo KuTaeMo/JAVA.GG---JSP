@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ include file="../common/header.jsp"%>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
@@ -14,7 +13,7 @@
 		</div>
 		<div style="padding: 15px;">
 			<div id="gamername" style="font-size: 20px; color: black;">
-				<b>어리고싶다</b>
+				<b>${gamername }</b>
 			</div>
 			<div style="font-size: 10px; display: flex;">
 				랭킹

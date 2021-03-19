@@ -183,7 +183,7 @@ html, body{
         </div>
         
         <div class="join-text">
-        	<p>op.gg에 처음이세요?</p> <a href="#" class="join-a-text">회원가입하기</a> 
+        	<p>op.gg에 처음이세요?</p> <a href="/joinForm" class="join-a-text">회원가입하기</a> 
         </div>
     </div>
     
