@@ -159,15 +159,15 @@ html, body{
 </style>
 <body>
  <div class="container">
-      <form action="#">
+      <form action="/login" method="POST">
       <div class="title2">OP.GG</div>
         <div class="title">로그인</div>
         <div class="input-box underline">
-          <input type="text" placeholder="이메일 주소" required>
+          <input name="username" type="text" placeholder="유저네임" required>
           <div class="underline"></div>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="비밀번호" required>
+          <input name="password" type="password" placeholder="비밀번호" required>
           <div class="underline"></div>
         </div>
         <div class="input-box button">
@@ -176,14 +176,14 @@ html, body{
       </form>
         <div class="option">간편 로그인</div>
         <div class="twitter">
-          <a href="#"><i class="fab fa-google"></i>구글로 로그인</a>
+          <a href="/oauth2/authorization/google"><i class="fab fa-google"></i>구글로 로그인</a>
         </div>
         <div class="facebook">
-          <a href="#"><i class="fab fa-facebook-f"></i>페이스북으로 로그인</a>
+          <a href="/oauth2/authorization/facebook"><i class="fab fa-facebook-f"></i>페이스북으로 로그인</a>
         </div>
         
         <div class="join-text">
-        	<p>op.gg에 처음이세요?</p> <a href="#" class="join-a-text">회원가입하기</a> 
+        	<p>op.gg에 처음이세요?</p> <a href="/joinForm" class="join-a-text">회원가입하기</a> 
         </div>
     </div>
     

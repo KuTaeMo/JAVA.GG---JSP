@@ -107,7 +107,9 @@ body {
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
-
+.write-img-btn {
+	border: 0px;
+}
 
 </style>
 <body>
@@ -119,7 +121,7 @@ body {
 <div class="community-menu">
 	<div class="community-menu-top">
 		<a href="#" class="all-text">전체</a>
-		<img class="write-img" src="img/write.png"/>
+		<button class="write-img-btn" onclick="location.href='/writeBoard'"><img class="write-img" src="img/write.png"/></button>
 	</div>
 	
 	<div class="community-menu-search">

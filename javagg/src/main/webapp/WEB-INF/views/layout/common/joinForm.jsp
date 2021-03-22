@@ -126,29 +126,29 @@ html, body{
 </style>
 <body>
  <div class="container">
-      <form action="#">
+      <form action="/join" method="POST">
       <div class="title2">OP.GG</div>
         <div class="title">회원가입</div>
         <div class="input-box underline">
-          <input type="email" placeholder="이메일 주소" required>
+          <input name = "email" type="email" placeholder="이메일 주소" required>
           <div class="underline"></div>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="닉네임" required>
+          <input name = "username" type="text" placeholder="닉네임" required>
           <div class="underline"></div>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="비밀번호" required>
+          <input name = "password" type="password" placeholder="비밀번호" required>
           <div class="underline"></div>
         </div>
         <div class="input-box button">
-          <input type="submit" name="" value="회원가입">
+          <input type="submit" value="회원가입">
         </div>
       </form>
         
         
         <div class="join-text">
-        	<p>이미 회원이신가요?</p> <a href="#" class="join-a-text">로그인하기</a> 
+        	<p>이미 회원이신가요?</p> <a href="/loginForm" class="join-a-text">로그인하기</a> 
         </div>
     </div>
     

@@ -43,16 +43,6 @@ public class GgController {
 		return "layout/community/mainBoard";
 	}
 	
-	@GetMapping("/loginForm")
-	public String login() {
-		return "layout/common/loginForm";
-	}
-	
-	@GetMapping("/joinForm")
-	public String join() {
-		return "layout/common/joinForm";
-	}
-	
 	@GetMapping("/detailBoard")
 	public String detailBoard() {
 		return "layout/community/detailBoard";
