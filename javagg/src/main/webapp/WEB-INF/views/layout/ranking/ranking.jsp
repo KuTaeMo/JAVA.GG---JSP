@@ -228,8 +228,9 @@
 		<!-- 1칸 -->
 		<div style="display: flex; background-color: #EAEAEA; height: 50px;">
 			<div align="center" style="width: 10%; display: flex; align-items: center;">6</div>
-			<div id="gamername6" style="width: 30%; display: flex; align-items: center;">
-				<img id="pfimg_rank6" src="img/challenger_rank.png" style="height: 30px;"/> 보고싶다 오로라
+			<div style="width: 30%; display: flex; align-items: center;">
+				<img id="pfimg_rank6" src="img/challenger_rank.png" style="height: 30px;"/> 
+				<div id="gamername6">보고싶다 오로라</div>
 			</div>
 			<div style="width: 10%; display: flex; align-items: center;">Challenger</div>
 			<div id="rank_point6" style="width: 13%; display: flex; align-items: center;">1,372 LP</div>

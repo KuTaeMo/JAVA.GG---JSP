@@ -122,5 +122,4 @@
 		</c:choose>
 			
 		</div>
-
 	</nav>
