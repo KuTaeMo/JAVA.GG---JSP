@@ -8,7 +8,7 @@
 </head>
 <body style="background-color: #EAEAEA;">
 
-<div style="margin: 3% 15% 0 15%;">
+<div class="mContainer">
 	<div
 		style="display: flex; justify-content: space-between; border-bottom: 1px solid gray; margin-bottom: 15px; padding-bottom: 10px;">
 		<div style="font-size: 30px; color: gray;">
