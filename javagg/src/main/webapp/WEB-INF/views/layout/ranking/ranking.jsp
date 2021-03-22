@@ -37,24 +37,24 @@
 				
 					<div style="display: flex; margin: 0 5% 0 5%;">
 						
-						<img src="img/profileIcon.jpg" style="width: 100px; max-height:100px; display: block;" />
+						<img id="pfimg_rank1" src="img/profileIcon.jpg" style="width: 100px; max-height:100px; display: block;" />
 					</div>
 					
 					<div style="margin-top: 15px; display: flex; flex-direction: column;">
-						<div id="gamername" style="font-size: 20px; color: black; display: flex; flex-direction: column;">
-							<b>어리고싶다</b>
+						<div id="gamername1" style="font-size: 20px; color: black; display: flex; flex-direction: column;">
+							소환사이름
 						</div>
 						<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 							<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
-							<div id="rank1_point">
-								<b>1,529 LP</b>
+							<div id="rank_point1">
+								point
 							</div>
 						</div>
 						
 						<div id="rank_stat" style="display: flex;">
 							<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-								<div id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-								<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+								<div id="win_bar1" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+								<div align="right" id="lose_bar1" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 							</div>
 
 							<div id="winper1">62%</div>
@@ -111,21 +111,21 @@
 			<div align="center">
 				<img class="circle_image" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-				<div>T1 Cuzz</div>
-				<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
+				<div id="gamername2">소환사명</div>
+				<div id="level2" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 					<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
-					<div id="rank1_point" style="margin: 0 5px 0 5px;">
+					<div id="rank_point2" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
 					Lv.234
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-						<div align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-						<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+						<div align="left" id="win_bar2" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+						<div align="right" id="lose_bar2" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 					</div>
 
-					<div>62%</div>
+					<div id="winper2">62%</div>
 				</div>
 			</div>
 		</div>
@@ -138,21 +138,21 @@
 			<div align="center">
 				<img class="circle_image" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-				<div>T1 Cuzz</div>
-				<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
+				<div id="gamername3">소환사명</div>
+				<div id="level3" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 					<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
-					<div id="rank1_point" style="margin: 0 5px 0 5px;">
+					<div id="rank_point3" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
 					Lv.234
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-						<div align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-						<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+						<div align="left" id="win_bar3" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+						<div align="right" id="lose_bar3" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 					</div>
 
-					<div>62%</div>
+					<div id="winper3">62%</div>
 				</div>
 			</div>
 		</div>
@@ -165,21 +165,21 @@
 			<div align="center">
 				<img class="circle_image" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-				<div>T1 Cuzz</div>
-				<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
+				<div id="gamername4">소환사명</div>
+				<div id="level4" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 					<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
-					<div id="rank1_point" style="margin: 0 5px 0 5px;">
+					<div id="rank_point4" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
 					Lv.234
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-						<div align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-						<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+						<div align="left" id="win_bar4" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+						<div align="right" id="lose_bar4" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 					</div>
 
-					<div>62%</div>
+					<div id="winper4">62%</div>
 				</div>
 			</div>
 		</div>
@@ -192,21 +192,21 @@
 			<div align="center">
 				<img class="circle_image" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-				<div>T1 Cuzz</div>
-				<div id="rank" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
+				<div id="gamername5">소환사명</div>
+				<div id="level5" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 					<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
-					<div id="rank1_point" style="margin: 0 5px 0 5px;">
+					<div id="rank_point5" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
 					Lv.234
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-						<div align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-						<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+						<div align="left" id="win_bar5" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+						<div align="right" id="lose_bar5" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 					</div>
 
-					<div>62%</div>
+					<div id="winper5">62%</div>
 				</div>
 			</div>
 		</div>
@@ -224,31 +224,37 @@
 			<div style="width: 24%">승률</div>
 		</div>
 		
+		<!-- 1칸 -->
 		<div style="display: flex; background-color: #EAEAEA; height: 50px;">
 			<div align="center" style="width: 10%; display: flex; align-items: center;">6</div>
-			<div style="width: 30%; display: flex; align-items: center;">
-				<img src="img/challenger_rank.png" style="height: 30px;" /> 보고싶다 오로라
+			<div id="gamername6" style="width: 30%; display: flex; align-items: center;">
+				<img id="pfimg_rank6" src="img/challenger_rank.png" style="height: 30px;"/> 보고싶다 오로라
 			</div>
 			<div style="width: 10%; display: flex; align-items: center;">Challenger</div>
-			<div style="width: 13%; display: flex; align-items: center;">1,372 LP</div>
-			<div style="width: 13%; display: flex; align-items: center;">225</div>
+			<div id="rank_point6" style="width: 13%; display: flex; align-items: center;">1,372 LP</div>
+			<div id="level6" style="width: 13%; display: flex; align-items: center;">225</div>
 			<div style="width: 24%; display: flex; align-items: center;">
 				<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-					<div align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-					<div align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+					<div id="win6" align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+					<div id="lose6" align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 				</div>
-				<div>62%</div>
+				<div id="winper6">62%</div>
 			</div>
 		</div>
+		
 	</div>
 	<br />
 </div>
 
 <script>
-let api_key="RGAPI-addfbc8e-69f4-46e2-9dd8-810ecec5e7e9";
+let api_key="RGAPI-b242dc31-4a90-4cf3-b6a9-155df4e30567";
 let accountid="1";
 let encid="1";
+let summonerid=[];
 let rankingNum=[];
+let icon=[];
+let list=[];
+let ranksummoner=[];
 
 // 랭킹 순으로 
 $.ajax({
@@ -258,18 +264,57 @@ $.ajax({
 		}).done((res)=>{
 			rankingNum=res.entries;
 			
-			
 			rankingNum.sort(function(a,b){
 				return b.leaguePoints-a.leaguePoints;
 			})
 			console.log(rankingNum[0]);
-			document.querySelector("#gamername").innerHTML="<b>"+rankingNum[0].summonerName+"</b>";
-			document.querySelector("#rank1_point").innerHTML="<b>"+rankingNum[0].leaguePoints+" LP</b>";
-			document.querySelector("#win_bar").innerHTML=rankingNum[0].wins;
-			document.querySelector("#lose_bar").innerHTML=rankingNum[0].losses;
-			document.querySelector("#winper1").innerHTML=Math.ceil(rankingNum[0].wins/(rankingNum[0].losses+rankingNum[0].wins)*100)+"%";
-		});
-</script>
+			
+			for(let i=0;i<30;i++){
+				summonerid[i]=rankingNum[i].summonerId;
+			}
+			
+			/* for(let i=0;i<30;i++){
+				list[i]={
+						username=rankingNum[i].summonerName,
+						leaguePoint=rankingNum[i].leaguePoints+" LP",
+						win=rankingNum[i].wins,
+						lose=rankingNum[i].losses,
+						winper=rankingNum[i].wins/(rankingNum[i].losses+rankingNum[i].wins)*100+"%";
+						level=null;
+				}
+			} */
+			
+			for(let i=1;i<6;i++){
+				document.querySelector("#gamername"+i).innerHTML="<b>"+rankingNum[i-1].summonerName+"</b>";
+				document.querySelector("#rank_point"+i).innerHTML="<b>"+rankingNum[i-1].leaguePoints+" LP</b>";
+				document.querySelector("#win_bar"+i).innerHTML=rankingNum[i-1].wins;
+				document.querySelector("#lose_bar"+i).innerHTML=rankingNum[i-1].losses;
+				document.querySelector("#winper"+i).innerHTML=Math.round(rankingNum[i-1].wins/(rankingNum[i-1].losses+rankingNum[i-1].wins)*100)+"%";
+			}
+			
+			
+			document.querySelector("#gamername6").innerHTML="<b>"+rankingNum[5].summonerName+"</b>";
+			document.querySelector("#rank_point6").innerHTML="<b>"+rankingNum[5].leaguePoints+" LP</b>";
+			document.querySelector("#win6").innerHTML=rankingNum[5].wins;
+			document.querySelector("#lose6").innerHTML=rankingNum[5].losses;
+			document.querySelector("#winper6").innerHTML=Math.round(rankingNum[5].wins/(rankingNum[5].losses+rankingNum[5].wins)*100)+"%";
+			
+			
 
-</body>
-</html>
+/* 			$.ajax({
+				type:"GET",
+				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/"+summonerid[y]+"?api_key="+api_key,
+				dataType:"json",
+				}).done((res)=>{
+					//console.log(res.profileIconId);
+					icon[y]=res.profileIconId;			
+				});
+
+			
+			document.querySelector("#pfimg_rank1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[0]+".png"; */
+			
+		})
+
+		//document.querySelector("#pfimg_rank6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[5]+".png";
+</script>
+<%@ include file="../common/footer.jsp"%>

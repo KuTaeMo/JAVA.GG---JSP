@@ -139,6 +139,9 @@
 	
 	let rankingNum=[];
 	
+	
+	
+	
 	// 랭킹 순으로 
 	$.ajax({
 			type:"GET",
@@ -158,7 +161,7 @@
 	$("#searchuser").on("click",(e)=>{
 		e.preventDefault();
 		let username=$("#username").val();
-		console.log(username);
+		console.log(username);	
 		
 		//summoner 소환사 정보
 		$.ajax({
@@ -216,7 +219,7 @@
 							$("#rankpoint").val(res[0].leaguePoints+" LP");
 							$("#win").val("win : "+res[0].wins);
 							$("#lose").val("lose : "+res[0].losses);
-							$("#winlose").val(Math.ceil(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+							$("#winlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
 						}
 						
 					});
