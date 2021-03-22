@@ -247,7 +247,7 @@
 </div>
 
 <script>
-let api_key="RGAPI-b242dc31-4a90-4cf3-b6a9-155df4e30567";
+let api_key="RGAPI-bb41eb82-5eae-4100-9e92-124904e5cc03";
 let accountid="1";
 let encid="1";
 let summonerid=[];

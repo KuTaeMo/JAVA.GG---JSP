@@ -23,7 +23,7 @@
 	</div>
 
 	<div class="container">
-		<form action="/blog/board?cmd=save" method="POST">
+		<form action="/board" method="POST">
 			<input type="hidden" name="userId"
 				value="${sessionScope.principal.id}" />
 

@@ -127,7 +127,7 @@
 	</div>
 
 	<script>
-	let api_key="RGAPI-addfbc8e-69f4-46e2-9dd8-810ecec5e7e9";
+	let api_key="RGAPI-2b5bf9bd-9396-4484-be24-a04f9be78db7";
 	let accountid="1";
 	let encid="1";
 	let rank="1";
