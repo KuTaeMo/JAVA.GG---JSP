@@ -13,15 +13,16 @@
 			<img src="img/profileIcon.jpg" style="width: 85px; height: 85px; margin: 20px;" />
 		</div>
 		<div style="padding: 15px;">
-			<div id="gamername" style="font-size: 20px; color: black;">
+			<div style="font-size: 20px; color: black;">
 				<b>${gamername }</b>
 			</div>
 			<div style="font-size: 10px; display: flex;">
 				랭킹
-				<div style="color: #059EDE;">1위</div>
+				<div style="color: #059EDE;"> 1</div>
+				위
 			</div>
 			<br />
-			<button class="search_button">랭킹검색</button>
+			<button class="search_button">전적 갱신</button>
 		</div>
 	</div>
 
@@ -44,8 +45,8 @@
 	<div class="container" style="display: flex;">
 		<!-- 왼쪽 박스 -->
 		<div id="left-container" style="width: 30%;">
-			<!-- 랭크 정보 -->
-			<div style="display: flex; border: 0.3px solid gray; background-color: white; justify-content: center;">
+			<!-- 솔랭 정보 -->
+			<div style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
 				<div style="display: flex;">
 					<img style="width: 90px; height: 90px;" src="img/challenger_rank.png" />
 				</div>
@@ -53,7 +54,27 @@
 					<div class="tiny_gray_text">솔로랭크</div>
 					<div style="font-size: 12px; color: #63B8E5;">Challenger</div>
 					<div style="display: flex;">
-						<div style="font-size: 10px;">
+						<div style="font-size: 13px;">
+							<b>1,503 LP</b>
+						</div>
+						<div class="tiny_gray_text">/ 139승 89패</div>
+					</div>
+					<div class="tiny_gray_text">승률 61%</div>
+					<div class="tiny_gray_text">뽀삐의 후예들</div>
+				</div>
+			</div>
+			<br/>
+
+			<!-- 자랭 정보 -->
+			<div style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
+				<div style="display: flex;">
+					<img style="width: 90px; height: 90px;" src="img/challenger_rank.png" />
+				</div>
+				<div style="margin-left: 20px; height: 130px;">
+					<div class="tiny_gray_text">자유랭크</div>
+					<div style="font-size: 12px; color: #63B8E5;">Challenger</div>
+					<div style="display: flex;">
+						<div style="font-size: 13px;">
 							<b>1,503 LP</b>
 						</div>
 						<div class="tiny_gray_text">/ 139승 89패</div>
@@ -69,6 +90,9 @@
 		
 		</div>
 	</div>
-
+<script>
+let abc="${gamername}";
+console.log(abc);
+</script>
 </body>
 </html>

@@ -103,8 +103,8 @@
 		</div>
 
 		<div class="header-btn">
-			<form class="form-inline" action="/search" method="post">
-				<input class="input-header" type="text" placeholder="소환사명, 소환사명, ...">
+			<form action="/search" method="post">
+				<input class="input-header" name="gamername" type="text" placeholder="소환사명, 소환사명, ...">
 				<button type="submit" class="btn_image" id="img_btn"></button>
 			</form>
 
