@@ -29,8 +29,8 @@
 		<div
 			style="border-top: 1px solid gray; border-left: 1px solid gray; border-right: 1px solid gray; width: 100px; height: 40px; display: flex; justify-content: center; align-items: center;">
 			종합</div>
-		<div style="margin-left: 30px; width: 130px; height: 40px; display: flex; justify-content: center; align-items: center;">
-			<button class="ingamebutton" style="width: 130px; height: 40px; background-color: white; color: #1F8ECD; border: 0.3px solid gray; vertical-align: middle;">
+		<div style="margin-left: 30px; width: 160px; height: 40px; display: flex; justify-content: center; align-items: center;">
+			<button class="ingamebutton" style="width: 180px; height: 40px; background-color: white; color: #1F8ECD; border: 0.3px solid gray; vertical-align: middle;">
 				<img style="height: 35px;" src="img/ingame.png" />인게임 정보
 			</button>
 		</div>
