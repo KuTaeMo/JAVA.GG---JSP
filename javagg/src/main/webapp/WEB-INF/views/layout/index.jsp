@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="apikey.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,7 +127,7 @@
 	</div>
 
 	<script>
-	let api_key="RGAPI-2b5bf9bd-9396-4484-be24-a04f9be78db7";
+
 	let accountid="1";
 	let encid="1";
 	let rank="1";

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img src="assets/img/mainpic.png"/>
+<script>
+let api_key="RGAPI-53d0e9af-b8f4-44fd-9de3-1e6c741830cb";
+</script>
 </body>
 </html>

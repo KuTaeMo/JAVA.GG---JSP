@@ -27,7 +27,7 @@ public class GgController {
 	public String searchFromHome(@PathVariable String gamername, Model model) {
 		// 검색한 이름 가져와서 검색 내용 바로 띄우기
 		model.addAttribute("gamername", gamername);
-		return "/layout/main/search";
+		return "layout/main/search";
 	}
 	
 	@GetMapping("/stats")

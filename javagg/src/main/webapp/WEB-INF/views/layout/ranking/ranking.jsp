@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
+<%@ include file="../apikey.jsp"%>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
@@ -67,34 +68,40 @@
 					<!-- 모스트1 -->
 					<div style="display: flex; align-items: center; margin-bottom: 10px;">
 						<!-- 챔피언 사진 -->
-						<img class="circle_image" src="img/Jayce.png"
+						<img id = "champImg1" class="circle_image" src="img/Jayce.png"
 							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-						<!-- 승률 -->
-						<div style="font-size: 12px; color: red;">64%</div>
-						<!-- 승패, 평점 -->
-						<div style="font-size: 12px;">(29승 16패) 1.96:1 평점</div>
+						<!-- 모스트1 챔피언 이름 -->
+						<div class="mostChampion" id="championName1" style="font-size: 12px; color: red;">챔피언</div>
+						<!-- 모스트1 챔피언 레벨-->
+						<div class="mostChampion" id="championLV1" style="font-size: 12px;">1</div>
+						<!-- 모스트1 챔피언 점수-->
+						<div class="mostChampion" id="championScore1" style="font-size: 12px;">100</div>
 					</div>
 
 					<!-- 모스트2 -->
 					<div style="display: flex; align-items: center; margin-bottom: 10px;">
 						<!-- 챔피언 사진 -->
-						<img class="circle_image" src="img/Gnar.png"
+						<img id = "champImg2" class="circle_image" src="img/Gnar.png"
 							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-						<!-- 승률 -->
-						<div style="font-size: 12px; color: red;">64%</div>
-						<!-- 승패, 평점 -->
-						<div style="font-size: 12px;">(29승 16패) 1.96:1 평점</div>
+						<!-- 모스트1 챔피언 이름 -->
+						<div class="mostChampion" id="championName2" style="font-size: 12px; color: red;">챔피언</div>
+						<!-- 모스트1 챔피언 레벨-->
+						<div class="mostChampion" id="championLV2" style="font-size: 12px;">1</div>
+						<!-- 모스트1 챔피언 점수-->
+						<div class="mostChampion" id="championScore2" style="font-size: 12px;">100</div>
 					</div>
 
 					<!-- 모스트3 -->
 					<div style="display: flex; align-items: center;">
 						<!-- 챔피언 사진 -->
-						<img class="circle_image" src="img/Camille.png"
+						<img id = "champImg3" class="circle_image" src="img/Camille.png"
 							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-						<!-- 승률 -->
-						<div style="font-size: 12px; color: red;">64%</div>
-						<!-- 승패, 평점 -->
-						<div style="font-size: 12px;">(29승 16패) 1.96:1 평점</div>
+						<!-- 모스트1 챔피언 이름 -->
+						<div class="mostChampion" id="championName3" style="font-size: 12px; color: red;">챔피언</div>
+						<!-- 모스트1 챔피언 레벨-->
+						<div class="mostChampion" id="championLV3" style="font-size: 12px;">1</div>
+						<!-- 모스트1 챔피언 점수-->
+						<div class="mostChampion" id="championScore3" style="font-size: 12px;">100</div>
 					</div>
 				</div>
 			</div>
@@ -109,15 +116,16 @@
 				<b>2</b>
 			</div>
 			<div align="center">
-				<img class="circle_image" src="img/Camille.png"
+				<img class="circle_image" id="pfimg_rank2" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 				<div id="gamername2">소환사명</div>
-				<div id="level2" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
+				<div id="
+2" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
 					<img src="img/challenger_rank.png" style="height: 30px;" /> Challenger
 					<div id="rank_point2" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
-					Lv.234
+					<div id = "gamerLV1">Lv.234</div>
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
@@ -136,7 +144,7 @@
 				<b>3</b>
 			</div>
 			<div align="center">
-				<img class="circle_image" src="img/Camille.png"
+				<img class="circle_image" id="pfimg_rank3" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 				<div id="gamername3">소환사명</div>
 				<div id="level3" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
@@ -144,7 +152,7 @@
 					<div id="rank_point3" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
-					Lv.234
+					<div id = "gamerLV2">Lv.234</div>
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
@@ -163,7 +171,7 @@
 				<b>4</b>
 			</div>
 			<div align="center">
-				<img class="circle_image" src="img/Camille.png"
+				<img class="circle_image" id="pfimg_rank4" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 				<div id="gamername4">소환사명</div>
 				<div id="level4" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
@@ -171,7 +179,7 @@
 					<div id="rank_point4" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
-					Lv.234
+					<div id = "gamerLV3">Lv.234</div>
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
@@ -190,7 +198,7 @@
 				<b>5</b>
 			</div>
 			<div align="center">
-				<img class="circle_image" src="img/Camille.png"
+				<img class="circle_image" id="pfimg_rank5" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 				<div id="gamername5">소환사명</div>
 				<div id="level5" style="display: flex; font-size: 12px; margin: 5px 0 5px 20px; display: flex; align-items: center;">
@@ -198,7 +206,7 @@
 					<div id="rank_point5" style="margin: 0 5px 0 5px;">
 						<b>1,494 LP</b>
 					</div>
-					Lv.234
+					<div id = "gamerLV4">Lv.234</div>
 				</div>
 				<div id="rank_stat" style="display: flex; justify-content: center;">
 					<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
@@ -227,12 +235,14 @@
 		<!-- 1칸 -->
 		<div style="display: flex; background-color: #EAEAEA; height: 50px;">
 			<div align="center" style="width: 10%; display: flex; align-items: center;">6</div>
-			<div id="gamername6" style="width: 30%; display: flex; align-items: center;">
-				<img id="pfimg_rank6" src="img/challenger_rank.png" style="height: 30px;"/> 보고싶다 오로라
+			<div style="width: 30%; display: flex; align-items: center;">
+				<img class="circle_image" id="pfimg_rank6" src="img/Camille.png"
+					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
+				<div id="gamername6">보고싶다 오로라</div>
 			</div>
 			<div style="width: 10%; display: flex; align-items: center;">Challenger</div>
 			<div id="rank_point6" style="width: 13%; display: flex; align-items: center;">1,372 LP</div>
-			<div id="level6" style="width: 13%; display: flex; align-items: center;">225</div>
+			<div id= "gamerLV5" style="width: 13%; display: flex; align-items: center;">225</div>
 			<div style="width: 24%; display: flex; align-items: center;">
 				<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
 					<div id="win6" align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
@@ -247,7 +257,8 @@
 </div>
 
 <script>
-let api_key="RGAPI-bb41eb82-5eae-4100-9e92-124904e5cc03";
+
+let id = "1";
 let accountid="1";
 let encid="1";
 let summonerid=[];
@@ -255,13 +266,18 @@ let rankingNum=[];
 let icon=[];
 let list=[];
 let ranksummoner=[];
-
+let user = [];
+let username=[];
+let champId = [];
+let champImg = [];
 // 랭킹 순으로 
 $.ajax({
 		type:"GET",
 		url: "https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key="+api_key,
-		dataType:"json"
+		dataType:"json",
+		async: false
 		}).done((res)=>{
+
 			rankingNum=res.entries;
 			
 			rankingNum.sort(function(a,b){
@@ -271,7 +287,11 @@ $.ajax({
 			
 			for(let i=0;i<30;i++){
 				summonerid[i]=rankingNum[i].summonerId;
+				username[i] = rankingNum[i].summonerName;
 			}
+
+			
+			console.log(rankingNum[1].summonerName);
 			
 			/* for(let i=0;i<30;i++){
 				list[i]={
@@ -312,7 +332,91 @@ $.ajax({
 
 			
 			document.querySelector("#pfimg_rank1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[0]+".png"; */
-			
+			for(let i=1;i<6;i++){
+			$.ajax({
+				type:"GET",
+				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,
+				dataType:"json"
+				}).done((res)=>{
+					console.log("유저네임 : " + username[1])
+					
+					user = res.summonerLevel
+					console.log("레벨 : " + res.summonerLevel);
+					document.querySelector("#gamerLV"+i).innerHTML="<b>"+user+" LV</b>";
+					console.log(user);
+				})
+			}
+
+			for(let i=0;i<6;i++){
+				$.ajax({
+					type:"GET",
+					url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,
+					dataType:"json"
+					}).done((res)=>{
+						
+						icon = res.profileIconId;
+						console.log(i + "사진 : " + res.profileIconId);
+						document.querySelector("#pfimg_rank"+(i+1)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
+						console.log(user);
+					})
+				}
+
+			$.ajax({
+				type:"GET",
+				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[0]+"?api_key="+api_key,
+				dataType:"json"
+				}).done((res)=>{
+					id = res.id;
+					for(let i=1;i<4;i++){
+					$.ajax({
+						type:"GET",
+						url: "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+ id +"?api_key="+api_key,
+						dataType:"json"
+						}).done((res)=>{
+							champId = res[i-1].championId
+							// document.querySelector("#championName"+i).innerHTML="<b>"+res[i-1].championId+"</b>";
+							document.querySelector("#championLV"+i).innerHTML="<b>"+res[i-1].championLevel+" LV</b>";
+							document.querySelector("#championScore"+i).innerHTML="<b>"+res[i-1].championPoints+"점</b>";
+
+
+							$.ajax({
+								type:"GET",
+								url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
+								dataType:"json"
+								}).done((res)=>{
+								
+									let count=0;
+									for(key in res.data){
+										count++;
+										if(res.data[key].key==champId){
+											
+											document.querySelector("#championName"+i).innerHTML="<b>"+res.data[key].name+"</b>";
+												
+											$.ajax({
+												type:"GET",
+												url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/champion.json",
+												dataType:"json"
+												}).done((res)=>{
+													let count=0;
+													for(key in res.data){
+														count++;
+														if(res.data[key].key==champId){
+												champImg = res.data[key].id;
+												console.log(champImg);
+												document.querySelector("#champImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/" + champImg + ".png";
+														}
+													}
+												});
+										}
+										}
+						});
+
+							
+
+							
+						})
+					}
+				})
 		})
 
 		//document.querySelector("#pfimg_rank6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[5]+".png";
