@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
+<%@ include file="../apikey.jsp"%>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
 <meta charset="UTF-8">
@@ -247,7 +248,6 @@
 </div>
 
 <script>
-let api_key="RGAPI-b242dc31-4a90-4cf3-b6a9-155df4e30567";
 let accountid="1";
 let encid="1";
 let summonerid=[];
