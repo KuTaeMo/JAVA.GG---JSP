@@ -17,9 +17,9 @@
 		<br />
 
 		<!-- 검색창 -->
-		<form action="/search/{gamername}" method="get">
+		<form action="/search" method="post">
 			<div id="home_input">
-				<input type="text" name="gamername" id="gamername"
+				<input type="text" name="gamername"
 					placeholder="소환사명, 소환사명,..."
 					style="width: 40%; height: 40px; border-radius: 5px; padding: 5px 0 5px 15px;">
 				<button type="submit" id="home_search_button"><b>.GG</b></button>
