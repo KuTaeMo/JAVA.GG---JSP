@@ -11,7 +11,7 @@
 		integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
 		crossorigin="anonymous"></script>
 <div id="conatiner" style="margin-left: 30%">
-		<!-- 승률 박스 -->
+	<!-- 승률 박스 -->
 	<div style="border: 1px solid #CDD2D2; height: 30%; display: flex; background-color: #EDEDED;">
 
 		<!-- 1번 박스 -->
@@ -126,6 +126,7 @@
 		</div>
 
 	</div>
+	
 </div>
 	
 
