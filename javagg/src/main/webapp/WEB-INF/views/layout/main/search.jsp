@@ -118,6 +118,8 @@
 		<!-- 오른쪽 박스 -->
 		<div id="right-container" style="width: 70%;"></div>
 	</div>
+	
+	
 	<!-- 전적검색 -->
 	<script>
 let accountid="1";
@@ -176,7 +178,7 @@ $.ajax({
 							document.querySelector("#rankcover").src="img/cover/gold.png";
 						}else if(res[0].tier==="PLATINUM"){
 							document.querySelector("#rankimg").src="img/Emblem_Platinum.png";
-							document.querySelector("#rankcover").src="img/cover/platinum.png";
+							document.querySelector("#rankcover").src="img/cover/platinum.png";d
 						}else if(res[0].tier==="DIAMOND"){
 							document.querySelector("#rankimg").src="img/Emblem_Diamond.png";
 							document.querySelector("#rankcover").src="img/cover/diamond.png";

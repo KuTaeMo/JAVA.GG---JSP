@@ -125,6 +125,12 @@
 		summonerName0의 메인룬
 		<input id="perk0" />
 	</div>
+	
+	<div style="display: flex;">
+		<button>a페이지</button>
+		<button>b페이지</button>
+	</div>
+	
 
 	<script>
 	let accountid="1";
