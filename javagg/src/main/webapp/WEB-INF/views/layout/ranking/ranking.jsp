@@ -233,24 +233,26 @@
 		</div>
 		
 		<!-- 1칸 -->
+		<c:forEach var="i" begin="6" end="30" step="1">
 		<div style="display: flex; background-color: #EAEAEA; height: 50px;">
-			<div align="center" style="width: 10%; display: flex; align-items: center;">6</div>
+			<div align="center" style="width: 10%; display: flex; align-items: center;">${i}</div>
 			<div style="width: 30%; display: flex; align-items: center;">
-				<img class="circle_image" id="pfimg_rank6" src="img/Camille.png"
+				<img class="circle_image" id="pfimg_rank${i}" src="img/Camille.png"
 					style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-				<div id="gamername6">보고싶다 오로라</div>
+				<div id="gamername${i}">보고싶다 오로라</div>
 			</div>
 			<div style="width: 10%; display: flex; align-items: center;">Challenger</div>
-			<div id="rank_point6" style="width: 13%; display: flex; align-items: center;">1,372 LP</div>
-			<div id= "gamerLV5" style="width: 13%; display: flex; align-items: center;">225</div>
+			<div id="rank_point${i}" style="width: 13%; display: flex; align-items: center;">1,372 LP</div>
+			<div id= "gamerLV${i-1}" style="width: 13%; display: flex; align-items: center;">225</div>
 			<div style="width: 24%; display: flex; align-items: center;">
 				<div style="display: flex; width: 130px; border-radius: 10px; margin-right: 10px;">
-					<div id="win6" align="left" id="win_bar" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
-					<div id="lose6" align="right" id="lose_bar" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
+					<div align="left" id="win_bar${i}" style="background-color: #3D95E5; width: 62%; color: white; border-radius:">134</div>
+					<div align="right" id="lose_bar${i}" style="background-color: #EE5A52; width: 38%; color: white;">83</div>
 				</div>
-				<div id="winper6">62%</div>
+				<div id="winper${i}">62%</div>
 			</div>
 		</div>
+		</c:forEach>
 		
 	</div>
 	<br />
@@ -275,7 +277,8 @@ $.ajax({
 		type:"GET",
 		url: "https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key="+api_key,
 		dataType:"json",
-		async: false
+		async:false
+		
 		}).done((res)=>{
 
 			rankingNum=res.entries;
@@ -304,7 +307,7 @@ $.ajax({
 				}
 			} */
 			
-			for(let i=1;i<6;i++){
+			for(let i=1;i<31;i++){
 				document.querySelector("#gamername"+i).innerHTML="<b>"+rankingNum[i-1].summonerName+"</b>";
 				document.querySelector("#rank_point"+i).innerHTML="<b>"+rankingNum[i-1].leaguePoints+" LP</b>";
 				document.querySelector("#win_bar"+i).innerHTML=rankingNum[i-1].wins;
@@ -313,11 +316,6 @@ $.ajax({
 			}
 			
 			
-			document.querySelector("#gamername6").innerHTML="<b>"+rankingNum[5].summonerName+"</b>";
-			document.querySelector("#rank_point6").innerHTML="<b>"+rankingNum[5].leaguePoints+" LP</b>";
-			document.querySelector("#win6").innerHTML=rankingNum[5].wins;
-			document.querySelector("#lose6").innerHTML=rankingNum[5].losses;
-			document.querySelector("#winper6").innerHTML=Math.round(rankingNum[5].wins/(rankingNum[5].losses+rankingNum[5].wins)*100)+"%";
 			
 			
 
@@ -332,11 +330,13 @@ $.ajax({
 
 			
 			document.querySelector("#pfimg_rank1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[0]+".png"; */
-			for(let i=1;i<6;i++){
+			for(let i=1;i<30;i++){
 			$.ajax({
 				type:"GET",
 				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,
-				dataType:"json"
+				dataType: "json",
+				async:false
+				
 				}).done((res)=>{
 					console.log("유저네임 : " + username[1])
 					
@@ -347,11 +347,13 @@ $.ajax({
 				})
 			}
 
-			for(let i=0;i<6;i++){
+			for(let i=0;i<30;i++){
 				$.ajax({
 					type:"GET",
 					url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,
-					dataType:"json"
+					dataType: "json",
+					async:false
+					
 					}).done((res)=>{
 						
 						icon = res.profileIconId;
@@ -364,7 +366,9 @@ $.ajax({
 			$.ajax({
 				type:"GET",
 				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[0]+"?api_key="+api_key,
-				dataType:"json"
+				dataType: "json",
+				async:false
+				
 				}).done((res)=>{
 					id = res.id;
 					for(let i=1;i<4;i++){
@@ -382,7 +386,9 @@ $.ajax({
 							$.ajax({
 								type:"GET",
 								url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
-								dataType:"json"
+								dataType:"json",
+								async:false
+									
 								}).done((res)=>{
 								
 									let count=0;
@@ -395,7 +401,9 @@ $.ajax({
 											$.ajax({
 												type:"GET",
 												url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/champion.json",
-												dataType:"json"
+												dataType:"json",
+												async:false
+												 
 												}).done((res)=>{
 													let count=0;
 													for(key in res.data){
