@@ -5,18 +5,98 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: "Malgun Gothic";
+	font-size: 0.8em;
+}
+/*TAB CSS*/
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px; /*--Set height of tabs--*/
+	
+	border-left: 1px solid #999;
+	width: 100%;
+}
+
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	/*--Subtract 1px from the height of the unordered list--*/
+	line-height: 40px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #FFFFFF;
+}
+
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.2em;
+	padding: 0 20px;
+	/*--Gives the bevel look with a 1px white border inside the list item--*/
+	border: 1px solid #fff;
+	outline: none;
+}
+
+ul.tabs li a:hover {
+	background: #ccc;
+}
+
+html ul.tabs li.active, html ul.tabs li.active a:hover {
+	/*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #E7E7E7;
+	/*--Makes the active tab look like it's connected with its content--*/
+	border-bottom: 1px solid #fff;
+}
+html ul.tabs li.active, html ul.tabs li.active a:focus{
+	background: #E7E7E7;
+}
+</style>
 </head>
 <body style="background-color: #EAEAEA;">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+
+            //When page loads...
+            $(".tab_content").hide(); //Hide all content
+            $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+            $(".tab_content:first").show(); //Show first tab content
+
+            //On Click Event
+            $("ul.tabs li").click(function() {
+
+                $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".tab_content").hide(); //Hide all tab content
+
+                var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active ID content
+                return false;
+            });
+
+        });
+    </script>
+
 	<!-- 소환사 정보 -->
 	<div class="mContainer" style="display: flex;">
 		<div>
-			<img id="rankcover" src="img/cover/challenger.png" style="position: absolute;"/>
-			<img id="usericon" src="img/profileIcon.jpg" style="width: 100px; height: 100px; margin: 10px;" />
-			
+			<img id="rankcover" src="img/cover/challenger.png" style="position: absolute;" /> <img id="usericon" src="img/profileIcon.jpg"
+				style="width: 100px; height: 100px; margin: 10px;" />
+
 		</div>
 		<div style="padding: 15px;">
-			<div id="name" style="font-size: 20px; color: black;">
-			</div>
+			<div id="name" style="font-size: 20px; color: black;"></div>
 			<div style="font-size: 10px; display: flex;">
 				랭킹
 				<div id="rankingnum" style="color: #059EDE;">1</div>
@@ -26,100 +106,116 @@
 			<button class="search_button" id="searchuser">전적 갱신</button>
 		</div>
 	</div>
-
+	
 	<!-- 종합, 인게임 -->
 	<div class="mContainer" style="display: flex;">
-		<div
-			style="border-top: 1px solid gray; border-left: 1px solid gray; border-right: 1px solid gray; width: 100px; height: 40px; display: flex; justify-content: center; align-items: center;">
-			종합</div>
-		<div style="margin-left: 30px; width: 160px; height: 40px; display: flex; justify-content: center; align-items: center;">
-			<button class="ingamebutton"
-				style="width: 180px; height: 40px; background-color: white; color: #1F8ECD; border: 0.3px solid gray; vertical-align: middle;">
-				<img style="height: 35px;" src="img/ingame.png" />인게임 정보 <!-- 인게임 정보 api : spectator -->
-			</button>
+		<!--탭 메뉴 영역 -->
+		<ul class="tabs">
+			<li style="margin-right: 30px;background-color: #FFFFFF;"><a href="#tab1"
+				style="width: 100px; height: 35px; display: flex; justify-content: center; align-items: center; "> 종합</a></li>
+
+			<li style="border-left: 1px solid #999;"><a href="#tab2"
+				style="height: 100%; background-color: white; color: #1F8ECD; display: flex; justify-content: center; align-items:center; ">
+					<img style="height: 31px;" src="img/ingame.png" />인게임 정보 <!-- 인게임 정보 api : spectator -->
+			</a></li>
+		</ul>
+	</div>
+	<hr style="margin-top: -3px;"/>
+	<!--탭 콘텐츠 영역 -->
+	<div class="tab_container">
+
+		<div id="tab1" class="tab_content">
+			<!-- 본문 시작 -->
+			<!-- 3:7 나눔 -->
+			<div class="mContainer" style="display: flex;">
+				<!-- 왼쪽 박스 -->
+				<div id="left-container" style="width: 30%;">
+					<!-- 솔랭 정보 -->
+					<div
+						style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
+						<div style="display: flex;">
+							<img id="rankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
+						</div>
+						<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
+							<div class="tiny_gray_text">솔로랭크</div>
+
+							<div style="display: flex;">
+								<div id="tier" style="display: flex; font-size: 12px; color: #63B8E5;">
+									<!-- rank : Challenger -->
+								</div>
+								<div id="rank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
+							</div>
+
+							<div style="display: flex;">
+								<div id="rankpoint" style="font-size: 13px;">
+									<b>1,503 LP</b>
+								</div>
+								<div class="tiny_gray_text" style="display: flex;">
+									<div id="win"></div>
+									<div id="lose"></div>
+
+
+								</div>
+							</div>
+							<div id="winper" class="tiny_gray_text">승률 61%</div>
+							<div id="rankname" class="tiny_gray_text"></div>
+						</div>
+					</div>
+					<br />
+
+					<!-- 자랭 정보 -->
+					<div
+						style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
+						<div style="display: flex;">
+							<img id="rankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
+						</div>
+						<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
+							<div class="tiny_gray_text">솔로랭크</div>
+
+							<div style="display: flex;">
+								<div id="tier" style="display: flex; font-size: 12px; color: #63B8E5;">
+									<b>Challenger</b>
+								</div>
+								<div id="rank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
+							</div>
+
+							<div style="display: flex;">
+								<div id="rankpoint" style="font-size: 13px;">
+									<b>1,503 LP</b>
+								</div>
+								<div class="tiny_gray_text" style="display: flex;">
+									/
+									<div id="win"></div>
+									승
+									<div id="lose"></div>
+									패
+
+								</div>
+							</div>
+							<div id="winper" class="tiny_gray_text">승률 61%</div>
+							<div id="rankname" class="tiny_gray_text">뽀삐의 후예들</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 오른쪽 박스 -->
+				<div id="right-container" style="width: 70%;"></div>
+			</div>
 		</div>
+		
+		<!-- 인게임 정보 탭 -->
+		<div id="tab2" class="tab_content">
+			<!--Content-->
+			<h1>tab2영역</h1>
+			내용 내용 내용 내용 내용 내용
+		</div>
+
 	</div>
 
-	<hr />
-
-	<!-- 본문 시작 -->
-	<!-- 3:7 나눔 -->
-	<div class="mContainer" style="display: flex;">
-		<!-- 왼쪽 박스 -->
-		<div id="left-container" style="width: 30%;">
-			<!-- 솔랭 정보 -->
-			<div
-				style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
-				<div style="display: flex;">
-					<img id="rankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
-				</div>
-				<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
-					<div class="tiny_gray_text">솔로랭크</div>
-
-					<div style="display: flex;">
-						<div id="tier" style="display: flex; font-size: 12px; color: #63B8E5;">
-						<!-- rank : Challenger -->
-						</div>
-						<div id="rank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
-					</div>
-
-					<div style="display: flex;">
-						<div id="rankpoint" style="font-size: 13px;">
-							<b>1,503 LP</b>
-						</div>
-						<div class="tiny_gray_text" style="display: flex;">
-							<div id="win"></div>
-							<div id="lose"></div>
 
 
-						</div>
-					</div>
-					<div id="winper" class="tiny_gray_text">승률 61%</div>
-					<div id="rankname" class="tiny_gray_text"></div>
-				</div>
-			</div>
-			<br />
 
-			<!-- 자랭 정보 -->
-			<div
-				style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
-				<div style="display: flex;">
-					<img id="rankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
-				</div>
-				<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
-					<div class="tiny_gray_text">솔로랭크</div>
 
-					<div style="display: flex;">
-						<div id="tier" style="display: flex; font-size: 12px; color: #63B8E5;">
-							<b>Challenger</b>
-						</div>
-						<div id="rank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
-					</div>
-
-					<div style="display: flex;">
-						<div id="rankpoint" style="font-size: 13px;">
-							<b>1,503 LP</b>
-						</div>
-						<div class="tiny_gray_text" style="display: flex;">
-							/
-							<div id="win"></div>
-							승
-							<div id="lose"></div>
-							패
-
-						</div>
-					</div>
-					<div id="winper" class="tiny_gray_text">승률 61%</div>
-					<div id="rankname" class="tiny_gray_text">뽀삐의 후예들</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 오른쪽 박스 -->
-		<div id="right-container" style="width: 70%;"></div>
-	</div>
-	
-	
 	<!-- 전적검색 -->
 	<script>
 let accountid="1";
@@ -221,9 +317,8 @@ $("#searchuser").on("click",(e)=>{
 	let username=$("#username").val();
 	console.log(username);
 });
-	
-	
 </script>
+<%@ include file="../common/footer.jsp"%>
 </body>
 
 </html>

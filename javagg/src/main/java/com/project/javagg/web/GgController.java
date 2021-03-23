@@ -14,6 +14,11 @@ public class GgController {
 	public String test() {
 		return "layout/index";
 	}
+	
+	@GetMapping("/test")
+	public String testtab() {
+		return "layout/test";
+	}
 
 	@GetMapping("/home")
 	public String home() {
