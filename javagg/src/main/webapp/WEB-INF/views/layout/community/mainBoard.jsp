@@ -121,7 +121,7 @@ body {
 <div class="community-menu">
 	<div class="community-menu-top">
 		<a href="#" class="all-text">전체</a>
-		<button class="write-img-btn" onclick="location.href='/writeBoard'"><img class="write-img" src="img/write.png"/></button>
+		<button class="write-img-btn" onclick="location.href='/community/writeBoard'"><img class="write-img" src="img/write.png"/></button>
 	</div>
 	
 	<div class="community-menu-search">
@@ -138,6 +138,7 @@ body {
 </div>
 
 <div class="community-table">
+	<c:forEach var="board" items="${boards.content}">
 	<div class="table">
 		<div class="table-vote">
 			<img src="img/vote.png">
@@ -146,57 +147,37 @@ body {
 		
 		<div class="table-content">
 			<div class="table-title">
-				<p class="table-detail-title">제목</p>
+				<p class="table-detail-title"><a href="/board/${board.id}">${board.title}</a></p>
 			</div>	
 			<div class="table-detail">
 				<p class="table-detail-text">유머</p>
 				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">시간</p>
+				<p class="table-detail-text">${board.createDate}</p>
 				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">유저네임</p>
+				<p class="table-detail-text">${board.user.username}</p>
 			</div>
 		</div>
 	</div>
+	</c:forEach>
 	
-	<div class="table">
-		<div class="table-vote">
-			<img src="img/vote.png">
-			<p>0</p>
-		</div>
-		
-		<div class="table-content">
-			<div class="table-title">
-				<p class="table-detail-title">제목</p>
-			</div>	
-			<div class="table-detail">
-				<p class="table-detail-text">유머</p>
-				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">시간</p>
-				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">유저네임</p>
-			</div>
-		</div>
-	</div>
-	
-	<div class="table">
-		<div class="table-vote">
-			<img src="img/vote.png">
-			<p>0</p>
-		</div>
-		
-		<div class="table-content">
-			<div class="table-title">
-				<p class="table-detail-title">제목</p>
-			</div>	
-			<div class="table-detail">
-				<p class="table-detail-text">유머</p>
-				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">시간</p>
-				<p class="table-detail-text">|</p>
-				<p class="table-detail-text">유저네임</p>
-			</div>
-		</div>
-	</div>
+	<ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${boards.first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${boards.number - 1}">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${boards.last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${boards.number + 1}">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
 </div>
 
 

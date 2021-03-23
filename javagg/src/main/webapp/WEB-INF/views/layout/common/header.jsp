@@ -62,7 +62,7 @@
 /* 헤더 검색 다자인 */
 .btn_image {
 	position: absolute;
-	background-image: url("img/searchImage.svg");
+	background-image: url("/img/searchImage.svg");
 	background-size: cover;
 	height: 31px;
 	width: 65px;
@@ -91,14 +91,14 @@
 
 		<div class="header-ul">
 
-			<a class="navbar-brand" href="/home"> <img src="img/logo.svg" alt="logo" style="width: 40px;">
+			<a class="navbar-brand" href="/home"> <img src="/img/logo.svg" alt="logo" style="width: 40px;">
 			</a>
 
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="/home">#집에 있자</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">통계</a></li>
 				<li class="nav-item"><a class="nav-link" href="/ranking">랭킹</a></li>
-				<li class="nav-item"><a class="nav-link" href="/mainBoard">커뮤니티</a></li>
+				<li class="nav-item"><a class="nav-link" href="/community">커뮤니티</a></li>
 			</ul>
 		</div>
 

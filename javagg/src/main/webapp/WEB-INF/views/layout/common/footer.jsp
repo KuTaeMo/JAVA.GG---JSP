@@ -90,9 +90,9 @@ margin-left: 10px;
 <div class="ft-text-btn">
 <p>Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
 <div class="ft-btn">
-<img class="ft-img" src="img/twitter.png">
-<img class="ft-img" src="img/insta.png">
-<img class="ft-img" src="img/facebook.png">
+<img class="ft-img" src="/img/twitter.png">
+<img class="ft-img" src="/img/insta.png">
+<img class="ft-img" src="/img/facebook.png">
 </div>
 </div>
 </div>

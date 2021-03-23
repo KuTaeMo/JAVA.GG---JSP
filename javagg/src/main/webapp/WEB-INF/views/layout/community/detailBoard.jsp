@@ -12,14 +12,14 @@ body {
 	height: 250px;
 	width: 100%;
 	background-size: cover;
-	background-image: url("img/bg.jpg");
+	background-image: url("/img/bg.jpg");
 }
 
 .detail-table {
 	margin-top: 1%;
 	margin-left: 30%;
 	width: 40%;
-	height: 600px;
+	height: 100%;
 	background-color: white;
 	border: 1px solid gray;
 	border-radius: 10px;
@@ -85,10 +85,10 @@ body {
 	margin-left: 5px;
 }
 .vote-btn {
-	position: relative;
-	top: 400px;
+	
 	display: flex;
 	justify-content: center;
+	margin-bottom: 10px
 }
 
 .reply {
@@ -269,10 +269,22 @@ li {}
 	font-style: normal;
 }
 
-
+.content {
+	margin-left: 20px;
+	margin-top: 20px;
+}
 .clicked {
-        color: #4C8CFF;
-      }
+    color: #4C8CFF;
+}
+.detail-btn {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid black;
+	font-size: 15px;
+}
+      
 </style>
 
 <body>
@@ -285,14 +297,14 @@ li {}
 
 		<div class="detail-top">
 			<div class="detail-title">
-				<p class="detail-title-text">제목이 들어갈 자리</p>
+				<p class="detail-title-text">${board.title}</p>
 			</div>
 
 			<div class="detail-info">
 				<div class="detail-title-info">
-					<p class="detail-title-info-text">10분전</p>
+					<p class="detail-title-info-text">${board.createDate}</p>
 					<p class="detail-title-info-text">|</p>
-					<p class="detail-title-info-text">유저네임</p>
+					<p class="detail-title-info-text">${board.user.username}</p>
 				</div>
 
 				<div class="detail-title-info-count">
@@ -303,20 +315,33 @@ li {}
 					<p class="detail-title-info-count-text">추천 : 0</p>
 				</div>
 			</div>
-
+			
+			<c:if test="${board.user.id == principal.user.id}">
+			<div class="detail-btns">
+				<button id="detail--deelete-btn" class="detail-btn" value="${board.id}">삭제</button>
+				<button class="detail-btn" onclick="location.href='/board/${board.id}/updateBoard'">수정</button>
+			</div>
+			</c:if>
 		</div>
 		
-		<div class="vote-btn">
+		<div class="content">
+			<div>${board.content}</div>
+			
+			<div class="vote-btn">
 		<button type="submit" class="article-vote-btn">
 			<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
 			<span class="article-vote-like-count">0</span>
 		</button>
 		
 		<button type="submit" class="article-vote-btn">
-			<img border="0" src="img/dislike.png" class="article-vote-dislike-img"/>
+			<img border="0" src="/img/dislike.png" class="article-vote-dislike-img"/>
 			<span class="article-vote-dislike-count">0</span>
 		</button>
 		</div>
+		</div>
+		
+		
+		
 	</div>
 	
 	<div class="reply">
@@ -368,9 +393,9 @@ li {}
                       <li class="media">
                       
                       	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
                       		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/dislike.png"></button>
                       	</div>
                        
                         <div class="media-body">
@@ -510,6 +535,22 @@ li {}
 
 	      init();
 
+	      $('#detail--deelete-btn').on("click", (e) => {
+				let id = e.currentTarget.value;
+
+				$.ajax({
+						type: "DELETE",
+						url: "/board/" + id,
+						dataType: "json"
+					}).done(res => {
+						if(res.code === 1) {
+							alert("삭제에 성공하였습니다.")
+							history.go(-1);
+						} else {
+							alert("삭제에 실패하였습니다.")
+						}
+					});
+		      });
 </script>
 
 <%@ include file="../common/footer.jsp"%>

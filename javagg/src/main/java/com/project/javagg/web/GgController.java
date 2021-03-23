@@ -45,18 +45,5 @@ public class GgController {
 		return "layout/ranking/ranking";
 	}
 	
-	@GetMapping("/mainBoard")
-	public String community() {
-		return "layout/community/mainBoard";
-	}
 	
-	@GetMapping("/detailBoard")
-	public String detailBoard() {
-		return "layout/community/detailBoard";
-	}
-	
-	@GetMapping("/writeBoard")
-	public String writeBoard() {
-		return "layout/community/writeBoard";
-	}
 }
