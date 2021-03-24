@@ -233,7 +233,7 @@
 		</div>
 		
 		<!-- 1칸 -->
-		<c:forEach var="i" begin="6" end="30" step="1">
+		<c:forEach var="i" begin="6" end="40" step="1">
 		<div style="display: flex; background-color: #EAEAEA; height: 50px;">
 			<div align="center" style="width: 10%; display: flex; align-items: center;">${i}</div>
 			<div style="width: 30%; display: flex; align-items: center;">
@@ -255,6 +255,26 @@
 		</c:forEach>
 		
 	</div>
+	<c:if test=""></c:if>
+	
+	<ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=1">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=2">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
 	<br />
 </div>
 
@@ -288,7 +308,7 @@ $.ajax({
 			})
 			console.log(rankingNum[0]);
 			
-			for(let i=0;i<30;i++){
+			for(let i=0;i<40;i++){
 				summonerid[i]=rankingNum[i].summonerId;
 				username[i] = rankingNum[i].summonerName;
 			}
@@ -307,7 +327,7 @@ $.ajax({
 				}
 			} */
 			
-			for(let i=1;i<31;i++){
+			for(let i=1;i<41;i++){
 				document.querySelector("#gamername"+i).innerHTML="<b>"+rankingNum[i-1].summonerName+"</b>";
 				document.querySelector("#rank_point"+i).innerHTML="<b>"+rankingNum[i-1].leaguePoints+" LP</b>";
 				document.querySelector("#win_bar"+i).innerHTML=rankingNum[i-1].wins;
@@ -330,7 +350,7 @@ $.ajax({
 
 			
 			document.querySelector("#pfimg_rank1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon[0]+".png"; */
-			for(let i=1;i<30;i++){
+			for(let i=1;i<40;i++){
 			$.ajax({
 				type:"GET",
 				url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,
@@ -347,7 +367,7 @@ $.ajax({
 				})
 			}
 
-			for(let i=0;i<30;i++){
+			for(let i=0;i<40;i++){
 				$.ajax({
 					type:"GET",
 					url: "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username[i]+"?api_key="+api_key,

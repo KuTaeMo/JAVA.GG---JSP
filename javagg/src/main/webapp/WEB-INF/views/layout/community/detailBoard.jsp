@@ -284,6 +284,11 @@ li {}
 	border: 1px solid black;
 	font-size: 15px;
 }
+#reply-delete-btn {
+	background-color: white;
+	color: #CC3D3D;
+	border: 0px;
+}
       
 </style>
 
@@ -345,23 +350,25 @@ li {}
 	</div>
 	
 	<div class="reply">
-		
+		<form>
+		<input type="hidden" id="boardId" value="${board.id}" />
 		<div class="reply-count">
 			<p class="reply-count-text" style="font-size: 20px;">댓글 </p>
 			<p class="reply-count-text">총 4 개</p>
-			<button type="submit" class="reply-btn">댓글 등록</button>
+			<button type="submit" class="reply-btn" id = "reply-btn">댓글 등록</button>
 		</div>
 		
 		<div class="reply-input">
 			
 
 			<div class="form-group">
-				<textarea class="form-control" id="summernote" rows="5" id="content" name="content"></textarea>
+				<textarea class="form-control" id="reply-content" rows="5" id="content" name="content"></textarea>
 				
 			</div>
 
 		
 		</div>
+		</form>
 	</div>
 		
 		
@@ -388,9 +395,11 @@ li {}
             </ul>            
             
             <div class="tab-content">
-                <div class="tab-pane active" id="comments-logout">                
+                <div class="tab-pane active" id="comments-logout">   
+                <c:forEach var="reply" items="${board.replys}">             
                     <ul class="media-list">
-                      <li class="media">
+                    
+                      <li class="media" id="reply-${reply.id}">
                       
                       	<div class="media-side">
                       		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
@@ -401,67 +410,22 @@ li {}
                         <div class="media-body">
                           <div class="">
                           	<div class="reply-list-name-time">
-                              <p class="reviews">거북이인성  <span class="reply-time">|  1시간 전</span></p>
+                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  1시간 전</span></p>
                               
                             </div>
-                              <p class="media-comment">
-                                ㅋㅋㅋㅋㅋ 재밌네
-                              </p>
+                              
+                                ${reply.content}
+                              <c:if test="${reply.user.id == principal.user.id}">
+                              <button id = "reply-delete-btn" onclick="deleteReply(${reply.id})" class="badge">삭제</button>
+                              </c:if>
                           </div>              
                         </div>
-                      </li>          
+                      </li>    
+                          
                     </ul> 
                      <hr/>
-                     
-                    <ul class="media-list">
-                      <li class="media">
-                      
-                      	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
-                      		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
-                      	</div>
-                       
-                        <div class="media-body">
-                          <div class="">
-                          	<div class="reply-list-name-time">
-                              <p class="reviews">9 C  <span class="reply-time">|  2시간 전</span></p>
-                              
-                            </div>
-                              <p class="media-comment">
-                                나는 진주 사람이야
-                              </p>
-                          </div>              
-                        </div>
-                      </li>          
-                     
-                    </ul>
-                    
-                    <hr/>
-                    
-                    <ul class="media-list">
-                      <li class="media">
-                      
-                      	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
-                      		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
-                      	</div>
-                       
-                        <div class="media-body">
-                          <div class="">
-                          	<div class="reply-list-name-time">
-                              <p class="reviews">태치야치  <span class="reply-time">|  2시간 전</span></p>
-                              
-                            </div>
-                              <p class="media-comment">
-                                내릴 사람 있나?
-                              </p>
-                          </div>              
-                        </div>
-                      </li>          
-                     
-                    </ul>  
+                     </c:forEach>  
+               
                 </div>
                 
                 <div class="tab-pane" id="add-comment">
@@ -498,7 +462,7 @@ li {}
 </div>
 	
 <script>
-		$('#summernote').summernote({
+		$('#reply-content').summernote({
 			placeholder : '글을 쓰세요.',
 			tabsize : 2,
 			height : 160
@@ -551,6 +515,46 @@ li {}
 						}
 					});
 		      });
+
+
+
+	      $("#reply-btn").on("click", (e) => {
+	    		e.preventDefault();
+	    		let data = {
+	    				boardId: $("#boardId").val(),
+	    				content: $("#reply-content").val()
+	    			};
+	    			
+	    			$.ajax({
+	    				type: "POST",
+	    				url: "/reply",
+	    				data: JSON.stringify(data),
+	    				contentType: "application/json; charset=utf-8",
+	    				dataType: "JSON"
+	    			}).done((res)=>{
+	    				console.log(res);
+	    				if(res.code === 1){
+	    					location.reload();
+	    				}else{
+	    					alert("댓글 작성에 실패하였습니다.");
+	    				}
+	    			});
+	    	});
+
+	      function deleteReply(id) {
+	  		$.ajax({
+	  			type: "DELETE",
+	  			url: "/reply/" + id,
+	  			dataType: "json"
+	  		}).done((res)=>{
+	  			console.log(res);
+	  			if(res.code === 1){
+	  				$("#reply-"+id).remove();
+	  			}else{
+	  				alert("삭제에 실패하였습니다.");
+	  			}
+	  		});
+	  	}
 </script>
 
 <%@ include file="../common/footer.jsp"%>

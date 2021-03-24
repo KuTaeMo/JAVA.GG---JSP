@@ -84,4 +84,5 @@ public class BoardController {
 		boardService.글수정하기(id, boardWriteReqDto);
 		return new CMRespDto<>(1, null);
 	}
+
 }
