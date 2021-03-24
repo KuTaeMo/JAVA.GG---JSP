@@ -15,9 +15,14 @@ public class GgController {
 		return "layout/index";
 	}
 	
-	@GetMapping("/test")
+	@GetMapping("/test1")
 	public String testtab() {
 		return "layout/searchMatchTest";
+	}
+	
+	@GetMapping("/test")
+	public String testtab1() {
+		return "layout/searchSpecific";
 	}
 
 	@GetMapping("/home")
