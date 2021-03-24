@@ -17,10 +17,10 @@ ul.tabs {
 	float: left;
 	list-style: none;
 	height: 32px; /*--Set height of tabs--*/
-	
 	border-left: 1px solid #999;
 	width: 100%;
 }
+
 ul.tabs li {
 	float: left;
 	margin: 0;
@@ -35,6 +35,7 @@ ul.tabs li {
 	position: relative;
 	background: #FFFFFF;
 }
+
 ul.tabs li a {
 	text-decoration: none;
 	color: #000;
@@ -45,16 +46,19 @@ ul.tabs li a {
 	border: 1px solid #fff;
 	outline: none;
 }
+
 ul.tabs li a:hover {
 	background: #ccc;
 }
+
 html ul.tabs li.active, html ul.tabs li.active a:hover {
 	/*--Makes sure that the active tab does not listen to the hover properties--*/
 	background: #E7E7E7;
 	/*--Makes the active tab look like it's connected with its content--*/
 	border-bottom: 1px solid #fff;
 }
-html ul.tabs li.active, html ul.tabs li.active a:focus{
+
+html ul.tabs li.active, html ul.tabs li.active a:focus {
 	background: #E7E7E7;
 }
 </style>
@@ -101,21 +105,21 @@ html ul.tabs li.active, html ul.tabs li.active a:focus{
 			<button class="search_button" id="searchuser">전적 갱신</button>
 		</div>
 	</div>
-	
+
 	<!-- 종합, 인게임 -->
 	<div class="mContainer" style="display: flex;">
 		<!--탭 메뉴 영역 -->
 		<ul class="tabs">
-			<li style="margin-right: 30px;background-color: #FFFFFF;"><a href="#tab1"
-				style="width: 100px; height: 35px; display: flex; justify-content: center; align-items: center; "> 종합</a></li>
+			<li style="margin-right: 30px; background-color: #FFFFFF;"><a href="#tab1"
+				style="width: 100px; height: 35px; display: flex; justify-content: center; align-items: center;"> 종합</a></li>
 
 			<li style="border-left: 1px solid #999;"><a href="#tab2"
-				style="height: 100%; background-color: white; color: #1F8ECD; display: flex; justify-content: center; align-items:center; ">
+				style="height: 100%; background-color: white; color: #1F8ECD; display: flex; justify-content: center; align-items: center;">
 					<img style="height: 31px;" src="img/ingame.png" />인게임 정보 <!-- 인게임 정보 api : spectator -->
 			</a></li>
 		</ul>
 	</div>
-	<hr style="margin-top: -3px;"/>
+	<hr style="margin-top: -3px;" />
 	<!--탭 콘텐츠 영역 -->
 	<div class="tab_container">
 
@@ -195,125 +199,263 @@ html ul.tabs li.active, html ul.tabs li.active a:focus{
 
 				<!-- 오른쪽 박스 -->
 				<div id="right-container" style="width: 70%; margin-left: 5px;">
-				<!-- 승률 박스 -->
-	<div style="border: 1px solid #CDD2D2; display: flex; background-color: #EDEDED;">
+					<!-- 승률 박스 -->
+					<div style="border: 1px solid #CDD2D2; display: flex; background-color: #EDEDED;">
 
-		<!-- 1번 박스 -->
-		<!-- 승률 -->
-		<div style="display: flex; flex-direction: column; width: 40%; border-right: 1px solid #CDD2D2;  padding: 20px;">
-			<div style="display: flex; font-size: 13px; color: gray;">
-				20전<div id="win" style="margin-left: 5px;">13승</div><div id="lose" style="margin-left: 5px;">7패</div>
-			</div>
-			<div style="display: flex;">
-				<!-- 그래프 -->
-				<div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center;">
-					<!-- 승률 text -->
-					<div style="position: absolute; font-size: 18px;">50%</div>
-					<!-- 승률 graph -->
-					<canvas id="myChart" width="10" height="10"></canvas>
-				</div>
-				<!-- 승률 수치 -->
-				<div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-					<!-- 킬뎃 평균  -->
-					<div style="display: flex; font-size: 11px;">
-						<div>11.2</div>/
-						<div style="color: red;">6.9</div>/
-						<div>17.6</div>
-					</div>
-					<!-- kda -->
-					<div style="display: flex; font-size: 20px;">
-						4.17:1 <div style="color: red;">(66%)</div>
-					</div>
-				</div>
-			</div>
+						<!-- 1번 박스 -->
+						<!-- 승률 -->
+						<div style="display: flex; flex-direction: column; width: 40%; border-right: 1px solid #CDD2D2; padding: 20px;">
+							<div style="display: flex; font-size: 13px; color: gray;">
+								20전
+								<div id="win" style="margin-left: 5px;">13승</div>
+								<div id="lose" style="margin-left: 5px;">7패</div>
+							</div>
+							<div style="display: flex;">
+								<!-- 그래프 -->
+								<div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center;">
+									<!-- 승률 text -->
+									<div style="position: absolute; font-size: 18px;">50%</div>
+									<!-- 승률 graph -->
+									<canvas id="myChart" width="10" height="10"></canvas>
+								</div>
+								<!-- 승률 수치 -->
+								<div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+									<!-- 킬뎃 평균  -->
+									<div style="display: flex; font-size: 11px;">
+										<div>11.2</div>
+										/
+										<div style="color: red;">6.9</div>
+										/
+										<div>17.6</div>
+									</div>
+									<!-- kda -->
+									<div style="display: flex; font-size: 20px;">
+										4.17:1
+										<div style="color: red;">(66%)</div>
+									</div>
+								</div>
+							</div>
 
+						</div>
+
+						<!-- 2번 박스 -->
+						<!-- 챔피언별 승률 -->
+						<div style="width: 35%; border-right: 1px solid #CDD2D2; padding: 10px;">
+							<div style="display: flex; flex-direction: column; margin: 5% 5% 0 10%;">
+								<!-- 승률1 -->
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
+									<!-- 챔피언 사진 -->
+									<img id="champImg1" class="circle_image" src="img/Jayce.png"
+										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
+
+									<div>
+										<!-- 승률1 챔피언 이름 -->
+										<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
+										<div style="display: flex;">
+											<!-- 승률1 승률-->
+											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
+											<!-- 승률1 승패-->
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
+											<!-- 승률1 평점-->
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 승률1 -->
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
+									<!-- 챔피언 사진 -->
+									<img id="champImg1" class="circle_image" src="img/Jayce.png"
+										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
+
+									<div>
+										<!-- 승률1 챔피언 이름 -->
+										<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
+										<div style="display: flex;">
+											<!-- 승률1 승률-->
+											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
+											<!-- 승률1 승패-->
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
+											<!-- 승률1 평점-->
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 승률1 -->
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
+									<!-- 챔피언 사진 -->
+									<img id="champImg1" class="circle_image" src="img/Jayce.png"
+										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
+
+									<div>
+										<!-- 승률1 챔피언 이름 -->
+										<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
+										<div style="display: flex;">
+											<!-- 승률1 승률-->
+											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
+											<!-- 승률1 승패-->
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
+											<!-- 승률1 평점-->
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 3번 박스 -->
+						<!-- 포지션별 랭크 -->
+						<div style="width: 25%; padding: 20px; font-size: 12px; color: gray; display: flex; flex-direction: column;">
+							선호 포지션 (랭크)
+							<div style="margin-top: 25px;">
+								원딜
+								<div style="display: flex;">
+									<div style="color: #1F8ECD; margin-right: 5px;">55%</div>
+									|
+									<div style="margin-left: 5px;">승률 33%</div>
+								</div>
+							</div>
+							<div style="margin-top: 15px;">
+								정글
+								<div style="display: flex;">
+									<div style="color: #1F8ECD; margin-right: 5px;">55%</div>
+									|
+									<div style="margin-left: 5px;">승률 33%</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- 승률 정보 끝  -->
+					<br/>
+					<!-- 전적 시작 -->
+					<div style="display: flex; border: 1px solid #bcbcbc; background-color: #A3CFEC; width: 100%;">
+	<!-- 겜 정보 -->
+	<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;font-size: 11px; margin: 10px 10px 10px 0; width: 14%">
+		<div>무작위 총력전</div>
+		<div>하루 전</div>
+		<hr style="width: 20px;"/>
+		<div style="color: #1A85C4;">승리</div>
+		<div>18분 1초</div>
+	</div>
+	
+	<!-- 챔피언, 스펠, 룬 -->
+	<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 20px; width: 15%;">
+		<div style="display: flex;">
+			<img id = "champImg1" class="circle_image" src="img/Jayce.png"
+								style="width: 50px; height: 50px; margin-right: 5px; border-radius: 30px;" />
+			<!-- 스펠 -->
+			<div style="display: flex; flex-direction: column; margin-right: 5px;">
+				<img id="spellD" src="" style="width: 25px; height: 25px;"/>
+				<img id="spellF" src="" style="width: 25px; height: 25px;"/>
+			</div>
+			<!-- 룬 -->
+			<div style="display: flex; flex-direction: column;">
+				<img id="RuneMain" src="img/pic1.png" style="width: 25px; height: 25px; border-radius: 30px;"/>
+				<img id="RuneSub" src="img/pic1.png" style="width: 25px; height: 25px; border-radius: 30px;"/>
+			</div>
 		</div>
-
-		<!-- 2번 박스 -->
-		<!-- 챔피언별 승률 -->
-		<div style="width: 35%; border-right: 1px solid #CDD2D2;  padding: 10px; ">
-			<div style="display: flex; flex-direction: column; margin: 5% 5% 0 10%;">
-					<!-- 승률1 -->
-					<div style="display: flex; align-items: center; margin-bottom: 10px; ">
-						<!-- 챔피언 사진 -->
-						<img id = "champImg1" class="circle_image" src="img/Jayce.png"
-							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-							
-						<div>
-							<!-- 승률1 챔피언 이름 -->
-							<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
-							<div style="display: flex;">
-								<!-- 승률1 승률-->
-								<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
-								<!-- 승률1 승패-->
-								<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
-								<!-- 승률1 평점-->
-								<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- 승률1 -->
-					<div style="display: flex; align-items: center; margin-bottom: 10px; ">
-						<!-- 챔피언 사진 -->
-						<img id = "champImg1" class="circle_image" src="img/Jayce.png"
-							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-							
-						<div>
-							<!-- 승률1 챔피언 이름 -->
-							<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
-							<div style="display: flex;">
-								<!-- 승률1 승률-->
-								<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
-								<!-- 승률1 승패-->
-								<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
-								<!-- 승률1 평점-->
-								<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- 승률1 -->
-					<div style="display: flex; align-items: center; margin-bottom: 10px; ">
-						<!-- 챔피언 사진 -->
-						<img id = "champImg1" class="circle_image" src="img/Jayce.png"
-							style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
-							
-						<div>
-							<!-- 승률1 챔피언 이름 -->
-							<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
-							<div style="display: flex;">
-								<!-- 승률1 승률-->
-								<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
-								<!-- 승률1 승패-->
-								<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
-								<!-- 승률1 평점-->
-								<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		<div id="championName" style="font-size: 12px; margin-top: 5px;">제이스</div>
+	</div>
+	
+	
+	<!-- 킬뎃 -->
+	<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 20px; width: 11%;">
+		<div style="display: flex; justify-content: center; align-items: center; font-size: 15px; font-weight: bold; color: gray; margin-bottom: 5px;">
+			<div id="kill">12</div>/<div id="death" style="color: red;">8</div>/<div id="assist">15</div>
+		</div>
+		<div style="display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: bold; color: gray; margin-bottom: 5px;">
+			<div id="winper" style="color: black;">3.38:1</div><div style="font-weight: normal;">평점</div>
+		</div>
+		<div style="display:flex; justify-content:center; align-items:center; background-color: #EE5A52; color: white; border-radius: 15px; width: 60px; height: 20px; font-size: 12px;">더블킬</div>
+	</div>
+	
+	<!-- 레벨, cs, 킬관여 -->
+	<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; color: gray; font-size: 12px; margin-right: 20px;">
+		<div id="level" style="margin-bottom: 5px;">레벨 18</div>
+		<div style="display: flex;justify-content: center; align-items: center; margin-bottom: 5px;">
+			<div id="cs">100</div><div id="cspermin">(4.7)</div>CS
+		</div>
+		<div align="center" style="color: red; margin-bottom: 5px;">킬관여 74%</div>
+	</div>
+	
+	<!-- 아이템 -->
+	<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 15px; width: 10%; width: 15%;">
+		<!-- 아이템 위층 -->
+		<div style="display: flex; justify-content: center; align-items: center;">
+			<div style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+			<div style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+			<div style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+		</div>
+		<!-- 아이템 아래층 -->
+		<div style="display: flex; justify-content: center; align-items: center;">
+			<div style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+			<div style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+			<div style="width: 25px; height: 25px;"><img src="img/searchbuild.png" style="width: 25px; height: 25px; margin: 0 1px 2px 1px;"/></div>
+		</div>
+	</div>
+	
+	<!-- 팀원 -->
+	<div style="display: flex; justify-content: center; align-items: center; width: 30%;">
+		<!-- 아군 -->
+		<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 10px;">
+			<!-- 1 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="myTeamName">소환사 이름</span>
+			</div>
+			<!-- 2 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="myTeamName">소환사 이름</span>
+			</div>
+			<!-- 3 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="myTeamName">소환사 이름</span>
+			</div>
+			<!-- 4 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="myTeamName">소환사 이름</span>
+			</div>
+			<!-- 5 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="myTeamName">소환사 이름</span>
+			</div>
 		</div>
 		
-		<!-- 3번 박스 -->
-		<!-- 포지션별 랭크 -->
-		<div style="width: 25%; padding: 20px; font-size: 12px; color: gray; display: flex; flex-direction: column;">
-		선호 포지션 (랭크)
-		<div style="margin-top: 25px;">
-			원딜
-			<div style="display: flex;"><div style="color: #1F8ECD; margin-right: 5px;">55%</div>|<div style="margin-left: 5px;">승률 33%</div></div>
+		<!-- 적군 -->
+		<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 5px;">
+			<!-- 1 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="sideTeamName">소환사 이름</span>
+			</div>
+			<!-- 2 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="sideTeamName">소환사 이름</span>
+			</div>
+			<!-- 3 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="sideTeamName">소환사 이름</span>
+			</div>
+			<!-- 4 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="sideTeamName">소환사 이름</span>
+			</div>
+			<!-- 5 -->
+			<div style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+				<img src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png" style="width: 15px; height: 15px; margin-right: 3px;"/><span id="sideTeamName">소환사 이름</span>
+			</div>
 		</div>
-		<div style="margin-top: 15px;">
-			정글
-			<div style="display: flex;"><div style="color: #1F8ECD; margin-right: 5px;">55%</div>|<div style="margin-left: 5px;">승률 33%</div></div>
-		</div>
-		</div>
+	</div>
+	
+	<!-- 전적 토글 버튼 -->
+	<div style="border:1px solid #5ca7d6; background-color: #64B1E4; width: 5%">
 
 	</div>
+</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 인게임 정보 탭 -->
 		<div id="tab2" class="tab_content">
 			<!--Content-->
@@ -446,8 +588,17 @@ var myChart = new Chart(ctx, {
 		cutoutPercentage : 70
 	}
 });
-</script>
-<%@ include file="../common/footer.jsp"%>
-</body>
 
-</html>
+// 전적검색 스펠
+$.ajax({
+	type:"GET",
+	url: "http://ddragon.leagueoflegends.com/cdn/11.6.1/data/ko_KR/summoner.json",
+	dataType:"json"
+	}).done((res)=>{
+		console.log(res);
+		document.querySelector("#spellD").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerFlash.png"
+		document.querySelector("#spellF").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerHeal.png"
+			
+	});
+</script>
+	<%@ include file="../common/footer.jsp"%>

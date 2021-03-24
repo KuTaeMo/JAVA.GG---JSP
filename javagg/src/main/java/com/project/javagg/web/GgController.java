@@ -17,7 +17,7 @@ public class GgController {
 	
 	@GetMapping("/test")
 	public String testtab() {
-		return "layout/test";
+		return "layout/searchMatchTest";
 	}
 
 	@GetMapping("/home")
