@@ -33,7 +33,6 @@ public class Reply {
 	private Integer id;
 	
 	@Lob
-	@Column(nullable = false)
 	private String content;
 	
 	@ManyToOne 

@@ -44,4 +44,11 @@ public class ReplyService {
 			return -1;
 		}
 	}
+	
+	@Transactional
+	public int 댓글개수(int id) {
+		System.out.println(replyRepository.countReply(id));
+		return replyRepository.countReply(id);
+	}
+	
 }

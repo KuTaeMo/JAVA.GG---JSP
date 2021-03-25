@@ -27,6 +27,7 @@ public class ReplyController {
 		
 		Reply replyEntity = replyService.댓글쓰기(replyWriteReqDto);
 		
+		
 		if(replyEntity == null) {
 			return new CMRespDto<>(-1, null);
 		} else {
@@ -40,4 +41,6 @@ public class ReplyController {
 		int result = replyService.댓글삭제하기(id, principalDetails.getUser().getId());
 		return new CMRespDto<>(result, null);
 	}
+	
+	
 }

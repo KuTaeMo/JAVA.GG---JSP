@@ -19,6 +19,7 @@ import com.project.javagg.config.auth.PrincipalDetails;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
 import com.project.javagg.service.BoardService;
+import com.project.javagg.service.ReplyService;
 import com.project.javagg.web.dto.CMRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
 
 	private final BoardService boardService;
+	private final ReplyService replyService;
 	
 	@GetMapping("/community")
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
@@ -62,7 +64,9 @@ public class BoardController {
 	public String detailBoard(@PathVariable int id, Model model) {
 		Board boardEntity = boardService.글상세보기(id);
 		model.addAttribute("board", boardEntity);
-		
+		model.addAttribute("view", boardService.조회수증가(id));
+		model.addAttribute("replys", replyService.댓글개수(id));
+		System.out.println("좀 되라 : " + id);
 		return "layout/community/detailBoard";
 	}
 	

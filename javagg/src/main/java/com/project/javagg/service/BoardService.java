@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.BoardRepository;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
+import com.project.javagg.domain.reply.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
 	private final BoardRepository boardRepository;
+	private final ReplyRepository replyRepository;
 	
 	public Page<Board> 전체리스트(Pageable pageable) {
 		return boardRepository.findAll(pageable);
@@ -30,6 +32,13 @@ public class BoardService {
 	public Board 글상세보기(int id) {
 		return boardRepository.findById(id).get();
 	}
+	
+	@Transactional
+	public int 조회수증가(int id) {
+		return boardRepository.updateReadCount(id);
+	}
+	
+	
 	
 	@Transactional
 	public void 글삭제하기(int id) {

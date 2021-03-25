@@ -313,9 +313,9 @@ li {}
 				</div>
 
 				<div class="detail-title-info-count">
-					<p class="detail-title-info-count-text">조회 : 0</p>
+					<p class="detail-title-info-count-text">조회 : ${board.readCount}</p>
 					<p class="detail-title-info-count-text">|</p>
-					<p class="detail-title-info-count-text">댓글 : 0</p>
+					<div id="rpc"><p class="detail-title-info-count-text">댓글 : ${replys}</p></div>
 					<p class="detail-title-info-count-text">|</p>
 					<p class="detail-title-info-count-text">추천 : 0</p>
 				</div>
@@ -349,19 +349,19 @@ li {}
 		
 	</div>
 	
-	<div class="reply">
+	<div id="aaa1" class="reply">
 		<form>
 		<input type="hidden" id="boardId" value="${board.id}" />
 		<div class="reply-count">
 			<p class="reply-count-text" style="font-size: 20px;">댓글 </p>
-			<p class="reply-count-text">총 4 개</p>
-			<button type="submit" class="reply-btn" id = "reply-btn">댓글 등록</button>
+			<p class="reply-count-text">총</p> <div id = "replyCount">0</div> <p>개</p>
+			<button name="content" type="submit" class="reply-btn" id = "reply-btn">댓글 등록</button>
 		</div>
 		
-		<div class="reply-input">
+		<div id="bbb1" class="reply-input">
 			
 
-			<div class="form-group">
+			<div id = "www1" class="form-group">
 				<textarea class="form-control" id="reply-content" rows="5" id="content" name="content"></textarea>
 				
 			</div>
@@ -382,7 +382,7 @@ li {}
 		
 		
 		
-		<div class="reply-list">
+		<div class="reply-list" id="zzz1">
   <div class="row">
     <div class="reply-all">
         <div class="page-header">
@@ -462,15 +462,18 @@ li {}
 </div>
 	
 <script>
+		
 		$('#reply-content').summernote({
 			placeholder : '글을 쓰세요.',
 			tabsize : 2,
 			height : 160
 		});
-
-
+		
+		
 		location.href = "#tab1";
 
+		
+		
 		var div2 = document.getElementsByClassName("reviews");
 
 	      function handleClick(event) {
@@ -522,9 +525,10 @@ li {}
 	    		e.preventDefault();
 	    		let data = {
 	    				boardId: $("#boardId").val(),
-	    				content: $("#reply-content").val()
+	    				content: $("#reply-content").val(),
+	    				readCount: $("#ccc").val()
 	    			};
-	    			
+	    		
 	    			$.ajax({
 	    				type: "POST",
 	    				url: "/reply",
@@ -534,7 +538,14 @@ li {}
 	    			}).done((res)=>{
 	    				console.log(res);
 	    				if(res.code === 1){
-	    					location.reload();
+	    					
+	    					// $("#zzz1").load(window.location.href + "#zzz1 ul");
+	    					// $("#zzz1").load(window.location.href + " #zzz1" );
+	    					//$("#zzz1").load(" #zzz1 > *");
+	    					// $("#rpc").load(" #rpc > *");
+	    					// $("#aaa1").load(" #aaa1 > *");
+	    					//$('#reply-content').summernote('reset');
+						 	history.go(0);
 	    				}else{
 	    					alert("댓글 작성에 실패하였습니다.");
 	    				}
@@ -555,6 +566,9 @@ li {}
 	  			}
 	  		});
 	  	}
+
+	      console.log("되라 좀 : " + "${replys}");
+
 </script>
 
 <%@ include file="../common/footer.jsp"%>
