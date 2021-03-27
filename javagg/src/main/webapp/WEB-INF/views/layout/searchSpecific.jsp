@@ -48,7 +48,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -59,7 +59,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -99,7 +99,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -139,7 +139,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 					
 					
@@ -172,7 +172,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -182,7 +182,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -211,7 +211,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -221,7 +221,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -260,7 +260,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -271,7 +271,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -299,7 +299,7 @@
 				<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -310,7 +310,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -339,7 +339,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -350,7 +350,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -379,7 +379,7 @@
 				
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -390,7 +390,7 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
@@ -418,7 +418,7 @@
 				<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
 				
 				<!-- 세부 룬 -->
-				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 16%;">
+				<div style="width: 26%; display: flex; justify-content: center; align-items: center; margin-left: 23%;">
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
@@ -429,17 +429,21 @@
 						<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
 						
 						<!-- 밴 -->
-						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 20%" />
+						<img id="spellDm1" src="" style="width: 20px; height: 20px; margin-left: 100%" />
 					</div>
 				</div>
 			</div>
 			<!-- 끝 -->
 		</div>
 		
-		
-		
-		
-		
+	</div>
+	
+	
+	<!-- 게임중이 아니라면 -->
+	<div>
+		<p style="text-align: center; font-size: 25px; font-weight: bold;">'9c'님은 게임중이 아닙니다.</p>
+		<p style="text-align: center; font-size: 18px;">현재 게임중이라면 다시 시도해주세요.</p>
+		<p style="text-align: center; font-size: 18px;">('Bot'은 RiotAPI에서 인게임 정보를 가져올 수 없습니다.)</p>
 	</div>
 
 	<script>

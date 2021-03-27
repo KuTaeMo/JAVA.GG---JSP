@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-let api_key="RGAPI-32eca76a-043b-4226-a9cd-a9e2a93cf0b5";
+let api_key="RGAPI-92a7e4b9-d7c5-4f77-bc80-052bc002f18c";
 </script>
 </body>
 </html>
