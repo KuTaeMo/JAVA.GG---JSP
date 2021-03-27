@@ -9,5 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CMRespDto<T> {
 	private int code;
+	private String msg;
 	private T data;
+	
+	
+	public CMRespDto(int code, T data) {
+		this.code = code;
+		this.data = data;
+	}
+	
+	
 }

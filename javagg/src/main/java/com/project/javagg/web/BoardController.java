@@ -20,6 +20,7 @@ import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
 import com.project.javagg.service.BoardService;
 import com.project.javagg.service.ReplyService;
+import com.project.javagg.utils.Script;
 import com.project.javagg.web.dto.CMRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -72,7 +73,7 @@ public class BoardController {
 	@DeleteMapping("/board/{id}")
 	public @ResponseBody CMRespDto<?> deleteById(@PathVariable int id) {
 		boardService.글삭제하기(id);
-		return new CMRespDto<>(1, null);
+		return new CMRespDto<>(1,Script.reload("삭제에 성공하였습니다."), null);
 	}
 	
 	@GetMapping("/board/{id}/updateBoard")
@@ -85,7 +86,7 @@ public class BoardController {
 	@PutMapping("/board/{id}")
 	public @ResponseBody CMRespDto<?> update(@PathVariable int id, @RequestBody BoardWriteReqDto boardWriteReqDto) {
 		boardService.글수정하기(id, boardWriteReqDto);
-		return new CMRespDto<>(1, null);
+		return new CMRespDto<>(1,Script.reload("수정에 성공하였습니다.") ,null);
 	}
 
 }
