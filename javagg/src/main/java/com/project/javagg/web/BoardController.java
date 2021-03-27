@@ -2,6 +2,7 @@ package com.project.javagg.web;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.data.domain.Sort;
 
 import com.project.javagg.config.auth.PrincipalDetails;
 import com.project.javagg.domain.board.Board;
@@ -36,7 +36,6 @@ public class BoardController {
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		
 		Page<Board> boards = boardService.전체리스트(pageable);
-		
 		model.addAttribute("boards", boards);
 		return "layout/community/mainBoard";
 	}
