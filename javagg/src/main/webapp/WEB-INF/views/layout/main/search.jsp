@@ -329,8 +329,11 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 					</div>
 					<!-- 승률 정보 끝  -->
 					<br />
-					<!-- 전적 시작 -->
-					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 50px;">
+					
+					<c:forEach var="num" begin="1" end="5" step="1">
+					
+						<!-- 전적 시작 -->
+					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px;">
 						<!-- 전적 박스 -->
 						<div style="display: flex; border: 1px solid #bcbcbc; background-color: #A3CFEC; width: 100%;">
 							<!-- 겜 정보 -->
@@ -360,7 +363,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											src="img/pic1.png" style="width: 25px; height: 25px; border-radius: 30px;" />
 									</div>
 								</div>
-								<div id="championName" style="font-size: 12px; margin-top: 5px;">제이스</div>
+								<div id="championName" style="font-size: 12px; margin-top: 5px;">제이스 ${num}</div>
 							</div>
 
 
@@ -516,7 +519,11 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">CS</div>
 								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">아이템</div>
 							</div>
-							<!-- 상세정보 1행 -->
+							
+							
+							<!-- 우리팀 상세정보 for문 -->
+							<c:forEach var="ourmember" begin="1" end="5" step="1">
+								
 							<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
 								<div style="display: flex; align-items: flex-end;">
 									<div id="levelm1">11</div>
@@ -533,10 +540,10 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
 											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
 									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
+									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치 </span>
 								</div>
 								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
+								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold ${ourmember }</div>
 								<!-- KDA -->
 								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 									<div>3.33:1</div>
@@ -577,254 +584,10 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								</div>
 							</div>
 							<!-- 끝 -->
-							<!-- 상세정보 2행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm2">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm2" src="" style="width: 20px; height: 20px;" /> <img id="spellFm2" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 3행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm3">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm3" src="" style="width: 20px; height: 20px;" /> <img id="spellFm3" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 4행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm4">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm4" src="" style="width: 20px; height: 20px;" /> <img id="spellFm4" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 5행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm4">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm5" src="" style="width: 20px; height: 20px;" /> <img id="spellFm5" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
+							</c:forEach>
+							
+							
+							
 							<div
 								style="display: flex; justify-content: center; align-items: center; font-size: 12px; height: 50px; background-color: #E4E4E4; border-top: 1px solid #bcbcbc;">
 								<!-- 블루팀 오브젝트 -->
@@ -899,8 +662,10 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">CS</div>
 								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">아이템</div>
 							</div>
-							<!-- 상세정보 1행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
+							
+							<!-- 상대팀 상세정보 for문 -->
+							<c:forEach var="sidemember" begin="1" end="5" step="1">
+								<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
 								<div style="display: flex; align-items: flex-end;">
 									<div id="levelm1">11</div>
 								</div>
@@ -919,7 +684,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
 								</div>
 								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
+								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold ${sidemember }</div>
 								<!-- KDA -->
 								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 									<div>3.33:1</div>
@@ -960,256 +725,16 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								</div>
 							</div>
 							<!-- 끝 -->
-							<!-- 상세정보 2행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm2">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm2" src="" style="width: 20px; height: 20px;" /> <img id="spellFm2" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 3행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm3">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm3" src="" style="width: 20px; height: 20px;" /> <img id="spellFm3" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 4행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm4">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm4" src="" style="width: 20px; height: 20px;" /> <img id="spellFm4" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
-							<!-- 상세정보 5행 -->
-							<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
-								<div style="display: flex; align-items: flex-end;">
-									<div id="levelm4">11</div>
-								</div>
-								<div style="width: 25%; display: flex; align-items: center;">
-									<div></div>
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
-										style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-									<div style="display: flex; flex-direction: column; margin-right: 5px;">
-										<img id="spellDm5" src="" style="width: 20px; height: 20px;" /> <img id="spellFm5" src=""
-											style="width: 20px; height: 20px;" />
-									</div>
-									<!-- 룬 -->
-									<div style="display: flex; flex-direction: column;">
-										<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="RuneSub"
-											src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
-									</div>
-									<span id="championName" style="font-size: 12px; margin-top: 5px;">태치야치</span>
-								</div>
-								<!-- 티어 -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center;">Gold 1</div>
-								<!-- KDA -->
-								<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-									<div>3.33:1</div>
-									<div style="font-size: 8px;">7/6/13 (38%)</div>
-								</div>
-								<!-- 피해량 -->
-								<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-									<div
-										style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-										<!-- 승률 text -->
-										<div style="font-size: 11px;">25,537</div>
-										<!-- 승률 graph -->
-										<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
-											<div style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
-										</div>
-									</div>
-								</div>
-								<!-- 와드 -->
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">14/1</div>
-								<div style="width: 7%; display: flex; justify-content: center; align-items: center;">205(5.6)</div>
-								<div style="width: 26%; display: flex; justify-content: center; align-items: center;">
-									<div style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-										<div
-											style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-									</div>
-								</div>
-							</div>
-							<!-- 끝 -->
+							</c:forEach>
+							
+							
+							
 						</div>
 					</div>
+					
+					</c:forEach>
+					
+					
 
 
 
