@@ -16,7 +16,7 @@ import lombok.Data;
 public class PrincipalDetails implements UserDetails, OAuth2User{
 
 	private User user;
-	private Map<String, Object> attributes; // OAuth 제공자로 부터 받은 회원 정보. 모든 데이터를 다 받기 위해 Map으로 만듦
+	private Map<String, Object> attributes;
 	private boolean oauth = false;
 	
 	
@@ -27,8 +27,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 
 	@Override
 	public String getName() {
-		// 중요한 거 아님
-		return "몰라";
+		return "";
 	}
 	
 	public PrincipalDetails(User user,  Map<String, Object> attributes) {
