@@ -393,7 +393,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div id="cspermin">(4.7)</div>
 									CS
 								</div>
-								<div style="color: red; margin-bottom: 5px;">킬관여 74%</div>
+								<div align="center" style="color: red; margin-bottom: 5px;">킬관여 74%</div>
 							</div>
 
 							<!-- 아이템 -->
@@ -494,7 +494,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 							<!-- 전적 토글 버튼 -->
 							<a href='javascript:doDisplay();'
 								style="border: 1px solid #5ca7d6; background-color: #64B1E4; width: 5%; display: flex; justify-content: center; align-items: flex-end;">
-								<img src="img/winMore.png" style="width: 20px; height: 20px;" />
+								<img id="moreButton" src="img/winMore.png" style="width: 20px; height: 20px;" />
 							</a>
 						</div>
 
@@ -1232,7 +1232,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 
 	<!-- 전적검색 -->
-	<script>
+<script>
 let accountid="1";
 let encid="1";
 let username="${gamername}";
@@ -1250,11 +1250,98 @@ $.ajax({
 	}).done((res)=>{
 			$("#level").val("Lv"+res.summonerLevel);
 			accountid=res.accountId;
+			console.log("accountid : "+accountid)
 			$("#accountid").val("accountid : "+accountid);
 			encid=res.id;
 			$("#encid").val("encid : "+encid);
 			icon=res.profileIconId;
 			document.querySelector("#usericon").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
+
+			// api 데이터 뽑기
+			console.log("accountid : "+accountid)
+			// 매치 정보
+			$.ajax({
+				type:"GET",
+				url: "https://kr.api.riotgames.com/lol/match/v4/matchlists/by-account/"+accountid+"?api_key="+api_key,
+				dataType:"json"
+				}).done((res)=>{ 
+					
+				console.log(res);
+				$("#gameId").val(res.matches[0].gameId);
+				gameId = res.matches[0].gameId
+				console.log(res.matches[0].gameId); //100개까지 뽑힘
+									
+					$.ajax({
+					type:"GET",
+					url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
+					dataType:"json"
+					}).done((res)=>{
+						
+					console.log(res.participantIdentities[0].player);
+												
+					// 적팀 소환사 이름들
+					$("#summonerName0").val(res.participantIdentities[0].player.summonerName);
+					$("#summonerName1").val(res.participantIdentities[1].player.summonerName);
+					$("#summonerName2").val(res.participantIdentities[2].player.summonerName);
+					$("#summonerName3").val(res.participantIdentities[3].player.summonerName);
+					$("#summonerName4").val(res.participantIdentities[4].player.summonerName);
+					console.log(res.participants[0].stats.item0);
+												
+					// summonerName0의 아이템
+					$("#item0").val(res.participants[0].stats.item0);
+					$("#item1").val(res.participants[0].stats.item1);
+					$("#item2").val(res.participants[0].stats.item2);
+					$("#item3").val(res.participants[0].stats.item3);
+					$("#item4").val(res.participants[0].stats.item4);
+					$("#item5").val(res.participants[0].stats.item5);
+												
+					console.log(res.participants[0].stats);
+												
+					// summonerName0의 KDA
+					$("#kills").val("kills : " + res.participants[0].stats.kills);
+					$("#deaths").val("deaths : " + res.participants[0].stats.deaths);
+					$("#assists").val("assists : " + res.participants[0].stats.assists);
+												
+					// summonerName0의 KDA 계산
+					$("#summonerName0KDA").val(((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1");
+												
+					// summonerName0의 스펠
+					$("#spell1Id").val(res.participants[0].spell1Id);
+					$("#spell2Id").val(res.participants[0].spell2Id);
+												
+					// summonerName0의 챔피언
+					$("#championId").val(res.participants[0].championId);
+												
+					// summonerName0의 챔피언 레벨
+					$("#champLevel").val("레벨 : " + res.participants[0].stats.champLevel);
+												
+					// summonerName0의 데미지
+					$("#totalDamageDealtToChampions").val("데미지 : " + res.participants[0].stats.totalDamageDealtToChampions);
+												
+					// summonerName0의 와드 개수 / 파괴
+					$("#wards").val(res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled);
+												
+					// summonerName0의 핑크 와드
+					$("#visionWards").val(res.participants[0].stats.visionWardsBoughtInGame);
+												
+					// summonerName0의 cs
+					$("#totalMinionsKilled").val(res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled);
+												
+					// summonerName0의 분당cs
+					$("#totalMinionsKilledTimes").val(((res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1));
+												
+					// summonerName0의 킬관여율
+					$("#killPercent").val(((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%");
+												
+					// summonerName0의 메인 룬
+					$("#perk0").val(res.participants[0].stats.perk0);
+					console.log(res);
+												
+					// summonerName0의 메인 룬
+					$("#perk0").val(res.participants[0].stats.perk0);
+					console.log(res);
+					});
+				});
 			// 랭크
 			$.ajax({
 				type:"GET",
@@ -1358,19 +1445,24 @@ $.ajax({
 	dataType:"json"
 	}).done((res)=>{
 		console.log(res);
-		document.querySelector("#spellD").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerFlash.png"
-		document.querySelector("#spellF").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerHeal.png"
+		document.querySelector("#spellD").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerFlash.png";
+		document.querySelector("#spellF").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerHeal.png";
 			
 	});
 
 // 전적검색 상세보기 토글
 function doDisplay(){
 	var con=document.querySelector("#matchSpecificBox");
-	if(con.style.display=='none'){
+	
+	if(con.style.display=='none'){ // 자세히보기
 		con.style.display='block';
-	}else{
+		document.querySelector("#moreButton").src="img/winClose.png";
+	}else{							// 닫기
 		con.style.display='none';
+		document.querySelector("#moreButton").src="img/winMore.png";
 	}
 }
+
+
 </script>
 	<%@ include file="../common/footer.jsp"%>
