@@ -157,7 +157,7 @@
 	var m3champid="1";
 	
 	let rankingNum=[];
-	
+	let matchNum=[];
 	
 	
 	
@@ -173,14 +173,14 @@
 				rankingNum.sort(function(a,b){
 					return b.leaguePoints-a.leaguePoints;
 				})
-				console.log(rankingNum);
+				//console.log(rankingNum);
 				
 			});
 	
 	$("#searchuser").on("click",(e)=>{
 		e.preventDefault();
 		let username=$("#username").val();
-		console.log(username);	
+		//console.log(username);	
 		
 		//summoner 소환사 정보
 		$.ajax({
@@ -205,7 +205,7 @@
 					dataType:"json"
 					}).done((res)=>{
 						
-						console.log(res);
+						//console.log(res);
 						
 						// 랭크가 없을 경우
 						if(res==""){
@@ -404,7 +404,7 @@
 					url: "https://kr.api.riotgame	s.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+encid+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
-						console.log(res);
+						//console.log(res);
 						
 						m1champid=res[0].championId;
 						$("#championLevel1").val(res[0].championLevel+" lv");	
@@ -449,31 +449,33 @@
 									}
 					});
 				
-				
+				// 최근 게임 전적
 				$.ajax({
 					type:"GET",
 					url: "https://kr.api.riotgames.com/lol/match/v4/matchlists/by-account/"+accountid+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{ 
 						console.log(res);
+						//console.log(res.matches);
 						$("#gameId").val(res.matches[0].gameId);
-						gameId = res.matches[0].gameId
-						console.log(res.matches[0].gameId);
+						gameId = res.matches[4].gameId
+						console.log("게임아이디 "+res.matches[0].gameId);
 						
 						$.ajax({
 							type:"GET",
 							url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
 							dataType:"json"
 							}).done((res)=>{
+								console.log(res);
 								console.log(res.participantIdentities[0].player);
 								
-								// 적팀 소환사 이름들
+								// 블루팀 소환사 이름들 0~4 블루팀 5~9 레드팀 
 								$("#summonerName0").val(res.participantIdentities[0].player.summonerName);
 								$("#summonerName1").val(res.participantIdentities[1].player.summonerName);
 								$("#summonerName2").val(res.participantIdentities[2].player.summonerName);
 								$("#summonerName3").val(res.participantIdentities[3].player.summonerName);
 								$("#summonerName4").val(res.participantIdentities[4].player.summonerName);
-								console.log(res.participants[0].stats.item0);
+								//console.log(res.participants[0].stats.item0);
 								
 								// summonerName0의 아이템
 								$("#item0").val(res.participants[0].stats.item0);
@@ -483,7 +485,7 @@
 								$("#item4").val(res.participants[0].stats.item4);
 								$("#item5").val(res.participants[0].stats.item5);
 								
-								console.log(res.participants[0].stats);
+								//console.log(res.participants[0].stats);
 								
 								// summonerName0의 KDA
 								$("#kills").val("kills : " + res.participants[0].stats.kills);
@@ -527,7 +529,7 @@
 								
 								// summonerName0의 메인 룬
 								$("#perk0").val(res.participants[0].stats.perk0);
-								console.log(res);
+								//console.log(res);
 							});
 					});
 								let count=0;

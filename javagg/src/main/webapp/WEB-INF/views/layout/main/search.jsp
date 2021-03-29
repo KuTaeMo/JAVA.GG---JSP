@@ -182,7 +182,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 						</div>
 						<div
 							style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
-							<div class="tiny_gray_text">솔로랭크</div>
+							<div class="tiny_gray_text">자유 5:5 랭크</div>
 
 							<div style="display: flex;">
 								<div id="ttier"
@@ -471,94 +471,34 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<!-- 팀원 -->
 								<div
 									style="display: flex; justify-content: center; align-items: center; width: 30%;">
-									<!-- 아군 -->
+									<!-- 블루팀 -->
 									<div
-										style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 10px;">
+										style="display: flex; justify-content: center; align-items: flex-start; flex-direction: column; margin-right: 10px;">
 										<!-- 1 -->
-										<div
+										<c:forEach var="num" begin="0" end="4" step="1">
+											<div
 											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
 											<img
 												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="myTeamName">소환사 이름</span>
-										</div>
-										<!-- 2 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="myTeamName">소환사 이름</span>
-										</div>
-										<!-- 3 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="myTeamName">소환사 이름</span>
-										</div>
-										<!-- 4 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="myTeamName">소환사 이름</span>
-										</div>
-										<!-- 5 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="myTeamName">소환사 이름</span>
-										</div>
+												style="width: 15px; height: 15px; margin-right: 3px;" /><div
+												id="blueTeamName${num}" ><p style="text-overflow: ellipsis; overflow: hidden;">소환사 이름</p></div>
+											</div>
+										</c:forEach>
 									</div>
 
-									<!-- 적군 -->
+									<!-- 레드팀 -->
 									<div
-										style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 5px;">
+										style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; margin-right: 5px;">
 										<!-- 1 -->
-										<div
+										<c:forEach var="num" begin="5" end="9" step="1">
+											<div
 											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
 											<img
 												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="sideTeamName">소환사 이름</span>
-										</div>
-										<!-- 2 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="sideTeamName">소환사 이름</span>
-										</div>
-										<!-- 3 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="sideTeamName">소환사 이름</span>
-										</div>
-										<!-- 4 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="sideTeamName">소환사 이름</span>
-										</div>
-										<!-- 5 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><span
-												id="sideTeamName">소환사 이름</span>
-										</div>
+												style="width: 15px; height: 15px; margin-right: 3px;" /><div
+												id="redTeamName${num}" style=" overflow: hidden;">소환사 이름</div>
+											</div>
+										</c:forEach>
 									</div>
 								</div>
 
@@ -901,13 +841,106 @@ function replaceAll(sValue, param1,param2){
 	return sValue.split(param1).join(param2);
 }
 
+// 블루 레드 알아내기
+function gameInfo(gameId,username){
+	console.log("gameInfo()");
+	$.ajax({
+		type:"GET",
+		url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
+		dataType:"json"
+		}).done((res)=>{
+			let blueTeam="false";
+			
+			// 블루팀(0~4) 레드팀(5~9) 알아내기
+			for(let i=0;i<9;i++){
+				if(res.participantIdentities[i].player.summonerName===username){
+					if(i<5){
+						blueTeam="true";
+					}else
+						blueTeam="false";
+					}
+				}
+		});
+}
+
+// 전적 상세보기 함수
+function gameDetail(gameId){
+	$.ajax({
+		type:"GET",
+		url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
+		dataType:"json"
+		}).done((res)=>{
+
+			
+			// 블루팀 소환사 이름들 0~4 블루팀 5~9 레드팀 
+			$("#summonerName0").val(res.participantIdentities[0].player.summonerName);
+			$("#summonerName1").val(res.participantIdentities[1].player.summonerName);
+			$("#summonerName2").val(res.participantIdentities[2].player.summonerName);
+			$("#summonerName3").val(res.participantIdentities[3].player.summonerName);
+			$("#summonerName4").val(res.participantIdentities[4].player.summonerName);
+			//console.log(res.participants[0].stats.item0);
+			
+			// summonerName0의 아이템
+			$("#item0").val(res.participants[0].stats.item0);
+			$("#item1").val(res.participants[0].stats.item1);
+			$("#item2").val(res.participants[0].stats.item2);
+			$("#item3").val(res.participants[0].stats.item3);
+			$("#item4").val(res.participants[0].stats.item4);
+			$("#item5").val(res.participants[0].stats.item5);
+			
+			//console.log(res.participants[0].stats);
+			
+			// summonerName0의 KDA
+			$("#kills").val("kills : " + res.participants[0].stats.kills);
+			$("#deaths").val("deaths : " + res.participants[0].stats.deaths);
+			$("#assists").val("assists : " + res.participants[0].stats.assists);
+			
+			// summonerName0의 KDA 계산
+			$("#summonerName0KDA").val(((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1");
+			
+			// summonerName0의 스펠
+			$("#spell1Id").val(res.participants[0].spell1Id);
+			$("#spell2Id").val(res.participants[0].spell2Id);
+			
+			// summonerName0의 챔피언
+			$("#championId").val(res.participants[0].championId);
+			
+			// summonerName0의 챔피언 레벨
+			$("#champLevel").val("레벨 : " + res.participants[0].stats.champLevel);
+			
+			// summonerName0의 데미지
+			$("#totalDamageDealtToChampions").val("데미지 : " + res.participants[0].stats.totalDamageDealtToChampions);
+			
+			// summonerName0의 와드 개수 / 파괴
+			$("#wards").val(res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled);
+			
+			// summonerName0의 핑크 와드
+			$("#visionWards").val(res.participants[0].stats.visionWardsBoughtInGame);
+			
+			// summonerName0의 cs
+			$("#totalMinionsKilled").val(res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled);
+			
+			// summonerName0의 분당cs
+			$("#totalMinionsKilledTimes").val(((res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1));
+			
+			// summonerName0의 킬관여율
+			$("#killPercent").val(((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%");
+			
+			// summonerName0의 메인 룬
+			$("#perk0").val(res.participants[0].stats.perk0);
+			console.log(res);
+			
+			// summonerName0의 메인 룬
+			$("#perk0").val(res.participants[0].stats.perk0);
+			//console.log(res);
+		});
+}
+
 let accountid="1";
 let encid="1";
 let username="${gamername}";
-let decode=decodeURI(username);
-decode=replaceAll(decode,"+"," ");
-console.log(decode);
 
+let matchNum=[];
 let name="";
 //summoner 소환사 정보
 $.ajax({
@@ -930,7 +963,6 @@ $.ajax({
 			document.querySelector("#usericon").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
 
 			// api 데이터 뽑기
-			console.log("accountid : "+accountid)
 			// 매치 정보
 			$.ajax({
 				type:"GET",
@@ -938,81 +970,32 @@ $.ajax({
 				dataType:"json"
 				}).done((res)=>{ 
 					
-				console.log(res);
-				$("#gameId").val(res.matches[0].gameId);
-				gameId = res.matches[0].gameId
-				console.log(res.matches[0].gameId); //100개까지 뽑힘
-									
+					// 매치 id 10개 저장
+					for(let i=0;i<9;i++){
+						matchNum[i]=res.matches[i].gameId;
+					}
+					
+					// 레드팀 blueTeam=false
+					gameInfo(matchNum[0],name);
+					
 					$.ajax({
-					type:"GET",
-					url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
-					dataType:"json"
-					}).done((res)=>{
-						
-					console.log(res.participantIdentities[0].player);
-												
-					// 적팀 소환사 이름들
-					$("#summonerName0").val(res.participantIdentities[0].player.summonerName);
-					$("#summonerName1").val(res.participantIdentities[1].player.summonerName);
-					$("#summonerName2").val(res.participantIdentities[2].player.summonerName);
-					$("#summonerName3").val(res.participantIdentities[3].player.summonerName);
-					$("#summonerName4").val(res.participantIdentities[4].player.summonerName);
-					console.log(res.participants[0].stats.item0);
-												
-					// summonerName0의 아이템
-					$("#item0").val(res.participants[0].stats.item0);
-					$("#item1").val(res.participants[0].stats.item1);
-					$("#item2").val(res.participants[0].stats.item2);
-					$("#item3").val(res.participants[0].stats.item3);
-					$("#item4").val(res.participants[0].stats.item4);
-					$("#item5").val(res.participants[0].stats.item5);
-												
-					console.log(res.participants[0].stats);
-												
-					// summonerName0의 KDA
-					$("#kills").val("kills : " + res.participants[0].stats.kills);
-					$("#deaths").val("deaths : " + res.participants[0].stats.deaths);
-					$("#assists").val("assists : " + res.participants[0].stats.assists);
-												
-					// summonerName0의 KDA 계산
-					$("#summonerName0KDA").val(((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1");
-												
-					// summonerName0의 스펠
-					$("#spell1Id").val(res.participants[0].spell1Id);
-					$("#spell2Id").val(res.participants[0].spell2Id);
-												
-					// summonerName0의 챔피언
-					$("#championId").val(res.participants[0].championId);
-												
-					// summonerName0의 챔피언 레벨
-					$("#champLevel").val("레벨 : " + res.participants[0].stats.champLevel);
-												
-					// summonerName0의 데미지
-					$("#totalDamageDealtToChampions").val("데미지 : " + res.participants[0].stats.totalDamageDealtToChampions);
-												
-					// summonerName0의 와드 개수 / 파괴
-					$("#wards").val(res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled);
-												
-					// summonerName0의 핑크 와드
-					$("#visionWards").val(res.participants[0].stats.visionWardsBoughtInGame);
-												
-					// summonerName0의 cs
-					$("#totalMinionsKilled").val(res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled);
-												
-					// summonerName0의 분당cs
-					$("#totalMinionsKilledTimes").val(((res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1));
-												
-					// summonerName0의 킬관여율
-					$("#killPercent").val(((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%");
-												
-					// summonerName0의 메인 룬
-					$("#perk0").val(res.participants[0].stats.perk0);
-					console.log(res);
-												
-					// summonerName0의 메인 룬
-					$("#perk0").val(res.participants[0].stats.perk0);
-					console.log(res);
-					});
+						type:"GET",
+						url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+matchNum[0]+"?api_key="+api_key,
+						dataType:"json"
+						}).done((res)=>{
+							
+							for(let i=0;i<5;i++){
+								document.querySelector("#blueTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+							}
+							for(let i=5;i<10;i++){
+								document.querySelector("#redTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+							}
+							
+							
+						});
+					
+					
+					
 				});
 			// 랭크
 			$.ajax({
@@ -1196,34 +1179,24 @@ $.ajax({
 									
 									if(res[1].tier==="IRON"){
 										document.querySelector("#trankimg").src="img/Emblem_Iron.png";
-										
 									}else if(res[1].tier==="BRONZE"){
-										document.querySelector("#trankimg").src="img/Emblem_Bronze.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Bronze.png";	
 									}else if(res[1].tier==="SILVER"){
-										document.querySelector("#trankimg").src="img/Emblem_Silver.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Silver.png";	
 									}else if(res[1].tier==="GOLD"){
-										document.querySelector("#trankimg").src="img/Emblem_Gold.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Gold.png";	
 									}else if(res[1].tier==="PLATINUM"){
 										document.querySelector("#trankimg").src="img/Emblem_Platinum.png";
-										
 									}else if(res[1].tier==="DIAMOND"){
-										document.querySelector("#trankimg").src="img/Emblem_Diamond.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Diamond.png";	
 									}else if(res[1].tier==="MASTER"){
-										document.querySelector("#trankimg").src="img/Emblem_Master.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Master.png";	
 									}else if(res[1].tier==="GRANDMASTER"){
-										document.querySelector("#trankimg").src="img/Emblem_Grandmaster.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Grandmaster.png";	
 									}else if(res[1].tier==="CHALLENGER"){
-										document.querySelector("#trankimg").src="img/Emblem_Challenger.png";
-										
+										document.querySelector("#trankimg").src="img/Emblem_Challenger.png";	
 									}
 								
-									document.querySelector("#tname").innerHTML="<b>"+name	+"</b>";
 									document.querySelector("#ttier").innerHTML="<b>"+res[1].tier+"</b>"; //gold
 									document.querySelector("#trank").innerHTML="<b>"+res[1].rank+"</b>";
 									document.querySelector("#trankpoint").innerHTML="<b>"+res[1].leaguePoints+" LP</b>";
@@ -1374,6 +1347,7 @@ function doDisplay(){
 		document.querySelector("#moreButton").src="img/winMore.png";
 	}
 }
+
 
 
 </script>
