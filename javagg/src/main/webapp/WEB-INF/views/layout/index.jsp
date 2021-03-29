@@ -17,7 +17,8 @@
 		<button id="searchuser">검색</button>
 	</form>
 	
-	<div>
+	<div id="solo">
+		<h3>솔랭</h3>
 		<img id="rankimg" src="" style="width: 50px;"/>
 		<input id="tier" value="unranked"/> 
 		<input id="rank"/> 
@@ -30,7 +31,25 @@
 			<div style="background-color: blue; width: 50%; height: 100%;"></div>
 		</div>
 	</div>
-		
+	
+	<div id="team">
+		<h3>팀랭</h3>
+		<img id="trankimg" src="" style="width: 50px;"/>
+		<input id="ttier" value="unranked"/> 
+		<input id="trank"/> 
+		<input id="trankpoint" /> 
+		<input id="twin" /> 
+		<input id="tlose" /> 
+		<input id="twinlose" />
+		<div style="width: 100px;">
+			<div style="background-color: red; width: 50%; height: 100%;"></div>
+			<div style="background-color: blue; width: 50%; height: 100%;"></div>
+		</div>
+	</div>
+	
+	<div>
+		<input id="teamrank" value="없음"/>
+	</div>
 	<div>모스트 1
 		<input id="champname1"/>
 		<input id="championLevel1" />
@@ -185,6 +204,10 @@
 					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+encid+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
+						
+						console.log(res);
+						
+						// 랭크가 없을 경우
 						if(res==""){
 							document.querySelector("#rankimg").src="img/Emblem_Unranked.png";
 							$("#tier").val("unranked");
@@ -193,33 +216,184 @@
 							$("#win").val("unranked");
 							$("#lose").val("unranked");
 							$("#winlose").val("unranked");
-						}else{
+						}else{ //랭크가 있을 경우
 							
-							if(res[0].tier==="IRON"){
-								document.querySelector("#rankimg").src="img/Emblem_Iron.png";
-							}else if(res[0].tier==="BRONZE"){
-								document.querySelector("#rankimg").src="img/Emblem_Bronze.png";
-							}else if(res[0].tier==="SILVER"){
-								document.querySelector("#rankimg").src="img/Emblem_Siver.png";
-							}else if(res[0].tier==="GOLD"){
-								document.querySelector("#rankimg").src="img/Emblem_Gold.png";
-							}else if(res[0].tier==="PLATINUM"){
-								document.querySelector("#rankimg").src="img/Emblem_Platinum.png";
-							}else if(res[0].tier==="DIAMOND"){
-								document.querySelector("#rankimg").src="img/Emblem_Diamond.png";
-							}else if(res[0].tier==="MASTER"){
-								document.querySelector("#rankimg").src="img/Emblem_Master.png";
-							}else if(res[0].tier==="GRANDMASTER"){
-								document.querySelector("#rankimg").src="img/Emblem_Grandmaster.png";
-							}else if(res[0].tier==="CHALLENGER"){
-								document.querySelector("#rankimg").src="img/Emblem_Challenger.png";
+							// 솔랭 팀랭 구분
+							if(res[1]==null){
+								// 랭크 하나뿐 - 솔랭 or 팀랭
+								// 솔랭일 경우
+								if(res[0].queueType==="RANKED_SOLO_5x5"){
+									// 팀랭 박스 사라지기
+									document.querySelector("#team").style.display='none';
+									
+									if(res[0].tier==="IRON"){
+										document.querySelector("#rankimg").src="img/Emblem_Iron.png";
+									}else if(res[0].tier==="BRONZE"){
+										document.querySelector("#rankimg").src="img/Emblem_Bronze.png";
+									}else if(res[0].tier==="SILVER"){
+										document.querySelector("#rankimg").src="img/Emblem_Siver.png";
+									}else if(res[0].tier==="GOLD"){
+										document.querySelector("#rankimg").src="img/Emblem_Gold.png";
+									}else if(res[0].tier==="PLATINUM"){
+										document.querySelector("#rankimg").src="img/Emblem_Platinum.png";
+									}else if(res[0].tier==="DIAMOND"){
+										document.querySelector("#rankimg").src="img/Emblem_Diamond.png";
+									}else if(res[0].tier==="MASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Master.png";
+									}else if(res[0].tier==="GRANDMASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[0].tier==="CHALLENGER"){
+										document.querySelector("#rankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#tier").val(res[0].tier);
+									$("#rank").val(res[0].rank);
+									$("#rankpoint").val(res[0].leaguePoints+" LP");
+									$("#win").val("win : "+res[0].wins);
+									$("#lose").val("lose : "+res[0].losses);
+									$("#winlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+								}else if(res[0].queueType==="RANKED_FLEX_SR"){ // 팀랭만 있을 경우
+									document.querySelector("#solo").style.display='none';
+									
+									if(res[0].tier==="IRON"){
+										document.querySelector("#trankimg").src="img/Emblem_Iron.png";
+									}else if(res[0].tier==="BRONZE"){
+										document.querySelector("#trankimg").src="img/Emblem_Bronze.png";
+									}else if(res[0].tier==="SILVER"){
+										document.querySelector("#trankimg").src="img/Emblem_Siver.png";
+									}else if(res[0].tier==="GOLD"){
+										document.querySelector("#trankimg").src="img/Emblem_Gold.png";
+									}else if(res[0].tier==="PLATINUM"){
+										document.querySelector("#trankimg").src="img/Emblem_Platinum.png";
+									}else if(res[0].tier==="DIAMOND"){
+										document.querySelector("#trankimg").src="img/Emblem_Diamond.png";
+									}else if(res[0].tier==="MASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Master.png";
+									}else if(res[0].tier==="GRANDMASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[0].tier==="CHALLENGER"){
+										document.querySelector("#trankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#ttier").val(res[0].tier);
+									$("#trank").val(res[0].rank);
+									$("#trankpoint").val(res[0].leaguePoints+" LP");
+									$("#twin").val("win : "+res[0].wins);
+									$("#tlose").val("lose : "+res[0].losses);
+									$("#twinlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+								}
+								
+							}else{ 
+								document.querySelector("#team").style.display='block';
+								document.querySelector("#solo").style.display='block';
+								// 솔랭, 팀랭 둘 다 있음
+								if(res[0].queueType==="RANKED_SOLO_5x5"){ // 솔랭이 첫번째일 경우
+									
+									if(res[0].tier==="IRON"){
+										document.querySelector("#rankimg").src="img/Emblem_Iron.png";
+									}else if(res[0].tier==="BRONZE"){
+										document.querySelector("#rankimg").src="img/Emblem_Bronze.png";
+									}else if(res[0].tier==="SILVER"){
+										document.querySelector("#rankimg").src="img/Emblem_Siver.png";
+									}else if(res[0].tier==="GOLD"){
+										document.querySelector("#rankimg").src="img/Emblem_Gold.png";
+									}else if(res[0].tier==="PLATINUM"){
+										document.querySelector("#rankimg").src="img/Emblem_Platinum.png";
+									}else if(res[0].tier==="DIAMOND"){
+										document.querySelector("#rankimg").src="img/Emblem_Diamond.png";
+									}else if(res[0].tier==="MASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Master.png";
+									}else if(res[0].tier==="GRANDMASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[0].tier==="CHALLENGER"){
+										document.querySelector("#rankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#tier").val(res[0].tier);
+									$("#rank").val(res[0].rank);
+									$("#rankpoint").val(res[0].leaguePoints+" LP");
+									$("#win").val("win : "+res[0].wins);
+									$("#lose").val("lose : "+res[0].losses);
+									$("#winlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+									
+									if(res[1].tier==="IRON"){
+										document.querySelector("#trankimg").src="img/Emblem_Iron.png";
+									}else if(res[1].tier==="BRONZE"){
+										document.querySelector("#trankimg").src="img/Emblem_Bronze.png";
+									}else if(res[1].tier==="SILVER"){
+										document.querySelector("#trankimg").src="img/Emblem_Siver.png";
+									}else if(res[1].tier==="GOLD"){
+										document.querySelector("#trankimg").src="img/Emblem_Gold.png";
+									}else if(res[1].tier==="PLATINUM"){
+										document.querySelector("#trankimg").src="img/Emblem_Platinum.png";
+									}else if(res[1].tier==="DIAMOND"){
+										document.querySelector("#trankimg").src="img/Emblem_Diamond.png";
+									}else if(res[1].tier==="MASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Master.png";
+									}else if(res[1].tier==="GRANDMASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[1].tier==="CHALLENGER"){
+										document.querySelector("#trankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#ttier").val(res[1].tier);
+									$("#trank").val(res[1].rank);
+									$("#trankpoint").val(res[1].leaguePoints+" LP");
+									$("#twin").val("win : "+res[1].wins);
+									$("#tlose").val("lose : "+res[1].losses);
+									$("#twinlose").val(Math.round(res[1].wins/(res[1].wins+res[1].losses)*100)+"%");
+								}else if(res[0].queueType==="RANKED_FLEX_SR"){ // 팀랭이 첫번째일 경우
+									
+									if(res[0].tier==="IRON"){
+										document.querySelector("#trankimg").src="img/Emblem_Iron.png";
+									}else if(res[0].tier==="BRONZE"){
+										document.querySelector("#trankimg").src="img/Emblem_Bronze.png";
+									}else if(res[0].tier==="SILVER"){
+										document.querySelector("#trankimg").src="img/Emblem_Siver.png";
+									}else if(res[0].tier==="GOLD"){
+										document.querySelector("#trankimg").src="img/Emblem_Gold.png";
+									}else if(res[0].tier==="PLATINUM"){
+										document.querySelector("#trankimg").src="img/Emblem_Platinum.png";
+									}else if(res[0].tier==="DIAMOND"){
+										document.querySelector("#trankimg").src="img/Emblem_Diamond.png";
+									}else if(res[0].tier==="MASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Master.png";
+									}else if(res[0].tier==="GRANDMASTER"){
+										document.querySelector("#trankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[0].tier==="CHALLENGER"){
+										document.querySelector("#trankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#ttier").val(res[0].tier);
+									$("#trank").val(res[0].rank);
+									$("#trankpoint").val(res[0].leaguePoints+" LP");
+									$("#twin").val("win : "+res[0].wins);
+									$("#tlose").val("lose : "+res[0].losses);
+									$("#twinlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+									
+									if(res[1].tier==="IRON"){
+										document.querySelector("#rankimg").src="img/Emblem_Iron.png";
+									}else if(res[1].tier==="BRONZE"){
+										document.querySelector("#rankimg").src="img/Emblem_Bronze.png";
+									}else if(res[1].tier==="SILVER"){
+										document.querySelector("#rankimg").src="img/Emblem_Siver.png";
+									}else if(res[1].tier==="GOLD"){
+										document.querySelector("#rankimg").src="img/Emblem_Gold.png";
+									}else if(res[1].tier==="PLATINUM"){
+										document.querySelector("#rankimg").src="img/Emblem_Platinum.png";
+									}else if(res[1].tier==="DIAMOND"){
+										document.querySelector("#rankimg").src="img/Emblem_Diamond.png";
+									}else if(res[1].tier==="MASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Master.png";
+									}else if(res[1].tier==="GRANDMASTER"){
+										document.querySelector("#rankimg").src="img/Emblem_Grandmaster.png";
+									}else if(res[1].tier==="CHALLENGER"){
+										document.querySelector("#rankimg").src="img/Emblem_Challenger.png";
+									}
+									$("#tier").val(res[1].tier);
+									$("#rank").val(res[1].rank);
+									$("#rankpoint").val(res[1].leaguePoints+" LP");
+									$("#win").val("win : "+res[1].wins);
+									$("#lose").val("lose : "+res[1].losses);
+									$("#winlose").val(Math.round(res[1].wins/(res[1].wins+res[1].losses)*100)+"%");
+								}
 							}
-							$("#tier").val(res[0].tier);
-							$("#rank").val(res[0].rank);
-							$("#rankpoint").val(res[0].leaguePoints+" LP");
-							$("#win").val("win : "+res[0].wins);
-							$("#lose").val("lose : "+res[0].losses);
-							$("#winlose").val(Math.round(res[0].wins/(res[0].wins+res[0].losses)*100)+"%");
+							
 						}
 						
 					});

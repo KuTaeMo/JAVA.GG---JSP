@@ -758,11 +758,20 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 	<!-- 전적검색 -->
 <script>
+
+// + 없애는 함수
+function replaceAll(sValue, param1,param2){
+	return sValue.split(param1).join(param2);
+}
+
 let accountid="1";
 let encid="1";
 let username="${gamername}";
 let decode=decodeURI(username);
+decode=replaceAll(decode,"+"," ");
 console.log(decode);
+
+let name="";
 //summoner 소환사 정보
 $.ajax({
 	type:"GET",
@@ -773,6 +782,7 @@ $.ajax({
 		location.href="/home";
 		}
 	}).done((res)=>{
+			name=res.name;
 			$("#level").val("Lv"+res.summonerLevel);
 			accountid=res.accountId;
 			console.log("accountid : "+accountid)
@@ -875,7 +885,7 @@ $.ajax({
 				}).done((res)=>{
 					let unrank="false";
 					if(res==""){
-						document.querySelector("#name").innerHTML="<b>"+decode+"</b>";
+						document.querySelector("#name").innerHTML="<b>"+name+"</b>";
 						document.querySelector("#rankimg").src="img/Emblem_Unranked.png";
 						document.querySelector("#rankcover").src="";
 						document.querySelector("#tier").innerHTML="<span style='color: #879292; font-size:20px;'><b>Unranked</b></span>";
@@ -914,7 +924,7 @@ $.ajax({
 							document.querySelector("#rankcover").src="img/cover/challenger.png";
 						}
 						
-						document.querySelector("#name").innerHTML="<b>"+decode+"</b>";
+						document.querySelector("#name").innerHTML="<b>"+name	+"</b>";
 						document.querySelector("#tier").innerHTML="<b>"+res[0].tier+"</b>"; //gold
 						document.querySelector("#rank").innerHTML="<b>"+res[0].rank+"</b>";
 						document.querySelector("#rankpoint").innerHTML="<b>"+res[0].leaguePoints+" LP</b>";
