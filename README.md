@@ -17,7 +17,6 @@ create user 'javagg'@'%' identified by 'gg1234';
 GRANT ALL PRIVILEGES ON *.* TO 'javagg'@'%';
 create database javagg;
 use javagg;
-select * from user;
 ```
 ### 테이블 생성
 ``` MySQL
