@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
 <%@ include file="../apikey.jsp"%>
+
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <head>
+<script type="text/javascript" src="/js/info.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -370,23 +372,23 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 						<div
 							style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px;">
 							<!-- 전적 박스 -->
-							<div
+							<div id="searchBox${num}"
 								style="display: flex; border: 1px solid #bcbcbc; background-color: #A3CFEC; width: 100%;">
 								<!-- 겜 정보 -->
 								<div
 									style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 10px; margin: 10px 10px 10px 0; width: 14%">
-									<div>무작위 총력전</div>
-									<div>하루 전</div>
+									<div id="gameSort${num}">게임종류</div>
+									<div id="gameTime${num}">하루 전</div>
 									<hr style="width: 20px;" />
-									<div style="color: #1A85C4;">승리</div>
-									<div>18분 1초</div>
+									<div id="winOrLose${num}" style="color: #1A85C4;">승리</div>
+									<div id="gameDuration${num}">18분 1초</div>
 								</div>
 
 								<!-- 챔피언, 스펠, 룬 -->
 								<div
 									style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 20px; width: 15%;">
 									<div style="display: flex;">
-										<img id="champImg1" class="circle_image" src="img/Jayce.png"
+										<img id="boxChampImg${num}" class="circle_image" src="img/Jayce.png"
 											style="width: 50px; height: 50px; margin-right: 5px; border-radius: 30px;" />
 										<!-- 스펠 -->
 										<div
@@ -453,10 +455,14 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
 										<div
 											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+										<div
+											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
 									</div>
 									<!-- 아이템 아래층 -->
 									<div
 										style="display: flex; justify-content: center; align-items: center;">
+										<div
+											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
 										<div
 											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
 										<div
@@ -475,13 +481,15 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div
 										style="display: flex; justify-content: center; align-items: flex-start; flex-direction: column; margin-right: 10px;">
 										<!-- 1 -->
-										<c:forEach var="num" begin="0" end="4" step="1">
+										<c:forEach var="a" begin="0" end="4" step="1">
 											<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><div
-												id="blueTeamName${num}" ><p style="text-overflow: ellipsis; overflow: hidden;">소환사 이름</p></div>
+												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+												<img id="blueTeamChampImg${a}"
+													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
+													style="width: 15px; height: 15px; margin-right: 3px;" />
+												<div id="blueTeamName${a}"
+													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
+													이름</div>
 											</div>
 										</c:forEach>
 									</div>
@@ -490,22 +498,25 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div
 										style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; margin-right: 5px;">
 										<!-- 1 -->
-										<c:forEach var="num" begin="5" end="9" step="1">
+										<c:forEach var="b" begin="5" end="9" step="1">
 											<div
-											style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-											<img
-												src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-												style="width: 15px; height: 15px; margin-right: 3px;" /><div
-												id="redTeamName${num}" style=" overflow: hidden;">소환사 이름</div>
+												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
+												<img id="redTeamChampImg${b}"
+													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
+													style="width: 15px; height: 15px; margin-right: 3px;" />
+												<div id="redTeamName${b}"
+													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
+													이름</div>
 											</div>
 										</c:forEach>
 									</div>
 								</div>
 
 								<!-- 전적 토글 버튼 -->
-								<a href='javascript:doDisplay();'
+								<a id="search${num}" class="a_search"
+									href='javascript:doDisplay();'
 									style="border: 1px solid #5ca7d6; background-color: #64B1E4; width: 5%; display: flex; justify-content: center; align-items: flex-end;">
-									<img id="moreButton" src="img/winMore.png"
+									<img id="moreButton${num}" src="img/winMore.png"
 									style="width: 20px; height: 20px;" />
 								</a>
 							</div>
@@ -513,13 +524,13 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 							<!-- 전적 상세 -->
 							<!-- ============================================================================================================= -->
 
-							<div id="matchSpecificBox"
+							<div id="matchSpecificBox${num}"
 								style="border: 1px solid #bcbcbc; display: none; width: 100%;">
 								<!-- 머리글 행 -->
 								<div
 									style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
 									<div style="width: 25%; display: flex;">
-										<div id="winOrLose" style="color: blue;">승리</div>
+										<div id="winOrlose${num}" style="color: #1A85C4;">승리</div>
 										<div>(블루팀)</div>
 									</div>
 									<div
@@ -707,7 +718,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<div
 									style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
 									<div style="width: 25%; display: flex;">
-										<div id="winOrLose" style="color: red;">패배</div>
+										<div id="winOrloseSide${num}" style="color: red;">패배</div>
 										<div>(레드팀)</div>
 									</div>
 									<div
@@ -807,14 +818,12 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 
 							</div>
+
+
+
 						</div>
 
 					</c:forEach>
-
-
-
-
-
 
 				</div>
 			</div>
@@ -936,6 +945,56 @@ function gameDetail(gameId){
 		});
 }
 
+function setFail(num){
+	// 큰박스 패배 텍스트
+	document.querySelector("#winOrLose"+num).style.color='red';
+	document.querySelector("#winOrLose"+num).innerHTML="패배";
+	
+	// 상세보기 패배 텍스트
+	document.querySelector("#winOrlose"+num).style.color='red';
+	document.querySelector("#winOrlose"+num).innerHTML="패배";
+	
+	// 상세보기 승리 텍스트
+	document.querySelector("#winOrloseSide"+num).style.color='#1A85C4';
+	document.querySelector("#winOrloseSide"+num).innerHTML="승리";
+	
+	// 큰 박스 배경 빨간색 변경
+	document.querySelector("#searchBox"+num).style.backgroundColor='#f7c3c3';
+	
+	// 큰 박스 토글 버튼 빨간색 변경
+	document.querySelector("#search"+num).style.backgroundColor='#E89D99';
+	// 테두리
+	document.querySelector("#search"+num).style.border='1px solid #ea7979';
+	
+	// 버튼
+	document.querySelector("#moreButton"+num).src="img/loseMore.png";
+}
+
+function setWin(num){
+	// 큰박스 승리 텍스트
+	document.querySelector("#winOrLose"+num).style.color='#1A85C4';
+	document.querySelector("#winOrLose"+num).innerHTML="승리";
+	
+	// 상세보기 승리 텍스트
+	document.querySelector("#winOrlose"+num).style.color='#1A85C4';
+	document.querySelector("#winOrlose"+num).innerHTML="승리";
+	
+	// 상세보기 패배 텍스트
+	document.querySelector("#winOrloseSide"+num).style.color='red';
+	document.querySelector("#winOrloseSide"+num).innerHTML="패배";
+	
+	// 큰 박스 배경 파란색 변경
+	document.querySelector("#searchBox"+num).style.backgroundColor='#A3CFEC';
+	
+	// 큰 박스 토글 버튼 파란색 변경
+	document.querySelector("#search"+num).style.backgroundColor='#64b1e4';
+	// 테두리
+	document.querySelector("#search"+num).style.border='1px solid #5ca7d6';
+	
+	// 버튼
+	document.querySelector("#moreButton"+num).src="img/winMore.png";
+}
+
 let accountid="1";
 let encid="1";
 let username="${gamername}";
@@ -984,14 +1043,139 @@ $.ajax({
 						dataType:"json"
 						}).done((res)=>{
 							
+							console.log(res);
+							// 게임종류
+							console.log(res.queueId);
+							
+							// 바론 횟수
+							console.log(res.teams[0].baronKills);
+							
+							// 용 횟수
+							console.log(res.teams[0].dragonKills);
+							
+							// 타워 뿌순 갯수
+							console.log(res.teams[0].towerKills);
+							
+							// 승 패
+							console.log(res.teams[0].win);
+							
+							// 챔피언 이름 출력
+							console.log(setChampName(res.participants[0].championId));
+							
+							//"http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 							for(let i=0;i<5;i++){
 								document.querySelector("#blueTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+								document.querySelector("#blueTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
 							}
 							for(let i=5;i<10;i++){
 								document.querySelector("#redTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+								document.querySelector("#redTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png"
 							}
 							
+						// 게임 종류
+							if(res.queueId==420){
+								//420 솔랭
+								document.querySelector("#gameSort1").innerHTML="솔랭";
+							}else if(res.queueId==430){
+								//430 자유랭크
+								document.querySelector("#gameSort1").innerHTML="자유랭크";
+							}else if(res.queueId==440){
+								//440 무작위
+								document.querySelector("#gameSort1").innerHTML="무작위 총력전";
+							}
+							else if(res.queueId==450){
+								//450 일반게임
+								document.querySelector("#gameSort1").innerHTML="일반";
+							}
+							//private String queueType; //420솔랭, 430일반, 440무작위
 							
+						// 승 패
+						
+							// 우리팀이 블루팀인지 레드팀인지 찾기
+							let myTeamNum=""; // 내가 팀중에 번호가 몇번이야?!
+							let myTeam="";
+							for(let i=0;i<10;i++){
+								if(res.participantIdentities[i].player.summonerName===name){
+									myTeamNum=i;
+								}
+							}
+							
+							if(myTeamNum<5){
+								myTeam="blue";
+								console.log("나는 블루팀");
+								
+								// 블루팀 Fail
+								if(res.teams[0].win==="Fail"){
+									setFail(1);
+
+								// 블루팀 Win
+								}else if(res.teams[0].win==="Win"){
+									setWin(1);
+								}
+							}else{
+								myTeam="red";
+								console.log("나는 레드팀");
+								
+								// 블루팀 Fail
+								if(res.teams[1].win==="Fail"){
+									// 큰박스 패배 텍스트
+									document.querySelector("#winOrLose1").style.color='red';
+									document.querySelector("#winOrLose1").innerHTML="패배";
+									
+									// 상세보기 패배 텍스트
+									document.querySelector("#winOrlose1").style.color='red';
+									document.querySelector("#winOrlose1").innerHTML="패배";
+									
+									// 상세보기 승리 텍스트
+									document.querySelector("#winOrloseSide1").style.color='#1A85C4';
+									document.querySelector("#winOrloseSide1").innerHTML="승리";
+									
+									// 큰 박스 배경 빨간색 변경
+									document.querySelector("#searchBox1").style.backgroundColor='#f7c3c3';
+									
+									// 큰 박스 토글 버튼 빨간색 변경
+									document.querySelector("#search1").style.backgroundColor='#E89D99';
+									// 테두리
+									document.querySelector("#search1").style.border='1px solid #ea7979';
+									
+									// 버튼
+									document.querySelector("#moreButton1").src="img/loseMore.png";
+
+								// 블루팀 Win
+								}else if(res.teams[1].win==="Win"){
+									// 큰박스 승리 텍스트
+									document.querySelector("#winOrLose1").style.color='#1A85C4';
+									document.querySelector("#winOrLose1").innerHTML="승리";
+									
+									// 상세보기 승리 텍스트
+									document.querySelector("#winOrlose1").style.color='#1A85C4';
+									document.querySelector("#winOrlose1").innerHTML="승리";
+									
+									// 상세보기 패배 텍스트
+									document.querySelector("#winOrloseSide1").style.color='red';
+									document.querySelector("#winOrloseSide1").innerHTML="패배";
+									
+									// 큰 박스 배경 파란색 변경
+									document.querySelector("#searchBox1").style.backgroundColor='#A3CFEC';
+									
+									// 큰 박스 토글 버튼 파란색 변경
+									document.querySelector("#search1").style.backgroundColor='#64b1e4';
+									// 테두리
+									document.querySelector("#search1").style.border='1px solid #5ca7d6';
+									
+									// 버튼
+									document.querySelector("#moreButton1").src="img/winMore.png";
+								}
+							}
+						// 챔피언 이미지
+						console.log(setChampName(res.participants[myTeamNum].championId));
+						document.querySelector("#boxChampImg1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[myTeamNum].championId)+".png";		
+						
+						// 스펠
+						
+						document.querySelector("#spellD").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell1Id)+".png"
+						document.querySelector("#spellF").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell2Id)+".png"
+
 						});
 					
 					
@@ -1335,16 +1519,191 @@ $.ajax({
 			
 	});
 
+let searchBox="";
+
+$(".a_search").click(function(){
+	searchBox=$(this).parent().attr('id');
+})
+
+var con=[];
+
+for(let i=1;i<11;i++){
+	con[i]=document.querySelector("#matchSpecificBox"+i);
+}
+
 // 전적검색 상세보기 토글
 function doDisplay(){
-	var con=document.querySelector("#matchSpecificBox");
-	
-	if(con.style.display=='none'){ // 자세히보기
-		con.style.display='block';
-		document.querySelector("#moreButton").src="img/winClose.png";
-	}else{							// 닫기
-		con.style.display='none';
-		document.querySelector("#moreButton").src="img/winMore.png";
+
+	if(searchBox==="searchBox1"){
+		console.log("1입니다.");
+		if(con[1].style.display=='none'){ // 자세히보기
+			con[1].style.display='block';
+			if(document.querySelector("#winOrLose1").innerHTML==="승리"){
+				document.querySelector("#moreButton1").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton1").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[1].style.display='none';
+			if(document.querySelector("#winOrLose1").innerHTML==="승리"){
+				document.querySelector("#moreButton1").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton1").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox2"){
+		console.log("2입니다.");
+		if(con[2].style.display=='none'){ // 자세히보기
+			con[2].style.display='block';
+			if(document.querySelector("#winOrLose2").innerHTML==="승리"){
+				document.querySelector("#moreButton2").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton2").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[2].style.display='none';
+			if(document.querySelector("#winOrLose2").innerHTML==="승리"){
+				document.querySelector("#moreButton2").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton2").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox3"){
+		console.log("3입니다.");
+		if(con[3].style.display=='none'){ // 자세히보기
+			con[3].style.display='block';
+			if(document.querySelector("#winOrLose3").innerHTML==="승리"){
+				document.querySelector("#moreButton3").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton3").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[3].style.display='none';
+			if(document.querySelector("#winOrLose3").innerHTML==="승리"){
+				document.querySelector("#moreButton3").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton3").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox4"){
+		console.log("4입니다.");
+		if(con[4].style.display=='none'){ // 자세히보기
+			con[4].style.display='block';
+			if(document.querySelector("#winOrLose4").innerHTML==="승리"){
+				document.querySelector("#moreButton4").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton4").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[4].style.display='none';
+			if(document.querySelector("#winOrLose4").innerHTML==="승리"){
+				document.querySelector("#moreButton4").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton4").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox5"){
+		console.log("5입니다.");
+		if(con[5].style.display=='none'){ // 자세히보기
+			con[5].style.display='block';
+			if(document.querySelector("#winOrLose5").innerHTML==="승리"){
+				document.querySelector("#moreButton5").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton5").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[5].style.display='none';
+			if(document.querySelector("#winOrLose5").innerHTML==="승리"){
+				document.querySelector("#moreButton5").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton5").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox6"){
+		console.log("6입니다.");
+		if(con[6].style.display=='none'){ // 자세히보기
+			con[6].style.display='block';
+			if(document.querySelector("#winOrLose6").innerHTML==="승리"){
+				document.querySelector("#moreButton6").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton6").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[6].style.display='none';
+			if(document.querySelector("#winOrLose6").innerHTML==="승리"){
+				document.querySelector("#moreButton6").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton6").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox7"){
+		console.log("7입니다.");
+		if(con[7].style.display=='none'){ // 자세히보기
+			con[7].style.display='block';
+			if(document.querySelector("#winOrLose7").innerHTML==="승리"){
+				document.querySelector("#moreButton7").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton7").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[7].style.display='none';
+			if(document.querySelector("#winOrLose7").innerHTML==="승리"){
+				document.querySelector("#moreButton7").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton7").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox8"){
+		console.log("8입니다.");
+		if(con[8].style.display=='none'){ // 자세히보기
+			con[8].style.display='block';
+			if(document.querySelector("#winOrLose8").innerHTML==="승리"){
+				document.querySelector("#moreButton8").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton8").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[8].style.display='none';
+			if(document.querySelector("#winOrLose8").innerHTML==="승리"){
+				document.querySelector("#moreButton8").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton8").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox9"){
+		console.log("9입니다.");
+		if(con[9].style.display=='none'){ // 자세히보기
+			con[9].style.display='block';
+			if(document.querySelector("#winOrLose9").innerHTML==="승리"){
+				document.querySelector("#moreButton9").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton9").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[9].style.display='none';
+			if(document.querySelector("#winOrLose9").innerHTML==="승리"){
+				document.querySelector("#moreButton9").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton9").src="img/loseMore.png";
+			}
+		}
+	}else if(searchBox==="searchBox10"){
+		console.log("10입니다.");
+		if(con[10].style.display=='none'){ // 자세히보기
+			con[10].style.display='block';
+			if(document.querySelector("#winOrLose10").innerHTML==="승리"){
+				document.querySelector("#moreButton10").src="img/winClose.png";
+			}else{
+				document.querySelector("#moreButton10").src="img/loseClose.png";
+			}
+		}else{							// 닫기
+			con[10].style.display='none';
+			if(document.querySelector("#winOrLose10").innerHTML==="승리"){
+				document.querySelector("#moreButton10").src="img/winMore.png";
+			}else{
+				document.querySelector("#moreButton10").src="img/loseMore.png";
+			}
+		}
 	}
 }
 
