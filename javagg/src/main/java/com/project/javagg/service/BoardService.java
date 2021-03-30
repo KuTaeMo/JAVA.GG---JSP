@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.BoardRepository;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
-import com.project.javagg.domain.reply.Reply;
-import com.project.javagg.domain.reply.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
 

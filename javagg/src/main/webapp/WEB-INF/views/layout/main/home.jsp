@@ -19,10 +19,10 @@
 		<!-- 검색창 -->
 		<form action="/search" method="post">
 			<div id="home_input">
-				<input type="text" name="gamername"
+				<input id="gamername"type="text" name="gamername"
 					placeholder="소환사명, 소환사명,..."
 					style="width: 40%; height: 40px; border-radius: 5px; padding: 5px 0 5px 15px;">
-				<button type="submit" id="home_search_button"><b>.GG</b></button>
+				<button type="submit" id="home_search_button" onclick="test()"><b>.GG</b></button>
 			</div>
 		</form>
 		<br /> <br /> <br />
@@ -265,4 +265,10 @@
 			<!-- 5층 끝 -->
 		</div>
 	</div>
+<script type="text/javascript">
+function test(){
+	alert("테스트!");
+}
+</script>
+	
 <%@ include file="../common/footer.jsp"%>

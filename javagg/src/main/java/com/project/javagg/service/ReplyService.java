@@ -53,6 +53,7 @@ public class ReplyService {
 		return replyRepository.countReply(id);
 	}
 	
+<<<<<<< HEAD
 	@javax.transaction.Transactional
 	public Page<Reply> 댓글리스트(Pageable pageable) {
 		return replyRepository.findAll(pageable);
@@ -63,4 +64,13 @@ public class ReplyService {
 		return replyRepository.findAllById(id, pageable);
 	}
 	
+=======
+	public Page<Reply> 댓글리스트(Pageable pageable) {
+		return replyRepository.findAll(pageable);
+	}
+	
+	public Page<Reply> 댓글리스트11(int boardId, Pageable pageable) {
+		return replyRepository.findAllById(boardId, pageable);
+	}
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
 }

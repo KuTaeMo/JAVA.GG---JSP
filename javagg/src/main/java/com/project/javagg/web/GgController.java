@@ -3,9 +3,9 @@ package com.project.javagg.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class GgController {
@@ -40,8 +40,9 @@ public class GgController {
 		// 검색한 이름 가져와서 검색 내용 바로 띄우기
 		String[] searchname=gamername.split("=");
 		String name=searchname[1];
+
 		System.out.println(name);
-		model.addAttribute("gamername", name);
+		model.addAttribute("gamername",name);
 		return "layout/main/search";
 	}
 	
