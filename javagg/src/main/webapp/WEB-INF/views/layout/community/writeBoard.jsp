@@ -41,13 +41,41 @@
 		</form>
 	</div>
 
-	<script>
-		$('#summernote').summernote({
-			placeholder : '글을 쓰세요.',
-			tabsize : 2,
-			height : 400
-		});
-	</script>
-	
+	<script type="text/javascript">
+    $(document).ready(function() {
+      $('#summernote').summernote({
+        height: 300,
+        minHeight: null,
+        maxHeight: null,
+        focus: true,
+        callbacks: {
+          onImageUpload: function(files, editor, welEditable) {
+            for (var i = files.length - 1; i >= 0; i--) {
+              sendFile(files[i], this);
+            }
+          }
+        }
+      });
+    });
+    
+    function sendFile(file, el) {
+      var form_data = new FormData();
+      form_data.append('file', file);
+      $.ajax({
+        data: form_data,
+        type: "POST",
+        url: '/image',
+        cache: false,
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
+        success: function(url) {
+          $(el).summernote('editor.insertImage', url);
+          $('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
+        }
+      });
+    }
+</script>
+
 	<%@ include file="../common/footer.jsp"%>
 	

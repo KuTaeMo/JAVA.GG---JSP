@@ -41,6 +41,4 @@ public class ReplyController {
 		int result = replyService.댓글삭제하기(id, principalDetails.getUser().getId());
 		return new CMRespDto<>(result, null);
 	}
-	
-	
 }

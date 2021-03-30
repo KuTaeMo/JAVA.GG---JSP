@@ -157,6 +157,9 @@ body {
 				<p class="table-detail-text">${board.user.username}</p>
 			</div>
 		</div>
+			<div>
+				<img style="width: 80px; height: 80px; margin-left: 140%; margin-top: 12%;" src="/img/post_hidden.png"/>
+			</div>
 	</div>
 	</c:forEach>
 	

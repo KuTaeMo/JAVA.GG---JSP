@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.javagg.config.auth.PrincipalDetails;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
+import com.project.javagg.domain.reply.Reply;
 import com.project.javagg.service.BoardService;
 import com.project.javagg.service.ReplyService;
 import com.project.javagg.utils.Script;
@@ -46,6 +47,7 @@ public class BoardController {
 		return "layout/community/writeBoard";
 	}
 	
+	// 게시글 작성
 	@PostMapping("/board")
 	public String write(BoardWriteReqDto boardWriteReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 		Board board = boardWriteReqDto.toEntity();
@@ -61,16 +63,21 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/{id}")
-	public String detailBoard(@PathVariable int id, Model model) {
+	public String detailBoard(@PathVariable int id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable, int boardId) {
 		Board boardEntity = boardService.글상세보기(id);
 		model.addAttribute("board", boardEntity);
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
+		
+		Page<Reply> replylist = replyService.댓글리스트11(boardId, pageable);
+		
+		model.addAttribute("replylist", replylist);
+		
 		System.out.println("좀 되라 : " + id);
 		return "layout/community/detailBoard";
 	}
 	
-	@DeleteMapping("/board/{id}")
+	@DeleteMapping("/board/{id}") 
 	public @ResponseBody CMRespDto<?> deleteById(@PathVariable int id) {
 		boardService.글삭제하기(id);
 		return new CMRespDto<>(1,Script.reload("삭제에 성공하였습니다."), null);
@@ -88,5 +95,4 @@ public class BoardController {
 		boardService.글수정하기(id, boardWriteReqDto);
 		return new CMRespDto<>(1,Script.reload("수정에 성공하였습니다.") ,null);
 	}
-
 }

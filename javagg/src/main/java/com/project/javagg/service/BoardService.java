@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.BoardRepository;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
-import com.project.javagg.domain.reply.Reply;
-import com.project.javagg.domain.reply.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
 	private final BoardRepository boardRepository;
-	private final ReplyRepository replyRepository;
 	
 	public Page<Board> 전체리스트(Pageable pageable) {
 		return boardRepository.findAll(pageable);

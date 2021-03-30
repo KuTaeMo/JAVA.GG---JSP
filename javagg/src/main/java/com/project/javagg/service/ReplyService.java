@@ -1,5 +1,7 @@
 package com.project.javagg.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,4 +53,11 @@ public class ReplyService {
 		return replyRepository.countReply(id);
 	}
 	
+	public Page<Reply> 댓글리스트(Pageable pageable) {
+		return replyRepository.findAll(pageable);
+	}
+	
+	public Page<Reply> 댓글리스트11(int boardId, Pageable pageable) {
+		return replyRepository.findAllById(boardId, pageable);
+	}
 }

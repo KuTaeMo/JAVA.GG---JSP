@@ -396,7 +396,61 @@ li {}
             
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">   
-                <c:forEach var="reply" items="${board.replys}">             
+                <c:forEach var="reply" items="${replylist.content}">
+                <input type="hidden" id="boardId" value="${board.id}" /> 
+                	 <ul class="media-list">
+                    
+                      <li class="media" id="reply-${reply.id}">
+                      
+                      	<div class="media-side">
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
+                      		<p class="reply-vote-count">0</p>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/dislike.png"></button>
+                      	</div>
+                       
+                        <div class="media-body">
+                          <div class="">
+                          	<div class="reply-list-name-time">
+                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  1시간 전</span></p>
+                              
+                            </div>
+                              
+                                ${reply.content}
+                              <c:if test="${reply.user.id == principal.user.id}">
+                              <button id = "reply-delete-btn" onclick="deleteReply(${reply.id})" class="badge">삭제</button>
+                              </c:if>
+                          </div>              
+                        </div>
+                      </li>    
+                          
+                    </ul> 
+                            
+                   
+                     <hr/>
+                     </c:forEach>  
+               
+               <ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${replylist.first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number - 1}">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${replylist.last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number + 1}">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
+                </div>
+                
+                <div class="tab-pane btn" id="add-comment">
+                     <c:forEach var="reply" items="${board.replys}">             
                     <ul class="media-list">
                     
                       <li class="media" id="reply-${reply.id}">
@@ -424,34 +478,7 @@ li {}
                           
                     </ul> 
                      <hr/>
-                     </c:forEach>  
-               
-                </div>
-                
-                <div class="tab-pane" id="add-comment">
-                     <ul class="media-list">
-                      <li class="media">
-                      
-                      	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
-                      		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
-                      	</div>
-                       
-                        <div class="media-body">
-                          <div class="">
-                          	<div class="reply-list-name-time">
-                              <p class="reviews">거북이인성  <span class="reply-time">|  1시간 전</span></p>
-                              
-                            </div>
-                              <p class="media-comment">
-                                ㅋㅋㅋㅋㅋ 무플 방지
-                              </p>
-                          </div>              
-                        </div>
-                      </li>          
-                     
-                    </ul> 
+                     </c:forEach> 
                 </div>
               
             </div>
@@ -501,6 +528,8 @@ li {}
 	      }
 
 	      init();
+	      
+
 
 	      $('#detail--deelete-btn').on("click", (e) => {
 				let id = e.currentTarget.value;
@@ -519,7 +548,7 @@ li {}
 					});
 		      });
 
-
+		  
 
 	      $("#reply-btn").on("click", (e) => {
 	    		e.preventDefault();
@@ -568,7 +597,7 @@ li {}
 	  	}
 
 	      console.log("되라 좀 : " + "${replys}");
-
+	      console.log("좀 나와라 : " + "${replylist}");
 </script>
 
 <%@ include file="../common/footer.jsp"%>
