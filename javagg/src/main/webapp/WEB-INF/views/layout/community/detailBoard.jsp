@@ -354,7 +354,7 @@ li {}
 		<input type="hidden" id="boardId" value="${board.id}" />
 		<div class="reply-count">
 			<p class="reply-count-text" style="font-size: 20px;">댓글 </p>
-			<p class="reply-count-text">총</p> <div id = "replyCount">0</div> <p>개</p>
+			<p class="reply-count-text">총</p> <div style="margin-bottom: 16px;" id = "replyCount">${replys}</div> <p>개</p>
 			<button name="content" type="submit" class="reply-btn" id = "reply-btn">댓글 등록</button>
 		</div>
 		
@@ -396,9 +396,14 @@ li {}
             
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">   
+<<<<<<< HEAD
+                <c:forEach var="reply" items="${replylist.content}">             
+                    <ul class="media-list">
+=======
                 <c:forEach var="reply" items="${replylist.content}">
                 <input type="hidden" id="boardId" value="${board.id}" /> 
                 	 <ul class="media-list">
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
                     
                       <li class="media" id="reply-${reply.id}">
                       
@@ -429,7 +434,11 @@ li {}
                      <hr/>
                      </c:forEach>  
                
+<<<<<<< HEAD
+               		<ul class="pagination justify-content-center">
+=======
                <ul class="pagination justify-content-center">
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
 		<c:choose>
 			<c:when test="${replylist.first}">
 				<li class="page-item disabled"><a class="page-link">Previous</a></li>
@@ -449,8 +458,13 @@ li {}
 	</ul>
                 </div>
                 
+<<<<<<< HEAD
+                <div class="tab-pane" id="add-comment">
+                     <c:forEach var="reply" items="${replylist.content}">             
+=======
                 <div class="tab-pane btn" id="add-comment">
                      <c:forEach var="reply" items="${board.replys}">             
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
                     <ul class="media-list">
                     
                       <li class="media" id="reply-${reply.id}">
@@ -478,7 +492,30 @@ li {}
                           
                     </ul> 
                      <hr/>
+<<<<<<< HEAD
+                     </c:forEach>  
+               
+               		<ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${replylist.first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number - 1}">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${replylist.last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number + 1}">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
+=======
                      </c:forEach> 
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
                 </div>
               
             </div>

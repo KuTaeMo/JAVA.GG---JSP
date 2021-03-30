@@ -32,7 +32,7 @@ public class BoardController {
 
 	private final BoardService boardService;
 	private final ReplyService replyService;
-	
+
 	@GetMapping("/community")
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
@@ -63,14 +63,23 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/{id}")
+<<<<<<< HEAD
+	public String detailBoard(@PathVariable int id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable) {
+=======
 	public String detailBoard(@PathVariable int id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable, int boardId) {
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
 		Board boardEntity = boardService.글상세보기(id);
 		model.addAttribute("board", boardEntity);
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
 		
+<<<<<<< HEAD
+		Page<Reply> replylist = replyService.댓글리스트11(id, pageable);
+
+=======
 		Page<Reply> replylist = replyService.댓글리스트11(boardId, pageable);
 		
+>>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
 		model.addAttribute("replylist", replylist);
 		
 		System.out.println("좀 되라 : " + id);
