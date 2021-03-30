@@ -404,8 +404,8 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 												style="width: 25px; height: 25px; border-radius: 30px;" />
 										</div>
 									</div>
-									<div id="championName"
-										style="font-size: 12px; margin-top: 5px;">제이스 ${num}</div>
+									<div id="boxChampionName${num}"
+										style="font-size: 12px; margin-top: 5px;">챔프이름</div>
 								</div>
 
 
@@ -414,33 +414,33 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 20px; width: 11%;">
 									<div
 										style="display: flex; justify-content: center; align-items: center; font-size: 13px; font-weight: bold; color: gray; margin-bottom: 5px;">
-										<div id="kill">12</div>
+										<div id="box${num}Kill">12</div>
 										/
-										<div id="death" style="color: red;">8</div>
+										<div id="box${num}Death" style="color: red;">8</div>
 										/
-										<div id="assist">15</div>
+										<div id="box${num}Assist">15</div>
 									</div>
 									<div
 										style="display: flex; justify-content: center; align-items: center; font-size: 11px; font-weight: bold; color: gray; margin-bottom: 5px;">
-										<div id="winper" style="color: black;">3.38:1</div>
-										<div style="font-weight: normal;">평점</div>
+										<div id="box${num}Kda" style="color: black; white-space: nowrap;">3.38:1</div>
+										<div style="font-weight: normal; font-size: 10px; white-space: nowrap;">평점</div>
 									</div>
-									<div
+									<div id="box${num}Mkill"
 										style="display: flex; justify-content: center; align-items: center; background-color: #EE5A52; color: white; border-radius: 15px; width: 50px; height: 20px; font-size: 11px;">더블킬</div>
 								</div>
 
 								<!-- 레벨, cs, 킬관여 -->
 								<div
 									style="display: flex; justify-content: center; align-items: center; flex-direction: column; color: gray; font-size: 11px; margin-right: 20px;">
-									<div id="level" style="margin-bottom: 5px;">레벨 18</div>
+									<div id="box${num}Level" style="margin-bottom: 5px;">레벨 18</div>
 									<div
 										style="display: flex; justify-content: center; align-items: center; margin-bottom: 5px;">
-										<div id="cs">100</div>
-										<div id="cspermin">(4.7)</div>
+										<div id="box${num}Cs">100</div>
+										<div id="box${num}CsPer">(4.7)</div>
 										CS
 									</div>
-									<div align="center" style="color: red; margin-bottom: 5px;">킬관여
-										74%</div>
+									<div id="box${num}KillRel" align="center" style="color: red; margin-bottom: 5px; font-size: 10px; white-space: nowrap; font-weight: bold;">킬관여
+										</div>
 								</div>
 
 								<!-- 아이템 -->
@@ -449,24 +449,25 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<!-- 아이템 위층 -->
 									<div
 										style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item1" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item2" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item3" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<!-- 와드, 장신구 7번 박스 -->
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item7" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
 									</div>
 									<!-- 아이템 아래층 -->
 									<div
 										style="display: flex; justify-content: center; align-items: center;">
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
-										<div
-											style="width: 25px; height: 25px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 2px 1px;"></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item4" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item5" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<div 
+											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item6" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
 										<div style="width: 25px; height: 25px;">
 											<img src="img/searchbuild.png"
 												style="width: 25px; height: 25px; margin: 0 1px 2px 1px;" />
@@ -1089,6 +1090,37 @@ $.ajax({
 							}
 							//private String queueType; //420솔랭, 430일반, 440무작위
 							
+							
+						// 게임 몇시간 전
+							console.log(res.gameCreation);
+							console.log(new Date(res.gameCreation));
+
+							let gameMon=new Date(res.gameCreation).getMonth()+1;
+							let gameDate=new Date(res.gameCreation).getDate();
+							let gameHour=new Date(res.gameCreation).getHours();
+							let gameMin=new Date(res.gameCreation).getMinutes();
+
+							let nowMon=new Date().getMonth()+1;
+							let nowDate=new Date().getDate();
+							let nowHour=new Date().getHours();
+							let nowMin=new Date().getMinutes();
+
+							console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
+							console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
+
+							if(gameMon!=nowMon){
+								console.log(nowMon-gameMon+"달 전");
+							}else if(gameDate!=nowMon){
+								console.log(now)
+							}
+
+						// 게임 시간
+							let gameDuMin=Math.floor(res.gameDuration/60);
+							let gameDuSec=res.gameDuration%60;
+
+							console.log(gameDuMin+"분 "+gameDuSec+"초");
+							document.querySelector("#gameDuration1").innerHTML=gameDuMin+"분 "+gameDuSec+"초";
+							
 						// 승 패
 						
 							// 우리팀이 블루팀인지 레드팀인지 찾기
@@ -1168,14 +1200,71 @@ $.ajax({
 								}
 							}
 						// 챔피언 이미지
+						let cname=setChampName(res.participants[myTeamNum].championId);
 						console.log(setChampName(res.participants[myTeamNum].championId));
 						document.querySelector("#boxChampImg1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[myTeamNum].championId)+".png";		
+
+						// 챔피언 이름
+						$.ajax({
+							type:"GET",
+							url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
+							dataType:"json"
+							}).done((res)=>{
+								document.querySelector("#boxChampionName1").innerHTML=res.data[cname].name;
+								});
 						
 						// 스펠
-						
+						console.log(res.participants[myTeamNum].spell1Id);
+						console.log(res.participants[myTeamNum].spell2Id);
 						document.querySelector("#spellD").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell1Id)+".png"
 						document.querySelector("#spellF").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell2Id)+".png"
 
+
+						// 킬뎃
+						document.querySelector("#box1Kill").innerHTML=res.participants[myTeamNum].stats.kills;
+						document.querySelector("#box1Death").innerHTML=res.participants[myTeamNum].stats.deaths;
+						document.querySelector("#box1Assist").innerHTML=res.participants[myTeamNum].stats.assists;
+
+						// kda
+						// ((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1"
+						document.querySelector("#box1Kda").innerHTML=((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists) / res.participants[myTeamNum].stats.deaths).toFixed(2) + " : 1";
+						
+						// 다중킬
+						// box${num}Mkill
+						if(res.participants[myTeamNum].stats.pentaKills>=1){
+							document.querySelector("#box1Mkill").innerHTML="펜타킬";
+						}else if(res.participants[myTeamNum].stats.quadraKills>=1){
+							document.querySelector("#box1Mkill").innerHTML="쿼드라킬";
+						}else if(res.participants[myTeamNum].stats.tripleKills>=1){
+							document.querySelector("#box1Mkill").innerHTML="트리플킬";
+						}else if(res.participants[myTeamNum].stats.doubleKills>=1){
+							document.querySelector("#box1Mkill").innerHTML="더블킬";
+						}else{
+							document.querySelector("#box1Mkill").style.display='none';
+						}
+
+
+						// 레벨 
+						document.querySelector("#box1Level").innerHTML="레벨 "+res.participants[myTeamNum].stats.champLevel;
+
+						// CS
+						document.querySelector("#box1Cs").innerHTML=res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled;
+						document.querySelector("#box1CsPer").innerHTML=" ("+((res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
+
+						// 킬 관여율
+						document.querySelector("#box1KillRel").innerHTML="킬관여"+
+							((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
+						
+						// 아이템
+						//res.participants[myTeamNum].stats.item0
+						console.log(res.participants[myTeamNum].stats.item0);
+						document.querySelector("#box1Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item0+".png";
+						document.querySelector("#box1Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item1+".png"
+						document.querySelector("#box1Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item2+".png"
+						document.querySelector("#box1Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item3+".png"
+						document.querySelector("#box1Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item4+".png"
+						document.querySelector("#box1Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item5+".png"
+						document.querySelector("#box1Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png"
 						});
 					
 					

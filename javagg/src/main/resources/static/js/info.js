@@ -313,39 +313,39 @@
     //스펠 데이터
    function setSpell(spellId){
 
-        if(spellId == null || spellId.equals("") || spellId.equals("null")){
+        if(spellId == null){
             return "";
         }
 
         let spellName = null;
 
-        if (spellId.equals("21")){
+        if (spellId==="21"){
             spellName = "SummonerBarrier";
-        } else if (spellId.equals("1")){
+        } else if (spellId===1){
             spellName = "SummonerBoost";
-        } else if (spellId.equals("14")){
+        } else if (spellId==14){
             spellName = "SummonerDot";
-        } else if (spellId.equals("3")){
+        } else if (spellId==3){
             spellName = "SummonerExhaust";
-        } else if (spellId.equals("4")){
+        } else if (spellId==4){
             spellName = "SummonerFlash";
-        } else if (spellId.equals("6")){
+        } else if (spellId==6){
             spellName = "SummonerHaste";
-        } else if (spellId.equals("7")){
+        } else if (spellId==7){
             spellName = "SummonerHeal";
-        } else if (spellId.equals("13")){
+        } else if (spellId==13){
             spellName = "SummonerMana";
-        } else if (spellId.equals("30")){
+        } else if (spellId==3){
             spellName = "SummonerPoroRecall";
-        } else if (spellId.equals("31")){
+        } else if (spellId==31){
             spellName = "SummonerPoroThrow";
-        } else if (spellId.equals("11")){
+        } else if (spellId==11){
             spellName = "SummonerSmite";
-        } else if (spellId.equals("39")){
+        } else if (spellId==39){
             spellName = "SummonerSnowURFSnowball_Mark";
-        } else if (spellId.equals("32")){
+        } else if (spellId==32){
             spellName = "SummonerSnowball";
-        } else if (spellId.equals("12")){
+        } else if (spellId==12){
             spellName = "SummonerTeleport";
         }
 
