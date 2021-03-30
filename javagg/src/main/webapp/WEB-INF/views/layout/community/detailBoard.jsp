@@ -354,7 +354,7 @@ li {}
 		<input type="hidden" id="boardId" value="${board.id}" />
 		<div class="reply-count">
 			<p class="reply-count-text" style="font-size: 20px;">댓글 </p>
-			<p class="reply-count-text">총</p> <div id = "replyCount">0</div> <p>개</p>
+			<p class="reply-count-text">총</p> <div style="margin-bottom: 16px;" id = "replyCount">${replys}</div> <p>개</p>
 			<button name="content" type="submit" class="reply-btn" id = "reply-btn">댓글 등록</button>
 		</div>
 		
@@ -396,7 +396,7 @@ li {}
             
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">   
-                <c:forEach var="reply" items="${board.replys}">             
+                <c:forEach var="reply" items="${replylist.content}">             
                     <ul class="media-list">
                     
                       <li class="media" id="reply-${reply.id}">
@@ -426,32 +426,75 @@ li {}
                      <hr/>
                      </c:forEach>  
                
+               		<ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${replylist.first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number - 1}">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${replylist.last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number + 1}">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
                 </div>
                 
                 <div class="tab-pane" id="add-comment">
-                     <ul class="media-list">
-                      <li class="media">
+                     <c:forEach var="reply" items="${replylist.content}">             
+                    <ul class="media-list">
+                    
+                      <li class="media" id="reply-${reply.id}">
                       
                       	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/vote.png"></button>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
                       		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="img/dislike.png"></button>
+                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/dislike.png"></button>
                       	</div>
                        
                         <div class="media-body">
                           <div class="">
                           	<div class="reply-list-name-time">
-                              <p class="reviews">거북이인성  <span class="reply-time">|  1시간 전</span></p>
+                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  1시간 전</span></p>
                               
                             </div>
-                              <p class="media-comment">
-                                ㅋㅋㅋㅋㅋ 무플 방지
-                              </p>
+                              
+                                ${reply.content}
+                              <c:if test="${reply.user.id == principal.user.id}">
+                              <button id = "reply-delete-btn" onclick="deleteReply(${reply.id})" class="badge">삭제</button>
+                              </c:if>
                           </div>              
                         </div>
-                      </li>          
-                     
+                      </li>    
+                          
                     </ul> 
+                     <hr/>
+                     </c:forEach>  
+               
+               		<ul class="pagination justify-content-center">
+		<c:choose>
+			<c:when test="${replylist.first}">
+				<li class="page-item disabled"><a class="page-link">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number - 1}">Previous</a></li>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${replylist.last}">
+				<li class="page-item disabled"><a class="page-link">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="?page=${replylist.number + 1}">Next</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
                 </div>
               
             </div>

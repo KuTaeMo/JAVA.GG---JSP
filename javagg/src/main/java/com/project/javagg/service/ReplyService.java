@@ -1,5 +1,7 @@
 package com.project.javagg.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,6 +51,16 @@ public class ReplyService {
 	public int 댓글개수(int id) {
 		System.out.println(replyRepository.countReply(id));
 		return replyRepository.countReply(id);
+	}
+	
+	@javax.transaction.Transactional
+	public Page<Reply> 댓글리스트(Pageable pageable) {
+		return replyRepository.findAll(pageable);
+	}
+
+	@javax.transaction.Transactional
+	public Page<Reply> 댓글리스트11(int id, Pageable pageable) {
+		return replyRepository.findAllById(id, pageable);
 	}
 	
 }

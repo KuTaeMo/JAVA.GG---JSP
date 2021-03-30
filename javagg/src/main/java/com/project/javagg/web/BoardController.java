@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.javagg.config.auth.PrincipalDetails;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
+import com.project.javagg.domain.reply.Reply;
 import com.project.javagg.service.BoardService;
 import com.project.javagg.service.ReplyService;
 import com.project.javagg.utils.Script;
@@ -31,7 +32,7 @@ public class BoardController {
 
 	private final BoardService boardService;
 	private final ReplyService replyService;
-	
+
 	@GetMapping("/community")
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
@@ -61,11 +62,16 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/{id}")
-	public String detailBoard(@PathVariable int id, Model model) {
+	public String detailBoard(@PathVariable int id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable) {
 		Board boardEntity = boardService.글상세보기(id);
 		model.addAttribute("board", boardEntity);
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
+		
+		Page<Reply> replylist = replyService.댓글리스트11(id, pageable);
+
+		model.addAttribute("replylist", replylist);
+		
 		System.out.println("좀 되라 : " + id);
 		return "layout/community/detailBoard";
 	}

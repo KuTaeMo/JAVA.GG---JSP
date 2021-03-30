@@ -18,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
 	private final BoardRepository boardRepository;
-	private final ReplyRepository replyRepository;
 	
 	public Page<Board> 전체리스트(Pageable pageable) {
 		return boardRepository.findAll(pageable);
