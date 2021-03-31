@@ -1078,17 +1078,17 @@ $.ajax({
 								//420 솔랭
 								document.querySelector("#gameSort1").innerHTML="솔랭";
 							}else if(res.queueId==430){
-								//430 자유랭크
-								document.querySelector("#gameSort1").innerHTML="자유랭크";
+								//430 일반
+								document.querySelector("#gameSort1").innerHTML="일반";
 							}else if(res.queueId==440){
 								//440 무작위
-								document.querySelector("#gameSort1").innerHTML="무작위 총력전";
+								document.querySelector("#gameSort1").innerHTML="자유랭크";
 							}
 							else if(res.queueId==450){
 								//450 일반게임
-								document.querySelector("#gameSort1").innerHTML="일반";
+								document.querySelector("#gameSort1").innerHTML="무작위 총력전";
 							}
-							//private String queueType; //420솔랭, 430일반, 440무작위
+							//private String queueType; //420솔랭, 430일반, 440 아마도 자유랭크, 450무작위
 							
 							
 						// 게임 몇시간 전
@@ -1099,19 +1099,29 @@ $.ajax({
 							let gameDate=new Date(res.gameCreation).getDate();
 							let gameHour=new Date(res.gameCreation).getHours();
 							let gameMin=new Date(res.gameCreation).getMinutes();
-
+							let gameSecond=new Date(res.gameCreation).getSeconds();
+								
 							let nowMon=new Date().getMonth()+1;
 							let nowDate=new Date().getDate();
 							let nowHour=new Date().getHours();
 							let nowMin=new Date().getMinutes();
+							let nowSecond=new Date().getSeconds();
 
 							console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
 							console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
 
 							if(gameMon!=nowMon){
-								console.log(nowMon-gameMon+"달 전");
-							}else if(gameDate!=nowMon){
-								console.log(now)
+								console.log(nowMon-gameMon+" 달 전");
+							}else if(gameDate!=nowDate){
+								if(gameHour<nowHour){
+								console.log(nowDate-gameDate+" 일 전");
+								}
+							}else if(nowHour!=gameHour){
+								console.log(nowHour-gameHour+" 시간 전");
+							}else if(nowMin!=gameMin){
+								console.log(nowMin-gameMin+" 분 전");
+							}else if(nowSecond!=gameSecond){
+								console.log(nowSecond-gameSecond+" 초 전");
 							}
 
 						// 게임 시간
