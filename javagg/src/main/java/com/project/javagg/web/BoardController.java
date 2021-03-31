@@ -42,6 +42,7 @@ public class BoardController {
 		return "layout/community/mainBoard";
 	}
 	
+	
 	@GetMapping("/community/writeBoard")
 	public String writeForm() {
 		return "layout/community/writeBoard";
@@ -49,9 +50,11 @@ public class BoardController {
 	
 	// 게시글 작성
 	@PostMapping("/board")
-	public String write(BoardWriteReqDto boardWriteReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+	public String write(BoardWriteReqDto boardWriteReqDto, @AuthenticationPrincipal PrincipalDetails principalDetails, String commType) {
 		Board board = boardWriteReqDto.toEntity();
 		board.setUser(principalDetails.getUser());
+		commType = board.getCommunityType();
+		board.setCommunityType(commType);
 		
 		Board boardEntity = boardService.글작성하기(board);
 		
@@ -61,16 +64,17 @@ public class BoardController {
 			return "redirect:/community";
 		}
 	}
+
 	
 	@GetMapping("/board/{id}")
-	public String detailBoard(@PathVariable int id, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable) {
+	public String detailBoard(@PathVariable int id, Model model,@AuthenticationPrincipal PrincipalDetails principalDetails, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable) {
 		Board boardEntity = boardService.글상세보기(id);
+		boardEntity.setReplyCount(boardService.댓글갯수뽑기(id));
 		model.addAttribute("board", boardEntity);
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
 		
 		Page<Reply> replylist = replyService.댓글리스트11(id, pageable);
-
 
 		model.addAttribute("replylist", replylist);
 		

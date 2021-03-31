@@ -121,6 +121,8 @@ body {
 <div class="community-menu">
 	<div class="community-menu-top">
 		<a href="#" class="all-text">전체</a>
+		<a href="/board/humor" class="all-text">유머</a>
+		<a href="/board/free" class="all-text">자유</a>
 		<button class="write-img-btn" onclick="location.href='/community/writeBoard'"><img class="write-img" src="img/write.png"/></button>
 	</div>
 	
@@ -147,10 +149,10 @@ body {
 		
 		<div class="table-content">
 			<div class="table-title">
-				<p class="table-detail-title"><a href="/board/${board.id}">${board.title}</a></p>
+				<p class="table-detail-title"><a href="/board/${board.id}">${board.title} [${board.replyCount}]</a></p>
 			</div>	
 			<div class="table-detail">
-				<p class="table-detail-text">유머</p>
+				<p class="table-detail-text">${board.communityType}</p>
 				<p class="table-detail-text">|</p>
 				<p class="table-detail-text">${board.createDate}</p>
 				<p class="table-detail-text">|</p>
