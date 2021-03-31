@@ -396,15 +396,9 @@ li {}
             
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">   
-<<<<<<< HEAD
                 <c:forEach var="reply" items="${replylist.content}">             
                     <ul class="media-list">
-=======
-                <c:forEach var="reply" items="${replylist.content}">
-                <input type="hidden" id="boardId" value="${board.id}" /> 
-                	 <ul class="media-list">
->>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
-                    
+                  
                       <li class="media" id="reply-${reply.id}">
                       
                       	<div class="media-side">
@@ -434,11 +428,8 @@ li {}
                      <hr/>
                      </c:forEach>  
                
-<<<<<<< HEAD
                		<ul class="pagination justify-content-center">
-=======
-               <ul class="pagination justify-content-center">
->>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
+
 		<c:choose>
 			<c:when test="${replylist.first}">
 				<li class="page-item disabled"><a class="page-link">Previous</a></li>
@@ -458,13 +449,9 @@ li {}
 	</ul>
                 </div>
                 
-<<<<<<< HEAD
                 <div class="tab-pane" id="add-comment">
                      <c:forEach var="reply" items="${replylist.content}">             
-=======
-                <div class="tab-pane btn" id="add-comment">
-                     <c:forEach var="reply" items="${board.replys}">             
->>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
+
                     <ul class="media-list">
                     
                       <li class="media" id="reply-${reply.id}">
@@ -492,7 +479,6 @@ li {}
                           
                     </ul> 
                      <hr/>
-<<<<<<< HEAD
                      </c:forEach>  
                
                		<ul class="pagination justify-content-center">
@@ -513,9 +499,6 @@ li {}
 			</c:otherwise>
 		</c:choose>
 	</ul>
-=======
-                     </c:forEach> 
->>>>>>> 290721ca72794073e2829db7b70c4f4d1c24ce38
                 </div>
               
             </div>
