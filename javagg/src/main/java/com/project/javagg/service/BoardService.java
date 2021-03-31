@@ -1,5 +1,7 @@
 package com.project.javagg.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,10 @@ public class BoardService {
 	
 	public Page<Board> 전체리스트(Pageable pageable) {
 		return boardRepository.findAll(pageable);
+	}
+	
+	public int 댓글갯수뽑기(int id) {
+		return boardRepository.replyCount(id);
 	}
 	
 	@Transactional
@@ -48,5 +54,28 @@ public class BoardService {
 		Board boardEntity = boardRepository.findById(id).get();
 		boardEntity.setTitle(boardWriteReqDto.getTitle());
 		boardEntity.setContent(boardWriteReqDto.getContent());
+	}
+	
+	public List<Board> 좋아요(int principalId) {
+		
+		List<Board> boards = boardRepository.findLikeById(principalId);
+		
+		boards.forEach((board) -> {
+			
+			int likeCount = board.getLikes().size();
+			board.setLikeCount(likeCount);
+			
+			board.getLikes().forEach((like) -> {
+				if(like.getUser().getId() == principalId) {
+					board.setLikeState(true);
+				}
+			});
+		});
+		
+		return boards;
+	}
+	
+	public int 좋아요증가(int id) {
+		return boardRepository.updateLikeCount(id);
 	}
 }

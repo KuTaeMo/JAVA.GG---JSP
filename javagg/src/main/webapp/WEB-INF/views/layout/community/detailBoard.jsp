@@ -333,9 +333,9 @@ li {}
 			<div>${board.content}</div>
 			
 			<div class="vote-btn">
-		<button type="submit" class="article-vote-btn">
+		<button type="submit" style="background-color: green;" class="article-vote-btn disabled">
 			<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
-			<span class="article-vote-like-count">0</span>
+			<span class="article-vote-like-count">${board.likeCount}</span>
 		</button>
 		
 		<button type="submit" class="article-vote-btn">

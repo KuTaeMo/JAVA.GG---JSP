@@ -8,7 +8,7 @@
 	height: 250px;
 	width: 100%;
 	background-size: cover;
-	background-image: url("img/bg.jpg");
+	background-image: url("/img/bg.jpg");
 }
 
 .container {

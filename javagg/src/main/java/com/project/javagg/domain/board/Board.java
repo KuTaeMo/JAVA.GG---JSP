@@ -15,10 +15,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.javagg.domain.like.Likes;
 import com.project.javagg.domain.reply.Reply;
 import com.project.javagg.domain.user.User;
 
@@ -47,10 +49,12 @@ public class Board {
 	private String content;
 	
 	private int readCount;
-	
-	private int likeCount;
-	
+		
 	private int dislikeCount;
+	
+	@OneToMany(mappedBy = "board")
+	@JsonIgnoreProperties({"board"})
+	private List<Likes> likes;
 	
 	@ManyToOne
 	@JoinColumn(name = "userId")
@@ -61,6 +65,13 @@ public class Board {
 	@OrderBy("id desc")
 	private List<Reply> replys;
 	
+	private int replyCount;
+	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	private int likeCount;
+	
+	@Transient
+	private boolean likeState;
 }
