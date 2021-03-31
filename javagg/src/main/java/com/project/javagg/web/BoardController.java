@@ -42,6 +42,24 @@ public class BoardController {
 		return "layout/community/mainBoard";
 	}
 	
+	@GetMapping("/community/humor")
+	public String findHumorAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		
+		Page<Board> boards = boardService.전체리스트(pageable);
+		model.addAttribute("boards", boards);
+		return "layout/community/humorBoard";
+	}
+	
+	@GetMapping("/community/free")
+	public String findFreeAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		
+		Page<Board> boards = boardService.전체리스트(pageable);
+		model.addAttribute("boards", boards);
+		return "layout/community/freeBoard";
+	}
+	
 	
 	@GetMapping("/community/writeBoard")
 	public String writeForm() {
