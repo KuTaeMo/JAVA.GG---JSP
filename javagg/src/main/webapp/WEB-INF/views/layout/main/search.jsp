@@ -377,7 +377,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<!-- 겜 정보 -->
 								<div
 									style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 10px; margin: 10px 10px 10px 0; width: 14%">
-									<div id="gameSort${num}">게임종류</div>
+									<div id="gameSort${num}" style="white-space: nowrap;">게임종류</div>
 									<div id="gameTime${num}">하루 전</div>
 									<hr style="width: 20px;" />
 									<div id="winOrLose${num}" style="color: #1A85C4;">승리</div>
@@ -846,6 +846,70 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 	<!-- 전적검색 -->
 	<script>
 
+	function timeBefore(value){
+		 //현재시간
+		  var now = new Date(); 
+		 //기준시간 
+		 var writeDay = new Date(value);
+		 var minus;
+		 var time = '';
+		 if(now.getFullYear() > writeDay.getFullYear()){
+		    minus= now.getFullYear()-writeDay.getFullYear();
+		    time += minus+"년 ";
+		 }
+		if(now.getMonth() > writeDay.getMonth()){
+		   minus= now.getMonth()-writeDay.getMonth();
+		   time += minus+"달 ";
+		}
+		if(now.getDate() > writeDay.getDate()){
+		    minus= now.getDate()-writeDay.getDate();
+		   time +=  minus+"일 ";
+		}
+
+		 if(now.getHours() > writeDay.getHours()){
+		     minus = now.getHours() - writeDay.getHours();
+		    time +=  minus+"시간 ";
+		   }
+		  
+		  if(now.getMinutes() > writeDay.getMinutes()){
+		     minus = now.getMinutes() - writeDay.getMinutes();
+		   time += minus+"분 ";
+		   }
+		  
+		  if(now.getSeconds() > writeDay.getSeconds()){
+		     minus = now.getSeconds() - writeDay.getSeconds();
+		     time += minus+"초";
+		   }
+		  
+		   time += "전";
+		  //document.getElementsByClassName("sub")[0].innerHTML = time;
+		   console.log(time);
+		        
+		    }
+	
+	// 시간 구하는 함수
+	function timeForToday(value) {
+        const today = new Date();
+        const timeValue = new Date(value);
+
+        const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
+        if (betweenTime < 1) return '방금전';
+        if (betweenTime < 60) {
+            return `${betweenTime}분전`;
+        }
+
+        const betweenTimeHour = Math.floor(betweenTime / 60);
+        if (betweenTimeHour < 24) {
+            return `${betweenTimeHour}시간전`;
+        }
+
+        const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+        if (betweenTimeDay < 365) {
+            return `${betweenTimeDay}일전`;
+        }
+
+        return `${Math.floor(betweenTimeDay / 365)}년전`;
+ }
 // + 없애는 함수
 function replaceAll(sValue, param1,param2){
 	return sValue.split(param1).join(param2);
@@ -1082,7 +1146,7 @@ $.ajax({
 								document.querySelector("#gameSort1").innerHTML="일반";
 							}else if(res.queueId==440){
 								//440 무작위
-								document.querySelector("#gameSort1").innerHTML="자유랭크";
+								document.querySelector("#gameSort1").innerHTML="자유5:5랭크";
 							}
 							else if(res.queueId==450){
 								//450 일반게임
@@ -1109,20 +1173,8 @@ $.ajax({
 
 							console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
 							console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
-
-							if(gameMon!=nowMon){
-								console.log(nowMon-gameMon+" 달 전");
-							}else if(gameDate!=nowDate){
-								if(gameHour<nowHour){
-								console.log(nowDate-gameDate+" 일 전");
-								}
-							}else if(nowHour!=gameHour){
-								console.log(nowHour-gameHour+" 시간 전");
-							}else if(nowMin!=gameMin){
-								console.log(nowMin-gameMin+" 분 전");
-							}else if(nowSecond!=gameSecond){
-								console.log(nowSecond-gameSecond+" 초 전");
-							}
+							
+							timeBefore(res.gameCreation);
 
 						// 게임 시간
 							let gameDuMin=Math.floor(res.gameDuration/60);
