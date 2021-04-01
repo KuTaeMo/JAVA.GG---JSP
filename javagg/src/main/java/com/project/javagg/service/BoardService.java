@@ -79,5 +79,9 @@ public class BoardService {
 		return boardRepository.updateLikeCount(id);
 	}
 	
+	@Transactional
+	public Page<Board> 커뮤니티타입리스트(String type, Pageable pageable) {
+		return boardRepository.boardCommunityTypeList(type, pageable);
+	}
 	
 }

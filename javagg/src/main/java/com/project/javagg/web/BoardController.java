@@ -43,19 +43,23 @@ public class BoardController {
 	}
 	
 	@GetMapping("/community/humor")
-	public String findHumorAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
-			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+	public String findHumorAll(BoardWriteReqDto boardWriteReqDto, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
 		
-		Page<Board> boards = boardService.전체리스트(pageable);
+		type = "유머";
+		
+		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
 		return "layout/community/humorBoard";
 	}
 	
 	@GetMapping("/community/free")
 	public String findFreeAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
-			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
 		
-		Page<Board> boards = boardService.전체리스트(pageable);
+		type = "자유";
+		
+		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
 		return "layout/community/freeBoard";
 	}

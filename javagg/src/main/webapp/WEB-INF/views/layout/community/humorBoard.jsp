@@ -140,9 +140,7 @@ body {
 </div>
 
 <div class="community-table">
-<c:if test="${boards.communityType == 'humor'}">
 	<c:forEach var="board" items="${boards.content}">
-	
 	<div class="table">
 		<div class="table-vote">
 			<img src="/img/vote.png">
@@ -165,9 +163,8 @@ body {
 				<img style="width: 80px; height: 80px; margin-left: 140%; margin-top: 12%;" src="/img/post_hidden.png"/>
 			</div>
 	</div>
-	
 	</c:forEach>
-	</c:if>
+	
 	<ul class="pagination justify-content-center">
 		<c:choose>
 			<c:when test="${boards.first}">
