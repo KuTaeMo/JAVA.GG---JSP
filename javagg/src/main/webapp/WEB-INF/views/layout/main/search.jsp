@@ -398,9 +398,9 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										</div>
 										<!-- 룬 -->
 										<div style="display: flex; flex-direction: column;">
-											<img id="RuneMain" src="img/pic1.png"
+											<img id="RuneMain${num }" src="img/pic1.png"
 												style="width: 25px; height: 25px; border-radius: 30px;" />
-											<img id="RuneSub" src="img/pic1.png"
+											<img id="RuneSub${num }" src="img/pic1.png"
 												style="width: 25px; height: 25px; border-radius: 30px;" />
 										</div>
 									</div>
@@ -1297,6 +1297,65 @@ $.ajax({
 						document.querySelector("#spellF").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell2Id)+".png"
 
 
+						// 룬
+						//https://opgg-static.akamaized.net/images/lol/perkStyle/" + perk + ".png
+						//perkPrimaryStyle
+						// 지배 - 8112(감전), 8124(포식자), 8128(수확), 9923(칼날비)
+						// 영감 - 8351(빙결), 8360(봉풀주), 8358(짱돌)
+						// 정밀 - 8005(집공), 8008(치속), 8021(기발), 8010(정복자)
+						// 결의 - 8437(착취), 8439(여진), 8465(수호자)
+						// 마법 - 8214(콩콩이), 8229(유성), 8230(난입)
+						let perkMain=res.participants[myTeamNum].stats.perk0;
+						$.ajax({
+							data:"get",
+							url:"https://ddragon.leagueoflegends.com/cdn/10.6.1/data/en_US/runesReforged.json",
+							data:"json"
+							}).done((res)=>{
+								console.log(res);
+								console.log(res[0].slots[0].runes[0].icon);
+								console.log(perkMain);
+								if(perkMain==8112){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[0].runes[0].icon;
+								}else if(perkMain==8124){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[0].runes[1].icon;
+								}else if(perkMain==8128){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[0].runes[2].icon;
+								}else if(perkMain==9923){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[0].runes[3].icon;
+								}else if(perkMain==8351){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[1].runes[0].icon;
+								}else if(perkMain==8360){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[1].runes[1].icon;
+								}else if(perkMain==8358){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[1].runes[2].icon;
+								}else if(perkMain==8005){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[2].runes[0].icon;
+								}else if(perkMain==8008){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[2].runes[1].icon;
+								}else if(perkMain==8021){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[2].runes[2].icon;
+								}else if(perkMain==8010){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[2].runes[3].icon;
+								}else if(perkMain==8437){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[3].runes[0].icon;
+								}else if(perkMain==8439){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[3].runes[1].icon;
+								}else if(perkMain==8465){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[3].runes[2].icon;
+								}else if(perkMain==8214){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[4].runes[0].icon;
+								}else if(perkMain==8229){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[4].runes[1].icon;
+								}else if(perkMain==8230){
+									document.querySelector("#RuneMain1").src="https://ddragon.leagueoflegends.com/cdn/img/"+res[0].slots[4].runes[2].icon;
+								}
+							});
+							
+							
+						
+						let perkSub=res.participants[myTeamNum].stats.perkSubStyle;
+						document.querySelector("#RuneSub1").src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
+
 						// 킬뎃
 						document.querySelector("#box1Kill").innerHTML=res.participants[myTeamNum].stats.kills;
 						document.querySelector("#box1Death").innerHTML=res.participants[myTeamNum].stats.deaths;
@@ -1335,13 +1394,48 @@ $.ajax({
 						// 아이템
 						//res.participants[myTeamNum].stats.item0
 						console.log(res.participants[myTeamNum].stats.item0);
-						document.querySelector("#box1Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item0+".png";
-						document.querySelector("#box1Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item1+".png"
-						document.querySelector("#box1Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item2+".png"
-						document.querySelector("#box1Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item3+".png"
-						document.querySelector("#box1Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item4+".png"
-						document.querySelector("#box1Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item5+".png"
-						document.querySelector("#box1Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png"
+						
+						if(res.participants[myTeamNum].stats.item0==0){
+							document.querySelector("#box1Item1").style.display='none';
+						}else{
+							document.querySelector("#box1Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item0+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item1==0){
+							document.querySelector("#box1Item2").style.display='none';
+						}else{
+							document.querySelector("#box1Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item1+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item2==0){
+							document.querySelector("#box1Item3").style.display='none';
+						}else{
+							document.querySelector("#box1Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item2+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item3==0){
+							document.querySelector("#box1Item4").style.display='none';
+						}else{
+							document.querySelector("#box1Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item3+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item4==0){
+							document.querySelector("#box1Item5").style.display='none';
+						}else{
+							document.querySelector("#box1Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item4+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item5==0){
+							document.querySelector("#box1Item6").style.display='none';
+						}else{
+							document.querySelector("#box1Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item5+".png";
+						}
+
+						if(res.participants[myTeamNum].stats.item6==0){
+							document.querySelector("#box1Item7").style.display='none';
+						}else{
+							document.querySelector("#box1Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png";
+						}		
 						});
 					
 					
