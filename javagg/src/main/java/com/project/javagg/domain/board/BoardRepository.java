@@ -2,6 +2,8 @@ package com.project.javagg.domain.board;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +22,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	
 	@Query(value = "select count(r.id) from reply r inner join board b on r.boardId = b.id where r.boardId = :id", nativeQuery = true)
 	int replyCount(int id);
+	
+	@Query(value = "select * from board where communityType = :type", nativeQuery = true)
+	Page<Board> BoardCommunityTypeList(String type, Pageable pageable);
 }

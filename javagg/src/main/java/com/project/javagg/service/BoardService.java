@@ -78,4 +78,6 @@ public class BoardService {
 	public int 좋아요증가(int id) {
 		return boardRepository.updateLikeCount(id);
 	}
+	
+	
 }
