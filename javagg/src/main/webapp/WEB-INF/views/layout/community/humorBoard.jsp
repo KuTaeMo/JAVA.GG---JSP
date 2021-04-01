@@ -10,7 +10,7 @@ body {
 	height: 250px;
 	width: 100%;
 	background-size: cover;
-	background-image: url("img/bg.jpg");
+	background-image: url("/img/bg.jpg");
 }
 
 .community-menu {
@@ -70,7 +70,7 @@ body {
 	margin-right: 20px;
 }
 .input-community-image {
-	background-image: url("img/communitySearch.png");
+	background-image: url("/img/communitySearch.png");
 	background-size: cover;
 	position: absolute;
 	width: 25px;
@@ -123,13 +123,13 @@ body {
 		<a href="/community" class="all-text">전체</a>
 		<a href="/community/humor" class="all-text">유머</a>
 		<a href="/community/free" class="all-text">자유</a>
-		<button class="write-img-btn" onclick="location.href='/community/writeBoard'"><img class="write-img" src="img/write.png"/></button>
+		<button class="write-img-btn" onclick="location.href='/community/writeBoard'"><img class="write-img" src="/img/write.png"/></button>
 	</div>
 	
 	<div class="community-menu-search">
 	<div class="community-menu-bottom">
-		<img class="hot-new-img" src="img/hot.png"/><a href="#" class="hot-new-text">인기</a>
-		<img class="hot-new-img" src="img/new.png"/><a href="#" class="hot-new-text">최신</a>
+		<img class="hot-new-img" src="/img/hot.png"/><a href="#" class="hot-new-text">인기</a>
+		<img class="hot-new-img" src="/img/new.png"/><a href="#" class="hot-new-text">최신</a>
 	</div>
 	
 	<form class="form-inline" action="/action_page.php">
@@ -140,10 +140,12 @@ body {
 </div>
 
 <div class="community-table">
+<c:if test="${boards.communityType == 'humor'}">
 	<c:forEach var="board" items="${boards.content}">
+	
 	<div class="table">
 		<div class="table-vote">
-			<img src="img/vote.png">
+			<img src="/img/vote.png">
 			<p>0</p>
 		</div>
 		
@@ -163,8 +165,9 @@ body {
 				<img style="width: 80px; height: 80px; margin-left: 140%; margin-top: 12%;" src="/img/post_hidden.png"/>
 			</div>
 	</div>
-	</c:forEach>
 	
+	</c:forEach>
+	</c:if>
 	<ul class="pagination justify-content-center">
 		<c:choose>
 			<c:when test="${boards.first}">

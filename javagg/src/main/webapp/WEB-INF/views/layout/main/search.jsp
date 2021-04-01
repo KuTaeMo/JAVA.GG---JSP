@@ -94,12 +94,12 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 	<!-- 소환사 정보 -->
 	<div class="mContainer" style="display: flex;">
-		<div>
+		<div align="center">
 			<img id="rankcover" src="img/cover/challenger.png"
 				style="position: absolute;" /> <img id="usericon"
 				src="img/profileIcon.jpg"
 				style="width: 100px; height: 100px; margin: 10px;" />
-
+			<div id="summonerLevel" align="center" style="position: relative; top: -25px; background-color: #2C3548; color: #EA9F4C; width: 40px; height: 25px; font-size: 15px; border: 1px solid #EA9F4C;">272</div>
 		</div>
 		<div style="padding: 15px;">
 			<div id="name" style="font-size: 20px; color: black;"></div>
@@ -1077,12 +1077,10 @@ $.ajax({
 		}
 	}).done((res)=>{
 			name=res.name;
-			$("#level").val("Lv"+res.summonerLevel);
+			document.querySelector("#summonerLevel").innerHTML=res.summonerLevel;
 			accountid=res.accountId;
 			console.log("accountid : "+accountid)
-			$("#accountid").val("accountid : "+accountid);
 			encid=res.id;
-			$("#encid").val("encid : "+encid);
 			icon=res.profileIconId;
 			document.querySelector("#usericon").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
 
@@ -1173,8 +1171,25 @@ $.ajax({
 
 							console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
 							console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
+
 							
-							timeBefore(res.gameCreation);
+							let message="";
+							timestampSecond = Math.floor(+ new Date() / 1000);
+							timestamp=+new Date();
+							gamestamp=+new Date(res.gameCreation)
+							
+							time=timestamp-gamestamp;
+							
+							if(((new Date(time).getDate())-1)>0){
+								console.log((new Date(time).getDate())-1+"일 전");
+								document.querySelector("#gameTime1").innerHTML=(new Date(time).getDate())-1+"일 전";
+							}else if((new Date(time).getHours()-9)>0){
+								console.log((new Date(time).getHours()-9)+"시간 전");
+								document.querySelector("#gameTime1").innerHTML=(new Date(time).getHours()-9)+"시간 전";
+							}
+							
+							//console.log("test : "+(new Date(time).getMinutes()));
+							//console.log("몇일 : "+(new Date(time).getHours()));
 
 						// 게임 시간
 							let gameDuMin=Math.floor(res.gameDuration/60);
