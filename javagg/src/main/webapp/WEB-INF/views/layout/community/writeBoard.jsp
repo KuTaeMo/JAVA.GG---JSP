@@ -34,8 +34,8 @@
 			
 			<div class="form-group">
 				<select name="communityType">
-  					<option value='humor' selected>유머</option>
- 					<option value='free'>자유</option>
+  					<option value='유머' selected>유머</option>
+ 					<option value='자유'>자유</option>
 				</select>
 			</div>
 			

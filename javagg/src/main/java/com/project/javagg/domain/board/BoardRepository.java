@@ -24,5 +24,5 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	int replyCount(int id);
 	
 	@Query(value = "select * from board where communityType = :type", nativeQuery = true)
-	Page<Board> BoardCommunityTypeList(String type, Pageable pageable);
+	Page<Board> boardCommunityTypeList(String type, Pageable pageable);
 }
