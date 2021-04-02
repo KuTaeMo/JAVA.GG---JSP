@@ -1,7 +1,5 @@
 package com.project.javagg.service;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -42,8 +40,6 @@ public class BoardService {
 		return boardRepository.updateReadCount(id);
 	}
 	
-	
-	
 	@Transactional
 	public void 글삭제하기(int id) {
 		boardRepository.deleteById(id);
@@ -56,27 +52,32 @@ public class BoardService {
 		boardEntity.setContent(boardWriteReqDto.getContent());
 	}
 	
-	public List<Board> 좋아요(int principalId) {
+	@Transactional
+	public Board 좋아요증가(int boardId, int principalId) {
 		
-		List<Board> boards = boardRepository.findLikeById(principalId);
+		Board board = new Board();
+		int likeCount = boardRepository.updateLikeCount(principalId);
+		board.setLikeCount(likeCount);
 		
-		boards.forEach((board) -> {
-			
-			int likeCount = board.getLikes().size();
-			board.setLikeCount(likeCount);
-			
-			board.getLikes().forEach((like) -> {
-				if(like.getUser().getId() == principalId) {
-					board.setLikeState(true);
-				}
-			});
-		});
 		
-		return boards;
+		
+		return board;
 	}
 	
-	public int 좋아요증가(int id) {
-		return boardRepository.updateLikeCount(id);
+	@Transactional
+	public Board 좋아요감소(int boardId, int principalId) {
+		
+		Board board = new Board();
+		int likeCount = boardRepository.updateLikeCountDown(principalId);
+		board.setLikeCount(likeCount);
+			
+		if(boardRepository.realLike(boardId) == principalId) {
+			board.setLikeState(true);
+		} else {
+			board.setLikeState(false);
+		}
+		
+		return board;
 	}
 	
 	@Transactional

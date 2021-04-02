@@ -20,6 +20,7 @@ import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.board.dto.BoardWriteReqDto;
 import com.project.javagg.domain.reply.Reply;
 import com.project.javagg.service.BoardService;
+import com.project.javagg.service.LikesService;
 import com.project.javagg.service.ReplyService;
 import com.project.javagg.utils.Script;
 import com.project.javagg.web.dto.CMRespDto;
@@ -32,6 +33,7 @@ public class BoardController {
 
 	private final BoardService boardService;
 	private final ReplyService replyService;
+	private final LikesService likesService;
 
 	@GetMapping("/community")
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
@@ -96,6 +98,7 @@ public class BoardController {
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
 		
+		
 		Page<Reply> replylist = replyService.댓글리스트11(id, pageable);
 
 		model.addAttribute("replylist", replylist);
@@ -121,5 +124,19 @@ public class BoardController {
 	public @ResponseBody CMRespDto<?> update(@PathVariable int id, @RequestBody BoardWriteReqDto boardWriteReqDto) {
 		boardService.글수정하기(id, boardWriteReqDto);
 		return new CMRespDto<>(1,Script.reload("수정에 성공하였습니다.") ,null);
+	}
+	
+	@PostMapping("/board/{boardId}/likes")
+	public @ResponseBody CMRespDto<?> like(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
+		likesService.좋아요(boardId, principalDetails.getUser().getId());
+		boardService.좋아요증가(boardId, principalDetails.getUser().getId());
+		return new CMRespDto<>(1, null);
+	}
+	
+	@DeleteMapping("/board/{boardId}/likes")
+	public @ResponseBody CMRespDto<?> unLike(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
+		likesService.싫어요(boardId, principalDetails.getUser().getId());
+		boardService.좋아요감소(boardId, principalDetails.getUser().getId());
+		return new CMRespDto<>(1, null);
 	}
 }
