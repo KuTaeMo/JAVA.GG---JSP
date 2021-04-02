@@ -333,10 +333,21 @@ li {}
 			<div>${board.content}</div>
 			
 			<div class="vote-btn">
-		<button type="submit" style="background-color: green;" class="article-vote-btn disabled">
-			<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
-			<span class="article-vote-like-count">${board.likeCount}</span>
-		</button>
+			<c:choose>
+				<c:when test="${board.likeState}">
+					<button onclick = "likeBtn(${board.id})" style="background-color: blue;" class="article-vote-btn fff">
+					<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
+					<span class=" article-vote-like-count" id="like_count_${board.id}">${board.likeCount}</span>
+					</button>	
+				</c:when>
+				<c:otherwise>
+					<button onclick = "likeBtn(${board.id})" style="background-color: white;" class="article-vote-btn f2f">
+					<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
+					<span class="article-vote-like-count" id = "like_count_${board.id}">${board.likeCount}</span>
+					</button>
+				</c:otherwise>
+			</c:choose>
+		
 		
 		<button type="submit" class="article-vote-btn">
 			<img border="0" src="/img/dislike.png" class="article-vote-dislike-img"/>
@@ -568,6 +579,63 @@ li {}
 					});
 		      });
 
+	      /* $('#likeBtn').on("click", (e) => {
+	    	  let id = e.currentTarget.value;
+
+		      $.ajax({
+					type: "POST",
+					url: "/board/" + id + "/likes",
+					dataType: "json"
+			  }).done(res => {
+
+				  	let likeCountStr = $("#like_count_" + id).text();
+		    		let likeCount = Number(likeCountStr) + 1;
+		    		$(`#like_count_${boardId}`).text(likeCount);
+				  
+			      });
+		      });
+ */
+
+	       function likeBtn(boardId) {
+
+	    		let _buttonl = event.target;
+	    		if(_buttonl.classList.contains("f2f")) {
+
+	    			$.ajax({
+
+						type: "POST",
+						url: `/board/${board.id}/likes`,
+						dataType: "json"
+			    	}).done(res => {
+
+			    		let likeCountStr = $(`#like_count_${board.id}`).text();
+			    		let likeCount = Number(likeCountStr) + 1;
+			    		$(`#like_count_${boardId}`).text(likeCount);
+
+			    		_buttonl.classList.add("fff");
+			            _buttonl.classList.remove("f2f");
+			            
+			    		location.reload();
+
+				    });
+		    	} else {
+
+		    		$.ajax({
+		    		      type: "DELETE",
+		    		      url: `/board/${board.id}/likes`,
+		    		      dataType: "json"
+		    		    }).done(res=>{
+		    		        let likeCountStr  = $(`#like_count_${board.id}`).text();
+		    		        let likeCount = Number(likeCountStr) - 1;
+		    		        $(`#like_count_${imageId}`).text(likeCount);
+		    		        
+		    		        _buttonl.classList.remove("fff");
+		    		        _buttonl.classList.add("f2f");
+		    		        location.reload();
+		    		    });  
+			   }
+		  } 
+	      
 		  
 
 	      $("#reply-btn").on("click", (e) => {
@@ -618,6 +686,9 @@ li {}
 
 	      console.log("되라 좀 : " + "${replys}");
 	      console.log("좀 나와라 : " + "${replylist}");
+			console.log("${board.likeState}");
+
+	    
 </script>
 
 <%@ include file="../common/footer.jsp"%>

@@ -17,12 +17,20 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	@Query(value = "select * from likes l inner join board b on l.boardId = b.id where l.userId = :principalId", nativeQuery = true)
 	List<Board> findLikeById(int principalId);
 	
+	@Modifying
 	@Query(value = "UPDATE board SET likeCount = likeCount + 1 WHERE id = :id", nativeQuery = true)
 	int updateLikeCount(int id);
+	
+	@Modifying
+	@Query(value = "UPDATE board SET likeCount = likeCount - 1 WHERE id = :id", nativeQuery = true)
+	int updateLikeCountDown(int id);
 	
 	@Query(value = "select count(r.id) from reply r inner join board b on r.boardId = b.id where r.boardId = :id", nativeQuery = true)
 	int replyCount(int id);
 	
 	@Query(value = "select * from board where communityType = :type", nativeQuery = true)
 	Page<Board> boardCommunityTypeList(String type, Pageable pageable);
+	
+	@Query(value = "select userId from likes where boardId in (select id from board where id = :boardId)", nativeQuery = true)
+	int realLike(int boardId);
 }
