@@ -352,3 +352,13 @@
         return spellName;
     }
 
+function setPerk(perkId){
+	let perkName = "";
+
+        if (champId == 266) {
+            perkName = "Aatrox";
+        }
+
+
+
+}

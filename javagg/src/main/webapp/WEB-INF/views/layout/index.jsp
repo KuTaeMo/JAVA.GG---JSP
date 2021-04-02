@@ -401,7 +401,7 @@
 				// 챔피언 숙련도 모스트 순으로 정렬됨
 				$.ajax({
 					type:"GET",
-					url: "https://kr.api.riotgame	s.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+encid+"?api_key="+api_key,
+					url: "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+encid+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
 						//console.log(res);

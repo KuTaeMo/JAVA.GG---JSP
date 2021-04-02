@@ -366,7 +366,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 					<!-- 승률 정보 끝  -->
 					<br />
 
-					<c:forEach var="num" begin="1" end="10" step="1">
+					<c:forEach var="num" begin="1" end="5" step="1">
 
 						<!-- 전적 시작 -->
 						<div
@@ -393,14 +393,14 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<!-- 스펠 -->
 										<div
 											style="display: flex; flex-direction: column; margin-right: 5px;">
-											<img id="spellD" src="" style="width: 25px; height: 25px;" />
-											<img id="spellF" src="" style="width: 25px; height: 25px;" />
+											<img id="spellD${num }" src="" style="width: 25px; height: 25px;" />
+											<img id="spellF${num }" src="" style="width: 25px; height: 25px;" />
 										</div>
 										<!-- 룬 -->
 										<div style="display: flex; flex-direction: column;">
-											<img id="RuneMain" src="img/pic1.png"
+											<img id="RuneMain${num }" src="img/pic1.png"
 												style="width: 25px; height: 25px; border-radius: 30px;" />
-											<img id="RuneSub" src="img/pic1.png"
+											<img id="RuneSub${num }" src="img/pic1.png"
 												style="width: 25px; height: 25px; border-radius: 30px;" />
 										</div>
 									</div>
@@ -485,10 +485,10 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<c:forEach var="a" begin="0" end="4" step="1">
 											<div
 												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-												<img id="blueTeamChampImg${a}"
+												<img id="box${num}BlueTeamChampImg${a}"
 													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 													style="width: 15px; height: 15px; margin-right: 3px;" />
-												<div id="blueTeamName${a}"
+												<div id="box${num}BlueTeamName${a}"
 													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
 													이름</div>
 											</div>
@@ -502,10 +502,10 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<c:forEach var="b" begin="5" end="9" step="1">
 											<div
 												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-												<img id="redTeamChampImg${b}"
+												<img id="box${num}RedTeamChampImg${b}"
 													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 													style="width: 15px; height: 15px; margin-right: 3px;" />
-												<div id="redTeamName${b}"
+												<div id="box${num}RedTeamName${b}"
 													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
 													이름</div>
 											</div>
@@ -1092,261 +1092,365 @@ $.ajax({
 				dataType:"json"
 				}).done((res)=>{ 
 					
-					// 매치 id 10개 저장
-					for(let i=0;i<9;i++){
+					// 매치 id 5개 저장
+					for(let i=0;i<5;i++){
 						matchNum[i]=res.matches[i].gameId;
 					}
-					
+
+					// 전적 시작 /////////////////////////////////
 					// 레드팀 blueTeam=false
-					gameInfo(matchNum[0],name);
-					
-					$.ajax({
-						type:"GET",
-						url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+matchNum[0]+"?api_key="+api_key,
-						dataType:"json"
-						}).done((res)=>{
-							
-							console.log(res);
-							// 게임종류
-							console.log(res.queueId);
-							
-							// 바론 횟수
-							console.log(res.teams[0].baronKills);
-							
-							// 용 횟수
-							console.log(res.teams[0].dragonKills);
-							
-							// 타워 뿌순 갯수
-							console.log(res.teams[0].towerKills);
-							
-							// 승 패
-							console.log(res.teams[0].win);
-							
-							// 챔피언 이름 출력
-							console.log(setChampName(res.participants[0].championId));
-							
-							//"http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
-							for(let i=0;i<5;i++){
-								document.querySelector("#blueTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
-								document.querySelector("#blueTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
-							}
-							for(let i=5;i<10;i++){
-								document.querySelector("#redTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
-								document.querySelector("#redTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png"
-							}
-							
-						// 게임 종류
-							if(res.queueId==420){
-								//420 솔랭
-								document.querySelector("#gameSort1").innerHTML="솔랭";
-							}else if(res.queueId==430){
-								//430 일반
-								document.querySelector("#gameSort1").innerHTML="일반";
-							}else if(res.queueId==440){
-								//440 무작위
-								document.querySelector("#gameSort1").innerHTML="자유5:5랭크";
-							}
-							else if(res.queueId==450){
-								//450 일반게임
-								document.querySelector("#gameSort1").innerHTML="무작위 총력전";
-							}
-							//private String queueType; //420솔랭, 430일반, 440 아마도 자유랭크, 450무작위
-							
-							
-						// 게임 몇시간 전
-							console.log(res.gameCreation);
-							console.log(new Date(res.gameCreation));
-
-							let gameMon=new Date(res.gameCreation).getMonth()+1;
-							let gameDate=new Date(res.gameCreation).getDate();
-							let gameHour=new Date(res.gameCreation).getHours();
-							let gameMin=new Date(res.gameCreation).getMinutes();
-							let gameSecond=new Date(res.gameCreation).getSeconds();
+					for(let bnum=1;bnum<6;bnum++){
+						gameInfo(matchNum[bnum-1],name);
 								
-							let nowMon=new Date().getMonth()+1;
-							let nowDate=new Date().getDate();
-							let nowHour=new Date().getHours();
-							let nowMin=new Date().getMinutes();
-							let nowSecond=new Date().getSeconds();
+								$.ajax({
+									type:"GET",
+									url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+matchNum[bnum-1]+"?api_key="+api_key,
+									dataType:"json"
+									}).done((res)=>{
+										
+										console.log(res);
+										// 게임종류
+										console.log(res.queueId);
+										
+										// 바론 횟수
+										console.log(res.teams[0].baronKills);
+										
+										// 용 횟수
+										console.log(res.teams[0].dragonKills);
+										
+										// 타워 뿌순 갯수
+										console.log(res.teams[0].towerKills);
+										
+										// 승 패
+										console.log(res.teams[0].win);
+										
+										// 챔피언 이름 출력
+										console.log(setChampName(res.participants[0].championId));
 
-							console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
-							console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
+										// 플레이어들 뽑기
+										//"http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
+										for(let i=0;i<5;i++){
+											document.querySelector("#box"+bnum+"BlueTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+											document.querySelector("#box"+bnum+"BlueTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
+										}
+										for(let i=5;i<10;i++){
+											document.querySelector("#box"+bnum+"RedTeamName"+i).innerHTML=res.participantIdentities[i].player.summonerName;
+											document.querySelector("#box"+bnum+"RedTeamChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png"
+										}
+										
+									// 게임 종류
+										if(res.queueId==420){
+											//420 솔랭
+											document.querySelector("#gameSort"+bnum).innerHTML="솔랭";
+										}else if(res.queueId==430){
+											//430 일반
+											document.querySelector("#gameSort"+bnum).innerHTML="일반";
+										}else if(res.queueId==440){
+											//440 무작위
+											document.querySelector("#gameSort"+bnum).innerHTML="자유5:5랭크";
+										}
+										else if(res.queueId==450){
+											//450 일반게임
+											document.querySelector("#gameSort"+bnum).innerHTML="무작위 총력전";
+										}
+										//private String queueType; //420솔랭, 430일반, 440 아마도 자유랭크, 450무작위
+										
+										
+									// 게임 몇시간 전
+										console.log(res.gameCreation);
+										console.log(new Date(res.gameCreation));
 
-							
-							let message="";
-							timestampSecond = Math.floor(+ new Date() / 1000);
-							timestamp=+new Date();
-							gamestamp=+new Date(res.gameCreation)
-							
-							time=timestamp-gamestamp;
-							
-							if(((new Date(time).getDate())-1)>0){
-								console.log((new Date(time).getDate())-1+"일 전");
-								document.querySelector("#gameTime1").innerHTML=(new Date(time).getDate())-1+"일 전";
-							}else if((new Date(time).getHours()-9)>0){
-								console.log((new Date(time).getHours()-9)+"시간 전");
-								document.querySelector("#gameTime1").innerHTML=(new Date(time).getHours()-9)+"시간 전";
-							}
-							
-							//console.log("test : "+(new Date(time).getMinutes()));
-							//console.log("몇일 : "+(new Date(time).getHours()));
+										let gameMon=new Date(res.gameCreation).getMonth()+1;
+										let gameDate=new Date(res.gameCreation).getDate();
+										let gameHour=new Date(res.gameCreation).getHours();
+										let gameMin=new Date(res.gameCreation).getMinutes();
+										let gameSecond=new Date(res.gameCreation).getSeconds();
+											
+										let nowMon=new Date().getMonth()+1;
+										let nowDate=new Date().getDate();
+										let nowHour=new Date().getHours();
+										let nowMin=new Date().getMinutes();
+										let nowSecond=new Date().getSeconds();
 
-						// 게임 시간
-							let gameDuMin=Math.floor(res.gameDuration/60);
-							let gameDuSec=res.gameDuration%60;
+										console.log("게임시간은 "+gameMon+"월 "+gameDate+"일 "+gameHour+" 시 "+gameMin+" 분 입니다.");
+										console.log("현재 "+nowMon+"월 "+nowDate+"일 "+nowHour+" 시 "+nowMin+" 분 입니다.");
 
-							console.log(gameDuMin+"분 "+gameDuSec+"초");
-							document.querySelector("#gameDuration1").innerHTML=gameDuMin+"분 "+gameDuSec+"초";
-							
-						// 승 패
-						
-							// 우리팀이 블루팀인지 레드팀인지 찾기
-							let myTeamNum=""; // 내가 팀중에 번호가 몇번이야?!
-							let myTeam="";
-							for(let i=0;i<10;i++){
-								if(res.participantIdentities[i].player.summonerName===name){
-									myTeamNum=i;
-								}
-							}
-							
-							if(myTeamNum<5){
-								myTeam="blue";
-								console.log("나는 블루팀");
-								
-								// 블루팀 Fail
-								if(res.teams[0].win==="Fail"){
-									setFail(1);
+										
+										let message="";
+										timestampSecond = Math.floor(+ new Date() / 1000);
+										timestamp=+new Date();
+										gamestamp=+new Date(res.gameCreation)
+										
+										time=timestamp-gamestamp;
+										
+										if(((new Date(time).getDate())-1)>0){
+											console.log((new Date(time).getDate())-1+"일 전");
+											document.querySelector("#gameTime"+bnum).innerHTML=(new Date(time).getDate())-1+"일 전";
+										}else if((new Date(time).getHours()-9)>0){
+											console.log((new Date(time).getHours()-9)+"시간 전");
+											document.querySelector("#gameTime"+bnum).innerHTML=(new Date(time).getHours()-9)+"시간 전";
+										}
 
-								// 블루팀 Win
-								}else if(res.teams[0].win==="Win"){
-									setWin(1);
-								}
-							}else{
-								myTeam="red";
-								console.log("나는 레드팀");
-								
-								// 블루팀 Fail
-								if(res.teams[1].win==="Fail"){
-									// 큰박스 패배 텍스트
-									document.querySelector("#winOrLose1").style.color='red';
-									document.querySelector("#winOrLose1").innerHTML="패배";
+									// 게임 시간
+										let gameDuMin=Math.floor(res.gameDuration/60);
+										let gameDuSec=res.gameDuration%60;
+
+										console.log(gameDuMin+"분 "+gameDuSec+"초");
+										document.querySelector("#gameDuration"+bnum).innerHTML=gameDuMin+"분 "+gameDuSec+"초";
+										
+									// 승 패
 									
-									// 상세보기 패배 텍스트
-									document.querySelector("#winOrlose1").style.color='red';
-									document.querySelector("#winOrlose1").innerHTML="패배";
-									
-									// 상세보기 승리 텍스트
-									document.querySelector("#winOrloseSide1").style.color='#1A85C4';
-									document.querySelector("#winOrloseSide1").innerHTML="승리";
-									
-									// 큰 박스 배경 빨간색 변경
-									document.querySelector("#searchBox1").style.backgroundColor='#f7c3c3';
-									
-									// 큰 박스 토글 버튼 빨간색 변경
-									document.querySelector("#search1").style.backgroundColor='#E89D99';
-									// 테두리
-									document.querySelector("#search1").style.border='1px solid #ea7979';
-									
-									// 버튼
-									document.querySelector("#moreButton1").src="img/loseMore.png";
+										// 우리팀이 블루팀인지 레드팀인지 찾기
+										let myTeamNum=""; // 내가 팀중에 번호가 몇번이야?!
+										let myTeam="";
+										for(let i=0;i<10;i++){
+											if(res.participantIdentities[i].player.summonerName===name){
+												myTeamNum=i;
+											}
+										}
+										
+										if(myTeamNum<5){
+											myTeam="blue";
+											console.log("나는 블루팀");
+											
+											// 블루팀 Fail
+											if(res.teams[0].win==="Fail"){
+												setFail(bnum);
 
-								// 블루팀 Win
-								}else if(res.teams[1].win==="Win"){
-									// 큰박스 승리 텍스트
-									document.querySelector("#winOrLose1").style.color='#1A85C4';
-									document.querySelector("#winOrLose1").innerHTML="승리";
+											// 블루팀 Win
+											}else if(res.teams[0].win==="Win"){
+												setWin(bnum);
+											}
+										}else{
+											myTeam="red";
+											console.log("나는 레드팀");
+											
+											// 블루팀 Fail
+											if(res.teams[1].win==="Fail"){
+												// 큰박스 패배 텍스트
+												document.querySelector("#winOrLose"+bnum).style.color='red';
+												document.querySelector("#winOrLose"+bnum).innerHTML="패배";
+												
+												// 상세보기 패배 텍스트
+												document.querySelector("#winOrlose"+bnum).style.color='red';
+												document.querySelector("#winOrlose"+bnum).innerHTML="패배";
+												
+												// 상세보기 승리 텍스트
+												document.querySelector("#winOrloseSide"+bnum).style.color='#1A85C4';
+												document.querySelector("#winOrloseSide"+bnum).innerHTML="승리";
+												
+												// 큰 박스 배경 빨간색 변경
+												document.querySelector("#searchBox"+bnum).style.backgroundColor='#f7c3c3';
+												
+												// 큰 박스 토글 버튼 빨간색 변경
+												document.querySelector("#search"+bnum).style.backgroundColor='#E89D99';
+												// 테두리
+												document.querySelector("#search"+bnum).style.border='1px solid #ea7979';
+												
+												// 버튼
+												document.querySelector("#moreButton"+bnum).src="img/loseMore.png";
+
+											// 블루팀 Win
+											}else if(res.teams[1].win==="Win"){
+												// 큰박스 승리 텍스트
+												document.querySelector("#winOrLose"+bnum).style.color='#1A85C4';
+												document.querySelector("#winOrLose"+bnum).innerHTML="승리";
+												
+												// 상세보기 승리 텍스트
+												document.querySelector("#winOrlose"+bnum).style.color='#1A85C4';
+												document.querySelector("#winOrlose"+bnum).innerHTML="승리";
+												
+												// 상세보기 패배 텍스트
+												document.querySelector("#winOrloseSide"+bnum).style.color='red';
+												document.querySelector("#winOrloseSide"+bnum).innerHTML="패배";
+												
+												// 큰 박스 배경 파란색 변경
+												document.querySelector("#searchBox"+bnum).style.backgroundColor='#A3CFEC';
+												
+												// 큰 박스 토글 버튼 파란색 변경
+												document.querySelector("#search"+bnum).style.backgroundColor='#64b1e4';
+												// 테두리
+												document.querySelector("#search"+bnum).style.border='1px solid #5ca7d6';
+												
+												// 버튼
+												document.querySelector("#moreButton"+bnum).src="img/winMore.png";
+											}
+										}
+									// 챔피언 이미지
+									let cname=setChampName(res.participants[myTeamNum].championId);
+									console.log(setChampName(res.participants[myTeamNum].championId));
+									document.querySelector("#boxChampImg"+bnum).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[myTeamNum].championId)+".png";		
+
+									// 챔피언 이름
+									$.ajax({
+										type:"GET",
+										url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
+										dataType:"json"
+										}).done((res)=>{
+											document.querySelector("#boxChampionName"+bnum).innerHTML=res.data[cname].name;
+											});
 									
-									// 상세보기 승리 텍스트
-									document.querySelector("#winOrlose1").style.color='#1A85C4';
-									document.querySelector("#winOrlose1").innerHTML="승리";
+									// 스펠
+									console.log(res.participants[myTeamNum].spell1Id);
+									console.log(res.participants[myTeamNum].spell2Id);
+									document.querySelector("#spellD"+bnum).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell1Id)+".png"
+									document.querySelector("#spellF"+bnum).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell2Id)+".png"
+
+
+									// 룬
+									//https://opgg-static.akamaized.net/images/lol/perkStyle/" + perk + ".png
+									//perkPrimaryStyle
+									// 지배 - 8112(감전), 8124(포식자), 8128(수확), 9923(칼날비)
+									// 영감 - 8351(빙결), 8360(봉풀주), 8358(짱돌)
+									// 정밀 - 8005(집공), 8008(치속), 8021(기발), 8010(정복자)
+									// 결의 - 8437(착취), 8439(여진), 8465(수호자)
+									// 마법 - 8214(콩콩이), 8229(유성), 8230(난입)
+									let perkMain=res.participants[myTeamNum].stats.perk0;
+									$.ajax({
+										data:"get",
+										url:"https://ddragon.leagueoflegends.com/cdn/10.6.1/data/en_US/runesReforged.json",
+										data:"json"
+										}).done((res)=>{
+											console.log(res);
+											console.log(res[0].slots[0].runes[0].icon);
+											console.log(perkMain);
+											if(perkMain==8112){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+											}else if(perkMain==8124){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+											}else if(perkMain==8128){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+											}else if(perkMain==9923){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+											}else if(perkMain==8351){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+											}else if(perkMain==8360){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+											}else if(perkMain==8358){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+											}else if(perkMain==8005){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+											}else if(perkMain==8008){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+											}else if(perkMain==8021){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+											}else if(perkMain==8010){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+											}else if(perkMain==8437){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+											}else if(perkMain==8439){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+											}else if(perkMain==8465){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+											}else if(perkMain==8214){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+											}else if(perkMain==8229){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+											}else if(perkMain==8230){
+												document.querySelector("#RuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+											}
+										});
+										
+										
 									
-									// 상세보기 패배 텍스트
-									document.querySelector("#winOrloseSide1").style.color='red';
-									document.querySelector("#winOrloseSide1").innerHTML="패배";
+									let perkSub=res.participants[myTeamNum].stats.perkSubStyle;
+									document.querySelector("#RuneSub"+bnum).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
+
+									// 킬뎃
+									document.querySelector("#box"+bnum+"Kill").innerHTML=res.participants[myTeamNum].stats.kills;
+									document.querySelector("#box"+bnum+"Death").innerHTML=res.participants[myTeamNum].stats.deaths;
+									document.querySelector("#box"+bnum+"Assist").innerHTML=res.participants[myTeamNum].stats.assists;
+
+									// kda
+									// ((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1"
+									document.querySelector("#box"+bnum+"Kda").innerHTML=((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists) / res.participants[myTeamNum].stats.deaths).toFixed(2) + " : 1";
 									
-									// 큰 박스 배경 파란색 변경
-									document.querySelector("#searchBox1").style.backgroundColor='#A3CFEC';
+									// 다중킬
+									// box${num}Mkill
+									if(res.participants[myTeamNum].stats.pentaKills>=1){
+										document.querySelector("#box"+bnum+"Mkill").innerHTML="펜타킬";
+									}else if(res.participants[myTeamNum].stats.quadraKills>=1){
+										document.querySelector("#box"+bnum+"Mkill").innerHTML="쿼드라킬";
+									}else if(res.participants[myTeamNum].stats.tripleKills>=1){
+										document.querySelector("#box"+bnum+"Mkill").innerHTML="트리플킬";
+									}else if(res.participants[myTeamNum].stats.doubleKills>=1){
+										document.querySelector("#box"+bnum+"Mkill").innerHTML="더블킬";
+									}else{
+										document.querySelector("#box"+bnum+"Mkill").style.display='none';
+									}
+
+
+									// 레벨 
+									document.querySelector("#box"+bnum+"Level").innerHTML="레벨 "+res.participants[myTeamNum].stats.champLevel;
+
+									// CS
+									document.querySelector("#box"+bnum+"Cs").innerHTML=res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled;
+									document.querySelector("#box"+bnum+"CsPer").innerHTML=" ("+((res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
+
+									// 킬 관여율
+									if(myTeam==="blue"){
+										document.querySelector("#box"+bnum+"KillRel").innerHTML="킬관여"+
+										((((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
+									}else if(myTeam==="red"){
+										document.querySelector("#box"+bnum+"KillRel").innerHTML="킬관여"+
+										((((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists)/(res.participants[5].stats.kills + res.participants[6].stats.kills + res.participants[7].stats.kills + res.participants[8].stats.kills + res.participants[9].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
+									}
 									
-									// 큰 박스 토글 버튼 파란색 변경
-									document.querySelector("#search1").style.backgroundColor='#64b1e4';
-									// 테두리
-									document.querySelector("#search1").style.border='1px solid #5ca7d6';
 									
-									// 버튼
-									document.querySelector("#moreButton1").src="img/winMore.png";
-								}
-							}
-						// 챔피언 이미지
-						let cname=setChampName(res.participants[myTeamNum].championId);
-						console.log(setChampName(res.participants[myTeamNum].championId));
-						document.querySelector("#boxChampImg1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[myTeamNum].championId)+".png";		
+									// 아이템
+									//res.participants[myTeamNum].stats.item0
+									console.log(res.participants[myTeamNum].stats.item0);
+									
+									if(res.participants[myTeamNum].stats.item0==0){
+										document.querySelector("#box"+bnum+"Item1").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item0+".png";
+									}
 
-						// 챔피언 이름
-						$.ajax({
-							type:"GET",
-							url: "http://ddragon.leagueoflegends.com/cdn/11.5.1/data/ko_KR/champion.json",
-							dataType:"json"
-							}).done((res)=>{
-								document.querySelector("#boxChampionName1").innerHTML=res.data[cname].name;
-								});
-						
-						// 스펠
-						console.log(res.participants[myTeamNum].spell1Id);
-						console.log(res.participants[myTeamNum].spell2Id);
-						document.querySelector("#spellD").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell1Id)+".png"
-						document.querySelector("#spellF").src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[myTeamNum].spell2Id)+".png"
+									if(res.participants[myTeamNum].stats.item1==0){
+										document.querySelector("#box"+bnum+"Item2").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item1+".png";
+									}
 
+									if(res.participants[myTeamNum].stats.item2==0){
+										document.querySelector("#box"+bnum+"Item3").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item2+".png";
+									}
 
-						// 킬뎃
-						document.querySelector("#box1Kill").innerHTML=res.participants[myTeamNum].stats.kills;
-						document.querySelector("#box1Death").innerHTML=res.participants[myTeamNum].stats.deaths;
-						document.querySelector("#box1Assist").innerHTML=res.participants[myTeamNum].stats.assists;
+									if(res.participants[myTeamNum].stats.item3==0){
+										document.querySelector("#box"+bnum+"Item4").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item3+".png";
+									}
 
-						// kda
-						// ((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1"
-						document.querySelector("#box1Kda").innerHTML=((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists) / res.participants[myTeamNum].stats.deaths).toFixed(2) + " : 1";
-						
-						// 다중킬
-						// box${num}Mkill
-						if(res.participants[myTeamNum].stats.pentaKills>=1){
-							document.querySelector("#box1Mkill").innerHTML="펜타킬";
-						}else if(res.participants[myTeamNum].stats.quadraKills>=1){
-							document.querySelector("#box1Mkill").innerHTML="쿼드라킬";
-						}else if(res.participants[myTeamNum].stats.tripleKills>=1){
-							document.querySelector("#box1Mkill").innerHTML="트리플킬";
-						}else if(res.participants[myTeamNum].stats.doubleKills>=1){
-							document.querySelector("#box1Mkill").innerHTML="더블킬";
-						}else{
-							document.querySelector("#box1Mkill").style.display='none';
-						}
+									if(res.participants[myTeamNum].stats.item4==0){
+										document.querySelector("#box"+bnum+"Item5").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item4+".png";
+									}
 
+									if(res.participants[myTeamNum].stats.item5==0){
+										document.querySelector("#box"+bnum+"Item6").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item5+".png";
+									}
 
-						// 레벨 
-						document.querySelector("#box1Level").innerHTML="레벨 "+res.participants[myTeamNum].stats.champLevel;
-
-						// CS
-						document.querySelector("#box1Cs").innerHTML=res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled;
-						document.querySelector("#box1CsPer").innerHTML=" ("+((res.participants[myTeamNum].stats.totalMinionsKilled + res.participants[myTeamNum].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
-
-						// 킬 관여율
-						document.querySelector("#box1KillRel").innerHTML="킬관여"+
-							((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
-						
-						// 아이템
-						//res.participants[myTeamNum].stats.item0
-						console.log(res.participants[myTeamNum].stats.item0);
-						document.querySelector("#box1Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item0+".png";
-						document.querySelector("#box1Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item1+".png"
-						document.querySelector("#box1Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item2+".png"
-						document.querySelector("#box1Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item3+".png"
-						document.querySelector("#box1Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item4+".png"
-						document.querySelector("#box1Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item5+".png"
-						document.querySelector("#box1Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png"
-						});
-					
-					
+									if(res.participants[myTeamNum].stats.item6==0){
+										document.querySelector("#box"+bnum+"Item7").style.display='none';
+									}else{
+										document.querySelector("#box"+bnum+"Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png";
+									}		
+									});
+					}
 					
 				});
+
+			
+			
+
+			
 			// 랭크
 			$.ajax({
 				type:"GET",
@@ -1672,18 +1776,6 @@ var myChart = new Chart(ctx, {
 		cutoutPercentage : 70
 	}
 });
-
-// 전적검색 스펠
-$.ajax({
-	type:"GET",
-	url: "http://ddragon.leagueoflegends.com/cdn/11.6.1/data/ko_KR/summoner.json",
-	dataType:"json"
-	}).done((res)=>{
-		console.log(res);
-		document.querySelector("#spellD").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerFlash.png";
-		document.querySelector("#spellF").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/SummonerHeal.png";
-			
-	});
 
 let searchBox="";
 
