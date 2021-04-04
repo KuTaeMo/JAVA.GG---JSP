@@ -31,6 +31,6 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	@Query(value = "select * from board where communityType = :type", nativeQuery = true)
 	Page<Board> boardCommunityTypeList(String type, Pageable pageable);
 	
-	@Query(value = "select userId from likes where boardId in (select id from board where id = :boardId)", nativeQuery = true)
-	int realLike(int boardId);
+	@Query(value = "select * from board where id in (select boardId from likes where boardId = :boardId)", nativeQuery = true)
+	List<Board> realLike(int boardId);
 }

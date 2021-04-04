@@ -335,18 +335,16 @@ li {}
 			<div class="vote-btn">
 			<c:choose>
 				<c:when test="${board.likeState}">
-					<button onclick = "likeBtn(${board.id})" style="background-color: blue;" class="article-vote-btn fff">
-					<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
-					<span class=" article-vote-like-count" id="like_count_${board.id}">${board.likeCount}</span>
+					<button onclick = "likeBtn(${board.id})" style="background-color: blue;" class="article-vote-btn abc">
 					</button>	
 				</c:when>
 				<c:otherwise>
-					<button onclick = "likeBtn(${board.id})" style="background-color: white;" class="article-vote-btn f2f">
-					<img border="0" src="/img/vote.png" class="article-vote-like-img"/>
-					<span class="article-vote-like-count" id = "like_count_${board.id}">${board.likeCount}</span>
+					<button onclick = "likeBtn(${board.id})" style="background-color: white;" class="article-vote-btn cba">
 					</button>
 				</c:otherwise>
 			</c:choose>
+			
+			<span class=" article-vote-like-count"><b id="like_count_${board.id}">${board.likeCount}</b></span>
 		
 		
 		<button type="submit" class="article-vote-btn">
@@ -599,39 +597,38 @@ li {}
 	       function likeBtn(boardId) {
 
 	    		let _buttonl = event.target;
-	    		if(_buttonl.classList.contains("f2f")) {
+	    		if(_buttonl.classList.contains("cba")) {
 
 	    			$.ajax({
 
 						type: "POST",
-						url: `/board/${board.id}/likes`,
+						url: "/board/" + ${board.id} +"/likes",
 						dataType: "json"
 			    	}).done(res => {
 
-			    		let likeCountStr = $(`#like_count_${board.id}`).text();
-			    		let likeCount = Number(likeCountStr) + 1;
-			    		$(`#like_count_${boardId}`).text(likeCount);
-
-			    		_buttonl.classList.add("fff");
-			            _buttonl.classList.remove("f2f");
+			    		let likeCountStr  = $("#like_count_" + ${board.id}).text();
+			            let likeCount = Number(likeCountStr) + 1;
+			            $("#like_count_" + ${board.id}).text(likeCount);
 			            
-			    		location.reload();
+			    		_buttonl.classList.add("abc");
+			            _buttonl.classList.remove("cba");
 
 				    });
 		    	} else {
 
 		    		$.ajax({
 		    		      type: "DELETE",
-		    		      url: `/board/${board.id}/likes`,
+		    		      url: "/board/" + ${board.id} + "/likes",
 		    		      dataType: "json"
 		    		    }).done(res=>{
-		    		        let likeCountStr  = $(`#like_count_${board.id}`).text();
-		    		        let likeCount = Number(likeCountStr) - 1;
-		    		        $(`#like_count_${imageId}`).text(likeCount);
+
+		    		    	let likeCountStr  = $("#like_count_" + ${board.id}).text();
+				            let likeCount = Number(likeCountStr) - 1;
+				            $("#like_count_" + ${board.id}).text(likeCount);
 		    		        
-		    		        _buttonl.classList.remove("fff");
-		    		        _buttonl.classList.add("f2f");
-		    		        location.reload();
+		    		        _buttonl.classList.remove("abc");
+		    		        _buttonl.classList.add("cba");
+
 		    		    });  
 			   }
 		  } 
@@ -686,7 +683,7 @@ li {}
 
 	      console.log("되라 좀 : " + "${replys}");
 	      console.log("좀 나와라 : " + "${replylist}");
-			console.log("${board.likeState}");
+			console.log("${board.likeCount}");
 
 	    
 </script>

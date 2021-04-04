@@ -52,9 +52,9 @@ public class Board {
 		
 	private int dislikeCount;
 	
-	@OneToMany(mappedBy = "board")
+	@OneToMany(mappedBy = "board",  fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"board"})
-	private List<Likes> likes;
+	private List<Likes> likes; 
 	
 	@ManyToOne
 	@JoinColumn(name = "userId")
@@ -72,5 +72,6 @@ public class Board {
 	
 	private int likeCount;
 	
+	@Transient
 	private boolean likeState;
 }

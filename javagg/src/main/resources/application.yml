@@ -21,6 +21,7 @@ spring:
     
   jpa:
     open-in-view: true
+    generate-ddl: true
     hibernate:
       ddl-auto: update
       naming:

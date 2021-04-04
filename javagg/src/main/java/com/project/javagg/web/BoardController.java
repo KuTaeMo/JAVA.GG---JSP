@@ -127,7 +127,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/board/{boardId}/likes")
-	public @ResponseBody CMRespDto<?> like(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
+	public @ResponseBody CMRespDto<?> like(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
 		likesService.좋아요(boardId, principalDetails.getUser().getId());
 		boardService.좋아요증가(boardId, principalDetails.getUser().getId());
 		return new CMRespDto<>(1, null);

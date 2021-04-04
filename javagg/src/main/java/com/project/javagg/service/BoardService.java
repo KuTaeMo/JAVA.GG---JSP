@@ -1,5 +1,8 @@
 package com.project.javagg.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -53,33 +56,51 @@ public class BoardService {
 	}
 	
 	@Transactional
-	public Board 좋아요증가(int boardId, int principalId) {
+	public List<Board> 좋아요증가(int boardId, int principalId) {
+		System.out.println("좋아요 실행됨?");
 		
-		Board board = new Board();
-		int likeCount = boardRepository.updateLikeCount(principalId);
-		board.setLikeCount(likeCount);
+		List<Board> boards = boardRepository.realLike(boardId);
+		
+		boards.forEach((board) -> {
+			int likeCount = board.getLikes().size();
+			board.setLikeCount(likeCount);
+			
+			System.out.println("z : " + likeCount);
+			
+			board.getLikes().forEach((like) -> {
+				if(board.getUser().getId() == principalId) {
+					board.setLikeState(true);
+				}
+			});
+		});
 		
 		
-		
-		return board;
+		return boards;
 	}
 	
 	@Transactional
-	public Board 좋아요감소(int boardId, int principalId) {
+	public List<Board> 좋아요감소(int boardId, int principalId) {
 		
-		Board board = new Board();
-		int likeCount = boardRepository.updateLikeCountDown(principalId);
-		board.setLikeCount(likeCount);
+		System.out.println("싫어요 실행됨?");
+		List<Board> boards = boardRepository.realLike(boardId);
+				
+		boards.forEach((board) -> {
+			int likeCount = board.getLikes().size();
+			board.setLikeCount(likeCount);
 			
-		if(boardRepository.realLike(boardId) == principalId) {
-			board.setLikeState(true);
-		} else {
-			board.setLikeState(false);
-		}
+			System.out.println("z : " + likeCount);
+			
+			board.getLikes().forEach((like) -> {
+				if(board.getUser().getId() == principalId) {
+					board.setLikeState(false);
+				}
+			});
+		});
 		
-		return board;
+		
+		return boards;
 	}
-	
+		
 	@Transactional
 	public Page<Board> 커뮤니티타입리스트(String type, Pageable pageable) {
 		return boardRepository.boardCommunityTypeList(type, pageable);

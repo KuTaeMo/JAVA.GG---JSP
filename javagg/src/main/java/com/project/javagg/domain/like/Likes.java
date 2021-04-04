@@ -8,9 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.javagg.domain.board.Board;
 import com.project.javagg.domain.user.User;
 
@@ -24,14 +27,24 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(
+		name="likes",
+		uniqueConstraints={
+			@UniqueConstraint(
+				name = "likes_uk",
+				columnNames={"boardId","userId"}
+			)
+		}
+	)
 public class Likes {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name = "boardId")
+	@JsonIgnoreProperties({"likes"})
 	private Board board;
 	
 	@ManyToOne
