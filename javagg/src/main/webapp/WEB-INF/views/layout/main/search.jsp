@@ -542,11 +542,9 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div
 										style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
 									<div
-										style="width: 7%; display: flex; justify-content: center; align-items: center;">와드</div>
+										style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
 									<div
-										style="width: 7%; display: flex; justify-content: center; align-items: center;">CS</div>
-									<div
-										style="width: 26%; display: flex; justify-content: center; align-items: center;">아이템</div>
+										style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
 								</div>
 
 
@@ -556,41 +554,41 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div id="detailBox${num }Blue${blueteam }"
 										style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
 										<div style="display: flex; align-items: flex-end;">
-											<div id="blueTeamLevel${blueteam }">11</div>
+											<div id="blue${num }TeamLevel${blueteam }">11</div>
 										</div>
 										<div style="width: 25%; display: flex; align-items: center;">
-											<img id="blueTeamChampImg${blueteam }" class="circle_image" src="img/Jayce.png"
+											<img id="blue${num }TeamChampImg${blueteam }" class="circle_image" src="img/Jayce.png"
 												style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
 											<div
 												style="display: flex; flex-direction: column; margin-right: 5px;">
-												<img id="blueTeamSpellD${blueteam}" src="" style="width: 20px; height: 20px;" />
-												<img id="blueTeamSpellF${blueteam}" src="" style="width: 20px; height: 20px;" />
+												<img id="blue${num }TeamSpellD${blueteam}" src="" style="width: 20px; height: 20px;" />
+												<img id="blue${num }TeamSpellF${blueteam}" src="" style="width: 20px; height: 20px;" />
 											</div>
 											<!-- 룬 -->
 											<div style="display: flex; flex-direction: column;">
-												<img id="blueTeamRuneMain${blueteam }" src="img/pic1.png"
+												<img id="blue${num }TeamRuneMain${blueteam }" src="img/pic1.png"
 													style="width: 20px; height: 20px; border-radius: 30px;" />
-												<img id="blueTeamRuneSub${blueteam }" src="img/pic1.png"
+												<img id="blue${num }TeamRuneSub${blueteam }" src="img/pic1.png"
 													style="width: 20px; height: 20px; border-radius: 30px;" />
 											</div>
-											<span id="blueTeamName${blueteam }"
+											<span id="blue${num }TeamName${blueteam }"
 												style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치 </span>
 										</div>
 										<!-- 티어 -->
 										<div 
 											style="width: 10%; display: flex; justify-content: center; align-items: center; font-size: 10px; white-space: nowrap;">
-											<div id="blueTeamTier${blueteam }"></div>
-											<div id="blueTeamRank${blueteam }"></div>
+											<div id="blue${num }TeamTier${blueteam }" style="margin-right: 5px; white-space: nowrap;"></div>
+											<div id="blue${num }TeamRank${blueteam }"></div>
 											</div>
 										<!-- KDA -->
 										<div
 											style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 											<div>3.33:1</div>
 											<div style="font-size: 8px; display: flex; justify-content: center; align-items: center;">
-												<div id="blueTeamKill${blueteam }">1</div>/
-												<div id="blueTeamDeath${blueteam }">1</div>/
-												<div id="blueTeamAssist${blueteam }">1</div>
-												<div id="blueTeamKillPer${blueteam }">(10%)</div>
+												<div id="blue${num }TeamKill${blueteam }">1</div>/
+												<div id="blue${num }TeamDeath${blueteam }">1</div>/
+												<div id="blue${num }TeamAssist${blueteam }">1</div>
+												<div id="blue${num }TeamKillPer${blueteam }">(10%)</div>
 											</div>
 										</div>
 										<!-- 피해량 -->
@@ -599,44 +597,39 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											<div
 												style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 												<!-- 피해량 text -->
-												<div id="blueTeamDamage${blueteam }" style="font-size: 11px;">25,537</div>
+												<div id="blue${num }TeamDamage${blueteam }" style="font-size: 11px;">25,537</div>
 												<!-- 피해량 graph -->
 												<div
 													style="background-color: #F2F2F2; width: 80px; height: 15px;">
-													<div id="blueTeamDamagePer${blueteam }"
+													<div id="blue${num }TeamDamagePer${blueteam }"
 														style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
 												</div>
 											</div>
 										</div>
-										<!-- 와드 -->
+										<!-- cs -->
 										<div
-											style="width: 7%; display: flex; justify-content: center; align-items: center;">
-											<div id="blueTeamWard${blueteam }">14</div>/
-											<div id="blueTeamBreakWard${blueteam }">1</div>
-										</div>
-										<div
-											style="width: 7%; display: flex; justify-content: center; align-items: center;">
-												<div id="blueTeamCs${blueteam }">205</div>
-												<div id="blueTeamCsPer${blueteam }">(5.6)</div>
+											style="width: 10%; display: flex; justify-content: center; align-items: center;">
+												<div id="blue${num }TeamCs${blueteam }">205</div>
+												<div id="blue${num }TeamCsPer${blueteam }">(5.6)</div>
 											</div>
 										<div
-											style="width: 26%; display: flex; justify-content: center; align-items: center;">
+											style="width: 30%; display: flex; justify-content: center; align-items: center;">
 											<div
 												style="display: flex; justify-content: center; align-items: center;">
-												<div id="blueTeam${blueteam}Item1"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item2"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item3"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item4"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item5"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item6"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="blueTeam${blueteam}Item7"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
+												<div id="blue${num }Team${blueteam}Item1"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item1Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item2"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item2Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item3"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item3Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item4"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item4Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item5"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item5Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item6"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item6Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="blue${num }Team${blueteam}Item7"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item7Img" src="" style="width: 20px; height: 20px;"/></div>
 											</div>
 										</div>
 									</div>
@@ -654,19 +647,19 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-baron-b.png"
 												style="width: 20px; height: 20px;" />
-											<div id="blueTeamBaron">1</div>
+											<div id="blueTeamBaron${num }">1</div>
 										</div>
 										<div
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-dragon-b.png"
 												style="width: 20px; height: 20px;" />
-											<div id="blueTeamDragon">4</div>
+											<div id="blueTeamDragon${num }">4</div>
 										</div>
 										<div
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-tower-b.png"
 												style="width: 20px; height: 20px;" />
-											<div id="blueTeamTower">9</div>
+											<div id="blueTeamTower${num }">9</div>
 										</div>
 									</div>
 
@@ -677,30 +670,30 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<div
 											style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 5px;">
 											<div style="width: 20%; font-size: 10px;">Total Kill</div>
-											<div id="blueTotalKill" style="width: 10%; font-size: 10px;">53</div>
+											<div id="blueTotalKill${num }" style="width: 10%; font-size: 10px;">53</div>
 											<div
 												style="display: flex; justify-content: center; align-items: center; width: 65%; height: 10px; margin: 0 5px 0 5px;">
-												<div id="blueTotalKillGraph"
+												<div id="blueTotalKillGraph${num }"
 													style="background-color: #548DCA; width: 70%; height: 10px;"></div>
-												<div id="redTotalKillGraph"
+												<div id="redTotalKillGraph${num }"
 													style="background-color: #D05A53; width: 30%; height: 10px;"></div>
 											</div>
-											<div id="redTotalKill" style="width: 5%; font-size: 10px;">32</div>
+											<div id="redTotalKill${num }" style="width: 5%; font-size: 10px;">32</div>
 										</div>
 
 										<!-- 토탈 골드 -->
 										<div
 											style="display: flex; justify-content: center; align-items: center; width: 100%;">
 											<div style="width: 20%; font-size: 10px;">Total Gold</div>
-											<div id="blueTotalGold" style="width: 10%; font-size: 10px;">76283</div>
+											<div id="blueTotalGold${num }" style="width: 10%; font-size: 10px;">76283</div>
 											<div
 												style="display: flex; justify-content: center; align-items: center; width: 65%; height: 10px; margin: 0 5px 0 5px;">
-												<div id="blueTotalGoldGraph"
+												<div id="blueTotalGoldGraph${num }"
 													style="background-color: #548DCA; width: 70%; height: 10px;"></div>
-												<div id="redTotalGoldGraph"
+												<div id="redTotalGoldGraph${num }"
 													style="background-color: #D05A53; width: 30%; height: 10px;"></div>
 											</div>
-											<div id="redTotalGold" style="width: 5%; font-size: 10px;">65762</div>
+											<div id="redTotalGold${num }" style="width: 5%; font-size: 10px;">65762</div>
 										</div>
 									</div>
 
@@ -742,12 +735,11 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 									<div
 										style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
+									
 									<div
-										style="width: 7%; display: flex; justify-content: center; align-items: center;">와드</div>
+										style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
 									<div
-										style="width: 7%; display: flex; justify-content: center; align-items: center;">CS</div>
-									<div
-										style="width: 26%; display: flex; justify-content: center; align-items: center;">아이템</div>
+										style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
 								</div>
 
 								<!-- 상대팀 상세정보 for문 -->
@@ -755,41 +747,41 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div id="detailBox${num }Red${redteam }"
 										style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
 										<div style="display: flex; align-items: flex-end;">
-											<div id="redTeamLevel${redteam }">11</div>
+											<div id="red${num }TeamLevel${redteam }">11</div>
 										</div>
 										<div style="width: 25%; display: flex; align-items: center;">
-											<img id="redTeamChampImg${redteam}" class="circle_image" src="img/Jayce.png"
+											<img id="red${num }TeamChampImg${redteam}" class="circle_image" src="img/Jayce.png"
 												style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
 											<div
 												style="display: flex; flex-direction: column; margin-right: 5px;">
-												<img id="redTeamSpellD${redteam}" src="" style="width: 20px; height: 20px;" />
-												<img id="redTeamSpellF${redteam}" src="" style="width: 20px; height: 20px;" />
+												<img id="red${num }TeamSpellD${redteam}" src="" style="width: 20px; height: 20px;" />
+												<img id="red${num }TeamSpellF${redteam}" src="" style="width: 20px; height: 20px;" />
 											</div>
 											<!-- 룬 -->
 											<div style="display: flex; flex-direction: column;">
-												<img id="redTeamRuneMain${redteam}" src="img/pic1.png"
+												<img id="red${num }TeamRuneMain${redteam}" src="img/pic1.png"
 													style="width: 20px; height: 20px; border-radius: 30px;" />
-												<img id="redTeamRuneSub${redteam}" src="img/pic1.png"
+												<img id="red${num }TeamRuneSub${redteam}" src="img/pic1.png"
 													style="width: 20px; height: 20px; border-radius: 30px;" />
 											</div>
-											<span id="redTeamName${redteam}"
+											<span id="red${num }TeamName${redteam}"
 												style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치</span>
 										</div>
 										<!-- 티어 -->
 										<div 
 											style="width: 10%; display: flex; justify-content: center; align-items: center; white-space: nowrap; font-size: 10px;">
-											<div id="redTeamTier${redteam }"></div>
-											<div id="redTeamRank${redteam }"></div>
+											<div id="red${num }TeamTier${redteam }" style="margin-right: 5px; white-space: nowrap;"></div>
+											<div id="red${num }TeamRank${redteam }"></div>
 											</div>
 										<!-- KDA -->
 										<div
 											style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 											<div>3.33:1</div>
 											<div style="font-size: 8px; display: flex; justify-content: center; align-items: center;">
-												<div id="redTeamKill${redteam }">1</div>/
-												<div id="redTeamDeath${redteam }">1</div>/
-												<div id="redTeamAssist${redteam }">1</div>
-												<div id="redTeamKillPer${redteam }">(10%)</div>
+												<div id="red${num }TeamKill${redteam }">1</div>/
+												<div id="red${num }TeamDeath${redteam }">1</div>/
+												<div id="red${num }TeamAssist${redteam }">1</div>
+												<div id="red${num }TeamKillPer${redteam }">(10%)</div>
 											</div>
 										</div>
 										<!-- 피해량 -->
@@ -798,58 +790,46 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											<div
 												style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 												<!-- 피해량 text -->
-												<div id="redTeamDamage${redteam }" style="font-size: 11px;">25,537</div>
+												<div id="red${num }TeamDamage${redteam }" style="font-size: 11px;">25,537</div>
 												<!-- 피해량 graph -->
 												<div
 													style="background-color: #F2F2F2; width: 80px; height: 15px;">
-													<div id="redTeamDamagePer${redteam }"
+													<div id="red${num }TeamDamagePer${redteam }"
 														style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
 												</div>
 											</div>
 										</div>
-										<!-- 와드 -->
+										<!-- cs -->
 										<div
-											style="width: 7%; display: flex; justify-content: center; align-items: center;">
-											<div id="redTeamWard${redteam }">14</div>/
-											<div id="redTeamBreakWard${redteam }">1</div>
-										</div>
-										<div
-											style="width: 7%; display: flex; justify-content: center; align-items: center;">
-												<div id="redTeamCs${redteam }">205</div>
-												<div id="redTeamCsPer${redteam }">(5.6)</div>
+											style="width: 10%; display: flex; justify-content: center; align-items: center;">
+												<div id="red${num }TeamCs${redteam }">205</div>
+												<div id="red${num }TeamCsPer${redteam }">(5.6)</div>
 											</div>
 										<div
-											style="width: 26%; display: flex; justify-content: center; align-items: center;">
+											style="width: 30%; display: flex; justify-content: center; align-items: center;">
 											<div
 												style="display: flex; justify-content: center; align-items: center;">
-												<div id="redTeam${redteam }Item1"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item2"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item3"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item4"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item5"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item6"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
-												<div id="redTeam${redteam }Item7"
-													style="width: 20px; height: 20px; background-color: #9e9e9e; opacity: 0.5; border-radius: 5px; margin: 0 1px 0 1px;"></div>
+												<div id="red${num }Team${redteam }Item1"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item1Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item2"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item2Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item3"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item3Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item4"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item4Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item5"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item5Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item6"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item6Img" src="" style="width: 20px; height: 20px;"/></div>
+												<div id="red${num }Team${redteam }Item7"
+													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item7Img" src="" style="width: 20px; height: 20px;"/></div>
 											</div>
 										</div>
 									</div>
 									<!-- 끝 -->
 								</c:forEach>
-
-
-
 							</div>
-
-
-
 						</div>
-
 					</c:forEach>
 
 				</div>
@@ -1125,6 +1105,7 @@ $.ajax({
 										}
 										
 									// 게임 종류
+										console.log(res.queueId);
 										if(res.queueId==420){
 											//420 솔랭
 											document.querySelector("#gameSort"+bnum).innerHTML="솔랭";
@@ -1138,7 +1119,9 @@ $.ajax({
 										else if(res.queueId==450){
 											//450 일반게임
 											document.querySelector("#gameSort"+bnum).innerHTML="무작위 총력전";
-										}
+										}else if(res.queueId==1020){
+											document.querySelector("#gameSort"+bnum).innerHTML="단일 챔피언";
+											}
 										//private String queueType; //420솔랭, 430일반, 440 아마도 자유랭크, 450무작위
 										
 										
@@ -1899,28 +1882,28 @@ function searchDetail(num){
 			
 			// 레벨 - res.participants[0].stats.champLevel
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamLevel"+(i+1)).innerHTML=res.participants[i].stats.champLevel;
+				document.querySelector("#blue"+num+"TeamLevel"+(i+1)).innerHTML=res.participants[i].stats.champLevel;
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamLevel"+(i-4)).innerHTML=res.participants[i].stats.champLevel;
+				document.querySelector("#red"+num+"TeamLevel"+(i-4)).innerHTML=res.participants[i].stats.champLevel;
 			}
 			
 			// 챔피언 아이콘 - res.participants[0].chapionId
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamChampImg"+(i+1)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
+				document.querySelector("#blue"+num+"TeamChampImg"+(i+1)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamChampImg"+(i-4)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
+				document.querySelector("#red"+num+"TeamChampImg"+(i-4)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
 			}
 
 			// 스펠 - res.participants[0].spell1Id / res.participants[0].spell2Id
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamSpellD"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png"
-				document.querySelector("#blueTeamSpellF"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png"
+				document.querySelector("#blue"+num+"TeamSpellD"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png"
+				document.querySelector("#blue"+num+"TeamSpellF"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png"
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamSpellD"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png"
-				document.querySelector("#redTeamSpellF"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png"
+				document.querySelector("#red"+num+"TeamSpellD"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png"
+				document.querySelector("#red"+num+"TeamSpellF"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png"
 			}	
 			
 			// 룬 - res.participants[0].stats.perk0 / res.participants[0].stats.perkSubStyle
@@ -1932,44 +1915,44 @@ function searchDetail(num){
 					data:"json"
 					}).done((res)=>{
 						if(perkMain==8112){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
 						}else if(perkMain==8124){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
 						}else if(perkMain==8128){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
 						}else if(perkMain==9923){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
 						}else if(perkMain==8351){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
 						}else if(perkMain==8360){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
 						}else if(perkMain==8358){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
 						}else if(perkMain==8005){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
 						}else if(perkMain==8008){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
 						}else if(perkMain==8021){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
 						}else if(perkMain==8010){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
 						}else if(perkMain==8437){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
 						}else if(perkMain==8439){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
 						}else if(perkMain==8465){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
 						}else if(perkMain==8214){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
 						}else if(perkMain==8229){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
 						}else if(perkMain==8230){
-							document.querySelector("#blueTeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+							document.querySelector("#blue"+num+"TeamRuneMain"+(i+1)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
 						}
 					});
 
 			let perkSub=res.participants[i].stats.perkSubStyle;
-			document.querySelector("#blueTeamRuneSub"+(i+1)).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
+			document.querySelector("#blue"+num+"TeamRuneSub"+(i+1)).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
 			}
 
 			for(let i=5;i<10;i++){
@@ -1980,52 +1963,52 @@ function searchDetail(num){
 					data:"json"
 					}).done((res)=>{
 						if(perkMain==8112){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
 						}else if(perkMain==8124){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
 						}else if(perkMain==8128){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
 						}else if(perkMain==9923){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
 						}else if(perkMain==8351){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
 						}else if(perkMain==8360){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
 						}else if(perkMain==8358){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
 						}else if(perkMain==8005){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
 						}else if(perkMain==8008){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
 						}else if(perkMain==8021){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
 						}else if(perkMain==8010){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
 						}else if(perkMain==8437){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
 						}else if(perkMain==8439){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
 						}else if(perkMain==8465){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
 						}else if(perkMain==8214){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
 						}else if(perkMain==8229){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
 						}else if(perkMain==8230){
-							document.querySelector("#redTeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+							document.querySelector("#red"+num+"TeamRuneMain"+(i-4)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
 						}
 					});
 
 			let perkSub=res.participants[i].stats.perkSubStyle;
-			document.querySelector("#redTeamRuneSub"+(i-4)).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
+			document.querySelector("#red"+num+"TeamRuneSub"+(i-4)).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
 			}
 			
 			// 이름
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamName"+(i+1)).innerHTML=res.participantIdentities[i].player.summonerName;
+				document.querySelector("#blue"+num+"TeamName"+(i+1)).innerHTML=res.participantIdentities[i].player.summonerName;
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamName"+(i-4)).innerHTML=res.participantIdentities[i].player.summonerName;
+				document.querySelector("#red"+num+"TeamName"+(i-4)).innerHTML=res.participantIdentities[i].player.summonerName;
 			}
 			
 			// 티어 - 
@@ -2033,44 +2016,71 @@ function searchDetail(num){
 			for(let i=0;i<10;i++){
 				username[i]=res.participantIdentities[i].player.summonerName;
 			}
-			
-			let id=res.participantIdentities[0].player.summonerId;
-			
-			
-			
+
+			for(let i=0;i<5;i++){
+				
+			let id=res.participantIdentities[i].player.summonerId;
+
 			$.ajax({
 					type:"GET",
 					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+id+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
-						
-						document.querySelector("#blueTeamTier"+(i+1)).innerHTML=res[i].tier;
-						document.querySelector("#blueTeamRank"+(i+1)).innerHTML=res[i].rank;
-
-						document.querySelector("#blueTeamTier"+(i-4)).innerHTML=res[i].tier;
-						document.querySelector("#blueTeamRank"+(i-4)).innerHTML=res[i].rank;
-
+						console.log(res);
+						if(res==""){
+							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML="Unranked";
+							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML="";
+						}else if(res[0].queueType==="RANKED_SOLO_5x5"){
+							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML=res[0].tier+" ";
+							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML=res[0].rank;
+						}else if(res[0].queueType==="RANKED_FLEX_SR"){
+							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML=res[1].tier+" ";
+							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML=res[1].rank;
+						}
 					});
+			}
+
+			for(let i=5;i<10;i++){
+				
+				let id=res.participantIdentities[i].player.summonerId;
+
+				$.ajax({
+						type:"GET",
+						url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+id+"?api_key="+api_key,
+						dataType:"json"
+						}).done((res)=>{
+							if(res==""){
+								document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML="Unranked";
+								document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML="";
+							}else if(res[0].queueType==="RANKED_SOLO_5x5"){
+								document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML=res[0].tier+" ";
+								document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML=res[0].rank;
+							}else if(res[0].queueType==="RANKED_FLEX_SR"){
+								document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML=res[1].tier+" ";
+								document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML=res[1].rank;
+							}
+						});
+				}
 			
 			// KDA - res.participants[0].stats.kills / res.participants[0].stats.deaths / res.participants[0].stats.assists
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamKill"+(i+1)).innerHTML=res.participants[i].stats.kills;
-				document.querySelector("#blueTeamDeath"+(i+1)).innerHTML=res.participants[i].stats.deaths;
-				document.querySelector("#blueTeamAssist"+(i+1)).innerHTML=res.participants[i].stats.assists;
+				document.querySelector("#blue"+num+"TeamKill"+(i+1)).innerHTML=res.participants[i].stats.kills;
+				document.querySelector("#blue"+num+"TeamDeath"+(i+1)).innerHTML=res.participants[i].stats.deaths;
+				document.querySelector("#blue"+num+"TeamAssist"+(i+1)).innerHTML=res.participants[i].stats.assists;
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamKill"+(i-4)).innerHTML=res.participants[i].stats.kills;
-				document.querySelector("#redTeamDeath"+(i-4)).innerHTML=res.participants[i].stats.deaths;
-				document.querySelector("#redTeamAssist"+(i-4)).innerHTML=res.participants[i].stats.assists;
+				document.querySelector("#red"+num+"TeamKill"+(i-4)).innerHTML=res.participants[i].stats.kills;
+				document.querySelector("#red"+num+"TeamDeath"+(i-4)).innerHTML=res.participants[i].stats.deaths;
+				document.querySelector("#red"+num+"TeamAssist"+(i-4)).innerHTML=res.participants[i].stats.assists;
 			}
 			
 			// 킬 관여율
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamKillPer"+(i+1)).innerHTML=
+				document.querySelector("#blue"+num+"TeamKillPer"+(i+1)).innerHTML=
 					"("+((((res.participants[i].stats.kills + res.participants[i].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) +"%)"
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamKillPer"+(i-4)).innerHTML=
+				document.querySelector("#red"+num+"TeamKillPer"+(i-4)).innerHTML=
 					"("+((((res.participants[i].stats.kills + res.participants[i].stats.assists)/(res.participants[5].stats.kills + res.participants[6].stats.kills + res.participants[7].stats.kills + res.participants[8].stats.kills + res.participants[9].stats.kills)).toFixed(2)) * 100).toFixed(0) +"%)"
 			}
 
@@ -2083,119 +2093,109 @@ function searchDetail(num){
 			}
 			
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamDamage"+(i+1)).innerHTML=res.participants[i].stats.totalDamageDealtToChampions;
-				document.querySelector("#blueTeamDamagePer"+(i+1)).style.width=Math.ceil(res.participants[i].stats.totalDamageDealtToChampions/maxDamage*100)+"%";
+				document.querySelector("#blue"+num+"TeamDamage"+(i+1)).innerHTML=res.participants[i].stats.totalDamageDealtToChampions;
+				document.querySelector("#blue"+num+"TeamDamagePer"+(i+1)).style.width=Math.ceil(res.participants[i].stats.totalDamageDealtToChampions/maxDamage*100)+"%";
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamDamage"+(i-4)).innerHTML=res.participants[i].stats.totalDamageDealtToChampions;
-				document.querySelector("#redTeamDamagePer"+(i-4)).style.width=Math.ceil(res.participants[i].stats.totalDamageDealtToChampions/maxDamage*100)+"%";
-			}
-
-			// 와드 - res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled
-			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamWard"+(i+1)).innerHTML=res.participants[0].stats.wardsPlaced;
-				document.querySelector("#blueTeamBreakWard"+(i+1)).innerHTML=res.participants[0].stats.wardsKilled;
-			}
-			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamWard"+(i-4)).innerHTML=res.participants[0].stats.wardsPlaced;
-				document.querySelector("#redTeamBreakWard"+(i-4)).innerHTML=res.participants[0].stats.wardsKilled;
+				document.querySelector("#red"+num+"TeamDamage"+(i-4)).innerHTML=res.participants[i].stats.totalDamageDealtToChampions;
+				document.querySelector("#red"+num+"TeamDamagePer"+(i-4)).style.width=Math.ceil(res.participants[i].stats.totalDamageDealtToChampions/maxDamage*100)+"%";
 			}
 			
 			// CS
 			for(let i=0;i<5;i++){
-				document.querySelector("#blueTeamCs"+(i+1)).innerHTML=res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled;
-				document.querySelector("#blueTeamCsPer"+(i+1)).innerHTML=" ("+((res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
+				document.querySelector("#blue"+num+"TeamCs"+(i+1)).innerHTML=res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled;
+				document.querySelector("#blue"+num+"TeamCsPer"+(i+1)).innerHTML=" ("+((res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
 			}
 			for(let i=5;i<10;i++){
-				document.querySelector("#redTeamCs"+(i-4)).innerHTML=res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled;
-				document.querySelector("#redTeamCsPer"+(i-4)).innerHTML=" ("+((res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
+				document.querySelector("#red"+num+"TeamCs"+(i-4)).innerHTML=res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled;
+				document.querySelector("#red"+num+"TeamCsPer"+(i-4)).innerHTML=" ("+((res.participants[i].stats.totalMinionsKilled + res.participants[i].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1)+")";
 			}
 
 			// 아이템
 			for(let i=0;i<5;i++){
 				if(res.participants[i].stats.item0==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item1").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item1Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item0+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item1Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item0+".png";
 				}
 
 				if(res.participants[i].stats.item1==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item2").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item2Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item1+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item2Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item1+".png";
 				}
 
 				if(res.participants[i].stats.item2==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item3").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item3Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item2+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item3Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item2+".png";
 				}
 
 				if(res.participants[i].stats.item3==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item4").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item4Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item3+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item4Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item3+".png";
 				}
 
 				if(res.participants[i].stats.item4==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item5").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item5Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item4+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item5Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item4+".png";
 				}
 
 				if(res.participants[i].stats.item5==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item6").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item6Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item5+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item6Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item5+".png";
 				}
 
 				if(res.participants[i].stats.item6==0){
-					document.querySelector("#blueTeam"+(i+1)+"Item7").style.display='none';
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item7Img").style.display='none';
 				}else{
-					document.querySelector("#blueTeam"+(i+1)+"Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item6+".png";
+					document.querySelector("#blue"+num+"Team"+(i+1)+"Item7Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item6+".png";
 				}
 			}
 			for(let i=5;i<10;i++){
 				if(res.participants[i].stats.item0==0){
-					document.querySelector("#redTeam"+(i-4)+"Item1").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item1Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item1").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item0+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item1Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item0+".png";
 				}
 
 				if(res.participants[i].stats.item1==0){
-					document.querySelector("#redTeam"+(i-4)+"Item2").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item2Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item2").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item1+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item2Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item1+".png";
 				}
 
 				if(res.participants[i].stats.item2==0){
-					document.querySelector("#redTeam"+(i-4)+"Item3").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item3Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item3").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item2+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item3Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item2+".png";
 				}
 
 				if(res.participants[i].stats.item3==0){
-					document.querySelector("#redTeam"+(i-4)+"Item4").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item4Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item4").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item3+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item4Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item3+".png";
 				}
 
 				if(res.participants[i].stats.item4==0){
-					document.querySelector("#redTeam"+(i-4)+"Item5").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item5Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item5").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item4+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item5Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item4+".png";
 				}
 
 				if(res.participants[i].stats.item5==0){
-					document.querySelector("#redTeam"+(i-4)+"Item6").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item6Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item6").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item5+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item6Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item5+".png";
 				}
 
 				if(res.participants[i].stats.item6==0){
-					document.querySelector("#redTeam"+(i-4)+"Item7").style.display='none';
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item7Img").style.display='none';
 				}else{
-					document.querySelector("#redTeam"+(i-4)+"Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item6+".png";
+					document.querySelector("#red"+num+"Team"+(i-4)+"Item7Img").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[i].stats.item6+".png";
 				}
 			}
 			
@@ -2205,16 +2205,16 @@ function searchDetail(num){
 			
 			// 오브젝트
 			// 바론 - res.teams[0].baronKills / res.teams[1].baronKills
-			document.querySelector("#blueTeamBaron").innerHTML=res.teams[0].baronKills;
-			document.querySelector("#redTeamBaron").innerHTML=res.teams[1].baronKills;
+			document.querySelector("#blueTeamBaron"+num).innerHTML=res.teams[0].baronKills;
+			document.querySelector("#redTeamBaron"+num).innerHTML=res.teams[1].baronKills;
 			
 			// 드래곤 - res.teams[0].dragonKills / res.teams[1].dragonKills
-			document.querySelector("#blueTeamDragon").innerHTML=res.teams[0].dragonKills;
-			document.querySelector("#redTeamDragon").innerHTML=res.teams[1].dragonKills;
+			document.querySelector("#blueTeamDragon"+num).innerHTML=res.teams[0].dragonKills;
+			document.querySelector("#redTeamDragon"+num).innerHTML=res.teams[1].dragonKills;
 			
 			// 타워 - res.teams[0].towerKills / res.teams[1].towerKills
-			document.querySelector("#blueTeamTower").innerHTML=res.teams[0].towerKills;
-			document.querySelector("#redTeamTower").innerHTML=res.teams[1].towerKills;
+			document.querySelector("#blueTeamTower"+num).innerHTML=res.teams[0].towerKills;
+			document.querySelector("#redTeamTower"+num).innerHTML=res.teams[1].towerKills;
 			
 			// 토탈 킬 - res.participants[0~4].stats.kills / res.participants[5~9].stats.kills
 			let blueTotal=1;
@@ -2227,11 +2227,11 @@ function searchDetail(num){
 				redTotal+=res.participants[i].stats.kills;
 			}
 			
-			document.querySelector("#blueTotalKill").innerHTML=blueTotal;
-			document.querySelector("#blueTotalKillGraph").style.width=Math.ceil((blueTotal/(blueTotal+redTotal)*100))+"%";
+			document.querySelector("#blueTotalKill"+num).innerHTML=blueTotal-1;
+			document.querySelector("#blueTotalKillGraph"+num).style.width=Math.floor((blueTotal/(blueTotal+redTotal)*100))+"%";
 			
-			document.querySelector("#redTotalKill").innerHTML=redTotal;
-			document.querySelector("#redTotalKillGraph").style.width=(100-Math.ceil((blueTotal/(blueTotal+redTotal)*100)))+"%";
+			document.querySelector("#redTotalKill"+num).innerHTML=redTotal-1;
+			document.querySelector("#redTotalKillGraph"+num).style.width=(100-Math.floor((blueTotal/(blueTotal+redTotal)*100)))+"%";
 			
 			// 토탈 골드 - res.participants[0~4].stats.goldEarned / res.participants[5~9].stats.goldEarned
 			let blueTotalG=1;
@@ -2244,11 +2244,11 @@ function searchDetail(num){
 				redTotalG+=res.participants[i].stats.goldEarned;
 			}
 			
-			document.querySelector("#blueTotalGold").innerHTML=blueTotalG;
-			document.querySelector("#blueTotalGoldGraph").style.width=Math.ceil((blueTotalG/(blueTotalG+redTotalG)*100))+"%";
+			document.querySelector("#blueTotalGold"+num).innerHTML=blueTotalG-1;
+			document.querySelector("#blueTotalGoldGraph"+num).style.width=Math.ceil((blueTotalG/(blueTotalG+redTotalG)*100))+"%";
 			
-			document.querySelector("#redTotalGold").innerHTML=redTotalG;
-			document.querySelector("#redTotalGoldGraph").style.width=(100-Math.ceil((redTotalG/(blueTotalG+redTotalG)*100)))+"%";
+			document.querySelector("#redTotalGold"+num).innerHTML=redTotalG-1;
+			document.querySelector("#redTotalGoldGraph"+num).style.width=(100-Math.ceil((redTotalG/(blueTotalG+redTotalG)*100)))+"%";
 		})
 	
 }
