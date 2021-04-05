@@ -1,5 +1,7 @@
 package com.project.javagg.web;
 
+import javax.validation.Valid;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,7 @@ public class AuthController {
 	}
 	
 	@PostMapping("/join")
-	public @ResponseBody  String join(AuthJoinReqDto authJoinReqDto) {
+	public @ResponseBody  String join(@Valid AuthJoinReqDto authJoinReqDto) {
 		
 		try {
 			authService.회원가입(authJoinReqDto.toEntity());

@@ -2,7 +2,6 @@ package com.project.javagg.domain.reply;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,8 +41,6 @@ public class Reply {
 	@ManyToOne 
 	@JoinColumn(name = "boardId")
 	private Board board;
-	
-	private int likeCount;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
