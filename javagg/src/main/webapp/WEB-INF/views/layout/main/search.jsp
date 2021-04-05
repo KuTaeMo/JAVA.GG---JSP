@@ -225,16 +225,16 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 						<div
 							style="display: flex; flex-direction: column; width: 40%; border-right: 1px solid #CDD2D2; padding: 20px;">
 							<div style="display: flex; font-size: 13px; color: gray;">
-								20전
-								<div id="win" style="margin-left: 5px;">13승</div>
-								<div id="lose" style="margin-left: 5px;">7패</div>
+								5전
+								<div id="winStat" style="margin-left: 5px;">13승</div>
+								<div id="loseStat" style="margin-left: 5px;">7패</div>
 							</div>
 							<div style="display: flex;">
 								<!-- 그래프 -->
 								<div
 									style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center;">
 									<!-- 승률 text -->
-									<div style="position: absolute; font-size: 18px;">50%</div>
+									<div id="winPerStat" style="position: absolute; font-size: 18px;">50%</div>
 									<!-- 승률 graph -->
 									<canvas id="myChart" width="10" height="10"></canvas>
 								</div>
@@ -554,7 +554,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div id="detailBox${num }Blue${blueteam }"
 										style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
 										<div style="display: flex; align-items: flex-end;">
-											<div id="blue${num }TeamLevel${blueteam }">11</div>
+											<div id="blue${num }TeamLevel${blueteam }" style="width: 8px;">11</div>
 										</div>
 										<div style="width: 25%; display: flex; align-items: center;">
 											<img id="blue${num }TeamChampImg${blueteam }" class="circle_image" src="img/Jayce.png"
@@ -704,19 +704,19 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-baron-r.png"
 												style="width: 20px; height: 20px;" />
-											<div id="redTeamBaron">0</div>
+											<div id="redTeamBaron${num }">0</div>
 										</div>
 										<div
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-dragon-r.png"
 												style="width: 20px; height: 20px;" />
-											<div id="redTeamDragon">0</div>
+											<div id="redTeamDragon${num }">0</div>
 										</div>
 										<div
 											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
 											<img src="img/icon-tower-r.png"
 												style="width: 20px; height: 20px;" />
-											<div id="redTeamTower">3</div>
+											<div id="redTeamTower${num }">3</div>
 										</div>
 									</div>
 								</div>
@@ -747,7 +747,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 									<div id="detailBox${num }Red${redteam }"
 										style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
 										<div style="display: flex; align-items: flex-end;">
-											<div id="red${num }TeamLevel${redteam }">11</div>
+											<div id="red${num }TeamLevel${redteam }" style="width: 8px;">11</div>
 										</div>
 										<div style="width: 25%; display: flex; align-items: center;">
 											<img id="red${num }TeamChampImg${redteam}" class="circle_image" src="img/Jayce.png"
@@ -901,7 +901,6 @@ function replaceAll(sValue, param1,param2){
 
 // 블루 레드 알아내기
 function gameInfo(gameId,username){
-	console.log("gameInfo()");
 	$.ajax({
 		type:"GET",
 		url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
@@ -921,78 +920,6 @@ function gameInfo(gameId,username){
 		});
 }
 
-// 전적 상세보기 함수
-function gameDetail(gameId){
-	$.ajax({
-		type:"GET",
-		url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+gameId+"?api_key="+api_key,
-		dataType:"json"
-		}).done((res)=>{
-
-			
-			// 블루팀 소환사 이름들 0~4 블루팀 5~9 레드팀 
-			$("#summonerName0").val(res.participantIdentities[0].player.summonerName);
-			$("#summonerName1").val(res.participantIdentities[1].player.summonerName);
-			$("#summonerName2").val(res.participantIdentities[2].player.summonerName);
-			$("#summonerName3").val(res.participantIdentities[3].player.summonerName);
-			$("#summonerName4").val(res.participantIdentities[4].player.summonerName);
-			//console.log(res.participants[0].stats.item0);
-			
-			// summonerName0의 아이템
-			$("#item0").val(res.participants[0].stats.item0);
-			$("#item1").val(res.participants[0].stats.item1);
-			$("#item2").val(res.participants[0].stats.item2);
-			$("#item3").val(res.participants[0].stats.item3);
-			$("#item4").val(res.participants[0].stats.item4);
-			$("#item5").val(res.participants[0].stats.item5);
-			
-			//console.log(res.participants[0].stats);
-			
-			// summonerName0의 KDA
-			$("#kills").val("kills : " + res.participants[0].stats.kills);
-			$("#deaths").val("deaths : " + res.participants[0].stats.deaths);
-			$("#assists").val("assists : " + res.participants[0].stats.assists);
-			
-			// summonerName0의 KDA 계산
-			$("#summonerName0KDA").val(((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1");
-			
-			// summonerName0의 스펠
-			$("#spell1Id").val(res.participants[0].spell1Id);
-			$("#spell2Id").val(res.participants[0].spell2Id);
-			
-			// summonerName0의 챔피언
-			$("#championId").val(res.participants[0].championId);
-			
-			// summonerName0의 챔피언 레벨
-			$("#champLevel").val("레벨 : " + res.participants[0].stats.champLevel);
-			
-			// summonerName0의 데미지
-			$("#totalDamageDealtToChampions").val("데미지 : " + res.participants[0].stats.totalDamageDealtToChampions);
-			
-			// summonerName0의 와드 개수 / 파괴
-			$("#wards").val(res.participants[0].stats.wardsPlaced + " / " + res.participants[0].stats.wardsKilled);
-			
-			// summonerName0의 핑크 와드
-			$("#visionWards").val(res.participants[0].stats.visionWardsBoughtInGame);
-			
-			// summonerName0의 cs
-			$("#totalMinionsKilled").val(res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled);
-			
-			// summonerName0의 분당cs
-			$("#totalMinionsKilledTimes").val(((res.participants[0].stats.totalMinionsKilled + res.participants[0].stats.neutralMinionsKilled) / (res.gameDuration/60)).toFixed(1));
-			
-			// summonerName0의 킬관여율
-			$("#killPercent").val(((((res.participants[0].stats.kills + res.participants[0].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%");
-			
-			// summonerName0의 메인 룬
-			$("#perk0").val(res.participants[0].stats.perk0);
-			console.log(res);
-			
-			// summonerName0의 메인 룬
-			$("#perk0").val(res.participants[0].stats.perk0);
-			//console.log(res);
-		});
-}
 
 function setFail(num){
 	// 큰박스 패배 텍스트
@@ -1083,6 +1010,9 @@ $.ajax({
 						matchNum[i]=res.matches[i].gameId;
 					}
 
+					// 승률 담을 변수
+					let winCount=0;
+					
 					// 전적 시작 /////////////////////////////////
 					// 레드팀 blueTeam=false
 					for(let bnum=1;bnum<6;bnum++){
@@ -1093,6 +1023,7 @@ $.ajax({
 									url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+matchNum[bnum-1]+"?api_key="+api_key,
 									dataType:"json"
 									}).done((res)=>{
+										
 										// 플레이어들 뽑기
 										//"http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 										for(let i=0;i<5;i++){
@@ -1105,7 +1036,7 @@ $.ajax({
 										}
 										
 									// 게임 종류
-										console.log(res.queueId);
+										//console.log(res.queueId);
 										if(res.queueId==420){
 											//420 솔랭
 											document.querySelector("#gameSort"+bnum).innerHTML="솔랭";
@@ -1157,8 +1088,8 @@ $.ajax({
 
 										document.querySelector("#gameDuration"+bnum).innerHTML=gameDuMin+"분 "+gameDuSec+"초";
 										
-									// 승 패
-									
+									// 승 패		
+										
 										// 우리팀이 블루팀인지 레드팀인지 찾기
 										let myTeamNum=""; // 내가 팀중에 번호가 몇번이야?!
 										let myTeam="";
@@ -1189,16 +1120,20 @@ $.ajax({
 													document.querySelector("#detailBox"+bnum+"Blue"+d).style.backgroundColor="#D8E4EC";
 													document.querySelector("#detailBox"+bnum+"Red"+d).style.backgroundColor="#E9E0E0";
 												}
+												//console.log("블루로2김");
+												winCount+=1;
 											}
 										}else{
 											myTeam="red";
 											console.log("나는 레드팀");
 											
 											// 블루팀 Fail
-											if(res.teams[1].win==="Fail"){
-												// 큰박스 패배 텍스트
-												document.querySelector("#winOrLose"+bnum).style.color='red';
-												document.querySelector("#winOrLose"+bnum).innerHTML="패배";
+											if(res.teams[1].win==="Win"){
+												winCount+=1;
+												//console.log("레드로2김");
+												// 큰박스 승리 텍스트
+												document.querySelector("#winOrLose"+bnum).style.color='#1A85C4';
+												document.querySelector("#winOrLose"+bnum).innerHTML="승리";
 												
 												// 상세보기 패배 텍스트
 												document.querySelector("#winOrlose"+bnum).style.color='red';
@@ -1208,6 +1143,37 @@ $.ajax({
 												document.querySelector("#winOrloseSide"+bnum).style.color='#1A85C4';
 												document.querySelector("#winOrloseSide"+bnum).innerHTML="승리";
 
+												// 큰 박스 배경 파란색 변경
+												document.querySelector("#searchBox"+bnum).style.backgroundColor='#A3CFEC';
+												
+												// 큰 박스 토글 버튼 파란색 변경
+												document.querySelector("#search"+bnum).style.backgroundColor='#64b1e4';
+												// 테두리
+												document.querySelector("#search"+bnum).style.border='1px solid #5ca7d6';
+												
+												// 버튼
+												document.querySelector("#moreButton"+bnum).src="img/winMore.png";
+
+												// 상세보기 배경 변경
+												for(let d=1;d<6;d++){
+													document.querySelector("#detailBox"+bnum+"Blue"+d).style.backgroundColor="#E9E0E0";
+													document.querySelector("#detailBox"+bnum+"Red"+d).style.backgroundColor="#D8E4EC";
+												}
+
+											// 블루팀 Win
+											}else if(res.teams[1].win==="Fail"){
+												// 큰박스 패배 텍스트
+												document.querySelector("#winOrLose"+bnum).style.color='red';
+												document.querySelector("#winOrLose"+bnum).innerHTML="패배";
+												
+												// 상세보기 승리 텍스트
+												document.querySelector("#winOrlose"+bnum).style.color='#1A85C4';
+												document.querySelector("#winOrlose"+bnum).innerHTML="승리";
+												
+												// 상세보기 패배 텍스트
+												document.querySelector("#winOrloseSide"+bnum).style.color='red';
+												document.querySelector("#winOrloseSide"+bnum).innerHTML="패배";
+												
 												// 아이템 색 빨간색 변경
 												document.querySelector("#box"+bnum+"ItemBuild").src="img/searchbuildR.png";
 												
@@ -1221,37 +1187,6 @@ $.ajax({
 												
 												// 버튼
 												document.querySelector("#moreButton"+bnum).src="img/loseMore.png";
-
-												// 상세보기 배경 변경
-												for(let d=1;d<6;d++){
-													document.querySelector("#detailBox"+bnum+"Blue"+d).style.backgroundColor="#E9E0E0";
-													document.querySelector("#detailBox"+bnum+"Red"+d).style.backgroundColor="#D8E4EC";
-												}
-
-											// 블루팀 Win
-											}else if(res.teams[1].win==="Win"){
-												// 큰박스 승리 텍스트
-												document.querySelector("#winOrLose"+bnum).style.color='#1A85C4';
-												document.querySelector("#winOrLose"+bnum).innerHTML="승리";
-												
-												// 상세보기 승리 텍스트
-												document.querySelector("#winOrlose"+bnum).style.color='#1A85C4';
-												document.querySelector("#winOrlose"+bnum).innerHTML="승리";
-												
-												// 상세보기 패배 텍스트
-												document.querySelector("#winOrloseSide"+bnum).style.color='red';
-												document.querySelector("#winOrloseSide"+bnum).innerHTML="패배";
-												
-												// 큰 박스 배경 파란색 변경
-												document.querySelector("#searchBox"+bnum).style.backgroundColor='#A3CFEC';
-												
-												// 큰 박스 토글 버튼 파란색 변경
-												document.querySelector("#search"+bnum).style.backgroundColor='#64b1e4';
-												// 테두리
-												document.querySelector("#search"+bnum).style.border='1px solid #5ca7d6';
-												
-												// 버튼
-												document.querySelector("#moreButton"+bnum).src="img/winMore.png";
 
 												// 상세보기 배경 변경
 												for(let d=1;d<6;d++){
@@ -1421,7 +1356,9 @@ $.ajax({
 									}		
 									});
 					}
-					
+					document.querySelector("#winStat").innerHTML=winCount+"승";
+					document.querySelector("#loseStat").innerHTML=(5-winCount)+"패";
+					document.querySelector("#winPerStat").innerHTML=Math.floor((winCount/5*100))+"%";
 				});
 
 			
@@ -1736,14 +1673,17 @@ $("#reSearchUser").on("click",(e)=>{
 	//let username=$("#username").val();
 	//console.log(username);
 });
+
+
 // chart
 var ctx = document.getElementById('myChart');
-var a = "12"; //패
-var b = "12"; //승
+var a = "2"; //패
+var b = "3"; //승
 var data = [ a, b ];
 var myChart = new Chart(ctx, {
 	type : 'doughnut',
 	data : {
+		labels:['Defeat','Win'],
 		datasets : [ {
 			data : data,
 			backgroundColor : [ '#EE5A52', '#1F8ECD' ],
@@ -1751,8 +1691,12 @@ var myChart = new Chart(ctx, {
 		} ]
 	},
 	options : {
-		cutoutPercentage : 70
-	}
+		cutoutPercentage : 70,
+		legend:{
+			display:false
+		}
+	},
+	
 });
 
 let searchBox="";
@@ -1868,17 +1812,14 @@ function doDisplay(){
 	}
 }
 
+// 상세보기
 function searchDetail(num){
-
-	console.log(matchNum[num-1]);
 
 	$.ajax({
 		type:"GET",
 		url: "https://kr.api.riotgames.com/lol/match/v4/matches/"+matchNum[num-1]+"?api_key="+api_key,
 		dataType:"json"
 		}).done((res)=>{
-			console.log(res);
-			console.log(res.participants[0].stats.champLevel);
 			
 			// 레벨 - res.participants[0].stats.champLevel
 			for(let i=0;i<5;i++){
@@ -2026,7 +1967,6 @@ function searchDetail(num){
 					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+id+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
-						console.log(res);
 						if(res==""){
 							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML="Unranked";
 							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML="";
