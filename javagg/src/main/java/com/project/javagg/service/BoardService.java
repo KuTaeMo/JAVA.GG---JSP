@@ -42,7 +42,9 @@ public class BoardService {
 	
 	@Transactional
 	public Board 글상세보기(int id) {
-		return boardRepository.findById(id).get();
+		return boardRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("id를 찾을 수 없습니다.");
+		});
 	}
 	
 	@Transactional
@@ -57,7 +59,9 @@ public class BoardService {
 	
 	@Transactional
 	public void 글수정하기(int id, BoardWriteReqDto boardWriteReqDto) {
-		Board boardEntity = boardRepository.findById(id).get();
+		Board boardEntity = boardRepository.findById(id).orElseThrow(() -> {
+			return new IllegalArgumentException("id를 찾을 수 없습니다.");
+		});
 		boardEntity.setTitle(boardWriteReqDto.getTitle());
 		boardEntity.setContent(boardWriteReqDto.getContent());
 	}

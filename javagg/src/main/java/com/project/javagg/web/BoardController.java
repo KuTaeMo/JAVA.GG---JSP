@@ -53,11 +53,12 @@ public class BoardController {
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		
-		
 		Page<Board> boards = boardService.전체리스트(pageable);
 		
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+		
+		
 
 		return "layout/community/mainBoard";
 	}
@@ -171,7 +172,7 @@ public class BoardController {
 	@DeleteMapping("/board/{id}") 
 	public @ResponseBody CMRespDto<?> deleteById(@PathVariable int id) {
 		boardService.글삭제하기(id);
-		return new CMRespDto<>(1,Script.reload("삭제에 성공하였습니다."), null);
+		return new CMRespDto<>(1,Script.reload("해당 게시글을 삭제했습니다."), null);
 	}
 	
 	@GetMapping("/board/{id}/updateBoard")
@@ -184,7 +185,7 @@ public class BoardController {
 	@PutMapping("/board/{id}")
 	public @ResponseBody CMRespDto<?> update(@PathVariable int id, @RequestBody BoardWriteReqDto boardWriteReqDto) {
 		boardService.글수정하기(id, boardWriteReqDto);
-		return new CMRespDto<>(1,Script.reload("수정에 성공하였습니다.") ,null);
+		return new CMRespDto<>(1,Script.reload("해당 게시글을 수정했습니다.") ,null);
 	}
 	
 	@PostMapping("/board/{boardId}/likes")
