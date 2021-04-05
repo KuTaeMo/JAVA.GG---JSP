@@ -1,5 +1,7 @@
 package com.project.javagg.web;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -34,6 +36,18 @@ public class BoardController {
 	private final BoardService boardService;
 	private final ReplyService replyService;
 	private final LikesService likesService;
+	
+	@GetMapping("/home")
+	public String homeBoardPage(Model model) {
+		
+		List<Board> homeBoard = boardService.홈게시글();
+		model.addAttribute("homeBoard", homeBoard);
+		
+		List<Board> homeBoard2 = boardService.홈게시글2(); 
+		model.addAttribute("homeBoard2", homeBoard2);
+		return "layout/main/home";
+	}
+	
 
 	@GetMapping("/community")
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,

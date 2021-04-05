@@ -1,6 +1,5 @@
 package com.project.javagg.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -19,6 +18,14 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
 	private final BoardRepository boardRepository;
+	
+	public List<Board> 홈게시글() {
+		return boardRepository.mainBoardPage();
+	}
+	
+	public List<Board> 홈게시글2() {
+		return boardRepository.mainBoardPage2();
+	}
 	
 	public Page<Board> 전체리스트(Pageable pageable) {
 		return boardRepository.findAll(pageable);
