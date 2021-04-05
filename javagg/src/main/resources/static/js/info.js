@@ -319,7 +319,7 @@
 
         let spellName = null;
 
-        if (spellId==="21"){
+        if (spellId==21){
             spellName = "SummonerBarrier";
         } else if (spellId===1){
             spellName = "SummonerBoost";
