@@ -7632,3 +7632,33 @@ Binding(CTRL+SHIFT+C,
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 21:47:57.384
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:53.609
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:53.652
+!MESSAGE classpath=131 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:53.671
+!MESSAGE buffering callback sts4.classpath.jsIbbHYU javagg false 131
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:53.672
+!MESSAGE executing callback sts4.classpath.jsIbbHYU 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:53.743
+!MESSAGE executing callback sts4.classpath.jsIbbHYU SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:58.049
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:58.081
+!MESSAGE classpath=131 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:58.108
+!MESSAGE buffering callback sts4.classpath.jsIbbHYU javagg false 131
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:58.109
+!MESSAGE executing callback sts4.classpath.jsIbbHYU 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 00:07:58.121
+!MESSAGE executing callback sts4.classpath.jsIbbHYU SUCCESS [done]

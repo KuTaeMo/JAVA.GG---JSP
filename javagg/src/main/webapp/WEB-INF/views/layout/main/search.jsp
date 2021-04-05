@@ -764,7 +764,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 						</div>
 						<div style="width: 15%; display: flex; justify-content: center; align-items: center;">티어</div>
 
-						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">룬</div>
+						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">숙련도</div>
 						<div style="width: 20%; display: flex; justify-content: center; align-items: center;">밴</div>
 					</div>
 
@@ -796,19 +796,17 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 							<!-- 세부 룬 -->
 							<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
 								<div style="display: flex; justify-content: center; align-items: center;">
-									<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
+									<img id="blue1Mastery${inGameBlueNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="blue2Mastery${inGameBlueNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="blue3Mastery${inGameBlueNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
+										
+									
 
 								</div>
 							</div>
-							<div align="center" style="width: 20%;">
+							<div style="width: 20%; display: flex; align-items: center; justify-content: center;">
 								<!-- 밴 -->
-								<img id="spellDm1" src="" style="width: 20px; height: 20px;" />
+								<img id="blueTeamBan${inGameBlueNum }" src="" style="width: 20px; height: 20px;" />
 							</div>
 						</div>
 						<!-- 끝 -->
@@ -822,7 +820,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 						</div>
 						<div style="width: 15%; display: flex; justify-content: center; align-items: center;">티어</div>
 
-						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">룬</div>
+						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">숙련도</div>
 						<div style="width: 20%; display: flex; justify-content: center; align-items: center;">밴</div>
 					</div>
 
@@ -855,20 +853,17 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 							<!-- 세부 룬 -->
 							<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
 								<div style="display: flex; justify-content: center; align-items: center;">
-									<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
-										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
-
+									<img id="red1Mastery${inGameRedNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="red2Mastery${inGameRedNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="red3Mastery${inGameRedNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> 
+										
+										
 
 								</div>
 							</div>
-							<div align="center" style="width: 20%;">
+							<div style="width: 20%; display: flex; align-items: center; justify-content: center;">
 								<!-- 밴 -->
-								<img id="spellDm1" src="" style="width: 20px; height: 20px;" />
+								<img id="redTeamBan${inGameRedNum }" src="" style="width: 20px; height: 20px;" />
 							</div>
 						</div>
 						<!-- 끝 -->
@@ -2348,88 +2343,86 @@ function inGame(){
 			}
 
 			// 룬
-			for(let bnum=0;bnum<5;bnum++){
-				perkM=res.participants[bnum].perks.perkIds[0];
-				console.log(perkM);
+			for(let i=0;i<5;i++){
+				perkM=res.participants[i].perks.perkIds[0];
+				
 				if(perkM==8112){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
 				}else if(perkM==8124){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
 				}else if(perkM==8128){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
 				}else if(perkM==9923){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
 				}else if(perkM==8351){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
 				}else if(perkM==8360){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
 				}else if(perkM==8358){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
 				}else if(perkM==8005){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
 				}else if(perkM==8008){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
 				}else if(perkM==8021){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
 				}else if(perkM==8010){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
 				}else if(perkM==8437){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
 				}else if(perkM==8439){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
 				}else if(perkM==8465){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
 				}else if(perkM==8214){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
 				}else if(perkM==8229){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
 				}else if(perkM==8230){
-					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+					document.querySelector("#blueRuneMain"+i).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
 				}
+				let perkSub=res.participants[i].perks.perkSubStyle;
+				document.querySelector("#blueRuneSub"+i).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
 			}
-			for(let bnum=5;bnum<10;bnum++){
-				perkM=res.participants[bnum].perks.perkIds[0];
-				$.ajax({
-					data:"get",
-					url:"https://ddragon.leagueoflegends.com/cdn/10.6.1/data/en_US/runesReforged.json",
-					data:"json"
-					}).done((res)=>{
-						if(perkM==8112){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
-						}else if(perkM==8124){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
-						}else if(perkM==8128){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
-						}else if(perkM==9923){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
-						}else if(perkM==8351){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
-						}else if(perkM==8360){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
-						}else if(perkM==8358){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
-						}else if(perkM==8005){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
-						}else if(perkM==8008){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
-						}else if(perkM==8021){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
-						}else if(perkM==8010){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
-						}else if(perkM==8437){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
-						}else if(perkM==8439){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
-						}else if(perkM==8465){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
-						}else if(perkM==8214){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
-						}else if(perkM==8229){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
-						}else if(perkM==8230){
-							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
-						}
-					});
+			for(let i=5;i<10;i++){
+				perkM=res.participants[i].perks.perkIds[0];
+				if(perkM==8112){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+				}else if(perkM==8124){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+				}else if(perkM==8128){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+				}else if(perkM==9923){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+				}else if(perkM==8351){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+				}else if(perkM==8360){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+				}else if(perkM==8358){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+				}else if(perkM==8005){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+				}else if(perkM==8008){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+				}else if(perkM==8021){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+				}else if(perkM==8010){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+				}else if(perkM==8437){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+				}else if(perkM==8439){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+				}else if(perkM==8465){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+				}else if(perkM==8214){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+				}else if(perkM==8229){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+				}else if(perkM==8230){
+					document.querySelector("#redRuneMain"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+				}
+				let perkSub=res.participants[i].perks.perkSubStyle;
+				document.querySelector("#redRuneSub"+(i-5)).src="https://opgg-static.akamaized.net/images/lol/perkStyle/" + perkSub + ".png";
 			}
 
 			// 이름
@@ -2441,6 +2434,117 @@ function inGame(){
 			}
 			
 			// 랭크
+			let rankId=[];
+			for(let i=0;i<5;i++){
+				rankId=res.participants[i].summonerId;
+				
+				$.ajax({
+					type:"GET",
+					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+rankId+"?api_key="+api_key,
+					dataType:"json"
+					}).done((res)=>{
+						
+						if(res==""){
+							document.querySelector("#blueTier"+(i+1)).innerHTML="Unranked";
+							document.querySelector("#blueRank"+(i+1)).innerHTML="";
+						}else{
+							if(res[0].queueType==="RANKED_SOLO_5x5"){
+								document.querySelector("#blueTier"+i).innerHTML=res[0].tier;
+								document.querySelector("#blueRank"+i).innerHTML=res[0].rank;
+							}else if(res[0].queueType==="RANKED_FLEX_SR"){
+								if(res[1].queueType==="RANKED_SOLO_5x5"){
+									document.querySelector("#blueTier"+i).innerHTML=res[1].tier;
+									document.querySelector("#blueRank"+i).innerHTML=res[1].rank;
+								}else{
+									document.querySelector("#blueTier"+i).innerHTML="Unranked";
+									document.querySelector("#blueRank"+i).innerHTML="";
+								}
+							}
+						}	
+					});
+			}
+
+			for(let i=5;i<10;i++){
+				rankId=res.participants[i].summonerId;
+				
+				$.ajax({
+					type:"GET",
+					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+rankId+"?api_key="+api_key,
+					dataType:"json"
+					}).done((res)=>{
+						
+						if(res==""){
+							document.querySelector("#redTier"+(i-5)).innerHTML="Unranked";
+							document.querySelector("#redRank"+(i-5)).innerHTML="";
+						}else{
+							if(res[0].queueType==="RANKED_SOLO_5x5"){
+								document.querySelector("#redTier"+(i-5)).innerHTML=res[0].tier;
+								document.querySelector("#redRank"+(i-5)).innerHTML=res[0].rank;
+							}else if(res[0].queueType==="RANKED_FLEX_SR"){
+								if(res[1].queueType==="RANKED_SOLO_5x5"){
+									document.querySelector("#redTier"+(i-5)).innerHTML=res[1].tier;
+									document.querySelector("#redRank"+(i-5)).innerHTML=res[1].rank;
+								}else{
+									document.querySelector("#redTier"+(i-5)).innerHTML="Unranked";
+									document.querySelector("#redRank"+(i-5)).innerHTML="";
+								}
+							}
+						}	
+					});
+			}
+			
+			
+			// 숙련도
+			let masteryId=[];
+			
+			for(let i=0;i<5;i++){
+				masteryId=res.participants[i].summonerId;
+				$.ajax({
+						type:"GET",
+						url: "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+masteryId+"?api_key="+api_key,
+						dataType:"json"
+						}).done((res)=>{
+							console.log(res);
+							for(let n=0;n<3;n++){
+								console.log(res[n].championId);
+								document.querySelector("#blue"+(n+1)+"Mastery"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res[n].championId)+".png";
+							}
+						});
+			}
+
+			for(let i=5;i<10;i++){
+				masteryId=res.participants[i].summonerId;
+				$.ajax({
+						type:"GET",
+						url: "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+masteryId+"?api_key="+api_key,
+						dataType:"json"
+						}).done((res)=>{
+							for(let n=0;n<3;n++){
+								document.querySelector("#red"+(n+1)+"Mastery"+(i-5)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res[n].championId)+".png";
+							}
+						});
+			}
+			
+			
+			// 벤
+			// res.bannedChampions[i].championId
+			if(res.bannedChampions==""){
+				console.log("랭크 아님!");
+				for(let i=0;i<5;i++){
+					document.querySelector("#blueTeamBan"+i).src="/img/icon-notice.png";
+				}
+				for(let i=5;i<10;i++){
+					document.querySelector("#redTeamBan"+(i-5)).src="/img/icon-notice.png";
+				}
+			}else{
+				for(let i=0;i<5;i++){
+					document.querySelector("#blueTeamBan"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.bannedChampions[i].championId)+".png";
+				}
+				for(let i=5;i<10;i++){
+					document.querySelector("#redTeamBan"+(i-5)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.bannedChampions[i].championId)+".png";
+				}
+			}
+			
 			
 		});
 }
