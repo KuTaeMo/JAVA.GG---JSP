@@ -7569,3 +7569,66 @@ Binding(CTRL+SHIFT+C,
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 12:50:33.946
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 19:25:53.576
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 19:25:53.577
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:25:59.130
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:25:59.131
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@21d8c4e4[org.springframework.tooling.boot.ls:1.23.0.202010230633(id=673)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:25:59.136
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:25:59.155
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.735
+!MESSAGE Boot LS startup time from start to initialized: 2593ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.821
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.jsIbbHYUisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.823
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.825
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.825
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.825
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.826
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.jsIbbHYU => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.848
+!MESSAGE classpath=128 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.864
+!MESSAGE buffering callback sts4.classpath.jsIbbHYU javagg false 128
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.864
+!MESSAGE executing callback sts4.classpath.jsIbbHYU 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-05 19:26:01.890
+!MESSAGE executing callback sts4.classpath.jsIbbHYU SUCCESS [done]
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 19:28:22.340
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 19:28:22.341
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 21:47:57.383
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-05 21:47:57.384
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT

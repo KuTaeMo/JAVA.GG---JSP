@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
 <%@ include file="../apikey.jsp"%>
 
@@ -67,46 +66,25 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 </style>
 </head>
 <body style="background-color: #EAEAEA;">
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
 		integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
 		crossorigin="anonymous"></script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript">
-	
-        $(document).ready(function() {
-            //When page loads...
-            $(".tab_content").hide(); //Hide all content
-            $("ul.tabs li:first").addClass("active").show(); //Activate first tab
-            $(".tab_content:first").show(); //Show first tab content
-            //On Click Event
-            $("ul.tabs li").click(function() {
-                $("ul.tabs li").removeClass("active"); //Remove any "active" class
-                $(this).addClass("active"); //Add "active" class to selected tab
-                $(".tab_content").hide(); //Hide all tab content
-                var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-                $(activeTab).fadeIn(); //Fade in the active ID content
-                return false;
-            });
-        });
-    </script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 
 	<!-- 소환사 정보 -->
 	<div class="mContainer" style="display: flex;">
 		<div align="center">
-			<img id="rankcover" src="img/cover/challenger.png"
-				style="position: absolute;" /> <img id="usericon"
-				src="img/profileIcon.jpg"
+			<img id="rankcover" src="img/cover/challenger.png" style="position: absolute;" /> <img id="usericon" src="img/profileIcon.jpg"
 				style="width: 100px; height: 100px; margin: 10px;" />
-			<div id="summonerLevel" align="center" style="position: relative; top: -25px; background-color: #2C3548; color: #EA9F4C; width: 40px; height: 25px; font-size: 15px; border: 1px solid #EA9F4C;">272</div>
+			<div id="summonerLevel" align="center"
+				style="position: relative; top: -25px; background-color: #2C3548; color: #EA9F4C; width: 40px; height: 25px; font-size: 15px; border: 1px solid #EA9F4C;">272</div>
 		</div>
 		<div style="padding: 15px;">
 			<div id="name" style="font-size: 20px; color: black;"></div>
 			<div style="font-size: 10px; display: flex;">
-				랭킹
-				<div id="rankingnum" style="color: #059EDE;">1</div>
-				위
+				
+				<div id="rankingnum" style="color: #059EDE;"></div>
+				
 			</div>
 			<br />
 			<button class="search_button" id="reSearchUser">전적 갱신</button>
@@ -117,10 +95,8 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 	<div class="mContainer" style="display: flex;">
 		<!--탭 메뉴 영역 -->
 		<ul class="tabs">
-			<li style="margin-right: 30px; background-color: #FFFFFF;"><a
-				href="#tab1"
-				style="width: 100px; height: 35px; display: flex; justify-content: center; align-items: center;">
-					종합</a></li>
+			<li style="margin-right: 30px; background-color: #FFFFFF;"><a href="#tab1"
+				style="width: 100px; height: 35px; display: flex; justify-content: center; align-items: center;"> 종합</a></li>
 
 			<li style="border-left: 1px solid #999;"><a href="#tab2"
 				style="height: 100%; background-color: white; color: #1F8ECD; display: flex; justify-content: center; align-items: center;">
@@ -142,20 +118,16 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 					<div
 						style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
 						<div style="display: flex;">
-							<img id="rankimg" style="width: 100px; height: 100px;"
-								src="img/challenger_rank.png" />
+							<img id="rankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
 						</div>
-						<div
-							style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
+						<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
 							<div class="tiny_gray_text">솔로랭크</div>
 
 							<div style="display: flex;">
-								<div id="tier"
-									style="display: flex; font-size: 12px; color: #63B8E5;">
+								<div id="tier" style="display: flex; font-size: 12px; color: #63B8E5;">
 									<!-- rank : Challenger -->
 								</div>
-								<div id="rank"
-									style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
+								<div id="rank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;">1</div>
 							</div>
 
 							<div style="display: flex;">
@@ -179,20 +151,14 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 					<div
 						style="display: flex; border: 0.3px solid #CDD2D2; background-color: #F2F2F2; justify-content: center; align-items: center;">
 						<div style="display: flex;">
-							<img id="trankimg" style="width: 100px; height: 100px;"
-								src="img/challenger_rank.png" />
+							<img id="trankimg" style="width: 100px; height: 100px;" src="img/challenger_rank.png" />
 						</div>
-						<div
-							style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
+						<div style="margin-left: 20px; height: 130px; display: flex; flex-direction: column; justify-content: center;">
 							<div class="tiny_gray_text">자유 5:5 랭크</div>
 
 							<div style="display: flex;">
-								<div id="ttier"
-									style="display: flex; font-size: 12px; color: #63B8E5;">
-
-								</div>
-								<div id="trank"
-									style="font-size: 12px; color: #63B8E5; margin-left: 5px;"></div>
+								<div id="ttier" style="display: flex; font-size: 12px; color: #63B8E5;"></div>
+								<div id="trank" style="font-size: 12px; color: #63B8E5; margin-left: 5px;"></div>
 							</div>
 
 							<div style="display: flex;">
@@ -217,13 +183,11 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 				<!-- 오른쪽 박스 -->
 				<div id="right-container" style="width: 70%; margin-left: 5px;">
 					<!-- 승률 박스 -->
-					<div
-						style="border: 1px solid #CDD2D2; display: flex; background-color: #EDEDED;">
+					<div style="border: 1px solid #CDD2D2; display: flex; background-color: #EDEDED;">
 
 						<!-- 1번 박스 -->
 						<!-- 승률 -->
-						<div
-							style="display: flex; flex-direction: column; width: 40%; border-right: 1px solid #CDD2D2; padding: 20px;">
+						<div style="display: flex; flex-direction: column; width: 40%; border-right: 1px solid #CDD2D2; padding: 20px;">
 							<div style="display: flex; font-size: 13px; color: gray;">
 								5전
 								<div id="winStat" style="margin-left: 5px;">13승</div>
@@ -231,29 +195,24 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 							</div>
 							<div style="display: flex;">
 								<!-- 그래프 -->
-								<div
-									style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center;">
+								<div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center;">
 									<!-- 승률 text -->
 									<div id="winPerStat" style="position: absolute; font-size: 18px;">50%</div>
 									<!-- 승률 graph -->
 									<canvas id="myChart" width="10" height="10"></canvas>
 								</div>
 								<!-- 승률 수치 -->
-								<div
-									style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+								<div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
 									<!-- 킬뎃 평균  -->
 									<div style="display: flex; font-size: 11px;">
-										<div>11.2</div>
+										<div id="totKill">11.2</div>
 										/
-										<div style="color: red;">6.9</div>
+										<div id="totDeath" style="color: red;">6.9</div>
 										/
-										<div>17.6</div>
+										<div id="totAssist">17.6</div>
 									</div>
 									<!-- kda -->
-									<div style="display: flex; font-size: 20px;">
-										4.17:1
-										<div style="color: red;">(66%)</div>
-									</div>
+									<div id="totKda" style="display: flex; font-size: 20px;">4.17:1</div>
 								</div>
 							</div>
 
@@ -261,78 +220,64 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 						<!-- 2번 박스 -->
 						<!-- 챔피언별 승률 -->
-						<div
-							style="width: 35%; border-right: 1px solid #CDD2D2; padding: 10px;">
-							<div
-								style="display: flex; flex-direction: column; margin: 5% 5% 0 10%;">
+						<div style="width: 35%; border-right: 1px solid #CDD2D2; padding: 10px;">
+							<div style="display: flex; flex-direction: column; margin: 5% 5% 0 10%;">
 								<!-- 승률1 -->
-								<div
-									style="display: flex; align-items: center; margin-bottom: 10px;">
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
 									<!-- 챔피언 사진 -->
 									<img id="champImg1" class="circle_image" src="img/Jayce.png"
 										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 
 									<div>
 										<!-- 승률1 챔피언 이름 -->
-										<div class="mostChampion" id="championName1"
-											style="font-size: 12px;">챔피언</div>
+										<div class="mostChampion" id="championName1" style="font-size: 12px;">챔피언</div>
 										<div style="display: flex;">
 											<!-- 승률1 승률-->
 											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
 											<!-- 승률1 승패-->
-											<div id="championScore1" style="font-size: 10px;">(2승
-												1패)</div>
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
 											<!-- 승률1 평점-->
-											<div id="championScore1" style="font-size: 10px;">5.93
-												평점</div>
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
 										</div>
 									</div>
 								</div>
 
 								<!-- 승률1 -->
-								<div
-									style="display: flex; align-items: center; margin-bottom: 10px;">
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
 									<!-- 챔피언 사진 -->
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
+									<img id="champImg2" class="circle_image" src="img/Jayce.png"
 										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 
 									<div>
 										<!-- 승률1 챔피언 이름 -->
-										<div class="mostChampion" id="championName1"
-											style="font-size: 12px;">챔피언</div>
+										<div class="mostChampion" id="championName2" style="font-size: 12px;">챔피언</div>
 										<div style="display: flex;">
 											<!-- 승률1 승률-->
 											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
 											<!-- 승률1 승패-->
-											<div id="championScore1" style="font-size: 10px;">(2승
-												1패)</div>
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
 											<!-- 승률1 평점-->
-											<div id="championScore1" style="font-size: 10px;">5.93
-												평점</div>
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
 										</div>
 									</div>
 								</div>
 
 								<!-- 승률1 -->
-								<div
-									style="display: flex; align-items: center; margin-bottom: 10px;">
+								<div style="display: flex; align-items: center; margin-bottom: 10px;">
 									<!-- 챔피언 사진 -->
-									<img id="champImg1" class="circle_image" src="img/Jayce.png"
+									<img id="champImg3" class="circle_image" src="img/Jayce.png"
 										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 
 									<div>
 										<!-- 승률1 챔피언 이름 -->
-										<div class="mostChampion" id="championName1"
-											style="font-size: 12px;">챔피언</div>
+										<div class="mostChampion" id="championName3" style="font-size: 12px;">챔피언</div>
 										<div style="display: flex;">
 											<!-- 승률1 승률-->
 											<div id="championLV1" style="font-size: 10px; color: red;">67%</div>
 											<!-- 승률1 승패-->
-											<div id="championScore1" style="font-size: 10px;">(2승
-												1패)</div>
+											<div id="championScore1" style="font-size: 10px;">(2승 1패)</div>
 											<!-- 승률1 평점-->
-											<div id="championScore1" style="font-size: 10px;">5.93
-												평점</div>
+											<div id="championScore1" style="font-size: 10px;">5.93 평점</div>
 										</div>
 									</div>
 								</div>
@@ -341,8 +286,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 
 						<!-- 3번 박스 -->
 						<!-- 포지션별 랭크 -->
-						<div
-							style="width: 25%; padding: 20px; font-size: 12px; color: gray; display: flex; flex-direction: column;">
+						<div style="width: 25%; padding: 20px; font-size: 12px; color: gray; display: flex; flex-direction: column;">
 							선호 포지션 (랭크)
 							<div style="margin-top: 25px;">
 								원딜
@@ -369,11 +313,9 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 					<c:forEach var="num" begin="1" end="5" step="1">
 
 						<!-- 전적 시작 -->
-						<div
-							style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px;">
+						<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 10px;">
 							<!-- 전적 박스 -->
-							<div id="searchBox${num}"
-								style="display: flex; border: 1px solid #bcbcbc; background-color: #A3CFEC; width: 100%;">
+							<div id="searchBox${num}" style="display: flex; border: 1px solid #bcbcbc; background-color: #A3CFEC; width: 100%;">
 								<!-- 겜 정보 -->
 								<div
 									style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 10px; margin: 10px 10px 10px 0; width: 14%">
@@ -391,21 +333,17 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<img id="boxChampImg${num}" class="circle_image" src="img/Jayce.png"
 											style="width: 50px; height: 50px; margin-right: 5px; border-radius: 30px;" />
 										<!-- 스펠 -->
-										<div
-											style="display: flex; flex-direction: column; margin-right: 5px;">
-											<img id="spellD${num }" src="" style="width: 25px; height: 25px;" />
-											<img id="spellF${num }" src="" style="width: 25px; height: 25px;" />
+										<div style="display: flex; flex-direction: column; margin-right: 5px;">
+											<img id="spellD${num }" src="" style="width: 25px; height: 25px;" /> <img id="spellF${num }" src=""
+												style="width: 25px; height: 25px;" />
 										</div>
 										<!-- 룬 -->
 										<div style="display: flex; flex-direction: column;">
-											<img id="RuneMain${num }" src="img/pic1.png"
-												style="width: 25px; height: 25px; border-radius: 30px;" />
-											<img id="RuneSub${num }" src="img/pic1.png"
-												style="width: 25px; height: 25px; border-radius: 30px;" />
+											<img id="RuneMain${num }" src="img/pic1.png" style="width: 25px; height: 25px; border-radius: 30px;" /> <img
+												id="RuneSub${num }" src="img/pic1.png" style="width: 25px; height: 25px; border-radius: 30px;" />
 										</div>
 									</div>
-									<div id="boxChampionName${num}"
-										style="font-size: 12px; margin-top: 5px;">챔프이름</div>
+									<div id="boxChampionName${num}" style="font-size: 12px; margin-top: 5px;">챔프이름</div>
 								</div>
 
 
@@ -433,64 +371,63 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<div
 									style="display: flex; justify-content: center; align-items: center; flex-direction: column; color: gray; font-size: 11px; margin-right: 20px;">
 									<div id="box${num}Level" style="margin-bottom: 5px;">레벨 18</div>
-									<div
-										style="display: flex; justify-content: center; align-items: center; margin-bottom: 5px;">
+									<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 5px;">
 										<div id="box${num}Cs">100</div>
 										<div id="box${num}CsPer">(4.7)</div>
 										CS
 									</div>
-									<div id="box${num}KillRel" align="center" style="color: red; margin-bottom: 5px; font-size: 10px; white-space: nowrap; font-weight: bold;">킬관여
-										</div>
+									<div id="box${num}KillRel" align="center"
+										style="color: red; margin-bottom: 5px; font-size: 10px; white-space: nowrap; font-weight: bold;">킬관여</div>
 								</div>
 
 								<!-- 아이템 -->
 								<div
 									style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 15px; width: 10%; width: 15%;">
 									<!-- 아이템 위층 -->
-									<div
-										style="display: flex; justify-content: center; align-items: center;">
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item1" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item2" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item3" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+									<div style="display: flex; justify-content: center; align-items: center;">
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item1" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item2" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item3" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
 										<!-- 와드, 장신구 7번 박스 -->
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item7" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item7" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
 									</div>
 									<!-- 아이템 아래층 -->
-									<div
-										style="display: flex; justify-content: center; align-items: center;">
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item4" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item5" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
-										<div 
-											style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;"><img id="box${num}Item6" style="border-radius: 5px; opacity:1; width: 25px; height: 25px;"src=""/></div>
+									<div style="display: flex; justify-content: center; align-items: center;">
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item4" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item5" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
+										<div style="width: 25px; height: 25px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 2px 1px;">
+											<img id="box${num}Item6" style="border-radius: 5px; opacity: 1; width: 25px; height: 25px;" src="" />
+										</div>
 										<div style="width: 25px; height: 25px;">
-											<img id="box${num }ItemBuild" src="img/searchbuild.png"
-												style="width: 25px; height: 25px; margin: 0 1px 2px 1px;" />
+											<img id="box${num }ItemBuild" src="img/searchbuild.png" style="width: 25px; height: 25px; margin: 0 1px 2px 1px;" />
 										</div>
 									</div>
 								</div>
 
 								<!-- 팀원 -->
-								<div
-									style="display: flex; justify-content: center; align-items: center; width: 30%;">
+								<div style="display: flex; justify-content: center; align-items: center; width: 30%;">
 									<!-- 블루팀 -->
-									<div
-										style="display: flex; justify-content: center; align-items: flex-start; flex-direction: column; margin-right: 10px;">
+									<div style="display: flex; justify-content: center; align-items: flex-start; flex-direction: column; margin-right: 10px;">
 										<!-- 1 -->
 										<c:forEach var="a" begin="0" end="4" step="1">
 											<div
 												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-												<img id="box${num}BlueTeamChampImg${a}"
-													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
+												<img id="box${num}BlueTeamChampImg${a}" src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 													style="width: 15px; height: 15px; margin-right: 3px;" />
 												<div id="box${num}BlueTeamName${a}"
-													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
-													이름</div>
+													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사 이름</div>
 											</div>
 										</c:forEach>
 									</div>
@@ -502,49 +439,38 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<c:forEach var="b" begin="5" end="9" step="1">
 											<div
 												style="display: flex; justify-content: center; align-items: center; font-size: 10px; color: gray; margin-bottom: 3px;">
-												<img id="box${num}RedTeamChampImg${b}"
-													src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
+												<img id="box${num}RedTeamChampImg${b}" src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/Aatrox.png"
 													style="width: 15px; height: 15px; margin-right: 3px;" />
 												<div id="box${num}RedTeamName${b}"
-													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사
-													이름</div>
+													style="width: 70px; display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">소환사 이름</div>
 											</div>
 										</c:forEach>
 									</div>
 								</div>
 
 								<!-- 전적 토글 버튼 -->
-								<a id="search${num}" class="a_search"
-									href='javascript:doDisplay();'
+								<a id="search${num}" class="a_search" href='javascript:doDisplay();'
 									style="border: 1px solid #5ca7d6; background-color: #64B1E4; width: 5%; display: flex; justify-content: center; align-items: flex-end;">
-									<img id="moreButton${num}" src="img/winMore.png"
-									style="width: 20px; height: 20px;" />
+									<img id="moreButton${num}" src="img/winMore.png" style="width: 20px; height: 20px;" />
 								</a>
 							</div>
 
 							<!-- 전적 상세 -->
 							<!-- ============================================================================================================= -->
 
-							<div id="matchSpecificBox${num}"
-								style="border: 1px solid #bcbcbc; display: none; width: 100%;">
+							<div id="matchSpecificBox${num}" style="border: 1px solid #bcbcbc; display: none; width: 100%;">
 								<!-- 머리글 행 -->
-								<div
-									style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
+								<div style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
 									<div style="width: 25%; display: flex;">
 										<div id="winOrlose${num}" style="color: #1A85C4;">승리</div>
 										<div>(블루팀)</div>
 									</div>
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">티어</div>
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">KDA</div>
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">티어</div>
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">KDA</div>
 
-									<div
-										style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
-									<div
-										style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
+									<div style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
+									<div style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
 								</div>
 
 
@@ -559,77 +485,83 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<div style="width: 25%; display: flex; align-items: center;">
 											<img id="blue${num }TeamChampImg${blueteam }" class="circle_image" src="img/Jayce.png"
 												style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-											<div
-												style="display: flex; flex-direction: column; margin-right: 5px;">
-												<img id="blue${num }TeamSpellD${blueteam}" src="" style="width: 20px; height: 20px;" />
-												<img id="blue${num }TeamSpellF${blueteam}" src="" style="width: 20px; height: 20px;" />
+											<div style="display: flex; flex-direction: column; margin-right: 5px;">
+												<img id="blue${num }TeamSpellD${blueteam}" src="" style="width: 20px; height: 20px;" /> <img
+													id="blue${num }TeamSpellF${blueteam}" src="" style="width: 20px; height: 20px;" />
 											</div>
 											<!-- 룬 -->
 											<div style="display: flex; flex-direction: column;">
 												<img id="blue${num }TeamRuneMain${blueteam }" src="img/pic1.png"
-													style="width: 20px; height: 20px; border-radius: 30px;" />
-												<img id="blue${num }TeamRuneSub${blueteam }" src="img/pic1.png"
-													style="width: 20px; height: 20px; border-radius: 30px;" />
+													style="width: 20px; height: 20px; border-radius: 30px;" /> <img id="blue${num }TeamRuneSub${blueteam }"
+													src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
 											</div>
-											<span id="blue${num }TeamName${blueteam }"
-												style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치 </span>
+											<span id="blue${num }TeamName${blueteam }" style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치 </span>
 										</div>
 										<!-- 티어 -->
-										<div 
+										<div
 											style="width: 10%; display: flex; justify-content: center; align-items: center; font-size: 10px; white-space: nowrap;">
 											<div id="blue${num }TeamTier${blueteam }" style="margin-right: 5px; white-space: nowrap;"></div>
 											<div id="blue${num }TeamRank${blueteam }"></div>
-											</div>
+										</div>
 										<!-- KDA -->
-										<div
-											style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+										<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 											<div>3.33:1</div>
 											<div style="font-size: 8px; display: flex; justify-content: center; align-items: center;">
-												<div id="blue${num }TeamKill${blueteam }">1</div>/
-												<div id="blue${num }TeamDeath${blueteam }">1</div>/
+												<div id="blue${num }TeamKill${blueteam }">1</div>
+												/
+												<div id="blue${num }TeamDeath${blueteam }">1</div>
+												/
 												<div id="blue${num }TeamAssist${blueteam }">1</div>
 												<div id="blue${num }TeamKillPer${blueteam }">(10%)</div>
 											</div>
 										</div>
 										<!-- 피해량 -->
-										<div
-											style="width: 15%; display: flex; justify-content: center; align-items: center;">
+										<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
 											<div
 												style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 												<!-- 피해량 text -->
 												<div id="blue${num }TeamDamage${blueteam }" style="font-size: 11px;">25,537</div>
 												<!-- 피해량 graph -->
-												<div
-													style="background-color: #F2F2F2; width: 80px; height: 15px;">
-													<div id="blue${num }TeamDamagePer${blueteam }"
-														style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
+												<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
+													<div id="blue${num }TeamDamagePer${blueteam }" style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
 												</div>
 											</div>
 										</div>
 										<!-- cs -->
-										<div
-											style="width: 10%; display: flex; justify-content: center; align-items: center;">
-												<div id="blue${num }TeamCs${blueteam }">205</div>
-												<div id="blue${num }TeamCsPer${blueteam }">(5.6)</div>
-											</div>
-										<div
-											style="width: 30%; display: flex; justify-content: center; align-items: center;">
-											<div
-												style="display: flex; justify-content: center; align-items: center;">
+										<div style="width: 10%; display: flex; justify-content: center; align-items: center;">
+											<div id="blue${num }TeamCs${blueteam }">205</div>
+											<div id="blue${num }TeamCsPer${blueteam }">(5.6)</div>
+										</div>
+										<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
+											<div style="display: flex; justify-content: center; align-items: center;">
 												<div id="blue${num }Team${blueteam}Item1"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item1Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item1Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item2"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item2Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item2Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item3"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item3Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item3Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item4"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item4Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item4Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item5"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item5Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item5Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item6"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item6Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item6Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="blue${num }Team${blueteam}Item7"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="blue${num }Team${blueteam }Item7Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="blue${num }Team${blueteam }Item7Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 											</div>
 										</div>
 									</div>
@@ -641,105 +573,78 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<div
 									style="display: flex; justify-content: center; align-items: center; font-size: 12px; height: 50px; background-color: #E4E4E4; border-top: 1px solid #bcbcbc;">
 									<!-- 블루팀 오브젝트 -->
-									<div
-										style="display: flex; justify-content: center; align-items: center; width: 25%;">
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-baron-b.png"
-												style="width: 20px; height: 20px;" />
+									<div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-baron-b.png" style="width: 20px; height: 20px;" />
 											<div id="blueTeamBaron${num }">1</div>
 										</div>
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-dragon-b.png"
-												style="width: 20px; height: 20px;" />
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-dragon-b.png" style="width: 20px; height: 20px;" />
 											<div id="blueTeamDragon${num }">4</div>
 										</div>
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-tower-b.png"
-												style="width: 20px; height: 20px;" />
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-tower-b.png" style="width: 20px; height: 20px;" />
 											<div id="blueTeamTower${num }">9</div>
 										</div>
 									</div>
 
 									<!-- 토탈 킬, 토탈 골드 -->
-									<div
-										style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 50%;">
+									<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 50%;">
 										<!-- 토탈 킬 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 5px;">
+										<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 5px;">
 											<div style="width: 20%; font-size: 10px;">Total Kill</div>
 											<div id="blueTotalKill${num }" style="width: 10%; font-size: 10px;">53</div>
 											<div
 												style="display: flex; justify-content: center; align-items: center; width: 65%; height: 10px; margin: 0 5px 0 5px;">
-												<div id="blueTotalKillGraph${num }"
-													style="background-color: #548DCA; width: 70%; height: 10px;"></div>
-												<div id="redTotalKillGraph${num }"
-													style="background-color: #D05A53; width: 30%; height: 10px;"></div>
+												<div id="blueTotalKillGraph${num }" style="background-color: #548DCA; width: 70%; height: 10px;"></div>
+												<div id="redTotalKillGraph${num }" style="background-color: #D05A53; width: 30%; height: 10px;"></div>
 											</div>
 											<div id="redTotalKill${num }" style="width: 5%; font-size: 10px;">32</div>
 										</div>
 
 										<!-- 토탈 골드 -->
-										<div
-											style="display: flex; justify-content: center; align-items: center; width: 100%;">
+										<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
 											<div style="width: 20%; font-size: 10px;">Total Gold</div>
 											<div id="blueTotalGold${num }" style="width: 10%; font-size: 10px;">76283</div>
 											<div
 												style="display: flex; justify-content: center; align-items: center; width: 65%; height: 10px; margin: 0 5px 0 5px;">
-												<div id="blueTotalGoldGraph${num }"
-													style="background-color: #548DCA; width: 70%; height: 10px;"></div>
-												<div id="redTotalGoldGraph${num }"
-													style="background-color: #D05A53; width: 30%; height: 10px;"></div>
+												<div id="blueTotalGoldGraph${num }" style="background-color: #548DCA; width: 70%; height: 10px;"></div>
+												<div id="redTotalGoldGraph${num }" style="background-color: #D05A53; width: 30%; height: 10px;"></div>
 											</div>
 											<div id="redTotalGold${num }" style="width: 5%; font-size: 10px;">65762</div>
 										</div>
 									</div>
 
 									<!-- 레드팀 오브젝트 -->
-									<div 
-										style="display: flex; justify-content: center; align-items: center; width: 25%;">
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-baron-r.png"
-												style="width: 20px; height: 20px;" />
+									<div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-baron-r.png" style="width: 20px; height: 20px;" />
 											<div id="redTeamBaron${num }">0</div>
 										</div>
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-dragon-r.png"
-												style="width: 20px; height: 20px;" />
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-dragon-r.png" style="width: 20px; height: 20px;" />
 											<div id="redTeamDragon${num }">0</div>
 										</div>
-										<div
-											style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
-											<img src="img/icon-tower-r.png"
-												style="width: 20px; height: 20px;" />
+										<div style="display: flex; justify-content: center; align-items: center; margin-right: 10px;">
+											<img src="img/icon-tower-r.png" style="width: 20px; height: 20px;" />
 											<div id="redTeamTower${num }">3</div>
 										</div>
 									</div>
 								</div>
 								<!-- 패배팀 -->
 								<!-- 머리글 행 -->
-								<div
-									style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
+								<div style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
 									<div style="width: 25%; display: flex;">
 										<div id="winOrloseSide${num}" style="color: red;">패배</div>
 										<div>(레드팀)</div>
 									</div>
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">티어</div>
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">KDA</div>
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">티어</div>
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">KDA</div>
 
-									<div
-										style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
-									
-									<div
-										style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
-									<div
-										style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
+									<div style="width: 15%; display: flex; justify-content: center; align-items: center;">피해량</div>
+
+									<div style="width: 10%; display: flex; justify-content: center; align-items: center;">CS</div>
+									<div style="width: 30%; display: flex; justify-content: center; align-items: center;">아이템</div>
 								</div>
 
 								<!-- 상대팀 상세정보 for문 -->
@@ -752,77 +657,82 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 										<div style="width: 25%; display: flex; align-items: center;">
 											<img id="red${num }TeamChampImg${redteam}" class="circle_image" src="img/Jayce.png"
 												style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
-											<div
-												style="display: flex; flex-direction: column; margin-right: 5px;">
-												<img id="red${num }TeamSpellD${redteam}" src="" style="width: 20px; height: 20px;" />
-												<img id="red${num }TeamSpellF${redteam}" src="" style="width: 20px; height: 20px;" />
+											<div style="display: flex; flex-direction: column; margin-right: 5px;">
+												<img id="red${num }TeamSpellD${redteam}" src="" style="width: 20px; height: 20px;" /> <img
+													id="red${num }TeamSpellF${redteam}" src="" style="width: 20px; height: 20px;" />
 											</div>
 											<!-- 룬 -->
 											<div style="display: flex; flex-direction: column;">
-												<img id="red${num }TeamRuneMain${redteam}" src="img/pic1.png"
-													style="width: 20px; height: 20px; border-radius: 30px;" />
-												<img id="red${num }TeamRuneSub${redteam}" src="img/pic1.png"
-													style="width: 20px; height: 20px; border-radius: 30px;" />
+												<img id="red${num }TeamRuneMain${redteam}" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
+												<img id="red${num }TeamRuneSub${redteam}" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
 											</div>
-											<span id="red${num }TeamName${redteam}"
-												style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치</span>
+											<span id="red${num }TeamName${redteam}" style="font-size: 10px; margin-top: 5px; white-space: nowrap;">태치야치</span>
 										</div>
 										<!-- 티어 -->
-										<div 
+										<div
 											style="width: 10%; display: flex; justify-content: center; align-items: center; white-space: nowrap; font-size: 10px;">
 											<div id="red${num }TeamTier${redteam }" style="margin-right: 5px; white-space: nowrap;"></div>
 											<div id="red${num }TeamRank${redteam }"></div>
-											</div>
+										</div>
 										<!-- KDA -->
-										<div
-											style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+										<div style="width: 10%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 											<div>3.33:1</div>
 											<div style="font-size: 8px; display: flex; justify-content: center; align-items: center;">
-												<div id="red${num }TeamKill${redteam }">1</div>/
-												<div id="red${num }TeamDeath${redteam }">1</div>/
+												<div id="red${num }TeamKill${redteam }">1</div>
+												/
+												<div id="red${num }TeamDeath${redteam }">1</div>
+												/
 												<div id="red${num }TeamAssist${redteam }">1</div>
 												<div id="red${num }TeamKillPer${redteam }">(10%)</div>
 											</div>
 										</div>
 										<!-- 피해량 -->
-										<div
-											style="width: 15%; display: flex; justify-content: center; align-items: center;">
+										<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
 											<div
 												style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 												<!-- 피해량 text -->
 												<div id="red${num }TeamDamage${redteam }" style="font-size: 11px;">25,537</div>
 												<!-- 피해량 graph -->
-												<div
-													style="background-color: #F2F2F2; width: 80px; height: 15px;">
-													<div id="red${num }TeamDamagePer${redteam }"
-														style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
+												<div style="background-color: #F2F2F2; width: 80px; height: 15px;">
+													<div id="red${num }TeamDamagePer${redteam }" style="background-color: #EE5A52; width: 80%; height: 15px;"></div>
 												</div>
 											</div>
 										</div>
 										<!-- cs -->
-										<div
-											style="width: 10%; display: flex; justify-content: center; align-items: center;">
-												<div id="red${num }TeamCs${redteam }">205</div>
-												<div id="red${num }TeamCsPer${redteam }">(5.6)</div>
-											</div>
-										<div
-											style="width: 30%; display: flex; justify-content: center; align-items: center;">
-											<div
-												style="display: flex; justify-content: center; align-items: center;">
+										<div style="width: 10%; display: flex; justify-content: center; align-items: center;">
+											<div id="red${num }TeamCs${redteam }">205</div>
+											<div id="red${num }TeamCsPer${redteam }">(5.6)</div>
+										</div>
+										<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
+											<div style="display: flex; justify-content: center; align-items: center;">
 												<div id="red${num }Team${redteam }Item1"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item1Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item1Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item2"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item2Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item2Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item3"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item3Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item3Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item4"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item4Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item4Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item5"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item5Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item5Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item6"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item6Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item6Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 												<div id="red${num }Team${redteam }Item7"
-													style="width: 20px; height: 20px; background-color: #9e9e9e;  border-radius: 5px; margin: 0 1px 0 1px;"><img id="red${num }Team${redteam }Item7Img" src="" style="width: 20px; height: 20px;"/></div>
+													style="width: 20px; height: 20px; background-color: #9e9e9e; border-radius: 5px; margin: 0 1px 0 1px;">
+													<img id="red${num }Team${redteam }Item7Img" src="" style="width: 20px; height: 20px;" />
+												</div>
 											</div>
 										</div>
 									</div>
@@ -837,10 +747,135 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 		</div>
 
 		<!-- 인게임 정보 탭 -->
-		<div id="tab2" class="tab_content">
+		<div align="center" id="tab2" class="tab_content" style="margin: 50px 0 100px 0;">
 			<!--Content-->
-			<h1>tab2영역</h1>
-			내용 내용 내용 내용 내용 내용
+			<div style="width: 70%">
+
+				<!-- 전적 상세 -->
+				<div style="border: 1px solid #bcbcbc;">
+					<div style="display: flex; border: 1px solid #bcbcbc; align-items: center;">
+						<div id="gameType" style="font-size: 15px; font-weight: bold; margin: 5px;">솔랭</div>|
+						<div id="mapId" style=" font-size: 12px; margin: 5px;">소환사의 협곡</div>
+					</div>
+					<!-- 머리글 행 -->
+					<div style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
+						<div style="width: 35%; display: flex;">
+							<div id="winOrLose" style="color: blue;">블루팀</div>
+						</div>
+						<div style="width: 15%; display: flex; justify-content: center; align-items: center;">티어</div>
+
+						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">룬</div>
+						<div style="width: 20%; display: flex; justify-content: center; align-items: center;">밴</div>
+					</div>
+
+					<c:forEach var="inGameBlueNum" begin="0" end="4" step="1">
+						<!-- 상세정보 1행 -->
+						<div style="display: flex; color: gray; font-size: 11px; background-color: #D8E4EC; height: 50px;">
+							<div style="width: 35%; display: flex; align-items: center;">
+								<img id="blueChampImg${inGameBlueNum }" class="circle_image" src="img/Jayce.png"
+									style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
+								<div style="display: flex; flex-direction: column; margin-right: 5px;">
+									<img id="blueSpellD${inGameBlueNum }" src="" style="width: 20px; height: 20px;" /> <img id="blueSpellF${inGameBlueNum }" src=""
+										style="width: 20px; height: 20px;" />
+								</div>
+								<!-- 룬 -->
+								<div style="display: flex; flex-direction: column;">
+									<img id="blueRuneMain${inGameBlueNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> 
+									<img id="blueRuneSub${inGameBlueNum }"
+										src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
+								</div>
+								<span id="blueChampName${inGameBlueNum }" style="font-size: 12px; margin-top: 5px;">태치야치</span>
+							</div>
+							<!-- 티어 -->
+							<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
+								<div id="blueTier${inGameBlueNum }">Gold</div>
+								<div id="blueRank${inGameBlueNum }" style="margin-left: 5px;">3</div>
+							</div>
+
+
+							<!-- 세부 룬 -->
+							<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
+								<div style="display: flex; justify-content: center; align-items: center;">
+									<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
+
+								</div>
+							</div>
+							<div align="center" style="width: 20%;">
+								<!-- 밴 -->
+								<img id="spellDm1" src="" style="width: 20px; height: 20px;" />
+							</div>
+						</div>
+						<!-- 끝 -->
+					</c:forEach>
+
+					<!-- 패배팀 -->
+					<!-- 머리글 행 -->
+					<div style="display: flex; color: gray; font-size: 10px; padding: 5px; border-bottom: 1px solid #bcbcbc;">
+						<div style="width: 35%; display: flex;">
+							<div id="winOrLose" style="color: red;">레드팀</div>
+						</div>
+						<div style="width: 15%; display: flex; justify-content: center; align-items: center;">티어</div>
+
+						<div style="width: 30%; display: flex; justify-content: center; align-items: center;">룬</div>
+						<div style="width: 20%; display: flex; justify-content: center; align-items: center;">밴</div>
+					</div>
+
+					<c:forEach var="inGameRedNum" begin="0" end="4" step="1">
+						<!-- 상세정보 1행 -->
+						<div style="display: flex; color: gray; font-size: 11px; background-color: #E9E0E0; height: 50px;">
+							<div style="width: 35%; display: flex; align-items: center;">
+								<img id="redChampImg${inGameRedNum }" class="circle_image" src="img/Jayce.png"
+									style="width: 45px; height: 45px; margin-right: 5px; border-radius: 30px;" />
+								<div style="display: flex; flex-direction: column; margin-right: 5px;">
+									<img id="redSpellD${inGameRedNum }" src="" style="width: 20px; height: 20px;" /> 
+									<img id="redSpellF${inGameRedNum }" src=""
+										style="width: 20px; height: 20px;" />
+								</div>
+								<!-- 룬 -->
+								<div style="display: flex; flex-direction: column;">
+									<img id="redRuneMain${inGameRedNum }" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" /> 
+									<img id="redRuneSub${inGameRedNum }"
+										src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px;" />
+								</div>
+								<span id="redChampName${inGameRedNum }" style="font-size: 12px; margin-top: 5px;">태치야치</span>
+							</div>
+							<!-- 티어 -->
+							<div style="width: 15%; display: flex; justify-content: center; align-items: center;">
+								<div id="redTier${inGameRedNum }">Gold</div>
+								<div id="redRank${inGameRedNum }" style="margin-left: 5px;">3</div>
+							</div>
+
+
+							<!-- 세부 룬 -->
+							<div style="width: 30%; display: flex; justify-content: center; align-items: center;">
+								<div style="display: flex; justify-content: center; align-items: center;">
+									<img id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" /> <img
+										id="RuneMain" src="img/pic1.png" style="width: 20px; height: 20px; border-radius: 30px; margin-left: 5%;" />
+
+
+								</div>
+							</div>
+							<div align="center" style="width: 20%;">
+								<!-- 밴 -->
+								<img id="spellDm1" src="" style="width: 20px; height: 20px;" />
+							</div>
+						</div>
+						<!-- 끝 -->
+					</c:forEach>
+				</div>
+
+			</div>
 		</div>
 
 	</div>
@@ -996,7 +1031,7 @@ $.ajax({
 			encid=res.id;
 			icon=res.profileIconId;
 			document.querySelector("#usericon").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
-
+			
 			// api 데이터 뽑기
 			// 매치 정보
 			$.ajax({
@@ -1012,6 +1047,12 @@ $.ajax({
 
 					// 승률 담을 변수
 					let winCount=0;
+
+					// 킬뎃 통계
+					let totKill=0;
+					let totDeath=0;
+					let totAssist=0;
+					let killPer=0;
 					
 					// 전적 시작 /////////////////////////////////
 					// 레드팀 blueTeam=false
@@ -1101,7 +1142,7 @@ $.ajax({
 										
 										if(myTeamNum<5){
 											myTeam="blue";
-											console.log("나는 블루팀");
+											//console.log("나는 블루팀");
 											
 											// 블루팀 Fail
 											if(res.teams[0].win==="Fail"){
@@ -1120,17 +1161,19 @@ $.ajax({
 													document.querySelector("#detailBox"+bnum+"Blue"+d).style.backgroundColor="#D8E4EC";
 													document.querySelector("#detailBox"+bnum+"Red"+d).style.backgroundColor="#E9E0E0";
 												}
-												//console.log("블루로2김");
-												winCount+=1;
+												console.log("블루로2김");
+												winCount=winCount+1;
+												console.log("왜 안됨;;"+winCount);
 											}
 										}else{
 											myTeam="red";
-											console.log("나는 레드팀");
+											//console.log("나는 레드팀");
 											
 											// 블루팀 Fail
 											if(res.teams[1].win==="Win"){
-												winCount+=1;
-												//console.log("레드로2김");
+												winCount=winCount+1;
+												console.log("레드로2김");
+												console.log(winCount);
 												// 큰박스 승리 텍스트
 												document.querySelector("#winOrLose"+bnum).style.color='#1A85C4';
 												document.querySelector("#winOrLose"+bnum).innerHTML="승리";
@@ -1198,7 +1241,7 @@ $.ajax({
 									// 챔피언 이미지
 									let cname=setChampName(res.participants[myTeamNum].championId);
 									document.querySelector("#boxChampImg"+bnum).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[myTeamNum].championId)+".png";		
-
+									
 									// 챔피언 이름
 									$.ajax({
 										type:"GET",
@@ -1271,12 +1314,19 @@ $.ajax({
 
 									// 킬뎃
 									document.querySelector("#box"+bnum+"Kill").innerHTML=res.participants[myTeamNum].stats.kills;
+									totKill=totKill+res.participants[myTeamNum].stats.kills;
 									document.querySelector("#box"+bnum+"Death").innerHTML=res.participants[myTeamNum].stats.deaths;
+									totDeath=totDeath+res.participants[myTeamNum].stats.deaths;
 									document.querySelector("#box"+bnum+"Assist").innerHTML=res.participants[myTeamNum].stats.assists;
+									totAssist=totAssist+res.participants[myTeamNum].stats.assists;
 
 									// kda
 									// ((res.participants[0].stats.kills + res.participants[0].stats.assists) / res.participants[0].stats.deaths).toFixed(2) + " : 1"
-									document.querySelector("#box"+bnum+"Kda").innerHTML=((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists) / res.participants[myTeamNum].stats.deaths).toFixed(2) + " : 1";
+									if(res.participants[myTeamNum].stats.deaths==0){
+										document.querySelector("#box"+bnum+"Kda").innerHTML="Perfect";
+									}else{
+										document.querySelector("#box"+bnum+"Kda").innerHTML=((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists) / res.participants[myTeamNum].stats.deaths).toFixed(2) + " : 1";
+									}
 									
 									// 다중킬
 									// box${num}Mkill
@@ -1304,6 +1354,7 @@ $.ajax({
 									if(myTeam==="blue"){
 										document.querySelector("#box"+bnum+"KillRel").innerHTML="킬관여"+
 										((((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
+										killPer=killPer+((((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists)/(res.participants[0].stats.kills + res.participants[1].stats.kills + res.participants[2].stats.kills + res.participants[3].stats.kills + res.participants[4].stats.kills)).toFixed(2)) * 100).toFixed(0);
 									}else if(myTeam==="red"){
 										document.querySelector("#box"+bnum+"KillRel").innerHTML="킬관여"+
 										((((res.participants[myTeamNum].stats.kills + res.participants[myTeamNum].stats.assists)/(res.participants[5].stats.kills + res.participants[6].stats.kills + res.participants[7].stats.kills + res.participants[8].stats.kills + res.participants[9].stats.kills)).toFixed(2)) * 100).toFixed(0) + "%";
@@ -1353,12 +1404,22 @@ $.ajax({
 										document.querySelector("#box"+bnum+"Item7").style.display='none';
 									}else{
 										document.querySelector("#box"+bnum+"Item7").src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/item/"+res.participants[myTeamNum].stats.item6+".png";
-									}		
+									}
+
+									// 통계
+									document.querySelector("#winStat").innerHTML=winCount+"승";
+									document.querySelector("#loseStat").innerHTML=(5-winCount)+"패";
+									document.querySelector("#winPerStat").innerHTML=Math.floor((winCount/5*100))+"%";
+
+									document.querySelector("#totKill").innerHTML=totKill;
+									document.querySelector("#totDeath").innerHTML=totDeath;
+									document.querySelector("#totAssist").innerHTML=totAssist;
+
+									// 총계 kda
+									document.querySelector("#totKda").innerHTML=((totKill + totAssist) / totDeath).toFixed(2) + " : 1";
 									});
 					}
-					document.querySelector("#winStat").innerHTML=winCount+"승";
-					document.querySelector("#loseStat").innerHTML=(5-winCount)+"패";
-					document.querySelector("#winPerStat").innerHTML=Math.floor((winCount/5*100))+"%";
+
 				});
 
 			
@@ -1967,6 +2028,7 @@ function searchDetail(num){
 					url: "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+id+"?api_key="+api_key,
 					dataType:"json"
 					}).done((res)=>{
+						console.log(res);
 						if(res==""){
 							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML="Unranked";
 							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML="";
@@ -1974,8 +2036,14 @@ function searchDetail(num){
 							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML=res[0].tier+" ";
 							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML=res[0].rank;
 						}else if(res[0].queueType==="RANKED_FLEX_SR"){
-							document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML=res[1].tier+" ";
-							document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML=res[1].rank;
+							if(!res[1]){
+								document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML="Unranked";
+								document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML="";
+							}else if(res[1].queueType==="RANKED_SOLO_5x5"){
+								document.querySelector("#blue"+num+"TeamTier"+(i+1)).innerHTML=res[1].tier+" ";
+								document.querySelector("#blue"+num+"TeamRank"+(i+1)).innerHTML=res[1].rank;
+							}
+							
 						}
 					});
 			}
@@ -1996,8 +2064,14 @@ function searchDetail(num){
 								document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML=res[0].tier+" ";
 								document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML=res[0].rank;
 							}else if(res[0].queueType==="RANKED_FLEX_SR"){
-								document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML=res[1].tier+" ";
-								document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML=res[1].rank;
+								if(!res[1]){
+									document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML="Unranked";
+									document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML="";
+								}else{
+									document.querySelector("#red"+num+"TeamTier"+(i-4)).innerHTML=res[1].tier+" ";
+									document.querySelector("#red"+num+"TeamRank"+(i-4)).innerHTML=res[1].rank;
+								}
+								
 							}
 						});
 				}
@@ -2193,7 +2267,183 @@ function searchDetail(num){
 	
 }
 
+// 탭
+$(document).ready(function() {
+    //When page loads...
+    $(".tab_content").hide(); //Hide all content
+    $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+    $(".tab_content:first").show(); //Show first tab content
+    //On Click Event
+    $("ul.tabs li").click(function() {
+        $("ul.tabs li").removeClass("active"); //Remove any "active" class
+        $(this).addClass("active"); //Add "active" class to selected tab
+        $(".tab_content").hide(); //Hide all tab content
+        var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+        $(activeTab).fadeIn(); //Fade in the active ID content
+        console.log(activeTab);
+        if(activeTab==="#tab2"){
+			inGame();
+        }
+        return false;
+    });
+});
 
+function inGame(){
+
+	$.ajax({
+		type:"get",
+		url:"https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/"+encid+"?api_key="+api_key,
+		dataType:"json",
+		 error:function(){ // 게임 중 아닐 경우
+			alert("게임 중이 아닙니다.");
+			location.href="/home";
+			} 
+		}).done((res)=>{
+			console.log(res);
+
+			
+			// 게임 종류
+			if(res.gameQueueConfigId==420){
+				//420 솔랭
+				document.querySelector("#gameType").innerHTML="솔랭";
+			}else if(res.gameQueueConfigId==430){
+				//430 일반
+				document.querySelector("#gameType").innerHTML="일반";
+			}else if(res.gameQueueConfigId==440){
+				//440 무작위
+				document.querySelector("#gameType").innerHTML="자유5:5랭크";
+			}
+			else if(res.gameQueueConfigId==450){
+				//450 일반게임
+				document.querySelector("#gameType").innerHTML="무작위 총력전";
+			}else if(res.gameQueueConfigId==1020){
+				document.querySelector("#gameType").innerHTML="단일 챔피언";
+			}
+
+			// 맵 종류
+			if(res.mapId==11){
+				document.querySelector("#mapId").innerHTML="소환사의 협곡";
+			}else{
+				document.querySelector("#mapId").innerHTML="칼바람 나락";
+			}
+
+			// 챔피언 이미지
+			for(let i=0;i<5;i++){
+				//res.participants[i].championId;
+				document.querySelector("#blueChampImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
+			}
+			for(let i=5;i<10;i++){
+				//res.participants[i].championId;
+				document.querySelector("#redChampImg"+(i-5)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
+			}
+
+			// 스펠
+			for(let i=0;i<5;i++){
+				document.querySelector("#blueSpellD"+i).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png";
+				document.querySelector("#blueSpellF"+i).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png";
+			}
+			for(let i=5;i<10;i++){
+				document.querySelector("#redSpellD"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell1Id)+".png";
+				document.querySelector("#redSpellF"+(i-5)).src="https://ddragon.leagueoflegends.com/cdn/11.6.1/img/spell/"+setSpell(res.participants[i].spell2Id)+".png";
+			}
+
+			// 룬
+			for(let bnum=0;bnum<5;bnum++){
+				perkM=res.participants[bnum].perks.perkIds[0];
+				console.log(perkM);
+				if(perkM==8112){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+				}else if(perkM==8124){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+				}else if(perkM==8128){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+				}else if(perkM==9923){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+				}else if(perkM==8351){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+				}else if(perkM==8360){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+				}else if(perkM==8358){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+				}else if(perkM==8005){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+				}else if(perkM==8008){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+				}else if(perkM==8021){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+				}else if(perkM==8010){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+				}else if(perkM==8437){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+				}else if(perkM==8439){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+				}else if(perkM==8465){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+				}else if(perkM==8214){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+				}else if(perkM==8229){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+				}else if(perkM==8230){
+					document.querySelector("#blueRuneMain"+bnum).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+				}
+			}
+			for(let bnum=5;bnum<10;bnum++){
+				perkM=res.participants[bnum].perks.perkIds[0];
+				$.ajax({
+					data:"get",
+					url:"https://ddragon.leagueoflegends.com/cdn/10.6.1/data/en_US/runesReforged.json",
+					data:"json"
+					}).done((res)=>{
+						if(perkM==8112){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png";
+						}else if(perkM==8124){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Predator/Predator.png";
+						}else if(perkM==8128){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png";
+						}else if(perkM==9923){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png";
+						}else if(perkM==8351){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png";
+						}else if(perkM==8360){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png";
+						}else if(perkM==8358){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Inspiration/MasterKey/MasterKey.png";
+						}else if(perkM==8005){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png";
+						}else if(perkM==8008){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png";
+						}else if(perkM==8021){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png";
+						}else if(perkM==8010){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png";
+						}else if(perkM==8437){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png";
+						}else if(perkM==8439){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png";
+						}else if(perkM==8465){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Resolve/Guardian/Guardian.png";
+						}else if(perkM==8214){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png";
+						}else if(perkM==8229){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png";
+						}else if(perkM==8230){
+							document.querySelector("#blueRuneMain"+(bnum-5)).src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png";
+						}
+					});
+			}
+
+			// 이름
+			for(let i=0;i<5;i++){
+				document.querySelector("#blueChampName"+i).innerHTML=res.participants[i].summonerName;
+			}
+			for(let i=5;i<10;i++){
+				document.querySelector("#redChampName"+(i-5)).innerHTML=res.participants[i].summonerName;
+			}
+			
+			// 랭크
+			
+		});
+}
 
 </script>
 	<%@ include file="../common/footer.jsp"%>
