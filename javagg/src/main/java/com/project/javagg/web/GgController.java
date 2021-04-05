@@ -24,11 +24,6 @@ public class GgController {
 	public String testtab1() {
 		return "layout/searchSpecific";
 	}
-
-	@GetMapping("/home")
-	public String home() {
-		return "layout/main/home";
-	}
 	
 	@GetMapping("/search")
 	public String search() {
