@@ -317,7 +317,7 @@ li {}
 					<p class="detail-title-info-count-text">|</p>
 					<div id="rpc"><p class="detail-title-info-count-text">댓글 : ${replys}</p></div>
 					<p class="detail-title-info-count-text">|</p>
-					<p class="detail-title-info-count-text">추천 : 0</p>
+					<p class="detail-title-info-count-text">추천 : ${board.likeCount}</p>
 				</div>
 			</div>
 			
@@ -335,17 +335,18 @@ li {}
 			<div class="vote-btn">
 			<c:choose>
 				<c:when test="${board.likeState}">
-					<button onclick = "likeBtn(${board.id})" style="background-color: blue;" class="article-vote-btn abc">
-					</button>	
+					<button onclick = "likeBtn(${board.id})" style="background-color: #fff2d8;" class="article-vote-btn">
+					<img border="0" src="/img/vote.png" class="article-vote-like-img abc" id="vote_img_${board.id}"/>
+					<span class=" article-vote-like-count" id="like_count_${board.id}">${board.likeCount}</span>
+					</button>
 				</c:when>
 				<c:otherwise>
-					<button onclick = "likeBtn(${board.id})" style="background-color: white;" class="article-vote-btn cba">
+					<button onclick = "likeBtn(${board.id})" style="background-color: white;" class="article-vote-btn">
+					<img border="0" src="/img/vote.png" class="article-vote-like-img cba" id="vote_img_${board.id}"/>
+					<span class="article-vote-like-count" id = "like_count_${board.id}">${board.likeCount}</span>
 					</button>
 				</c:otherwise>
-			</c:choose>
-			
-			<span class=" article-vote-like-count"><b id="like_count_${board.id}">${board.likeCount}</b></span>
-		
+			</c:choose>		
 		
 		<button type="submit" class="article-vote-btn">
 			<img border="0" src="/img/dislike.png" class="article-vote-dislike-img"/>
@@ -596,39 +597,41 @@ li {}
 
 	       function likeBtn(boardId) {
 
-	    		let _buttonl = event.target;
-	    		if(_buttonl.classList.contains("cba")) {
+	    		let _buttonl = $("#vote_img_" + ${board.id});
+	    		
+	    		if(_buttonl.hasClass("cba")) {
 
 	    			$.ajax({
 
 						type: "POST",
-						url: "/board/" + ${board.id} +"/likes",
+						url: `/board/${board.id}/likes`,
 						dataType: "json"
 			    	}).done(res => {
 
-			    		let likeCountStr  = $("#like_count_" + ${board.id}).text();
+			    		let likeCountStr  = $(`#like_count_${board.id}`).text();
 			            let likeCount = Number(likeCountStr) + 1;
-			            $("#like_count_" + ${board.id}).text(likeCount);
-			            
-			    		_buttonl.classList.add("abc");
-			            _buttonl.classList.remove("cba");
+			            $(`#like_count_${board.id}`).text(likeCount);
 
+			           
+
+			    		_buttonl.addClass("abc");
+			            _buttonl.removeClass("cba");
 				    });
 		    	} else {
 
 		    		$.ajax({
 		    		      type: "DELETE",
-		    		      url: "/board/" + ${board.id} + "/likes",
+		    		      url: `/board/${board.id}/likes`,
 		    		      dataType: "json"
 		    		    }).done(res=>{
 
-		    		    	let likeCountStr  = $("#like_count_" + ${board.id}).text();
+		    		    	let likeCountStr  = $(`#like_count_${board.id}`).text();
 				            let likeCount = Number(likeCountStr) - 1;
-				            $("#like_count_" + ${board.id}).text(likeCount);
-		    		        
-		    		        _buttonl.classList.remove("abc");
-		    		        _buttonl.classList.add("cba");
+				            $(`#like_count_${board.id}`).text(likeCount);
 
+		    		        
+		    		        _buttonl.removeClass("abc");
+		    		        _buttonl.addClass("cba");
 		    		    });  
 			   }
 		  } 

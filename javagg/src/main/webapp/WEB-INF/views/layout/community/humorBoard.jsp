@@ -128,8 +128,8 @@ body {
 	
 	<div class="community-menu-search">
 	<div class="community-menu-bottom">
-		<img class="hot-new-img" src="/img/hot.png"/><a href="#" class="hot-new-text">인기</a>
-		<img class="hot-new-img" src="/img/new.png"/><a href="#" class="hot-new-text">최신</a>
+		<img class="hot-new-img" src="/img/hot.png"/><a href="/community/humor/hot" class="hot-new-text">인기</a>
+		<img class="hot-new-img" src="/img/new.png"/><a href="/community/humor" class="hot-new-text">최신</a>
 	</div>
 	
 	<form class="form-inline" action="/action_page.php">
@@ -144,7 +144,7 @@ body {
 	<div class="table">
 		<div class="table-vote">
 			<img src="/img/vote.png">
-			<p>0</p>
+			<p>${board.likeCount}</p>
 		</div>
 		
 		<div class="table-content">
@@ -159,9 +159,7 @@ body {
 				<p class="table-detail-text">${board.user.username}</p>
 			</div>
 		</div>
-			<div>
-				<img style="width: 80px; height: 80px; margin-left: 140%; margin-top: 12%;" src="/img/post_hidden.png"/>
-			</div>
+			
 	</div>
 	</c:forEach>
 	

@@ -33,4 +33,10 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	
 	@Query(value = "select * from board where id in (select boardId from likes where boardId = :boardId)", nativeQuery = true)
 	List<Board> realLike(int boardId);
+	
+	@Query(value = "SELECT * FROM board b INNER JOIN likes l ON b.id = l.boardId GROUP BY b.id ORDER BY count(l.boardId) DESC", nativeQuery = true)
+	Page<Board> hotBoard(Pageable pageable);
+	
+	@Query(value = "SELECT * FROM board b INNER JOIN likes l ON b.id = l.boardId WHERE communityType = :communityType GROUP BY b.id ORDER BY count(l.boardId) DESC", nativeQuery = true)
+	Page<Board> hotTypeBoard(String communityType, Pageable pageable);
 }

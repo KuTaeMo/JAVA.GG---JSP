@@ -56,11 +56,41 @@ public class BoardService {
 	}
 	
 	@Transactional
-	public List<Board> 좋아요증가(int boardId, int principalId) {
+	public List<Board> 좋아요증가(int principalId) {
 		System.out.println("좋아요 실행됨?");
 		
-		List<Board> boards = boardRepository.realLike(boardId);
+		List<Board> boards = boardRepository.findAll();
 		
+		boards.forEach((board) -> {
+			int likeCount = board.getLikes().size();
+			board.setLikeCount(likeCount);
+			
+			System.out.println("z : " + likeCount);
+			
+			board.getLikes().forEach((like) -> {
+				if(like.getUser().getId() == principalId) {
+					board.setLikeState(true);
+					System.out.println("얘 누구? " + board.getUser().getId());
+					System.out.println("실행 안 되지 너");
+				} else {
+					board.setLikeState(false);
+					System.out.println("넌 되냐?");
+				}
+				
+			});
+			
+		});
+		
+		
+		return boards;
+	}
+	
+	@Transactional
+	public List<Board> 좋아요감소(int principalId) {
+		
+		System.out.println("싫어요 실행됨?");
+		List<Board> boards = boardRepository.findAll();
+				
 		boards.forEach((board) -> {
 			int likeCount = board.getLikes().size();
 			board.setLikeCount(likeCount);
@@ -77,33 +107,20 @@ public class BoardService {
 		
 		return boards;
 	}
-	
-	@Transactional
-	public List<Board> 좋아요감소(int boardId, int principalId) {
-		
-		System.out.println("싫어요 실행됨?");
-		List<Board> boards = boardRepository.realLike(boardId);
-				
-		boards.forEach((board) -> {
-			int likeCount = board.getLikes().size();
-			board.setLikeCount(likeCount);
-			
-			System.out.println("z : " + likeCount);
-			
-			board.getLikes().forEach((like) -> {
-				if(board.getUser().getId() == principalId) {
-					board.setLikeState(false);
-				}
-			});
-		});
-		
-		
-		return boards;
-	}
 		
 	@Transactional
 	public Page<Board> 커뮤니티타입리스트(String type, Pageable pageable) {
 		return boardRepository.boardCommunityTypeList(type, pageable);
+	}
+	
+	@Transactional
+	public Page<Board> 인기게시슬(Pageable pageable) {
+		return boardRepository.hotBoard(pageable);
+	}
+	
+	@Transactional
+	public Page<Board> 인기타입게시슬(String communityType, Pageable pageable) {
+		return boardRepository.hotTypeBoard(communityType, pageable);
 	}
 	
 }

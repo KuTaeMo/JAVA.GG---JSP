@@ -39,30 +39,77 @@ public class BoardController {
 	public String findAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails) {
 		
+		
 		Page<Board> boards = boardService.전체리스트(pageable);
+		
 		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
+		return "layout/community/mainBoard";
+	}
+	
+	@GetMapping("/community/hot")
+	public String findAllHot(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		
+		
+		Page<Board> boards = boardService.인기게시슬(pageable);
+		
+		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
 		return "layout/community/mainBoard";
 	}
 	
 	@GetMapping("/community/humor")
-	public String findHumorAll(BoardWriteReqDto boardWriteReqDto, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
+	public String findHumorAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
 		
 		type = "유머";
 		
 		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
+		return "layout/community/humorBoard";
+	}
+	
+	@GetMapping("/community/humor/hot")
+	public String findHotHumorAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
+		
+		type = "유머";
+		
+		Page<Board> boards = boardService.인기타입게시슬(type, pageable);
+		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
 		return "layout/community/humorBoard";
 	}
 	
 	@GetMapping("/community/free")
-	public String findFreeAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable pageable,
+	public String findFreeAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
 			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
 		
 		type = "자유";
 		
 		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
+		return "layout/community/freeBoard";
+	}
+	
+	@GetMapping("/community/free/hot")
+	public String findHotFreeAll(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable,
+			@AuthenticationPrincipal PrincipalDetails principalDetails, String type) {
+		
+		type = "자유";
+		
+		Page<Board> boards = boardService.인기타입게시슬(type, pageable);
+		model.addAttribute("boards", boards);
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+
 		return "layout/community/freeBoard";
 	}
 	
@@ -98,7 +145,7 @@ public class BoardController {
 		model.addAttribute("view", boardService.조회수증가(id));
 		model.addAttribute("replys", replyService.댓글개수(id));
 		
-		
+		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
 		Page<Reply> replylist = replyService.댓글리스트11(id, pageable);
 
 		model.addAttribute("replylist", replylist);
@@ -129,14 +176,13 @@ public class BoardController {
 	@PostMapping("/board/{boardId}/likes")
 	public @ResponseBody CMRespDto<?> like(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
 		likesService.좋아요(boardId, principalDetails.getUser().getId());
-		boardService.좋아요증가(boardId, principalDetails.getUser().getId());
+		
 		return new CMRespDto<>(1, null);
 	}
 	
 	@DeleteMapping("/board/{boardId}/likes")
 	public @ResponseBody CMRespDto<?> unLike(@AuthenticationPrincipal PrincipalDetails principalDetails, @PathVariable int boardId){
 		likesService.싫어요(boardId, principalDetails.getUser().getId());
-		boardService.좋아요감소(boardId, principalDetails.getUser().getId());
 		return new CMRespDto<>(1, null);
 	}
 }

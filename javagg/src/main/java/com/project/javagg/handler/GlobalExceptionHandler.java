@@ -39,4 +39,10 @@ public class GlobalExceptionHandler {
 	public String sQLIntegrityConstraintViolationException(Exception e){ 
 		return Script.back("중복된 아이디가 있습니다.");
 	}
+	
+	@ExceptionHandler(value = Exception.class)
+	public CMRespDto<?> hello(Exception e) {
+		ExceptionList.addExceptionList(e.getMessage());
+		return new CMRespDto<>(-1, "오류남");
+	}
 }
