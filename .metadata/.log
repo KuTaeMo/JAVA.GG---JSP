@@ -7803,3 +7803,60 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2021-04-06 17:48:20.766
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:10:57.734
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:10:57.734
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@29a4fc9a[org.springframework.tooling.boot.ls:1.23.0.202010230633(id=673)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:10:57.736
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:10:57.776
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:00.919
+!MESSAGE Boot LS startup time from start to initialized: 3165ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.021
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.FKEhsqsIisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.024
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.025
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.026
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.026
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.027
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.FKEhsqsI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.050
+!MESSAGE classpath=131 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.067
+!MESSAGE buffering callback sts4.classpath.FKEhsqsI javagg false 131
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.067
+!MESSAGE executing callback sts4.classpath.FKEhsqsI 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-04-06 18:11:01.100
+!MESSAGE executing callback sts4.classpath.FKEhsqsI SUCCESS [done]
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-06 22:04:48.367
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-06 22:04:48.368
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-06 22:04:52.640
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-06 22:04:52.640
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
