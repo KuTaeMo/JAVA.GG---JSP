@@ -108,3 +108,9 @@ spring:
             - email   
             - public_profile 
 ```
+
+### 안드로이드 앱
+https://github.com/otk2625/android-opgg-project
+
+### 안드로이드 앱 서버
+https://github.com/otk2625/springboot-javagg-testserver
