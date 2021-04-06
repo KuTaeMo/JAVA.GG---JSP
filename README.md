@@ -110,3 +110,6 @@ https://github.com/otk2625/android-opgg-project
 
 ### 안드로이드 앱 서버
 https://github.com/otk2625/springboot-javagg-testserver
+
+### 홈 화면
+![image](https://user-images.githubusercontent.com/67215505/113722230-31cf7700-972b-11eb-9a28-e5358b70a5b6.png)
