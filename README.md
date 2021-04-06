@@ -80,30 +80,26 @@ spring:
     
   jpa:
     open-in-view: true
+    generate-ddl: true
     hibernate:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
-
-  jackson:
-    serialization:
-      fail-on-empty-beans: false
       
   security:
     oauth2:
       client:
         registration: 
           google:
-            client-id: 239279291176-8ftleq3rq70jmen93qq4t0da6g7putte.apps.googleusercontent.com
-            client-secret: 4OSg4cB90edgaCTlubNFxhcF
+            client-id: ********************
+            client-secret: ********************
             scope:
             - email
             - profile
             
           facebook:
-            client-id: 344541866909088
-            client-secret: 7fc3671e27f17d95ff1c3115aebe2e1e
+            client-id: ********************
+            client-secret: ********************
             scope:
             - email   
             - public_profile 
