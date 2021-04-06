@@ -96,7 +96,6 @@
 
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="/home">#집에 있자</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">통계</a></li>
 				<li class="nav-item"><a class="nav-link" href="/ranking">랭킹</a></li>
 				<li class="nav-item"><a class="nav-link" href="/community">커뮤니티</a></li>
 			</ul>
