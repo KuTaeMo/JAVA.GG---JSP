@@ -113,3 +113,16 @@ https://github.com/otk2625/springboot-javagg-testserver
 
 ### 홈 화면
 ![image](https://user-images.githubusercontent.com/67215505/113722230-31cf7700-972b-11eb-9a28-e5358b70a5b6.png)
+
+### 검색 화면
+![image](https://user-images.githubusercontent.com/67215505/113722504-72c78b80-972b-11eb-8b01-08b07951ce7d.png)
+
+### 검색 상세화면
+![image](https://user-images.githubusercontent.com/67215505/113722657-97bbfe80-972b-11eb-82ad-07864c808cd4.png)
+
+### 랭킹
+![image](https://user-images.githubusercontent.com/67215505/113722691-a1456680-972b-11eb-877f-c6aaadfcc756.png)
+
+### 커뮤니티
+![image](https://user-images.githubusercontent.com/67215505/113722786-b621fa00-972b-11eb-9a01-b2ada5bbaf26.png)
+
