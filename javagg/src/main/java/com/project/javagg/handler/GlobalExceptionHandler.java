@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.javagg.utils.Script;
 import com.project.javagg.web.dto.CMRespDto;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
 @ControllerAdvice
 public class GlobalExceptionHandler {
+	
+	private final ExceptionList exceptionList;
 
 	@ExceptionHandler(value = DataIntegrityViolationException.class)
 	public CMRespDto<?> dataIntegrityViolation(Exception e){ // e 는 오류난 정보를 다 들고있음!
@@ -21,8 +26,8 @@ public class GlobalExceptionHandler {
 	}
 	
 	@ExceptionHandler(value = IllegalArgumentException.class)
-	public CMRespDto<?> illegalArgument(Exception e){ 
-		return new CMRespDto<>(-1, null);
+	public String illegalArgument(Exception e){ 
+		return Script.href("로그인을 해야합니다.", "/loginForm");
 	}
 	
 	@ExceptionHandler(value = EmptyResultDataAccessException.class)
@@ -42,7 +47,7 @@ public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(value = Exception.class)
 	public CMRespDto<?> hello(Exception e) {
-		ExceptionList.addExceptionList(e.getMessage());
+		exceptionList.addExceptionList(e.getMessage());
 		return new CMRespDto<>(-1, "오류남");
 	}
 }
