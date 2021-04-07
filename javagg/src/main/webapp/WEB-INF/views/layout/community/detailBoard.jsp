@@ -403,16 +403,10 @@ li {}
                   
                       <li class="media" id="reply-${reply.id}">
                       
-                      	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
-                      		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/dislike.png"></button>
-                      	</div>
-                       
                         <div class="media-body">
                           <div class="">
                           	<div class="reply-list-name-time">
-                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  1시간 전</span></p>
+                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  ${reply.createDate}</span></p>
                               
                             </div>
                               
