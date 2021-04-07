@@ -18,7 +18,7 @@ public class MyBatch {
 	private final ExceptionList exceptionList;
 	private final ErrorDBService errorDBService;
 	
-	@Scheduled(fixedDelay = 1000) // Cron 정기적 실행
+	@Scheduled(fixedDelay = 1000 * 60 * 60) // Cron 정기적 실행
 	public void excute() {
 		System.out.println("실행 되니?");
 		List<ErrorDB> exList = exceptionList.getExList();

@@ -390,13 +390,10 @@ li {}
 		<div class="reply-list" id="zzz1">
   <div class="row">
     <div class="reply-all">
-        <div class="page-header">
-            <h3 class="reviews">댓글</h3>
-        </div>
+        
         <div class="comment-tabs">
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews clicked text-capitalize">인기순</h4></a></li>
-                <li class="reply-new"><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">최신순</h4></a></li>
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews clicked text-capitalize">댓글</h4></a></li>
             </ul>            
             
             <div class="tab-content">
@@ -453,59 +450,7 @@ li {}
 		</c:choose>
 	</ul>
                 </div>
-                
-                <div class="tab-pane" id="add-comment">
-                     <c:forEach var="reply" items="${replylist.content}">             
-
-                    <ul class="media-list">
-                    
-                      <li class="media" id="reply-${reply.id}">
-                      
-                      	<div class="media-side">
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/vote.png"></button>
-                      		<p class="reply-vote-count">0</p>
-                      		<button type="button" class="reply-vote-img-btn"><img class="reply-vote-img" src="/img/dislike.png"></button>
-                      	</div>
-                       
-                        <div class="media-body">
-                          <div class="">
-                          	<div class="reply-list-name-time">
-                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  1시간 전</span></p>
-                              
-                            </div>
-                              
-                                ${reply.content}
-                              <c:if test="${reply.user.id == principal.user.id}">
-                              <button id = "reply-delete-btn" onclick="deleteReply(${reply.id})" class="badge">삭제</button>
-                              </c:if>
-                          </div>              
-                        </div>
-                      </li>    
-                          
-                    </ul> 
-                     <hr/>
-                     </c:forEach>  
-               
-               		<ul class="pagination justify-content-center">
-		<c:choose>
-			<c:when test="${replylist.first}">
-				<li class="page-item disabled"><a class="page-link">Previous</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="?page=${replylist.number - 1}">Previous</a></li>
-			</c:otherwise>
-		</c:choose>
-		<c:choose>
-			<c:when test="${replylist.last}">
-				<li class="page-item disabled"><a class="page-link">Next</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="?page=${replylist.number + 1}">Next</a></li>
-			</c:otherwise>
-		</c:choose>
-	</ul>
-                </div>
-              
+            
             </div>
         </div>
 	</div>
