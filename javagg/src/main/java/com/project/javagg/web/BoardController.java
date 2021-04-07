@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,7 @@ import com.project.javagg.web.dto.CMRespDto;
 
 import lombok.RequiredArgsConstructor;
 
+@EnableScheduling
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
@@ -57,7 +59,6 @@ public class BoardController {
 		
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-		
 		
 
 		return "layout/community/mainBoard";
