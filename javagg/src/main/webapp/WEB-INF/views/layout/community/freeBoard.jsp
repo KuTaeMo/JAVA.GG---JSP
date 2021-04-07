@@ -128,8 +128,9 @@ body {
 	
 	<div class="community-menu-search">
 	<div class="community-menu-bottom">
-		<img class="hot-new-img" src="/img/hot.png"/><a href="/community/free/hot" class="hot-new-text">인기</a>
-		<img class="hot-new-img" src="/img/new.png"/><a href="/community/free" class="hot-new-text">최신</a>
+		<input type="hidden" value="${isHot}" id="isHot"/>
+		<img id="hot" class="hot-new-img" src="/img/nhot.png"/><a href="/community/free/hot" class="hot-new-text">인기</a>
+		<img id="new" class="hot-new-img" src="/img/new.png"/><a href="/community/free" class="hot-new-text">최신</a>
 	</div>
 	
 	<form class="form-inline" action="/action_page.php">
@@ -183,5 +184,18 @@ body {
 	</ul>
 </div>
 
+<script>
+
+if($("#isHot").val()==="true"){
+	console.log("핫");
+	document.querySelector("#hot").src="/img/hot.png";
+	document.querySelector("#new").src="/img/nnew.png";
+}else if($("#isHot").val()==="false"){
+	console.log("최신");
+	document.querySelector("#hot").src="/img/nhot.png";
+	document.querySelector("#new").src="/img/new.png";
+}
+
+</script>
 
 <%@ include file="../common/footer.jsp"%>

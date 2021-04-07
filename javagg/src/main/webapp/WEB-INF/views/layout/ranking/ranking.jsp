@@ -306,7 +306,6 @@ $.ajax({
 			rankingNum.sort(function(a,b){
 				return b.leaguePoints-a.leaguePoints;
 			})
-			console.log(rankingNum[0]);
 			
 			for(let i=0;i<40;i++){
 				summonerid[i]=rankingNum[i].summonerId;
@@ -358,12 +357,8 @@ $.ajax({
 				async:false
 				
 				}).done((res)=>{
-					console.log("유저네임 : " + username[1])
-					
 					user = res.summonerLevel
-					console.log("레벨 : " + res.summonerLevel);
 					document.querySelector("#gamerLV"+i).innerHTML="<b>"+user+" LV</b>";
-					console.log(user);
 				})
 			}
 
@@ -375,11 +370,8 @@ $.ajax({
 					async:false
 					
 					}).done((res)=>{
-						
 						icon = res.profileIconId;
-						console.log(i + "사진 : " + res.profileIconId);
 						document.querySelector("#pfimg_rank"+(i+1)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/profileicon/"+icon+".png";
-						console.log(user);
 					})
 				}
 
@@ -430,18 +422,13 @@ $.ajax({
 														count++;
 														if(res.data[key].key==champId){
 												champImg = res.data[key].id;
-												console.log(champImg);
 												document.querySelector("#champImg"+i).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/" + champImg + ".png";
 														}
 													}
 												});
 										}
 										}
-						});
-
-							
-
-							
+						});			
 						})
 					}
 				})

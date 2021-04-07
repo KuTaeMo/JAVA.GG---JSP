@@ -59,7 +59,7 @@ public class BoardController {
 		
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-		
+		model.addAttribute("isHot", false);
 
 		return "layout/community/mainBoard";
 	}
@@ -73,6 +73,7 @@ public class BoardController {
 		
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
+		model.addAttribute("isHot", true);
 
 		return "layout/community/mainBoard";
 	}
@@ -86,7 +87,7 @@ public class BoardController {
 		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-
+		model.addAttribute("isHot", false);
 		return "layout/community/humorBoard";
 	}
 	
@@ -99,7 +100,7 @@ public class BoardController {
 		Page<Board> boards = boardService.인기타입게시슬(type, pageable);
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-
+		model.addAttribute("isHot", true);
 		return "layout/community/humorBoard";
 	}
 	
@@ -112,7 +113,7 @@ public class BoardController {
 		Page<Board> boards = boardService.커뮤니티타입리스트(type, pageable);
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-
+		model.addAttribute("isHot", false);
 		return "layout/community/freeBoard";
 	}
 	
@@ -125,7 +126,7 @@ public class BoardController {
 		Page<Board> boards = boardService.인기타입게시슬(type, pageable);
 		model.addAttribute("boards", boards);
 		model.addAttribute("likes", boardService.좋아요증가(principalDetails.getUser().getId()));
-
+		model.addAttribute("isHot", true);
 		return "layout/community/freeBoard";
 	}
 	
