@@ -293,7 +293,7 @@ li {}
 </style>
 
 <body>
-
+	
 	<div class="bg_img">
 		<img class="bg_community" />
 	</div>
@@ -405,8 +405,9 @@ li {}
                       
                         <div class="media-body">
                           <div class="">
+                          	<input type="hidden" value="${reply.createDate }" id="createDate"/>
                           	<div class="reply-list-name-time">
-                              <p class="reviews">${reply.user.username}  <span class="reply-time">|  ${reply.createDate}</span></p>
+                              <p class="reviews">${reply.user.username} <span class="reply-time" id="replyTime">|  ${reply.createDate}</span></p>
                               
                             </div>
                               
@@ -618,9 +619,44 @@ li {}
 	  		});
 	  	}
 
-	      console.log("되라 좀 : " + "${replys}");
-	      console.log("좀 나와라 : " + "${replylist}");
-			console.log("${board.likeCount}");
+	      let createDate=$("#createDate").val();
+	      let nowDate=new Date();
+	      let a=[];
+	      a=createDate.split(" ")
+
+	      let c=[];
+	      c=a[0].split("-");
+	      
+	      let b=[];
+	      b=a[1].split(":");
+
+	      console.log(b[0]+"시");
+	      console.log(b[1]+"분");
+	      console.log(Math.floor(b[2])+"초");
+	      
+	      let cDate=new Date(c[0],c[1]-1,c[2]);
+	      cDate.setHours(b[0]);
+	      cDate.setMinutes(b[1]);
+	      cDate.setSeconds(b[2]);
+
+	      // 글 쓴 시간 - cDate
+	      // 현재 시간 - nowDate
+	      console.log(nowDate);
+	      console.log(cDate);
+
+	      console.log(nowDate.getDate()-cDate.getDate());
+	      
+	      if(nowDate.getMonth()==cDate.getMonth()&&nowDate.getDate()!=cDate.getDate()){
+	    	//$("#replyTime").empty();
+			document.querySelector("#replyTime").innerHTML="|"+(nowDate.getDate()-cDate.getDate())+"일 전";
+			console.log("|"+(nowDate.getDate()-cDate.getDate())+"일 전");
+		  }else if(nowDate.getDate()==cDate.getDate()&&nowDate.getHours()!=cDate.getHours()){
+			  document.querySelector("#replyTime").innerHTML="|"+(nowDate.getHours()-cDate.getHours())+"시간 전";
+		  }else if(nowDate.getHours()==cDate.getHours()&&nowDate.getMinutes()!=cDate.getMinutes()){
+			  document.querySelector("#replyTime").innerHTML="|"+(nowDate.getMinutes()-cDate.getMinutes())+"분 전";
+		  }else if(nowDate.getMinutes()==cDate.getMinutes()){
+			  document.querySelector("#replyTime").innerHTML="방금 전";
+		  }
 
 	    
 </script>

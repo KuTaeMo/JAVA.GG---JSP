@@ -70,6 +70,8 @@ public class Board {
 	
 	private int likeCount;
 	
+	private int disLikeCount;
+	
 	@Transient
 	private boolean likeState;
 }

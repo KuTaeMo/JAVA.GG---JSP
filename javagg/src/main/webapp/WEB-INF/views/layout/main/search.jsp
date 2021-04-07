@@ -747,7 +747,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 		</div>
 
 		<!-- 인게임 정보 탭 -->
-		<div align="center" id="tab2" class="tab_content" style="margin: 50px 0 100px 0;">
+		<div align="center" id="tab2" class="tab_content" style="margin: 150px 0 250px 0;">
 			<!--Content-->
 			<div style="width: 70%">
 
@@ -1885,11 +1885,13 @@ function searchDetail(num){
 				document.querySelector("#red"+num+"TeamLevel"+(i-4)).innerHTML=res.participants[i].stats.champLevel;
 			}
 			
-			// 챔피언 아이콘 - res.participants[0].chapionId
+			// 챔피언 아이콘 - res.participants[0].championId
 			for(let i=0;i<5;i++){
+				console.log(res.participants[i].championId);
 				document.querySelector("#blue"+num+"TeamChampImg"+(i+1)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
 			}
 			for(let i=5;i<10;i++){
+				console.log(res.participants[i].championId);
 				document.querySelector("#red"+num+"TeamChampImg"+(i-4)).src="http://ddragon.leagueoflegends.com/cdn/11.6.1/img/champion/"+setChampName(res.participants[i].championId)+".png";
 			}
 
@@ -2255,9 +2257,11 @@ function searchDetail(num){
 			
 			document.querySelector("#blueTotalGold"+num).innerHTML=blueTotalG-1;
 			document.querySelector("#blueTotalGoldGraph"+num).style.width=Math.ceil((blueTotalG/(blueTotalG+redTotalG)*100))+"%";
+			console.log(Math.ceil((blueTotalG/(blueTotalG+redTotalG)*100))+"%");
 			
 			document.querySelector("#redTotalGold"+num).innerHTML=redTotalG-1;
-			document.querySelector("#redTotalGoldGraph"+num).style.width=(100-Math.ceil((redTotalG/(blueTotalG+redTotalG)*100)))+"%";
+			document.querySelector("#redTotalGoldGraph"+num).style.width=(100-Math.ceil((blueTotalG/(blueTotalG+redTotalG)*100)))+"%";
+			console.log((100-Math.ceil((redTotalG/(blueTotalG+redTotalG)*100)))+"%");
 		})
 	
 }
@@ -2285,7 +2289,7 @@ $(document).ready(function() {
 
 function inGame(){
 	let decodeName=decodeURI(username.replace(/\+/g, '%20'));
-	let noGame=`<div>
+	let noGame=`<div style="height:100%">
 		<p style="text-align: center; font-size: 25px; font-weight: bold;">'`+decodeName+`'님은 게임중이 아닙니다.</p>
 		<p style="text-align: center; font-size: 18px;">현재 게임중이라면 다시 시도해주세요.</p>
 		<p style="text-align: center; font-size: 18px;">('Bot'은 RiotAPI에서 인게임 정보를 가져올 수 없습니다.)</p>

@@ -304,6 +304,14 @@
             champName = "Kaisa";
         } else if (champId == 777) {
             champName = "Yone";
+        }else if (champId == 234) {
+            champName = "Viego";
+        }else if (champId == 526) {
+            champName = "Rell";
+        }else if (champId == 876) {
+            champName = "Lillia";
+        }else if (champId == 147) {
+            champName = "Seraphine";
         } else{
             champName = "Garen";
         }
