@@ -347,11 +347,6 @@ li {}
 					</button>
 				</c:otherwise>
 			</c:choose>		
-		
-		<button type="submit" class="article-vote-btn">
-			<img border="0" src="/img/dislike.png" class="article-vote-dislike-img"/>
-			<span class="article-vote-dislike-count">0</span>
-		</button>
 		</div>
 		</div>
 		
