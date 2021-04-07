@@ -49,9 +49,7 @@ public class Board {
 	private String content;
 	
 	private int readCount;
-		
-	private int dislikeCount;
-	
+			
 	@OneToMany(mappedBy = "board",  fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"board"})
 	private List<Likes> likes; 

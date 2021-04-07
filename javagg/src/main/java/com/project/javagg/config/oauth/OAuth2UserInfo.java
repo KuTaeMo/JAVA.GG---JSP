@@ -13,7 +13,6 @@ public abstract class OAuth2UserInfo {
 		return attributes;
 	}
 
-	// 추상클래스로 한 이유는 오버라이딩하여 강제성을 부여하고 싶어서
 	public abstract String getUsername();
 	public abstract String getId();
 	public abstract String getName();
