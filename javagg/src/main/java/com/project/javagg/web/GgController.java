@@ -10,21 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class GgController {
 	
-	@GetMapping("/")
-	public String test() {
-		return "layout/index";
-	}
-	
-	@GetMapping("/test1")
-	public String testtab() {
-		return "layout/searchMatchTest";
-	}
-	
-	@GetMapping("/test")
-	public String testtab1() {
-		return "layout/searchSpecific";
-	}
-	
 	@GetMapping("/search")
 	public String search() {
 		return "layout/main/search";
@@ -40,12 +25,7 @@ public class GgController {
 		model.addAttribute("gamername",name);
 		return "layout/main/search";
 	}
-	
-	@GetMapping("/stats")
-	public String stats() {
-		return "layout/stats/stats";
-	}
-	
+
 	@GetMapping("/ranking")
 	public String ranking() {
 		return "layout/ranking/ranking";

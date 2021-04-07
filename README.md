@@ -1,5 +1,18 @@
 # JAVA.GG - OP.GG 클론
 
+
+### 개요
+-  라이엇 게임즈에서 리그 오브 레전드의 API를 기반으로 하여 전적을 보여주는 전적 검색 사이트 op.gg를 모티브로 해서 따라 만들기 위한 프로젝트
+
+### 기능
+- 소환사 이름으로 검색시 전적검색
+- 각 게임의 세부 게임 정보 
+- 인게임 정보
+- 현재 챌린저 랭킹 구현
+- 로그인, 회원가입 (구글, 페이스북 API 로그인 추가)
+- 커뮤니티 기능 구현(게시물 CRUD)
+- 댓글기능, 좋아요 기능
+
 ### 의존성
 - Sring Boot DevTools
 - Lombok
@@ -8,7 +21,7 @@
 - Spring Security
 - Spring Web
 - oauth2-client
--
+
 
 ### DB
 ### 사용자 생성
@@ -17,42 +30,6 @@ create user 'javagg'@'%' identified by 'gg1234';
 GRANT ALL PRIVILEGES ON *.* TO 'javagg'@'%';
 create database javagg;
 use javagg;
-```
-### 테이블 생성
-``` MySQL
-CREATE TABLE user(
-    id int primary key auto_increment,
-    username varchar(100) not null unique,
-    password varchar(100) not null,
-    email varchar(100) not null,
-    userRole varchar(20),
-    createDate timestamp
-)  engine=InnoDB default charset=utf8;
-
-CREATE TABLE reply(
-    id int primary key auto_increment,
-    userId int,
-    boardid int,
-    content longtext,
-    createDate timestamp,
-    likeCount int default 0,
-    foreign key (userId) references user (id),
-    foreign key (sightid) references sight (id)
-)  engine=InnoDB default charset=utf8;
-
-CREATE TABLE board(
-    id int primary key auto_increment,
-    communityType varchar(20),
-    title varchar(100) not null unique,
-    content longtext,
-    readCount int default 0,
-    likeCount int default 0,
-    dislikeCount int default 0,
-    createDate timestamp,
-    userId int,
-    foreign key (userId) references user (id)
-)  engine=InnoDB default charset=utf8;
-
 ```
 
 ### yml 설정
@@ -80,31 +57,53 @@ spring:
     
   jpa:
     open-in-view: true
+    generate-ddl: true
     hibernate:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
-
-  jackson:
-    serialization:
-      fail-on-empty-beans: false
       
   security:
     oauth2:
       client:
         registration: 
           google:
-            client-id: 239279291176-8ftleq3rq70jmen93qq4t0da6g7putte.apps.googleusercontent.com
-            client-secret: 4OSg4cB90edgaCTlubNFxhcF
+            client-id: ********************
+            client-secret: ********************
             scope:
             - email
             - profile
             
           facebook:
-            client-id: 344541866909088
-            client-secret: 7fc3671e27f17d95ff1c3115aebe2e1e
+            client-id: ********************
+            client-secret: ********************
             scope:
             - email   
             - public_profile 
 ```
+
+
+## 주요화면
+
+### 홈 화면
+![image](https://user-images.githubusercontent.com/67215505/113722230-31cf7700-972b-11eb-9a28-e5358b70a5b6.png)
+
+### 검색 화면
+![image](https://user-images.githubusercontent.com/67215505/113722504-72c78b80-972b-11eb-8b01-08b07951ce7d.png)
+
+### 검색 상세화면
+![image](https://user-images.githubusercontent.com/67215505/113722657-97bbfe80-972b-11eb-82ad-07864c808cd4.png)
+
+### 랭킹
+![image](https://user-images.githubusercontent.com/67215505/113722691-a1456680-972b-11eb-877f-c6aaadfcc756.png)
+
+### 커뮤니티
+![image](https://user-images.githubusercontent.com/67215505/113722786-b621fa00-972b-11eb-9a01-b2ada5bbaf26.png)
+
+## 안드로이드
+
+### 안드로이드 앱
+https://github.com/otk2625/android-opgg-project
+
+### 안드로이드 앱 서버
+https://github.com/otk2625/springboot-javagg-testserver

@@ -245,7 +245,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<!-- 승률1 -->
 								<div style="display: flex; align-items: center; margin-bottom: 10px;">
 									<!-- 챔피언 사진 -->
-									<img id="champImg2" class="circle_image" src="img/Jayce.png"
+									<img id="champImg2" class="circle_image" src="img/Gnar.png"
 										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 
 									<div>
@@ -265,7 +265,7 @@ html ul.tabs li.active, html ul.tabs li.active a:focus {
 								<!-- 승률1 -->
 								<div style="display: flex; align-items: center; margin-bottom: 10px;">
 									<!-- 챔피언 사진 -->
-									<img id="champImg3" class="circle_image" src="img/Jayce.png"
+									<img id="champImg3" class="circle_image" src="img/Camille.png"
 										style="width: 30px; height: 30px; margin-right: 5px; border-radius: 15px;" />
 
 									<div>
@@ -2284,14 +2284,21 @@ $(document).ready(function() {
 });
 
 function inGame(){
+	let decodeName=decodeURI(username.replace(/\+/g, '%20'));
+	let noGame=`<div>
+		<p style="text-align: center; font-size: 25px; font-weight: bold;">'`+decodeName+`'님은 게임중이 아닙니다.</p>
+		<p style="text-align: center; font-size: 18px;">현재 게임중이라면 다시 시도해주세요.</p>
+		<p style="text-align: center; font-size: 18px;">('Bot'은 RiotAPI에서 인게임 정보를 가져올 수 없습니다.)</p>
+	</div>`;
 
 	$.ajax({
 		type:"get",
 		url:"https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/"+encid+"?api_key="+api_key,
 		dataType:"json",
 		 error:function(){ // 게임 중 아닐 경우
-			alert("게임 중이 아닙니다.");
-			location.href="/home";
+			$("#tab2").empty();
+			$("#tab2").append(noGame);
+					
 			} 
 		}).done((res)=>{
 			console.log(res);

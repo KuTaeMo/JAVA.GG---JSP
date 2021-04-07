@@ -37,7 +37,7 @@ public class BoardController {
 	private final ReplyService replyService;
 	private final LikesService likesService;
 	
-	@GetMapping("/home")
+	@GetMapping({"/","/home"})
 	public String homeBoardPage(Model model) {
 		
 		List<Board> homeBoard = boardService.홈게시글();
