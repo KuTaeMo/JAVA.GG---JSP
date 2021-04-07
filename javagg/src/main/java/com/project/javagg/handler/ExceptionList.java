@@ -16,7 +16,6 @@ public class ExceptionList {
 	public List<ErrorDB> exList = new ArrayList<>();
 	
 	public void addExceptionList(String str) {
-		new ErrorDB();
 		exList.add(ErrorDB.builder().error(str).build());
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.project.javagg.handler.domain.ErrorDB;
 import com.project.javagg.handler.domain.ErrorDBRepository;
+import com.project.javagg.service.ErrorDBService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class MyBatch {
 
 	private final ExceptionList exceptionList;
-	private final ErrorDBRepository errorDBRepository;
+	private final ErrorDBService errorDBService;
 	
 	@Scheduled(fixedDelay = 1000) // Cron 정기적 실행
 	public void excute() {
@@ -23,7 +24,7 @@ public class MyBatch {
 		List<ErrorDB> exList = exceptionList.getExList();
 		// DB에 insert 하기
 		
-		errorDBRepository.saveAll(exList);
+		errorDBService.에러저장(exList);;
 		
 		exList.clear();
 	}
