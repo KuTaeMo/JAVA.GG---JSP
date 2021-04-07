@@ -18,5 +18,6 @@ public class ExceptionList {
 	public void addExceptionList(String str) {
 		new ErrorDB();
 		exList.add(ErrorDB.builder().error(str).build());
+		System.out.println("에러 등록됨 : "+str);
 	}
 }
